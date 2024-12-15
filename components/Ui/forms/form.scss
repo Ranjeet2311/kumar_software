@@ -1,0 +1,38 @@
+.form-wrap {
+  padding: 30px;
+  background: linear-gradient(45deg, #31b5c2 10%, #8f38ae 20%, #31b5c2 80%);
+  border-radius: 12px;
+  // max-width: 550px;
+  z-index: 2;
+  transition: all 0.6s ease-in-out;
+
+  // &:hover {
+  //   background: linear-gradient(
+  //     338deg,
+  //     #bf3663 20.07%,
+  //     #faa343 27.79%,
+  //     #8f38ae 103.78%
+  //   );
+  // }
+
+  label {
+    color: white;
+  }
+
+  button {
+    margin-top: 24px;
+    // background: transparent !important;
+    border-radius: 12px;
+    background: linear-gradient(
+      338deg,
+      #8f38ae 20.78%,
+      #faa343 27.79%,
+      #bf3663 103.07%
+    );
+
+    &:hover {
+      background: linear-gradient(to left, #faa343 27.79%, #bf3663, 20.78%);
+      // border: 1px solid #faa343;
+    }
+  }
+}

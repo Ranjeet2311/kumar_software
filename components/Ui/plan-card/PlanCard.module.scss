@@ -1,0 +1,88 @@
+.plan_card {
+  // width: 362px !important;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  color: white;
+  padding: 40px 10px;
+  background: linear-gradient(45deg, #31b5c2 10%, #8f38ae 20%, #31b5c2 80%);
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    color: white;
+    background: linear-gradient(
+      338deg,
+      #8f38ae 20.78%,
+      #faa343 27.79%,
+      #bf3663 103.07%
+    );
+
+    title,
+    h3 {
+      color: white;
+    }
+  }
+
+  .card_header {
+    padding: 20px;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    font-style: normal;
+    text-align: center;
+  }
+  .title,
+  .price {
+    color: #f7f7f7 !important;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 34px;
+    font-style: normal;
+  }
+
+  // .card_body {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-direction: column;
+  // }
+
+  .benefits_list {
+    list-style: none;
+    padding: 0;
+    min-height: 250px;
+    text-align: center;
+  }
+
+  .benefit_item {
+    padding: 5px 10px;
+    &::before {
+      content: url(../../../assets/images/check_list.png);
+      margin-right: 8px;
+    }
+  }
+
+  .btn {
+    background: linear-gradient(338deg, #bf3663, #8f38ae);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    transition: all 0.4s ease-out;
+
+    &:hover {
+      background: linear-gradient(
+        338deg,
+        #faa343 2.79%,
+        #bf3663 27.07%,
+        #8f38ae 63.78%,
+        // #31b5c2 102.02%
+      );
+    }
+  }
+}
