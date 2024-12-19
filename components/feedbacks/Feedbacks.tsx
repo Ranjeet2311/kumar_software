@@ -58,23 +58,22 @@ export default function Feedbacks() {
     <div className="container">
       <div className="row section-space">
         <SectionHeading
-          title="What people say"
-          text="The best people to work with"
+          title="What People Say"
+          text="Hear what our happy clients have to say"
         />
-
         <div className="col-12">
           <div className="feedback-section">
             <CustomCarousel
               infinite={true}
               responsive={maxFourSlide}
-              autoPlay={false}
+              autoPlay={true}
               swipeable={true}
               draggable={true}
               showDots={false}
-              autoPlaySpeed={6000}
+              autoPlaySpeed={4000}
               keyBoardControl={true}
               customTransition="all 0.4s"
-              transitionDuration={800}
+              transitionDuration={600}
               minimumTouchDrag={0}
               renderButtonGroupOutside={false}
               renderDotsOutside={false}

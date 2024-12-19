@@ -7,12 +7,14 @@
 
   &:hover {
     transition: all 0.4s ease-in;
-    filter: drop-shadow(-2px 4px 12px $theme-text-color);
+    // filter: drop-shadow(-2px 4px 12px $theme-text-color);
+
     .img {
       transition: all 0.4s ease-in;
-      transform: scale(0.9);
+      // transform: scale(0.9);
       overflow: hidden;
       border-radius: 18px 0px 18px 18px !important;
+      background-size: 100%;
     }
 
     .card_body {
@@ -22,6 +24,12 @@
         #8f38ae 25%,
         #31b5c2 60%
       );
+      transition: all 0.8s ease-in-out;
+      background-size: 200%; /* Allow the background to scale */
+
+      &:hover {
+        background-size: 100%; /* Shrink the background size to create the effect */
+      }
     }
   }
 
@@ -33,6 +41,7 @@
     .img {
       height: 100%;
       width: 100%;
+      background-size: 200%;
       object-fit: cover !important;
       border-radius: 18px 0px 0px;
     }

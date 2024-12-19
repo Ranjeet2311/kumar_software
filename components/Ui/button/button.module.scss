@@ -8,14 +8,16 @@
   font-weight: 400;
   line-height: 1.5;
   transition: all 0.4s ease-out;
+  background-size: 200%;
 
   &:hover {
     background: linear-gradient(
       338deg,
-      #faa343 2.79%,
-      #bf3663 27.07%,
+      #faa343 40.79%,
+      #bf3663 60.07%,
       #8f38ae 63.78%
     );
+    background-size: 100%;
   }
 }
 .btn_second {
@@ -28,6 +30,7 @@
   font-weight: 400;
   line-height: 1.5;
   transition: all 0.4s ease-out;
+  background-size: 200%;
 
   &:hover {
     background: linear-gradient(
@@ -37,5 +40,6 @@
       #8f38ae 63.78%,
       // #31b5c2 102.02%
     );
+    background-size: 100%;
   }
 }

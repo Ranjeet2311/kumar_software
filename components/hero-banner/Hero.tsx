@@ -13,20 +13,19 @@ export default function Hero() {
             Tell a better brand story
           </h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas
-            odit aut debitis corporis quae quam voluptatum, laboriosam excepturi
-            tempore quasi, obcaecati id praesentium. Numquam ex sed atque autem
-            nulla at iusto fugiat praesentium eveniet aliquid? Eos sint eligendi
-            hic, totam laborum quas enim non, dicta omnis quidem nobis maxime
-            iure est! Dolorem minus veniam iusto impedit quae aliquid expedita
-            voluptatibus!
+            At Kumar Softwares, we specialize in crafting dynamic websites and
+            powerful web applications to help your brand stand out. With a focus
+            on modern design, seamless functionality, and exceptional
+            performance, we create solutions that resonate with your audience.
+            Build your digital presence today with websites tailored to your
+            business needs.
           </p>
           <div className="row align-items-center mt-5">
             <div className="col-12 col-lg-6">
               <Button
                 mode={btnClasses.btn_main}
                 button={true}
-                customClass="w-100  mb-4 mb-lg-0"
+                customClass="w-100 mb-2 mb-lg-0"
               >
                 Get in touch
               </Button>
@@ -38,7 +37,7 @@ export default function Hero() {
                 customClass="w-100 ms-0 ms-lg-1 d-block text-center justify-content-center"
                 link="https://ranjeet2311.github.io/upgraded"
               >
-                Watch Video
+                View Our Work
               </Button>
             </div>
           </div>

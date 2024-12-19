@@ -16,29 +16,46 @@
 //   padding-top: 150px;
 // }
 .top-padding {
-  padding-top: 150px;
+  padding-top: 100px;
+  // padding-bottom: 146px;
+
+  @include lg {
+    padding-top: 150px;
+  }
 }
 
 #home,
 #prices,
 #feedback {
   background: rgb(250, 163, 67, 0.2);
-  padding-bottom: 146px;
+  padding-bottom: 60px;
+
+  @include lg {
+    padding-bottom: 100px;
+  }
 }
 #services,
 #plans,
 #contact {
-  background: rgb(49, 181, 194, 0.2);
-  padding-bottom: 146px;
+  // background: rgb(49, 181, 194, 0.2);
+  padding-bottom: 60px;
+
+  @include lg {
+    padding-bottom: 100px;
+  }
 }
 
 h1 {
-  @include fonts(64px, 68px, 600);
+  @include fonts(44px, 48px, 600);
   font-family: $theme-font-Heading !important;
   font-weight: 800;
-  font-size: 85px !important;
+  // font-size: 85px !important;
   line-height: 88px;
   color: $theme-text-color !important;
+
+  @include lg {
+    @include fonts(64px, 68px, 600);
+  }
 }
 
 h2,
@@ -46,11 +63,14 @@ h3,
 h4 {
   font-family: $theme-font-Subheading !important;
   font-weight: 600 !important;
-  // color: $theme-text-color !important;
 }
 
 h2 {
-  font-size: 24px !important;
+  @include fonts(24px, 32px, 600);
+
+  @include lg {
+    @include fonts(44px, 56px, 600);
+  }
 }
 p {
   font-family: $theme-font-Paragraph !important;
@@ -75,34 +95,50 @@ a,
   display: flex;
   justify-content: center;
   img {
-    width: 100%;
+    width: 400px;
     height: 100%;
-    object-fit: cover;
+    // object-fit: cover;
+
+    @include lg {
+      width: 100%;
+    }
   }
 }
 
 .section-space {
-  padding-top: 146px;
+  padding-top: 60px;
+
+  @include lg {
+    padding-top: 100px;
+  }
 }
 
 .section-heading {
-  margin-bottom: 90px;
+  margin-bottom: 40px;
+
+  @include lg {
+    margin-bottom: 90px;
+  }
 
   h2 {
-    font-size: 60px !important;
-    font-weight: normal;
-    line-height: 60px;
     font-style: normal;
     text-align: center;
     margin-bottom: 20px;
+    @include fonts(32px, 38px, 600);
+
+    @include lg {
+      @include fonts(60px, 68px, 600);
+    }
   }
   p {
-    font-size: 20px !important;
-    font-weight: normal;
-    line-height: 30px;
     font-style: normal;
     text-align: center;
     margin-bottom: 0;
+    @include fonts(20px, 28px, 500);
+
+    @include lg {
+      @include fonts(24px, 32px, 500);
+    }
   }
 }
 // ---------------------------
@@ -116,25 +152,33 @@ a,
 
 // .how-it-works {}
 .work {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 
-  // @include lg-992px {
-  //   margin-top: 60px;
-  // }
+  @include lg {
+    margin-top: 80px;
+  }
 
   h2 {
-    font-size: 35px !important;
-    font-weight: normal;
-    line-height: 40px;
     font-style: normal;
     margin-bottom: 0;
+    @include fonts(26px, 36px, 500);
+
+    @include lg {
+      @include fonts(35px, 45px, 500);
+    }
   }
   hr {
     margin: 12px 0;
     border: 1px solid $theme-text-color;
   }
   .work-image-wrap {
-    max-height: 400px;
+    // max-width: 800px;
+    max-height: 450px;
+    margin: 0 auto !important;
+
+    @include lg {
+      width: 450px;
+    }
 
     .work-image {
       width: 100%;
