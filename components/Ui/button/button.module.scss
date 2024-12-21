@@ -1,5 +1,10 @@
 .btn_main {
-  background: linear-gradient(338deg, #bf3663, #8f38ae);
+  background: linear-gradient(
+    338deg,
+    #faa343 40.79%,
+    #bf3663 60.07%,
+    #8f38ae 63.78%
+  );
   color: white;
   border: none;
   border-radius: 8px;
@@ -11,11 +16,13 @@
   background-size: 200%;
 
   &:hover {
+    // background: linear-gradient(338deg, #8f38ae 63.78%3, #faa343 40.79%);
     background: linear-gradient(
       338deg,
-      #faa343 40.79%,
+      #8f38ae 25%,
+      #faa343 45%,
       #bf3663 60.07%,
-      #8f38ae 63.78%
+      #8f38ae 60%
     );
     background-size: 100%;
   }
@@ -33,13 +40,14 @@
   background-size: 200%;
 
   &:hover {
-    background: linear-gradient(
-      338deg,
-      // #faa343 2.79%,
-      #bf3663 27.07%,
-      #8f38ae 63.78%,
-      // #31b5c2 102.02%
-    );
+    background: linear-gradient(-45deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
+    // background: linear-gradient(
+    //   338deg,
+    //   #faa343 2.79%,
+    //   #bf3663 27.07%,
+    //   #8f38ae 63.78%,
+    //   #31b5c2 102.02%
+    // );
     background-size: 100%;
   }
 }

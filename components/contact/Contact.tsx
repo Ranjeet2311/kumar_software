@@ -28,7 +28,7 @@ export default function Contact() {
             We’re always here to answer all your questions. Feel free to reach
             us anytime. We’ll be happy to hear from you.
           </p> */}
-          <div className="mt-2 mb-4 pt-2 mt-lg-4 pt-lg-4 fw-bold text-center">
+          <div className="mt-2 fw-bold text-center">
             <span>
               <a className="text-dark" href="tel:+38669638945">
                 📞 +386-6963-8945
@@ -48,6 +48,10 @@ export default function Contact() {
             <span className="ms-3">
               <strong>+38669638945</strong>
             </span> */}
+            <p className="mt-4">
+              We’re always here to answer all your questions. Feel free to reach
+              us anytime. We’ll be happy to hear from you.
+            </p>
           </div>
 
           {/* <p className="mt-1">

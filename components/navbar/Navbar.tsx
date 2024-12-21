@@ -11,8 +11,19 @@ import facebook from "../../assets/images/facebook-front.png";
 
 const menuLinks = [
   { name: "Home", url: "#home" },
-  { name: "Services", url: "#services" },
-  { name: "Prices", url: "#prices" },
+  {
+    name: "Services",
+    url: "#services",
+    dropdown: [
+      { name: "Web Apps", url: "#services" },
+      { name: "Frontend Codes", url: "#services" },
+      { name: "API Development", url: "#services" },
+      { name: "Node & PHP Backend", url: "#services" },
+      { name: "WordPress Websites", url: "#services" },
+      { name: "E-commerce Platform", url: "#services" },
+    ],
+  },
+  { name: "Process", url: "#process" },
   { name: "Plans", url: "#plans" },
   { name: "Feedbacks", url: "#feedback" },
   { name: "Contact", url: "#contact" },
@@ -20,10 +31,21 @@ const menuLinks = [
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+  // const [showDropDown, setShowDropDown] = useState(false);
 
   const clickHandler = () => {
     setShowMenu(!showMenu);
   };
+
+  // const handleMouseEnter = () => {
+  //   console.log("Mouse Enter");
+  //   return setShowDropDown(true);
+  // };
+
+  // const handleMouseLeave = () => {
+  //   console.log("Mouse leave");
+  //   return setShowDropDown(false);
+  // };
 
   useEffect(() => {
     setShowMenu(false);
@@ -56,16 +78,32 @@ export default function Navbar() {
           <ul className={showMenu ? "menu-list" : "menu-list-close"}>
             {menuLinks.map((link) => {
               return (
-                <li key={link.url}>
-                  <Link
-                    onClick={() => {
-                      setShowMenu(!showMenu);
-                    }}
-                    href={link.url}
+                <>
+                  <li
+                    key={link.url}
+                    // onClick={link.dropdown ? handleMouseEnter : null}
                   >
-                    {link.name}
-                  </Link>
-                </li>
+                    <Link
+                      onClick={() => {
+                        setShowMenu(!showMenu);
+                      }}
+                      href={link.url}
+                    >
+                      {link.name}
+                    </Link>
+                    {/* {showDropDown && link.dropdown && (
+                      <ul className="dropdown" onMouseLeave={handleMouseLeave}>
+                        {link.dropdown.map((link) => (
+                          <DropDown key={link.name}>
+                            <li>
+                              <Link href={link.url}> {link.name} </Link>
+                            </li>
+                          </DropDown>
+                        ))}
+                      </ul>
+                    )} */}
+                  </li>
+                </>
               );
             })}
             <li>

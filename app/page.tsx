@@ -20,7 +20,7 @@ export default function Home() {
       <div id="services">
         <Offer />
       </div>
-      <div id="prices">
+      <div id="process">
         <HowItWorks />
       </div>
       <div id="plans">

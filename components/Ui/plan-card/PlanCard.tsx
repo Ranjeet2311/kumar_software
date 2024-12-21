@@ -1,6 +1,7 @@
 import React from "react";
-
 import classes from "./PlanCard.module.scss";
+import arrow from "../../../assets/images/check_list.png";
+import Image from "next/image";
 
 type PlanCardProps = {
   title: string;
@@ -26,9 +27,13 @@ export default function PlanCard({
       <div className={classes.card_body}>
         <ul className={classes.benefits_list}>
           {benefits.map((benefit, index) => (
-            <li key={index} className={classes.benefit_item}>
-              {benefit}
-            </li>
+            <div
+              key={index}
+              className="d-flex justify-content-start align-items-start"
+            >
+              <Image src={arrow} width={16} alt="arrow" className="mt-2" />
+              <li className={classes.benefit_item}>{benefit}</li>
+            </div>
           ))}
         </ul>
         <div className="text-center">

@@ -27,7 +27,8 @@
 #home,
 #prices,
 #feedback {
-  background: rgb(250, 163, 67, 0.2);
+  // background: rgb(250, 163, 67, 0.2);
+  background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
   padding-bottom: 60px;
 
   @include lg {
@@ -150,9 +151,18 @@ a,
 // .sub-heading-text {
 // }
 
-// .how-it-works {}
+.how-it-works {
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
 .work {
   margin-bottom: 60px;
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
 
   @include lg {
     margin-top: 80px;
