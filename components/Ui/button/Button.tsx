@@ -1,5 +1,6 @@
 import React from "react";
 import "./button.module.scss";
+import Link from "next/link";
 
 type ButtonProps = {
   button: boolean;
@@ -7,6 +8,7 @@ type ButtonProps = {
   mode?: string;
   children?: React.ReactNode;
   customClass?: string;
+  localRoute?: boolean;
 };
 
 export default function Button({
@@ -15,6 +17,7 @@ export default function Button({
   children,
   mode,
   customClass,
+  localRoute,
 }: ButtonProps) {
   console.log("button : ", button);
 
@@ -27,6 +30,14 @@ export default function Button({
   if (!link) {
     console.error("Button component with link type requires a 'link' prop.");
     return null;
+  }
+
+  if (localRoute) {
+    return (
+      <Link className={`hello btn ${mode} ${customClass}`} href={link}>
+        {children}
+      </Link>
+    );
   }
 
   return (

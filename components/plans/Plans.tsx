@@ -5,7 +5,7 @@ import SectionHeading from "../Ui/section-heading/SectionHeading";
 const plans = [
   {
     title: "Silver Plan",
-    price: "For Small Businesses Starts @ $399.99",
+    price: "Small Businesses Starts @ $399.99",
     benefits: [
       "Basic website setup: ",
       "Responsive design",
@@ -16,11 +16,11 @@ const plans = [
     additionalText:
       "This plan is perfect for establishing an online presence with a professional and functional website.",
     buttonText: "Choose Plan",
-    buttonLink: "/checkout",
+    buttonLink: "/#contact",
   },
   {
     title: "Gold Plan",
-    price: "For online stores, starts @ $799.99",
+    price: "For Businesses, starts @ $799.99",
     benefits: [
       "Custom website design",
       "Fully Responsive Design",
@@ -36,11 +36,11 @@ const plans = [
     additionalText:
       "This plan is suitable for businesses seeking to expand their online capabilities and engage a broader audience.",
     buttonText: "Get Started",
-    buttonLink: "/checkout",
+    buttonLink: "/#contact",
   },
   {
     title: "Online Store",
-    price: "For Growing Businesses, starts @ $999.99",
+    price: "For online stores, starts @ $999.99",
     benefits: [
       "Custom website design",
       "Fully Responsive Design",
@@ -56,7 +56,7 @@ const plans = [
     additionalText:
       "This plan is suitable for businesses seeking to expand their online capabilities and engage a broader audience.",
     buttonText: "Get Started",
-    buttonLink: "/checkout",
+    buttonLink: "/#contact",
   },
   {
     title: "Diamond Plan",
@@ -74,7 +74,7 @@ const plans = [
     additionalText:
       "This plan is ideal for enterprises requiring a robust, scalable, and fully customized online platform to support complex operations and high traffic volumes.",
     buttonText: "Get Started",
-    buttonLink: "/checkout",
+    buttonLink: "/#contact",
   },
 ];
 

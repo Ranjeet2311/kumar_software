@@ -5,7 +5,7 @@
   overflow: hidden;
   background: white;
   color: white;
-  padding: 40px 10px 30px;
+  padding: 20px 10px 15px;
   background: linear-gradient(45deg, #31b5c2 10%, #8f38ae 20%, #31b5c2 80%);
   transition: all 0.8s ease-in-out;
   background-size: 200%; /* Allow the background to scale */
@@ -62,7 +62,7 @@
     min-height: 250px;
     text-align: center;
     margin: 20px auto;
-    min-height: 430px;
+    // min-height: 430px;
   }
 
   .benefit_item {

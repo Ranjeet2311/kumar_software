@@ -10,10 +10,10 @@ import close from "../../assets/images/close.svg";
 import facebook from "../../assets/images/facebook-front.png";
 
 const menuLinks = [
-  { name: "Home", url: "#home" },
+  { name: "Home", url: "/#home" },
   {
     name: "Services",
-    url: "#services",
+    url: "/#services",
     dropdown: [
       { name: "Web Apps", url: "#services" },
       { name: "Frontend Codes", url: "#services" },
@@ -23,10 +23,10 @@ const menuLinks = [
       { name: "E-commerce Platform", url: "#services" },
     ],
   },
-  { name: "Process", url: "#process" },
-  { name: "Plans", url: "#plans" },
-  { name: "Feedbacks", url: "#feedback" },
-  { name: "Contact", url: "#contact" },
+  { name: "Process", url: "/#process" },
+  { name: "Plans", url: "/#plans" },
+  { name: "Feedbacks", url: "/#feedback" },
+  { name: "Contact", url: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -78,20 +78,19 @@ export default function Navbar() {
           <ul className={showMenu ? "menu-list" : "menu-list-close"}>
             {menuLinks.map((link) => {
               return (
-                <>
-                  <li
-                    key={link.url}
-                    // onClick={link.dropdown ? handleMouseEnter : null}
+                <li
+                  key={link.url}
+                  // onClick={link.dropdown ? handleMouseEnter : null}
+                >
+                  <Link
+                    onClick={() => {
+                      setShowMenu(!showMenu);
+                    }}
+                    href={link.url}
                   >
-                    <Link
-                      onClick={() => {
-                        setShowMenu(!showMenu);
-                      }}
-                      href={link.url}
-                    >
-                      {link.name}
-                    </Link>
-                    {/* {showDropDown && link.dropdown && (
+                    {link.name}
+                  </Link>
+                  {/* {showDropDown && link.dropdown && (
                       <ul className="dropdown" onMouseLeave={handleMouseLeave}>
                         {link.dropdown.map((link) => (
                           <DropDown key={link.name}>
@@ -102,8 +101,7 @@ export default function Navbar() {
                         ))}
                       </ul>
                     )} */}
-                  </li>
-                </>
+                </li>
               );
             })}
             <li>

@@ -22,6 +22,7 @@ export default function PlanCard({
     <div className={`${classes.plan_card} card my-2 h-100`}>
       <div className="card-header text-center">
         <h3 className={classes.title}>{title}</h3>
+        <hr />
         <h4 className={classes.price}>{price}</h4>
       </div>
       <div className={classes.card_body}>
