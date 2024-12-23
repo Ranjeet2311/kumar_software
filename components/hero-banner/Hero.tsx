@@ -5,7 +5,8 @@ import btnClasses from "@/components/Ui/button/button.module.scss";
 
 type HeroProps = {
   heading?: string;
-  paragraph: string;
+  paragraphOne?: string;
+  paragraphTwo?: string;
   showButton: boolean;
   ButtonText?: string;
   showLink: boolean;
@@ -18,7 +19,8 @@ type HeroProps = {
 
 export default function Hero({
   heading,
-  paragraph,
+  paragraphOne,
+  paragraphTwo,
   showButton,
   ButtonText,
   showLink,
@@ -33,7 +35,8 @@ export default function Hero({
       <section className="row">
         <div className="col-12 col-lg-7 order-lg-1 order-2 ">
           <h1 className="text-center text-lg-start">{heading} </h1>
-          <p>{paragraph}</p>
+          <p>{paragraphOne}</p>
+          <p className="mt-4">{paragraphTwo}</p>
           <div className="row align-items-center mt-5">
             {showButton && (
               <div className="col-12 col-lg-6">

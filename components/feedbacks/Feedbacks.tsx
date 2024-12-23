@@ -5,32 +5,37 @@ import SectionHeading from "../Ui/section-heading/SectionHeading";
 
 const feedbacks = [
   {
-    name: "Jane Doe",
+    name: "Dorothy kane",
+    feedback:
+      "Thank You very much! You guys are really genius, You delivered my website on time and its working well. I will recommend your services.",
+    // imageUrl: "/images/jane.jpg",
+    // designation: "CEO, TechCorp",
+  },
+  {
+    name: "Simla Nunkoo",
+    feedback: "Great service with professional support!",
+    // imageUrl: "/images/john.jpg",
+    // designation: "CEO, TechCorp",
+  },
+  {
+    name: "Jure Mesec",
     feedback:
       "This service has been outstanding! It completely exceeded my expectations.",
     // imageUrl: "/images/jane.jpg",
-    designation: "CEO, TechCorp",
+    // designation: "CEO, TechCorp",
   },
   {
-    name: "John Smith",
-    feedback:
-      "An incredible experience from start to finish. Highly recommend!",
+    name: "Greta Tepina",
+    feedback: "Very satisfied, fast service, professional.",
     // imageUrl: "/images/john.jpg",
-    designation: "CEO, TechCorp",
+    // designation: "CEO, TechCorp",
   },
   {
-    name: "Jane Doe",
+    name: "Anja Tekavčič",
     feedback:
-      "This service has been outstanding! It completely exceeded my expectations.",
-    // imageUrl: "/images/jane.jpg",
-    designation: "CEO, TechCorp",
-  },
-  {
-    name: "John Smith",
-    feedback:
-      "An incredible experience from start to finish. Highly recommend!",
+      "I am very satisfied, friendly staff, helpful and good price. Great!",
     // imageUrl: "/images/john.jpg",
-    designation: "CEO, TechCorp",
+    // designation: "CEO, TechCorp",
   },
 ];
 

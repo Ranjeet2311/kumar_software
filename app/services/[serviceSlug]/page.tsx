@@ -49,7 +49,8 @@ export default async function ServiceDetail({
         text={service.title}
       />
       <Hero
-        paragraph={service.description}
+        paragraphOne={service.description.paraOne}
+        paragraphTwo={service.description.paraTwo}
         showButton={false}
         showLink={true}
         linkUrl="/#contact"

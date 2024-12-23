@@ -18,7 +18,7 @@ export default function Home() {
       <div id="home" className="top-padding">
         <Hero
           heading="Tell a better brand story"
-          paragraph="At Kumar Softwares, we specialize in crafting dynamic websites and
+          paragraphOne="At Kumar Softwares, we specialize in crafting dynamic websites and
             powerful web applications to help your brand stand out. With a focus
             on modern design, seamless functionality, and exceptional
             performance, we create solutions that resonate with your audience.

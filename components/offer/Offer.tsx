@@ -18,8 +18,8 @@ export default function Offer() {
                 <Card
                   img={image}
                   title={title}
-                  description={description}
-                  btnText="See more"
+                  description={description.paraOne}
+                  btnText="Read more"
                   showBtn={true}
                 />
               </div>
