@@ -3,7 +3,7 @@ import MultiCarousel, { ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 type CustomCarouselProps = {
-  children: ReactNode;
+  children?: ReactNode;
   responsive: ResponsiveType;
   infinite?: boolean;
   autoPlay?: boolean;

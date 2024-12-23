@@ -3,9 +3,10 @@ import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
 import Hero from "@/components/hero-banner/Hero";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
-import { services } from "@/utils/servicesList";
+import { servicesList } from "@/utils/List";
 import { slugify } from "@/utils/Slugify";
 import { StaticImageData } from "next/image";
+import RelatedServices from "@/components/related-services/RelatedServices";
 
 type Service = {
   title: string;
@@ -28,7 +29,7 @@ export default async function ServiceDetail({
   const slug = (await params).serviceSlug;
   console.log(`slug :: `, slug);
 
-  const service = services.find((ser) => slugify(ser.title) === slug);
+  const service = servicesList.find((ser) => slugify(ser.title) === slug);
 
   if (!service) {
     return (
@@ -42,14 +43,15 @@ export default async function ServiceDetail({
   }
 
   return (
-    <div className="top-padding ServiceDetail">
+    <div className="container top-padding ServiceDetail">
       <SectionHeading
         custom_class="mb-4 pb-2 pb-lg-4"
         title="Services"
         text={service.title}
       />
       <Hero
-        paragraph={service.description}
+        paragraphOne={service.description.paraOne}
+        paragraphTwo={service.description.paraTwo}
         showButton={false}
         showLink={true}
         linkUrl="/#contact"
@@ -64,6 +66,7 @@ export default async function ServiceDetail({
         showHeading={false}
         showSubHeading={true}
       />
+      {/* <RelatedServices /> */}
       <Footer />
     </div>
   );

@@ -41,18 +41,18 @@ export default function Contact({
             />
           )}
 
-          <div className="mt-2 fw-bold text-center">
+          <div className="mt-2 mt-lg-4 fw-bold text-center">
             <span>
               <a className="text-dark" href="tel:+38669638945">
                 📞 +386-6963-8945
               </a>
             </span>
-            {/* <span> | </span> */}
-            {/* <span>
+            <span> | </span>
+            <span>
               <a className="text-dark" href="mailto:hello@kumarsoftwares.com">
                 📧 hello@kumarsoftwares.com
               </a>
-            </span> */}
+            </span>
             <p className="mt-4">
               We’re always here to answer all your questions. Feel free to reach
               us anytime. We’ll be happy to hear from you.

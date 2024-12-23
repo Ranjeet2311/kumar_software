@@ -39,9 +39,6 @@ export default function Card({
           {truncateText({ text: description || "", maxLength: 75 })}
         </p>
         {showBtn && (
-          // <a href="#" className={`${classes.btn} btn w-100`}>
-          //   {btnText}
-          // </a>
           <Button
             button={false}
             mode={btnClasses.btn_main}

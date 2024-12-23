@@ -6,13 +6,19 @@
   padding: 24px 20px;
   background-color: rgb(250, 250, 250);
   color: white;
-  // background: linear-gradient(
-  //   -45deg,
-  //   #faa343 2.5%,
-  //   #8f38ae 15.8%,
-  //   #faa343 60.4%
-  // );
+  transition: all 0.4s ease-out;
   background: linear-gradient(-162deg, #31b5c2 49%, #8f38ae 75%, #31b5c2 82%);
+  cursor: grab;
+
+  &:hover {
+    background: linear-gradient(
+      338deg,
+      #8f38ae 20.78%,
+      #faa343 27.79%,
+      #bf3663 103.07%
+    );
+    background-size: 100%;
+  }
 
   .card-image {
     width: 100%;

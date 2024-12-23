@@ -1,57 +1,9 @@
 import React from "react";
-import CustomCarousel from "../Ui/multi-carousel/Carousel";
+import CustomCarousel from "../Ui/custom-carousel/CustomCarousel";
 import FeedbackCard from "../Ui/feedback-card/FeedbackCard";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
-
-const feedbacks = [
-  {
-    name: "Jane Doe",
-    feedback:
-      "This service has been outstanding! It completely exceeded my expectations.",
-    // imageUrl: "/images/jane.jpg",
-    designation: "CEO, TechCorp",
-  },
-  {
-    name: "John Smith",
-    feedback:
-      "An incredible experience from start to finish. Highly recommend!",
-    // imageUrl: "/images/john.jpg",
-    designation: "CEO, TechCorp",
-  },
-  {
-    name: "Jane Doe",
-    feedback:
-      "This service has been outstanding! It completely exceeded my expectations.",
-    // imageUrl: "/images/jane.jpg",
-    designation: "CEO, TechCorp",
-  },
-  {
-    name: "John Smith",
-    feedback:
-      "An incredible experience from start to finish. Highly recommend!",
-    // imageUrl: "/images/john.jpg",
-    designation: "CEO, TechCorp",
-  },
-];
-
-const maxFourSlide = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 3,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+import { maxFourSlide } from "@/utils/CarouselResponsiveness";
+import { feedbacks } from "@/utils/List";
 
 export default function Feedbacks() {
   return (
