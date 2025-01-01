@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./PlanCard.module.scss";
 import arrow from "../../../assets/images/check_list.png";
 import Image from "next/image";
+import star from "../../../assets/images/stars.png";
+import diamond from "../../../assets/images/diamond.png";
 
 type PlanCardProps = {
   title: string;
@@ -19,9 +21,50 @@ export default function PlanCard({
   buttonLink,
 }: PlanCardProps) {
   return (
-    <div className={`${classes.plan_card} card my-2 h-100`}>
+    <div
+      className={`${classes.plan_card} ${
+        title === "Gold Plan" ? "gold-card" : null
+      } card my-2 h-100 position-relative`}
+    >
       <div className="card-header text-center">
-        <h3 className={classes.title}>{title}</h3>
+        {title === "Gold Plan" ? (
+          <Image
+            src={star}
+            style={{
+              width: "100%",
+              height: "55px",
+              objectFit: "contain",
+              position: "absolute",
+              top: "-6px",
+              transform: "translate(-50%, -50%)",
+            }}
+            className="star"
+            alt="arrow"
+          />
+        ) : title === "Diamond Plan" ? (
+          <Image
+            src={diamond}
+            style={{
+              width: "100%",
+              height: "55px",
+              objectFit: "contain",
+              position: "absolute",
+              top: "-2px",
+              transform: "translate(-50%, -50%) rotate(180deg",
+            }}
+            className="star"
+            alt="arrow"
+          />
+        ) : null}
+        <h3
+          className={`${
+            title === "Gold Plan"
+              ? `${classes.gold_card_title} ${classes.title}`
+              : classes.title
+          }`}
+        >
+          {title}
+        </h3>
         <hr />
         <h4 className={classes.price}>{price}</h4>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import PlanCard from "../Ui/plan-card/PlanCard";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const plans = [
   {
@@ -79,21 +80,38 @@ const plans = [
 ];
 
 export default function Plans() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <div className="container">
-      <div className="row section-space">
-        <SectionHeading
-          title=" Our plans scale with your product"
-          text="in virtual space through communication platforms."
-        />
-      </div>
-      <div className="row row row-cols-1 row-cols-md-2 g-4">
-        {plans.map((plan, index) => (
-          <div key={index} className="col-12 col-md-6 col-lg-4">
-            <PlanCard {...plan} />
-          </div>
-        ))}
-      </div>
+      <motion.div
+        style={{
+          scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 1.2]),
+        }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        // viewport={{ once: true }}
+        viewport={{ once: true }}
+      >
+        <div className="row section-space">
+          <SectionHeading
+            title=" Our plans scale with your product"
+            text="in virtual space through communication platforms."
+          />
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 150 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="row row row-cols-1 row-cols-md-2 g-4">
+          {plans.map((plan, index) => (
+            <div key={index} className="col-12 col-md-6 col-lg-4">
+              <PlanCard {...plan} />
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }

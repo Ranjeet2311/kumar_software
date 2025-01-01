@@ -165,7 +165,7 @@ a,
   }
 
   @include lg {
-    margin-top: 80px;
+    margin-top: 80px !important;
   }
 
   h2 {
@@ -196,6 +196,26 @@ a,
       object-fit: contain;
     }
   }
+}
+
+// ------------------------------------
+
+.colored-text {
+  background: -webkit-linear-gradient(
+    to right,
+    #faa343 2.79%,
+    #bf3663 27.07%,
+    #8f38ae 63.78%
+  );
+  background: linear-gradient(
+    to right,
+    #bf3663 27.07%,
+    #8f38ae 63.78%,
+    #31b5c2 102.02%
+  );
+  -webkit-background-clip: text;
+  color: transparent !important;
+  text-shadow: none;
 }
 
 // ------------ServiceDetail-----------

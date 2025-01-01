@@ -9,6 +9,7 @@ import Plans from "@/components/plans/Plans";
 // import StartProject from "@/components/start-project/StartProject";
 import Contact from "@/components/contact/Contact";
 import banner_Image from "../assets/images/hero/user.png";
+import { motion } from "framer-motion";
 
 export default function Home() {
   console.log("hello 123 - rendered on the client");
@@ -16,23 +17,30 @@ export default function Home() {
   return (
     <main>
       <div id="home" className="top-padding">
-        <Hero
-          heading="Tell a better brand story"
-          paragraphOne="At Kumar Softwares, we specialize in crafting dynamic websites and
-            powerful web applications to help your brand stand out. With a focus
-            on modern design, seamless functionality, and exceptional
-            performance, we create solutions that resonate with your audience.
-            Build your digital presence today with websites tailored to your
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          // viewport={{ once: true }}
+        >
+          <Hero
+            heading="Tell a better brand story"
+            paragraphOne="At Kumar Softwares, we specialize in crafting dynamic websites and
+          powerful web applications to help your brand stand out. With a focus
+          on modern design, seamless functionality, and exceptional
+          performance, we create solutions that resonate with your audience.
+          Build your digital presence today with websites tailored to your
             business needs."
-          showButton={true}
-          ButtonText="View Our Work"
-          showLink={true}
-          linkUrl="/#contact"
-          linkText=" Get in touch"
-          img={banner_Image}
-          imgAlt="Hero image"
-          localRoute={true}
-        />
+            showButton={true}
+            ButtonText="View Our Work"
+            showLink={true}
+            linkUrl="/#contact"
+            linkText=" Get in touch"
+            img={banner_Image}
+            imgAlt="Hero image"
+            localRoute={true}
+          />
+        </motion.div>
       </div>
       <div id="services">
         <Offer />
@@ -47,12 +55,19 @@ export default function Home() {
         <Feedbacks />
       </div>
       <div id="contact">
-        <Contact
-          showImage={true}
-          showForm={true}
-          showHeading={true}
-          showSubHeading={true}
-        />
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          // viewport={{ once: true }}
+        >
+          <Contact
+            showImage={true}
+            showForm={true}
+            showHeading={true}
+            showSubHeading={true}
+          />
+        </motion.div>
       </div>
       <Footer />
     </main>
