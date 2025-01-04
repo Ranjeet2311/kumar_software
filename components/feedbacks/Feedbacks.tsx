@@ -1,7 +1,7 @@
 import React from "react";
-import CustomCarousel from "../Ui/custom-carousel/CustomCarousel";
-import FeedbackCard from "../Ui/feedback-card/FeedbackCard";
-import SectionHeading from "../Ui/section-heading/SectionHeading";
+import CustomCarousel from "@/components/Ui/custom-carousel/CustomCarousel";
+import FeedbackCard from "@/components/Ui/feedback-card/FeedbackCard";
+import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import { maxFourSlide } from "@/utils/CarouselResponsiveness";
 import { feedbacks } from "@/utils/List";
 

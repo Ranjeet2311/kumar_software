@@ -1,6 +1,6 @@
 import React from "react";
-import ContactForm from "../Ui/forms/ContactForm";
-import SectionHeading from "../Ui/section-heading/SectionHeading";
+import ContactForm from "@/components/Ui/forms/ContactForm";
+import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 // import Image from "next/image";
 // import emailIcon from "../../assets/images/email-icon.png";
 import contact from "../../assets/images/contact.png";

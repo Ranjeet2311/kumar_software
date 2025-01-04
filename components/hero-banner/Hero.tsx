@@ -32,9 +32,9 @@ export default function Hero({
 }: HeroProps) {
   return (
     <div className="container">
-      <section className="row">
+      <section className="row mt-4 pt-4">
         <div className="col-12 col-lg-7 order-lg-1 order-2 ">
-          <h1 className="text-center text-lg-start">{heading} </h1>
+          <h1 className="text-center text-lg-start mb-4 pb-4">{heading} </h1>
           <p>{paragraphOne}</p>
           <p className="mt-4">{paragraphTwo}</p>
           <div className="row align-items-center mt-5">
