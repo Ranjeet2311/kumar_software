@@ -34,7 +34,7 @@ export default function Button({
 
   if (localRoute) {
     return (
-      <Link className={`hello btn ${mode} ${customClass}`} href={link}>
+      <Link className={`btn ${mode} ${customClass}`} href={link}>
         {children}
       </Link>
     );

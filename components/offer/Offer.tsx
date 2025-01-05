@@ -14,7 +14,7 @@ export default function Offer() {
             scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 1.2]),
           }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
         >
           <SectionHeading
             title="What we Offer?"
@@ -25,7 +25,7 @@ export default function Offer() {
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
         >
           <div className="col-12">
             <div className="row row row-cols-1 row-cols-md-2 g-4">

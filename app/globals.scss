@@ -30,6 +30,10 @@
   // background: rgb(250, 163, 67, 0.2);
   background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
   padding-bottom: 60px;
+  // background-image: url("/assets/images/bg_image_v1.jpg");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 
   @include lg {
     padding-bottom: 100px;
@@ -222,3 +226,77 @@ a,
 
 // .ServiceDetail {
 // }
+
+// -------------auth-page--------------
+
+.auth-page {
+  max-width: 1050px;
+  margin: 100px auto;
+  display: block;
+  background: rgb(249, 244, 244);
+  border-radius: 8px;
+  padding: 40px 16px;
+  background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
+  border: 2px solid #d9b6e7;
+
+  .form-section {
+    border-left: 6px solid #d0eff2;
+    padding: 0 30px;
+  }
+
+  .authImage {
+    width: 350px !important;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.log-in-bar {
+  position: fixed;
+  bottom: 60px;
+  // right: 0;
+  // max-width: 500px;
+  background-color: transparent;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  z-index: 99;
+  border: 0;
+
+  .login-bar-btn {
+    background: linear-gradient(
+      to right,
+      #bf3663 27.07%,
+      #8f38ae 63.78%,
+      #31b5c2 102.02%
+    );
+    transition: all 0.4s ease-out;
+    background-size: 200%;
+    padding: 8px 20px;
+    font-size: 14px !important;
+
+    &:hover {
+      // background: linear-gradient(338deg, #8f38ae 63.78%3, #faa343 40.79%);
+      background: linear-gradient(
+        338deg,
+        #8f38ae 25%,
+        #faa343 45%,
+        #bf3663 60.07%,
+        #8f38ae 60%
+      );
+      background-size: 100%;
+    }
+
+    .btn {
+      font-size: 14px !important;
+      border: 1px solid white;
+      &:hover {
+        background: white;
+        border: 1px solid #faa343;
+        color: #8f38ae !important;
+      }
+    }
+  }
+}

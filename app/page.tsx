@@ -6,10 +6,10 @@ import Hero from "@/components/hero-banner/Hero";
 import HowItWorks from "@/components/how-it-works/HowItWorks";
 import Offer from "@/components/offer/Offer";
 import Plans from "@/components/plans/Plans";
-// import StartProject from "@/components/start-project/StartProject";
 import Contact from "@/components/contact/Contact";
 import banner_Image from "../assets/images/hero/user.png";
 import { motion } from "framer-motion";
+import LogInBar from "@/components/login-bar/LogInBar";
 
 export default function Home() {
   console.log("hello 123 - rendered on the client");
@@ -21,7 +21,7 @@ export default function Home() {
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
         >
           <Hero
             heading="Tell a better brand story"
@@ -59,7 +59,7 @@ export default function Home() {
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
         >
           <Contact
             showImage={true}
@@ -70,6 +70,7 @@ export default function Home() {
         </motion.div>
       </div>
       <Footer />
+      <LogInBar />
     </main>
   );
 }

@@ -34,7 +34,6 @@ export default function HowItWorks() {
           scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 1.2]),
         }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        // viewport={{ once: true }}
         viewport={{ once: true }}
       >
         <div className="row section-space how-it-works">
@@ -48,7 +47,7 @@ export default function HowItWorks() {
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        // viewport={{ once: true }}
+        viewport={{ once: true }}
       >
         <div className="row work">
           <div className="col-12 col-lg-6">
@@ -81,7 +80,7 @@ export default function HowItWorks() {
         initial={{ opacity: 0, x: 80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        // viewport={{ once: true }}
+        viewport={{ once: true }}
       >
         <div className="row work">
           <div className="col-12 col-lg-6 order-lg-2 order-1">
@@ -113,7 +112,7 @@ export default function HowItWorks() {
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        // viewport={{ once: true }}
+        viewport={{ once: true }}
       >
         <div className="row work">
           <div className="col-12 col-lg-6">

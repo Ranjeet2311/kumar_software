@@ -1,75 +1,77 @@
-"use client";
-
+import { sanitizeInput } from "@/utils/SanitizeInput";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./form.scss";
-import { sanitizeInput } from "@/utils/SanitizeInput";
-import { servicesList } from "@/utils/List";
-import xss from "xss";
+import { redirect } from "next/navigation";
+import Image from "next/image";
+import eyeOpen from "../../../assets/images/eye-open.png";
+import eyeClosed from "../../../assets/images/eye-closed.png";
 
-type FormData = {
+type signup = {
   firstName: string;
   lastName: string;
   contact: string;
   email: string;
-  subject: string;
-  description: string;
+  password: string;
 };
 
-export default function ContactForm() {
+export default function SignUpForm() {
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-
-  const [formData, setFormData] = useState<FormData>({
+  const [showPassword, setShowPassword] = useState(false);
+  const [signUpData, setSignUpData] = useState<signup>({
     firstName: "",
     lastName: "",
     contact: "",
     email: "",
-    subject: "",
-    description: "",
+    password: "",
   });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    const sanitizedValue: string =
-      name === "description" ? xss(value) : sanitizeInput(value);
+  const handlePasswordShow = () => setShowPassword(!showPassword);
 
-    setFormData((prevFormData) => {
-      return { ...prevFormData, [name]: sanitizedValue };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    const sanitizedValue: string = sanitizeInput(value);
+
+    setSignUpData((preValue) => {
+      return { ...preValue, [name]: sanitizedValue };
     });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
+    console.log(`handleSignup : `, signUpData);
+
     setLoading(true);
     setMessage(null);
     setError(null);
 
-    const response = await fetch("/api/contact", {
+    const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(signUpData),
     });
 
     const result = await response.json();
+    console.log(`response :: `, response);
+    console.log(`result :: `, result);
+
     setLoading(false);
 
     if (response.ok) {
       setMessage(result.message);
-      setFormData({
+      setSignUpData({
         firstName: "",
         lastName: "",
         contact: "",
         email: "",
-        subject: "",
-        description: "",
+        password: "",
       });
       console.log(`result.message after reset : `, result.message);
-      console.log(`Form data after reset : `, formData);
+
+      redirect("/dashboard");
     } else {
       setError(
         result.message ||
@@ -77,10 +79,9 @@ export default function ContactForm() {
       );
     }
   };
-
   return (
     <div className="form-wrap">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSignUp}>
         <div className="mb-2">
           <div className="row">
             <div className="col-12 col-md-6">
@@ -93,7 +94,7 @@ export default function ContactForm() {
                 id="firstName"
                 placeholder="Bruce"
                 name="firstName"
-                value={formData.firstName}
+                value={signUpData.firstName}
                 onChange={handleChange}
                 required
               />
@@ -108,7 +109,7 @@ export default function ContactForm() {
                 id="lastname"
                 placeholder="Wayne"
                 name="lastName"
-                value={formData.lastName}
+                value={signUpData.lastName}
                 onChange={handleChange}
                 required
               />
@@ -125,7 +126,7 @@ export default function ContactForm() {
             id="exampleFormControlInput1"
             placeholder="+1 303 300 33"
             name="contact"
-            value={formData.contact}
+            value={signUpData.contact}
             onChange={handleChange}
           />
         </div>
@@ -139,72 +140,52 @@ export default function ContactForm() {
             id="exampleFormControlInput1"
             placeholder="brucewayne@example.com"
             name="email"
-            value={formData.email}
+            value={signUpData.email}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Subject*
+            Password*{" "}
+            <span>
+              <Image
+                onClick={handlePasswordShow}
+                src={signUpData.password && showPassword ? eyeOpen : eyeClosed}
+                alt="eye"
+                width={20}
+                style={{
+                  margin: "0 12px",
+                  cursor: "pointer",
+                }}
+              />
+            </span>
           </label>
-          <select
-            name="subject"
-            id="subject"
-            className="form-select"
-            aria-label="Default select example"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>
-              Any Level
-            </option>
-            {servicesList &&
-              servicesList.map((service) => (
-                <option key={service.title} value={service.title}>
-                  {service.title}
-                </option>
-              ))}
-          </select>
-          {/* <input
-            type="text"
+          <input
+            type={showPassword ? "text" : "password"}
             className="form-control"
             id="exampleFormControlInput1"
-            placeholder="Let's work together"
-            name="subject"
-            value={formData.subject}
+            placeholder="**********"
+            name="password"
+            value={signUpData.password}
             onChange={handleChange}
             required
-          /> */}
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Short description*
-          </label>
-          <textarea
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            rows={4}
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          ></textarea>
+          />
         </div>
         <div className="mb-0">
           <button
             type="submit"
             className="btn btn-bg w-100 border-0 text-white"
+            disabled={loading}
           >
-            {loading ? "Sending..." : "Send"}{" "}
+            {loading ? "Creating account..." : "Create account"}
           </button>
         </div>
       </form>
       <h5 className="mt-2">
         {message && (
           <p className="text-white h6 mt-2" style={{ color: "green" }}>
-            {message}
+            {message}, Logging in...
           </p>
         )}
         {error && (
