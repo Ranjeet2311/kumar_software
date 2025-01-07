@@ -127,6 +127,7 @@ export default function ContactForm() {
             name="contact"
             value={formData.contact}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-2">
@@ -167,16 +168,6 @@ export default function ContactForm() {
                 </option>
               ))}
           </select>
-          {/* <input
-            type="text"
-            className="form-control"
-            id="exampleFormControlInput1"
-            placeholder="Let's work together"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          /> */}
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">
@@ -203,12 +194,12 @@ export default function ContactForm() {
       </form>
       <h5 className="mt-2">
         {message && (
-          <p className="text-white h6 mt-2" style={{ color: "green" }}>
+          <p className="mt-4 text-center" style={{ color: "green" }}>
             {message}
           </p>
         )}
         {error && (
-          <p className="text-white h6 mt-2" style={{ color: "red" }}>
+          <p className="mt-4 text-center" style={{ color: "red" }}>
             {error}
           </p>
         )}

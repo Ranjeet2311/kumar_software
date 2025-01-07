@@ -49,17 +49,19 @@ export default async function ServiceDetail({
         title="Services"
         text={service.title}
       />
-      <Hero
-        paragraphOne={service.description.paraOne}
-        paragraphTwo={service.description.paraTwo}
-        showButton={false}
-        showLink={true}
-        linkUrl="/#contact"
-        linkText="Get in touch"
-        img={service.image}
-        imgAlt={service.title}
-        localRoute={true}
-      />
+      <div className="service-hero">
+        <Hero
+          paragraphOne={service.description.paraOne}
+          paragraphTwo={service.description.paraTwo}
+          showButton={false}
+          showLink={true}
+          linkUrl="/#contact"
+          linkText="Get in touch"
+          img={service.image}
+          imgAlt={service.title}
+          localRoute={true}
+        />
+      </div>
       <Contact
         showImage={false}
         showForm={false}
@@ -67,7 +69,9 @@ export default async function ServiceDetail({
         showSubHeading={true}
       />
       {/* <RelatedServices /> */}
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
     </div>
   );
 }

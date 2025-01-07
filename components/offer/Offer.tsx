@@ -9,18 +9,14 @@ export default function Offer() {
   return (
     <div className="container">
       <section className="row section-space">
-        <motion.div
-          style={{
-            scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 1.2]),
-          }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <SectionHeading
-            title="What we Offer?"
-            text="Discover how our expertise delivers tailored software solutions"
-          />
-        </motion.div>
+        <SectionHeading
+          title={
+            <>
+              What we <span className="colored-text">offer</span>
+            </>
+          }
+          text="Discover how our expertise delivers tailored software solutions"
+        />
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}

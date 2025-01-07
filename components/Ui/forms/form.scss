@@ -1,10 +1,29 @@
+@import "../../../app/css_variables.scss";
+
 .form-wrap {
   padding: 30px;
-  background: linear-gradient(45deg, #31b5c2 10%, #8f38ae 20%, #31b5c2 80%);
-  border-radius: 12px;
-  // max-width: 550px;
+  // background: linear-gradient(45deg, #31b5c2 10%, #8f38ae 20%, #31b5c2 80%);
+  // background: linear-gradient(
+  //   45deg,
+  //   #c1f1f6 27.07%,
+  //   #a9edf5 63.78%,
+  //   #c1f1f6 102.02%
+  // );
+  // background: #a9edf5;
+  // border-bottom: 1px solid #8f38ae;
+  // border-left: 1px solid red;
+  // border-right: 1px solid tomato;
+  // border-top: 1px solid #8f38ae;
+  // filter: drop-shadow(-2px 4px 12px $theme-text-color);
+  box-shadow: -2px 4px 6px #e9c1f8;
+  background: transparent;
+  border-radius: 43px;
   z-index: 2;
   transition: all 0.6s ease-in-out;
+  // background: #e9c1f8;
+  // background: image("../../../assets/images/auth.png");
+  // border: 1px solid $theme-text-color;
+  // filter: drop-shadow(-2px 4px 12px $theme-text-color);
 
   // &:hover {
   //   background: linear-gradient(
@@ -16,23 +35,50 @@
   // }
 
   label {
-    color: white;
+    color: $theme-text-color;
+    margin-top: 10px !important;
+    @include fonts(16px, 20px, 500);
+  }
+  input,
+  textarea,
+  select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $theme-text-color;
+    border-radius: 0;
+    @include fonts(16px, 20px, 400);
+
+    &:focus {
+      background: transparent;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      border-bottom: 1px solid $theme-text-color;
+    }
   }
 
   button {
     margin-top: 24px;
     // background: transparent !important;
-    border-radius: 12px;
-    background: linear-gradient(
-      338deg,
-      #8f38ae 20.78%,
-      #faa343 27.79%,
-      #bf3663 103.07%
-    );
+    border-radius: 43px 43px 43px 0;
+    // background: linear-gradient(
+    //   338deg,
+    //   #8f38ae 20.78%,
+    //   #faa343 27.79%,
+    //   #bf3663 103.07%
+    // );
+    background: #8f38ae;
+    transition: all 0.4s ease-out;
 
     &:hover {
-      background: linear-gradient(to left, #faa343 27.79%, #bf3663, 20.78%);
+      // background: linear-gradient(to left, #faa343 27.79%, #bf3663, 20.78%);
       // border: 1px solid #faa343;
+      background: linear-gradient(
+        -45deg,
+        #31b5c2 25%,
+        #31b5c2 45%,
+        #31b5c2 60%
+      );
     }
   }
 }

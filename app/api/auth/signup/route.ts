@@ -40,5 +40,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
-// GET: Retrieve a user by email

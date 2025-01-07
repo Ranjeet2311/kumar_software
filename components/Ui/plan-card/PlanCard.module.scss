@@ -3,86 +3,112 @@
 .plan_card {
   margin: 20px auto;
   border: 1px solid #ddd;
-  border-radius: 12px;
-  // overflow: hidden;
-  background: white;
-  color: white;
-  padding: 20px 10px 15px;
-  background: linear-gradient(45deg, #31b5c2 10%, #8f38ae 20%, #31b5c2 80%);
-  transition: all 0.8s ease-in-out;
+  border-radius: 43px;
+  padding: 0;
+  background: linear-gradient(45deg, #f1fcfc 10%, transparent, #f1fcfc 80%);
+  // background: #8f38ae;
+  // background-image: url("../../../assets/images/login.png");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  transition: all 0.4s ease-in;
   background-size: 200%; /* Allow the background to scale */
 
   &:hover {
     color: white;
-    background: linear-gradient(
-      338deg,
-      #8f38ae 20.78%,
-      #faa343 27.79%,
-      #bf3663 103.07%
-    );
+    // background: linear-gradient(
+    //   338deg,
+    //   #8f38ae 20.78%,
+    //   #faa343 27.79%,
+    //   #bf3663 103.07%
+    // );
     background-size: 100%;
+    filter: drop-shadow(-2px 4px 12px $theme-text-color);
+    border: 1px solid transparent;
 
-    title,
-    h3 {
-      color: white;
+    .card_header {
+      background: linear-gradient(
+        -45deg,
+        #8f38ae 60%,
+        #bf3663 10%,
+        #8f38ae 80%
+      );
+      background-size: 100%;
     }
   }
 
+  hr {
+    border: 1px solid white;
+  }
+
+  .tick {
+    background-color: red !important;
+    border-radius: 50% !important;
+  }
+
   .card_header {
-    padding: 20px;
-    font-size: 30px;
-    font-weight: normal;
-    line-height: 30px;
-    font-style: normal;
+    // font-size: 30px;
+    // font-weight: normal;
+    // line-height: 30px;
+    // font-style: normal;
+    @include fonts(24px, 30px, 600);
     text-align: center;
+    border-radius: 43px 43px 0 0;
+    background-color: white;
+    border-bottom: 1px solid ddd;
+    background: linear-gradient(-45deg, #8f38ae 20%, #e2e1e1 10%, #8f38ae 80%);
+    padding: 30px;
+    background-size: 200%; /* Allow the background to scale */
+    transition: all 0.4s ease-in;
   }
   .title {
-    color: #f7f7f7;
-    font-size: 30px;
-    font-weight: normal;
-    line-height: 34px;
-    font-style: normal;
+    @include fonts(32px, 36px, 700);
+    color: white;
   }
   .price {
-    color: #f7f7f7 !important;
+    // color: #f7f7f7 !important;
     font-size: 20px;
     font-weight: normal;
     line-height: 24px;
     font-style: normal;
+    color: white;
   }
 
-  // .card_body {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   flex-direction: column;
-  // }
+  .card_body {
+    padding: 0 20px;
+    background-color: white;
+    height: 100%;
+    padding-bottom: 20px;
+    border-radius: 0 0 43px 43px;
+  }
 
   .benefits_list {
     list-style: none;
     padding: 0 8px 0 18px;
-    min-height: 250px;
+    min-height: 390px;
     text-align: center;
     margin: 20px auto;
-    // min-height: 430px;
+    color: black;
   }
 
   .benefit_item {
     padding: 2px 6px 5px 8px;
-    font-size: 18px !important;
     text-align: start;
-    // &::before {
-    //   content: url(../../../assets/images/check_list.png);
-    //   margin-right: 8px;
-    // }
+    @include fonts(18px, 28px, 400) // &::before {
+      //   content: url(../../../assets/images/check_list.png);
+      //   margin-right: 8px;
+      // }
+;
   }
 
   .btn {
-    background: linear-gradient(338deg, #bf3663, #8f38ae);
+    // background: linear-gradient(338deg, #bf3663, #8f38ae);
+    // background: linear-gradient(-45deg, #31b5c2 25%, #31b5c2 45%, #31b5c2 60%);
+    background: #8f38ae;
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 8px 24px;
+    border-radius: 43px;
+    padding: 12px 20px;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;

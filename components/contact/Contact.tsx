@@ -3,7 +3,7 @@ import ContactForm from "@/components/Ui/forms/ContactForm";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 // import Image from "next/image";
 // import emailIcon from "../../assets/images/email-icon.png";
-import contact from "../../assets/images/contact.png";
+import contact from "../../assets/images/rocket.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -25,7 +25,11 @@ export default function Contact({
       <div className="row section-space">
         <div className="col-12">
           <SectionHeading
-            title="Connect with us"
+            title={
+              <>
+                <span className="colored-text">Connect</span> with us
+              </>
+            }
             text="Have a project in mind? Reach out today and let’s get started."
             showHeading={showHeading}
             showSubHeading={showSubHeading}
@@ -37,8 +41,9 @@ export default function Contact({
           {showImage && (
             <Image
               src={contact}
-              style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              style={{ width: "400px", height: "400px", objectFit: "contain" }}
               alt="contact"
+              className="d-none d-lg-block"
             />
           )}
 
@@ -59,13 +64,6 @@ export default function Contact({
               us anytime. We’ll be happy to hear from you.
             </p>
           </div>
-
-          {/* <p className="mt-1">
-            <Image src={phoneIcon} width={60} alt="contact-icon" />
-            <span className="ms-3">
-              <strong>+38669638945</strong>
-            </span>
-          </p> */}
         </div>
         {showForm && (
           <div className="col-12 col-lg-6 d-block mt-4 mt-lg-0 d-lg-flex justify-content-end">

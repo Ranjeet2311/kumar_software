@@ -5,7 +5,7 @@ import SignUpForm from "@/components/Ui/forms/SignUpForm";
 import LoginForm from "@/components/Ui/forms/LogInForm";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import Image from "next/image";
-import authImage from "../../assets/images/auth.png";
+import authImage from "../../assets/images/Secure-login.png";
 import Footer from "@/components/footer/Footer";
 
 export default function Auth() {
@@ -33,10 +33,7 @@ export default function Auth() {
           custom_class="w-100"
         /> */}
         </div>
-        <div className="row justify-content-center align-items-center">
-          <div className="col-12 col-lg-5">
-            <Image src={authImage} alt="auth-image" className="authImage" />
-          </div>
+        <div className="row outer-wrap justify-content-center align-items-center">
           <div className="col-12 col-lg-7 form-section">
             <div className="row mt-4">
               <div className="col-12 pe-0 text-center px-0 mb-4">
@@ -71,9 +68,14 @@ export default function Auth() {
               </div>
             </div>
           </div>
+          <div className="col-12 col-lg-5 d-none d-lg-block">
+            <Image src={authImage} alt="auth-image" className="authImage" />
+          </div>
         </div>
       </div>
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
     </>
   );
 }

@@ -10,7 +10,11 @@ export default function Feedbacks() {
     <div className="container">
       <div className="row section-space">
         <SectionHeading
-          title="What People Say"
+          title={
+            <>
+              What <span className="colored-text">People</span> Say
+            </>
+          }
           text="Hear what our happy clients have to say"
         />
         <div className="col-12">

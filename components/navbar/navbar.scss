@@ -8,7 +8,6 @@
   width: 100vw;
   padding: 6px 0;
   z-index: 999;
-  background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
 
   .Navbar-wrap {
     padding: 6px 12px;
@@ -17,7 +16,14 @@
     align-items: center;
     border-radius: 12px;
     transition: all 0.3s ease-out;
-    // box-shadow: 1px 1px 44px #d9b6e7;
+    background: linear-gradient(
+      45deg,
+      #a9edf5 27.07%,
+      #f2fbfc 63.78%,
+      #a9edf5 102.02%
+    );
+    filter: drop-shadow(0px 19px 27.5px rgba(0, 0, 0, 0.08));
+    // background: #ffffff;
 
     &:hover {
       box-shadow: 1px 1px 24px #000ce8aa;

@@ -1,26 +1,30 @@
+@import "../../../app/css_variables.scss";
+
 .btn_main {
-  background: linear-gradient(
-    338deg,
-    #faa343 40.79%,
-    #bf3663 60.07%,
-    #8f38ae 63.78%
-  );
-  color: white;
+  // background: linear-gradient(338deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
+  color: white !important;
   border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 400;
+  border-radius: 43px 43px 43px 0;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.5;
   transition: all 0.4s ease-out;
   background-size: 200%;
+  background: #8f38ae;
+  // border: 2px solid #8f38ae;
+  width: 100%;
+
+  @include md {
+    width: fit-content;
+  }
 
   &:hover {
     // background: linear-gradient(338deg, #8f38ae 63.78%3, #faa343 40.79%);
     background: linear-gradient(
       338deg,
       #8f38ae 25%,
-      #faa343 45%,
+      // #faa343 45%,
       #bf3663 60.07%,
       #8f38ae 60%
     );
@@ -28,19 +32,27 @@
   }
 }
 .btn_second {
-  background: linear-gradient(-45deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
-  color: white;
+  // background: linear-gradient(-45deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
+  color: black;
   border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 400;
+  border-radius: 43px 43px 43px 0;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.5;
   transition: all 0.4s ease-out;
   background-size: 200%;
+  width: fit-content;
+  background: white;
+  border: 1px solid rgb(238, 239, 239);
+  width: 100%;
+
+  @include md {
+    width: fit-content;
+  }
 
   &:hover {
-    background: linear-gradient(-45deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
+    background: linear-gradient(-45deg, #31b5c2 25%, #31b5c2 45%, #31b5c2 60%);
     // background: linear-gradient(
     //   338deg,
     //   #faa343 2.79%,
@@ -49,6 +61,6 @@
     //   #31b5c2 102.02%
     // );
     background-size: 100%;
-    color: white;
+    color: white !important;
   }
 }

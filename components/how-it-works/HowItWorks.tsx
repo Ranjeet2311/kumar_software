@@ -29,20 +29,16 @@ export default function HowItWorks() {
 
   return (
     <div className="container">
-      <motion.div
-        style={{
-          scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 1.2]),
-        }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="row section-space how-it-works">
-          <SectionHeading
-            title="How We Work?"
-            text="Collaborate | Strategize | Deliver"
-          />
-        </div>
-      </motion.div>
+      <div className="row section-space how-it-works">
+        <SectionHeading
+          title={
+            <>
+              How we <span className="colored-text">work</span>
+            </>
+          }
+          text="Collaborate | Strategize | Deliver"
+        />
+      </div>
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}

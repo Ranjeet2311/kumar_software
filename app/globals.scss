@@ -12,12 +12,8 @@
   scroll-behavior: smooth;
 }
 
-// .app-wrap {
-//   padding-top: 150px;
-// }
 .top-padding {
   padding-top: 80px;
-  // padding-bottom: 146px;
 
   @include lg {
     padding-top: 130px;
@@ -27,26 +23,40 @@
 #home,
 #process,
 #feedback {
-  // background: rgb(250, 163, 67, 0.2);
-  background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
   padding-bottom: 60px;
-  // background-image: url("/assets/images/bg_image_v1.jpg");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  background: rgba(255, 255, 255, 1);
 
   @include lg {
-    padding-bottom: 100px;
+    padding-bottom: 62px;
   }
 }
 #services,
 #plans,
 #contact {
-  // background: rgb(49, 181, 194, 0.2);
   padding-bottom: 60px;
+  background: #f2fbfc;
 
   @include lg {
-    padding-bottom: 100px;
+    padding-bottom: 62px;
+  }
+}
+
+#footer {
+  padding: 8px 0 !important;
+  background: linear-gradient(
+    to right,
+    // #faa343 10%,
+    // #bf3663 27%,
+    #31b5c2 102%,
+    #8f38ae 63%,
+    #31b5c2 102%
+  );
+}
+.footer {
+  p {
+    margin-bottom: 0 !important;
+    color: white !important;
+    @include fonts(16px, 28px, 600);
   }
 }
 
@@ -54,7 +64,6 @@ h1 {
   @include fonts(44px, 48px, 600);
   font-family: $theme-font-Heading !important;
   font-weight: 800;
-  // font-size: 85px !important;
   line-height: 88px;
   color: $theme-text-color !important;
 
@@ -79,10 +88,8 @@ h2 {
 }
 p {
   font-family: $theme-font-Paragraph !important;
-  font-weight: 400;
-  font-size: 18px !important;
-  line-height: 30px;
-  // color: rgb(156, 155, 155) !important;
+  @include fonts(18px, 32px, 400);
+  color: #0b0d39 !important;
 }
 
 a,
@@ -93,19 +100,49 @@ a,
 
 // for banner------------
 
+.hero-h1-text {
+  font-weight: 700 !important;
+}
+
 .hero-image {
   width: 100%;
   max-height: 500px;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  img {
-    width: 400px;
-    height: 100%;
-    // object-fit: cover;
+  position: relative;
+
+  &::before {
+    content: "";
+    height: 220px !important;
+    width: 220px !important;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(
+      45deg,
+      #a9edf5 27.07%,
+      #f2fbfc 63.78%,
+      #a9edf5 102.02%
+    );
 
     @include lg {
-      width: 100%;
+      height: 380px !important;
+      width: 380px !important;
+    }
+  }
+
+  img {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+
+    @include lg {
+      width: 400px;
     }
   }
 }
@@ -114,15 +151,15 @@ a,
   padding-top: 60px;
 
   @include lg {
-    padding-top: 100px;
+    padding-top: 60px;
   }
 }
 
 .section-heading {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 
   @include lg {
-    margin-bottom: 90px;
+    margin-bottom: 100px;
   }
 
   h2 {
@@ -132,7 +169,7 @@ a,
     @include fonts(32px, 38px, 600);
 
     @include lg {
-      @include fonts(60px, 68px, 600);
+      @include fonts(48px, 56px, 700);
     }
   }
   p {
@@ -142,18 +179,11 @@ a,
     @include fonts(20px, 28px, 500);
 
     @include lg {
-      @include fonts(24px, 32px, 500);
+      @include fonts(24px, 32px, 600);
     }
   }
 }
 // ---------------------------
-
-// ----------------
-
-// .sub-heading-title {
-// }
-// .sub-heading-text {
-// }
 
 .how-it-works {
   &:last-child {
@@ -163,22 +193,20 @@ a,
 
 .work {
   margin-bottom: 60px;
+  margin-top: 60px !important;
 
   &:last-child {
     margin-bottom: 0 !important;
   }
 
-  @include lg {
-    margin-top: 80px !important;
-  }
-
   h2 {
     font-style: normal;
     margin-bottom: 0;
-    @include fonts(26px, 36px, 500);
+    color: #3e4581 !important;
+    @include fonts(26px, 36px, 600);
 
     @include lg {
-      @include fonts(35px, 45px, 500);
+      @include fonts(35px, 45px, 600);
     }
   }
   hr {
@@ -186,7 +214,6 @@ a,
     border: 1px solid $theme-text-color;
   }
   .work-image-wrap {
-    // max-width: 800px;
     max-height: 450px;
     margin: 0 auto !important;
 
@@ -207,15 +234,19 @@ a,
 .colored-text {
   background: -webkit-linear-gradient(
     to right,
-    #faa343 2.79%,
-    #bf3663 27.07%,
-    #8f38ae 63.78%
+    #8f38ae 15%,
+    #faa343 35%,
+    #bf3663 47%,
+    #8f38ae 53%,
+    #31b5c2 90%
   );
   background: linear-gradient(
     to right,
-    #bf3663 27.07%,
-    #8f38ae 63.78%,
-    #31b5c2 102.02%
+    #8f38ae 15%,
+    #faa343 35%,
+    #bf3663 47%,
+    #8f38ae 53%,
+    #31b5c2 90%
   );
   -webkit-background-clip: text;
   color: transparent !important;
@@ -224,24 +255,47 @@ a,
 
 // ------------ServiceDetail-----------
 
-// .ServiceDetail {
-// }
+.service-hero {
+  // background: linear-gradient(
+  //   45deg,
+  //   #a9edf5 27.07%,
+  //   #f2fbfc 63.78%,
+  //   #a9edf5 102.02%
+  // );
+  background: #f2fbfc;
+  padding-bottom: 40px;
+
+  img {
+    max-width: 550px;
+    max-height: 550px;
+  }
+}
 
 // -------------auth-page--------------
 
 .auth-page {
-  max-width: 1050px;
   margin: 100px auto;
   display: block;
-  background: rgb(249, 244, 244);
   border-radius: 8px;
   padding: 40px 16px;
-  background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
-  border: 2px solid #d9b6e7;
+  // background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
+  background: rgb(250, 250, 250);
 
-  .form-section {
-    border-left: 6px solid #d0eff2;
-    padding: 0 30px;
+  .outer-wrap {
+    margin: 0 auto !important;
+    border-radius: 43px;
+    padding: 15px 10px;
+    // background: linear-gradient(
+    //   45deg,
+    //   #a9edf5 27.07%,
+    //   #f2fbfc 63.78%,
+    //   #a9edf5 102.02%
+    // );
+    background: #f2fbfc;
+
+    .form-section {
+      max-width: 520px;
+    }
   }
 
   .authImage {
@@ -252,51 +306,103 @@ a,
     display: block;
   }
 }
+// ---------------
 
-.log-in-bar {
+.bar-wrap {
   position: fixed;
-  bottom: 60px;
-  // right: 0;
-  // max-width: 500px;
-  background-color: transparent;
+  bottom: 20px;
   display: flex;
-  justify-content: end;
-  align-items: center;
+  justify-content: center;
+  left: 1%;
+  background: linear-gradient(
+    to right,
+    #faa343 10%,
+    #bf3663 27%,
+    #8f38ae 63%,
+    #31b5c2 102%
+  );
+
+  // background: linear-gradient(
+  //   338deg,
+  //   #8f38ae 20.78%,
+  //   #faa343 27.79%,
+  //   #bf3663 103.07%
+  // );
+
+  padding: 12px 18px;
+  border-radius: 43px;
   z-index: 99;
-  border: 0;
 
-  .login-bar-btn {
-    background: linear-gradient(
-      to right,
-      #bf3663 27.07%,
-      #8f38ae 63.78%,
-      #31b5c2 102.02%
-    );
-    transition: all 0.4s ease-out;
-    background-size: 200%;
-    padding: 8px 20px;
-    font-size: 14px !important;
+  .bar {
+    .stretched {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white !important;
 
-    &:hover {
-      // background: linear-gradient(338deg, #8f38ae 63.78%3, #faa343 40.79%);
-      background: linear-gradient(
-        338deg,
-        #8f38ae 25%,
-        #faa343 45%,
-        #bf3663 60.07%,
-        #8f38ae 60%
-      );
-      background-size: 100%;
-    }
-
-    .btn {
-      font-size: 14px !important;
-      border: 1px solid white;
-      &:hover {
-        background: white;
-        border: 1px solid #faa343;
-        color: #8f38ae !important;
+      @include lg {
+        flex-direction: row;
       }
     }
+    .shrunk {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      color: white !important;
+    }
   }
+
+  .btn {
+    font-size: 14px !important;
+    border: 1px solid white;
+    width: max-content;
+    transition: all 0.4s ease-out;
+    border-radius: 43px 43px 43px 0;
+
+    &:hover {
+      background: #bf3663;
+      color: white !important;
+    }
+  }
+  .close {
+    position: absolute;
+    top: -18px;
+    right: -20px;
+    border: none;
+    background-color: rgb(255, 251, 251) !important;
+    color: black !important;
+    @include fonts(14px, 18px, 600);
+    transition: all 0.4s ease-out;
+
+    &:hover {
+      background: #bf3663 !important;
+    }
+  }
+}
+
+.w-all {
+  max-width: 270px !important;
+  transition: all 2s ease-out;
+
+  @include lg {
+    max-width: 1000px !important;
+  }
+}
+.w-375 {
+  width: 275px !important;
+  transition: all 2s ease-out;
+  .stretched {
+    flex-direction: row !important;
+  }
+}
+
+// ---------------carousel---
+
+.react-multiple-carousel__arrow {
+  background-color: #8f38ae !important;
+}
+
+.react-multi-carousel-list {
+  height: 300px;
 }

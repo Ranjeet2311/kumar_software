@@ -7,7 +7,7 @@ import HowItWorks from "@/components/how-it-works/HowItWorks";
 import Offer from "@/components/offer/Offer";
 import Plans from "@/components/plans/Plans";
 import Contact from "@/components/contact/Contact";
-import banner_Image from "../assets/images/hero/user.png";
+import banner_Image from "../assets/images/hero/hero_v1.png";
 import { motion } from "framer-motion";
 import LogInBar from "@/components/login-bar/LogInBar";
 
@@ -24,7 +24,12 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <Hero
-            heading="Tell a better brand story"
+            heading={
+              <>
+                The <span className="colored-text">software</span> your company
+                needs
+              </>
+            }
             paragraphOne="At Kumar Softwares, we specialize in crafting dynamic websites and
           powerful web applications to help your brand stand out. With a focus
           on modern design, seamless functionality, and exceptional
@@ -69,7 +74,9 @@ export default function Home() {
           />
         </motion.div>
       </div>
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
       <LogInBar />
     </main>
   );

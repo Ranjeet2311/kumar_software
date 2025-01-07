@@ -84,20 +84,16 @@ export default function Plans() {
 
   return (
     <div className="container">
-      <motion.div
-        style={{
-          scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 1.2]),
-        }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="row section-space">
-          <SectionHeading
-            title=" Our plans scale with your product"
-            text="in virtual space through communication platforms."
-          />
-        </div>
-      </motion.div>
+      <div className="row section-space">
+        <SectionHeading
+          title={
+            <>
+              Our <span className="colored-text">plans</span>
+            </>
+          }
+          text="It scales with your product"
+        />
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 150 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -26,7 +26,7 @@ export default function PlanCard({
         title === "Gold Plan" ? "gold-card" : null
       } card my-2 h-100 position-relative`}
     >
-      <div className="card-header text-center">
+      <div className={`${classes.card_header} text-center"`}>
         {title === "Gold Plan" ? (
           <Image
             src={star}
@@ -75,7 +75,13 @@ export default function PlanCard({
               key={index}
               className="d-flex justify-content-start align-items-start"
             >
-              <Image src={arrow} width={16} alt="arrow" className="mt-2" />
+              <Image
+                src={arrow}
+                width={16}
+                alt="arrow"
+                style={{ backgroundColor: "#8f38ae", borderRadius: "50%" }}
+                className="mt-2 tick"
+              />
               <li className={classes.benefit_item}>{benefit}</li>
             </div>
           ))}

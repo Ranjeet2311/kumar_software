@@ -1,34 +1,34 @@
 @import "../../../app/css_variables.scss";
 
 .custom_card {
-  border-radius: 22px 0px !important;
+  border-radius: 43px 43px 43px 43px !important;
   overflow: hidden;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   &:hover {
     transition: all 0.4s ease-in;
-    // filter: drop-shadow(-2px 4px 12px $theme-text-color);
+    filter: drop-shadow(-2px 4px 12px $theme-text-color);
 
     .img {
       transition: all 0.4s ease-in;
-      // transform: scale(0.9);
       overflow: hidden;
-      border-radius: 18px 0px 18px 18px !important;
       background-size: 100%;
+      transform: scale(1.2);
     }
 
     .card_body {
-      background: linear-gradient(
-        -45deg,
-        #31b5c2 15%,
-        #8f38ae 25%,
-        #31b5c2 60%
-      );
-      transition: all 0.8s ease-in-out;
-      background-size: 200%; /* Allow the background to scale */
+      // color: white !important;
+      // background: linear-gradient(
+      //   45deg,
+      //   #da8cf6 27.07%,
+      //   #9ae4ef 63.78%,
+      //   #da8cf6 102.02%
+      // );
+      transition: all 0.4s ease-in-out;
+      background-size: 200%;
 
       &:hover {
-        background-size: 100%; /* Shrink the background size to create the effect */
+        background-size: 100%;
       }
     }
   }
@@ -44,30 +44,32 @@
       background-size: 200%;
       object-fit: cover !important;
       border-radius: 18px 0px 0px;
+      transition: all 0.4s ease-in;
     }
   }
 
   .card_body {
     transition: all 0.6s ease-in-out;
     border-radius: 0 0 22px !important;
-    color: white !important;
-    background: linear-gradient(
-      338deg,
-      #8f38ae 20.78%,
-      #faa343 27.79%,
-      #bf3663 103.07%
-    );
+    // color: white !important;
+    // background: linear-gradient(
+    //   338deg,
+    //   #8f38ae 20.78%,
+    //   #faa343 27.79%,
+    //   #bf3663 103.07%
+    // );
+    // &:hover {
+    //   color: white !important;
+    // }
 
     .card_title {
       font-weight: 600;
       font-family: $theme-font-Subheading;
-      color: white !important;
     }
     .btn {
       background: linear-gradient(338deg, #bf3663, #8f38ae);
-      color: white;
+      color: white !important;
       border: none;
-      border-radius: 8px;
       padding: 8px 24px;
       font-size: 20px;
       font-weight: 400;

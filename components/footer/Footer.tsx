@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="container">
+    <div className="container footer">
       <div className="row">
-        <hr />
+        {/* <hr /> */}
         <p className="text-center">Copyright ©Kumar-software</p>
       </div>
     </div>

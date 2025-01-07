@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import Contact from "@/models/Contact";
+import ContactForm from "@/models/Contact";
 import { connectToDatabase } from "@/lib/mongodb";
 
 export async function POST(req: NextRequest) {
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const newContact = new Contact({
+    const newContact = new ContactForm({
       firstName,
       lastName,
       contact,
