@@ -51,8 +51,7 @@ export default async function ServiceDetail({
       />
       <div className="service-hero">
         <Hero
-          paragraphOne={service.description.paraOne}
-          paragraphTwo={service.description.paraTwo}
+          descriptionList={service.description}
           showButton={false}
           showLink={true}
           linkUrl="/#contact"

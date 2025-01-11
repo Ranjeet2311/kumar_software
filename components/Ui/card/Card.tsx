@@ -6,6 +6,10 @@ import btnClasses from "@/components/Ui/button/button.module.scss";
 import { slugify } from "@/utils/Slugify";
 import { truncateText } from "@/utils/Truncate";
 
+// type DescriptionList = {
+//   para: string;
+// };
+
 type CardProps = {
   title?: string;
   description?: string;
@@ -22,6 +26,8 @@ export default function Card({
   showBtn,
 }: CardProps) {
   const slugifiedTitle = title ? slugify(title) : "default-slug";
+
+  // console.log(`Card descriptionList ::: `, descriptionList);
 
   return (
     <div className={`${classes.custom_card} card my-2 h-100`}>

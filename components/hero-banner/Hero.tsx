@@ -3,10 +3,14 @@ import Image, { StaticImageData } from "next/image";
 import Button from "@/components/Ui/button/Button";
 import btnClasses from "@/components/Ui/button/button.module.scss";
 
+type DescriptionList = {
+  para: string;
+};
+
 type HeroProps = {
   heading?: ReactNode | string;
-  paragraphOne?: string;
-  paragraphTwo?: string;
+  paragraph?: string;
+  descriptionList?: DescriptionList[];
   showButton: boolean;
   ButtonText?: string;
   showLink: boolean;
@@ -19,8 +23,8 @@ type HeroProps = {
 
 export default function Hero({
   heading,
-  paragraphOne,
-  paragraphTwo,
+  paragraph,
+  descriptionList,
   showButton,
   ButtonText,
   showLink,
@@ -30,15 +34,24 @@ export default function Hero({
   imgAlt,
   localRoute,
 }: HeroProps) {
+  console.log(`Hero para :  `, paragraph);
+
   return (
     <div className="container">
       <section className="row mt-4 pt-4 justify-content-center">
         <div className="col-12 col-lg-6 order-lg-1 order-2 ">
-          <h1 className="text-center text-lg-start mb-4 pb-4 hero-h1-text">
-            {heading}{" "}
-          </h1>
-          <p>{paragraphOne}</p>
-          <p className="mt-4">{paragraphTwo}</p>
+          {heading && (
+            <h1 className="text-center text-lg-start mb-4 pb-4 hero-h1-text">
+              {heading}
+            </h1>
+          )}
+          <p>{paragraph}</p>
+          {descriptionList &&
+            descriptionList.map((desc, i) => (
+              <p key={i} className="mb-4">
+                {desc.para}
+              </p>
+            ))}
           <div className="row align-items-center mt-5">
             {showButton && (
               <div className="col-12 col-lg-4">

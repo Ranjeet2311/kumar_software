@@ -6,7 +6,7 @@ import Image from "next/image";
 import eyeOpen from "../../../assets/images/eye-open.png";
 import eyeClosed from "../../../assets/images/eye-closed.png";
 
-type signup = {
+type Signup = {
   firstName: string;
   lastName: string;
   contact: string;
@@ -19,7 +19,7 @@ export default function SignUpForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [signUpData, setSignUpData] = useState<signup>({
+  const [signUpData, setSignUpData] = useState<Signup>({
     firstName: "",
     lastName: "",
     contact: "",

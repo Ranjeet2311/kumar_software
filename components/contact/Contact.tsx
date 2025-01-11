@@ -43,7 +43,7 @@ export default function Contact({
               src={contact}
               style={{ width: "400px", height: "400px", objectFit: "contain" }}
               alt="contact"
-              className="d-none d-lg-block"
+              className="d-none d-lg-block mx-auto"
             />
           )}
 

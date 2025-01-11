@@ -1,12 +1,15 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+"use client";
+
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { sanitizeInput } from "@/utils/SanitizeInput";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 // import "./form.scss";
 import eyeOpen from "../../../assets/images/eye-open.png";
 import eyeClosed from "../../../assets/images/eye-closed.png";
+// import { useRouter } from "next/router";
 
-type logIn = {
+type LogIn = {
   email: string;
   password: string;
 };
@@ -16,20 +19,19 @@ export default function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [loginData, setLoginData] = useState<logIn>({
+  const [loginData, setLoginData] = useState<LogIn>({
     email: "",
     password: "",
   });
+  // const [isMounted, setIsMounted] = useState(false);
+
+  // const router = useRouter();
 
   const handlePasswordShow = () => setShowPassword(!showPassword);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const sanitizedValue: string = sanitizeInput(value);
-
-    // console.log(`name, value :: `, name, value);
-    // console.log(`sanitizedValue :: `, sanitizedValue);
-    // console.log(`loginData :: `, loginData);
 
     setLoginData((preVal) => {
       return { ...preVal, [name]: sanitizedValue };
@@ -58,15 +60,21 @@ export default function LoginForm() {
 
     setLoading(false);
 
+    console.log(`response.ok :  `, response.ok);
     if (response.ok) {
-      setMessage(result.message);
-      setLoginData({
-        email: "",
-        password: "",
-      });
-      console.log(`result.message after reset : `, result.message);
+      console.log(`if response.ok`);
 
-      redirect("/dashboard");
+      setMessage(result.message);
+      // setLoginData({
+      //   email: "",
+      //   password: "",
+      // });
+
+      console.log(`'router should begin`);
+      redirect("/dashboard"); // Navigate to the dashboard after login
+
+      console.log(`Navigating to dashboard...`);
+      // router.push("/dashboard"); // Navigate to the dashboard after login
     } else {
       setError(
         result.message ||

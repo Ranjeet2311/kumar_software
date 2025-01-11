@@ -23,7 +23,7 @@ export default function RelatedServices() {
             <Card
               img={image}
               title={title}
-              description={description.paraOne}
+              description={description[0].para}
               btnText="Read more"
               showBtn={true}
             />

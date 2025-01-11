@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
-import Contact from "@/models/Contact";
 import Authentication from "@/models/Auth";
 import { connectToDatabase } from "@/lib/mongodb";
+import { genSalt, hash } from "bcrypt";
 
 export async function POST(req: NextRequest) {
   await connectToDatabase();
@@ -17,12 +17,17 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Hash the password before saving
+
+    const salt = await genSalt(12); // Generate a salt
+    const hashPassword = await hash(password, salt);
+
     const newUser = new Authentication({
-      firstName,
-      lastName,
-      contact,
-      email,
-      password,
+      firstName: firstName,
+      lastName: lastName,
+      contact: contact,
+      email: email,
+      password: hashPassword,
     });
 
     await newUser.save();
