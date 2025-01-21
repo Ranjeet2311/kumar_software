@@ -9,7 +9,7 @@ import femaleAvatar from "../assets/images/avatar_female.png";
 
 export const servicesList = [
   {
-    title: "Custom App Development",
+    title: "App Development",
     description: [
       {
         para: "Our custom website development service focuses on creating beautifully designed, fast, and responsive websites that align perfectly with your business goals and vision. We utilize modern frontend technologies such as HTML, CSS, SCSS, and frameworks like Bootstrap, Tailwind CSS, and React to ensure pixel-perfect designs. With JavaScript and TypeScript, we ensure dynamic functionality and smooth user interactions.",
@@ -51,7 +51,7 @@ export const servicesList = [
     url: "/services/api-development",
   },
   {
-    title: "Node & PHP Backend Development",
+    title: "Node & PHP Development",
     description: [
       {
         para: "Our Node.js and PHP backend development services provide powerful, secure, and scalable solutions that ensure your applications run smoothly and efficiently. With Node.js and Express.js, we develop high-performance, asynchronous backend architectures that handle large-scale data and traffic. We also use PHP to build dynamic websites and web applications with secure backend infrastructure. Our team is skilled in working with various databases like MongoDB, SQL, and MySQL, ensuring efficient data storage and management.",
@@ -65,7 +65,7 @@ export const servicesList = [
     url: "/services/node-php-backend-development",
   },
   {
-    title: "WordPress Website Development",
+    title: "WordPress Development",
     description: [
       {
         para: "Leverage the power of WordPress for building highly customizable and manageable websites. Our WordPress development service includes creating both simple websites and complex, feature-rich web platforms. We specialize in developing custom WordPress themes and plugins to meet your unique business needs. Whether you require a blog, portfolio site, or a multi-functional business website, we ensure seamless integration with your branding and business requirements.",
@@ -78,7 +78,7 @@ export const servicesList = [
     url: "/services/wordpress-website-development",
   },
   {
-    title: "E-commerce Platform Development",
+    title: "E-commerce Development",
     description: [
       {
         para: "Create feature-rich, scalable e-commerce platforms that help your business grow and scale effortlessly. Our team specializes in developing e-commerce solutions using platforms like WooCommerce, Magento, and custom solutions tailored to your unique business needs. We ensure that your online store is built with a modern, mobile-responsive design that enhances the shopping experience. Our expertise includes integrating payment gateways, inventory management systems, product catalogs, and order fulfillment solutions for seamless operations.",

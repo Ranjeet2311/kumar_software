@@ -43,34 +43,36 @@ export default async function ServiceDetail({
   }
 
   return (
-    <div className="container top-padding ServiceDetail">
-      <SectionHeading
-        custom_class="mb-4 pb-2 pb-lg-4"
-        title="Services"
-        text={service.title}
-      />
-      <div className="service-hero">
-        <Hero
-          descriptionList={service.description}
-          showButton={false}
-          showLink={true}
-          linkUrl="/#contact"
-          linkText="Get in touch"
-          img={service.image}
-          imgAlt={service.title}
-          localRoute={true}
+    <>
+      <div className="container top-padding ServiceDetail">
+        <SectionHeading
+          custom_class="mb-4 pb-2 pb-lg-4"
+          title="Services"
+          text={service.title}
         />
+        <div className="service-hero">
+          <Hero
+            descriptionList={service.description}
+            showButton={false}
+            showLink={true}
+            linkUrl="/#contact"
+            linkText="Get in touch"
+            img={service.image}
+            imgAlt={service.title}
+            localRoute={true}
+          />
+        </div>
+        <Contact
+          showImage={false}
+          showForm={false}
+          showHeading={false}
+          showSubHeading={true}
+        />
+        {/* <RelatedServices /> */}
       </div>
-      <Contact
-        showImage={false}
-        showForm={false}
-        showHeading={false}
-        showSubHeading={true}
-      />
-      {/* <RelatedServices /> */}
       <div id="footer">
         <Footer />
       </div>
-    </div>
+    </>
   );
 }

@@ -42,7 +42,7 @@ export default function Card({
         <h5 className={`${classes.card_title} card-title my-2`}>{title}</h5>
         <hr />
         <p className="card-text">
-          {truncateText({ text: description || "", maxLength: 75 })}
+          {truncateText({ text: description || "", maxLength: 65 })}
         </p>
         {showBtn && (
           <Button

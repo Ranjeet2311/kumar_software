@@ -1,9 +1,10 @@
 @import "../../../app/css_variables.scss";
 
 .custom_card {
-  border-radius: 43px 43px 43px 43px !important;
+  border-radius: 43px !important;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
+  padding: 15px 15px 0 15px !important;
 
   &:hover {
     transition: all 0.4s ease-in;
@@ -37,6 +38,9 @@
     width: 100% !important;
     height: 200px;
     overflow: hidden;
+    border-radius: 32px !important;
+    // filter: drop-shadow(-2px 4px 12px $theme-text-color);
+    box-shadow: -1px 1px 4px $theme-text-color;
 
     .img {
       height: 100%;

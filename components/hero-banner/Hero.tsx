@@ -85,6 +85,9 @@ export default function Hero({
           </div>
         </div>
       </section>
+      <div className="bg-light text-center py-2 rounded-pill">
+        <h3 className="colored-text">!!! UNDER CONSTRUCTION !!!</h3>
+      </div>
     </div>
   );
 }
