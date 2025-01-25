@@ -71,10 +71,7 @@ export default function ContactForm() {
       console.log(`result.message after reset : `, result.message);
       console.log(`Form data after reset : `, formData);
     } else {
-      setError(
-        result.message ||
-          "Something went wrong. Please try again. We'll reachout to you asap"
-      );
+      setError(result.message || "Something went wrong. Please try again.");
     }
   };
 

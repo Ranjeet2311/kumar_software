@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
     // Find the user in the database
     const user = await Authentication.findOne({ email });
     // console.log(`user : ${user}`);
+
     const isPasswordMatch = await compare(password, user.password);
 
     // console.log(`isPasswordMatch :: `, isPasswordMatch);
@@ -37,14 +38,16 @@ export async function POST(req: NextRequest) {
     // Generate a JWT token
 
     type UserType = {
+      userId: string;
       firstName: string;
-      lasrName: string;
+      lastName: string;
       email: string;
     };
 
     const userInfo: UserType = {
+      userId: user._id,
       firstName: user.firstName,
-      lasrName: user.lastName,
+      lastName: user.lastName,
       email: user.email,
     };
 
@@ -53,15 +56,15 @@ export async function POST(req: NextRequest) {
         user: userInfo,
       },
       process.env.JWT_SECRET as string,
-      { expiresIn: "1d" }
+      { expiresIn: "3d" }
     );
 
-    // Set the token as an HTTP-only cookie
     const response = new NextResponse(
       JSON.stringify({ message: "Login successful" }),
       { status: 200 }
     );
 
+    // Set the token as an HTTP-only cookie
     response.cookies.set("authToken", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Use secure only in production

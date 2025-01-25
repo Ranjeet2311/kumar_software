@@ -416,13 +416,13 @@ a,
   padding: 40px 30px;
 
   .greeting {
-    border-radius: 43px;
-    border: 1px solid #1bb0c1;
-    background-color: white;
+    // border-radius: 43px;
+    // border: 1px solid #1bb0c1;
+    // background-color: white;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
+    // margin-left: 20px;
+    // margin-right: 20px;
   }
 
   .greeting-text {
@@ -442,6 +442,7 @@ a,
   box-shadow: 4px 4px 20px #b2b2b2;
   // padding-left: 0 !important;
   padding: 40px 30px 40px 0 !important;
+  min-height: 600px;
 
   .action-btn {
     @include fonts(16px, 20px, 500);

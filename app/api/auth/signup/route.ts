@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
       status: 201,
     });
   } catch (error) {
+    console.error("Error Sign up:", error);
     return new Response(
       JSON.stringify({
         message: "Internal server error, couldn't signup",

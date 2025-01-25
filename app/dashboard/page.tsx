@@ -3,11 +3,24 @@
 import Footer from "@/components/footer/Footer";
 import Chat from "@/components/Ui/chat/Chat";
 import Issue from "@/components/Ui/issue/Issue";
-import { cookies } from "next/headers";
+import NewIssue from "@/components/Ui/forms/NewIssue";
+import Profile from "@/components/Ui/profile/Profile";
 import { useState } from "react";
 
+type TabType = {
+  tabText: string;
+  tabType: string;
+};
+
+const tabs: TabType[] = [
+  { tabText: "All issues", tabType: "issue" },
+  { tabText: "Create new issue", tabType: "newIssue" },
+  { tabText: "Messages", tabType: "messages" },
+  { tabText: "User profile", tabType: "profile" },
+];
+
 export default function DashboardPage() {
-  const [selectIssues, setSelectIssues] = useState(true);
+  const [activeTab, setactiveTab] = useState("issue");
   // const cookieStore = cookies(); // No need for `await` here
   // const authToken = cookieStore.get("authToken").value;
 
@@ -24,10 +37,8 @@ export default function DashboardPage() {
     const tabType = event.currentTarget.dataset.tabtype;
     console.log(`tabType :: `, tabType);
 
-    const isChat = tabType === "chat";
-    const isIssue = tabType === "issue";
-    if (isChat || isIssue) {
-      setSelectIssues(isIssue);
+    if (tabType) {
+      setactiveTab(tabType);
     }
     // if (tabType === "issue") {
     //   setSelectIssues(true);
@@ -38,52 +49,30 @@ export default function DashboardPage() {
     <>
       <div className="container dashboard">
         <div className="row greeting">
-          <div className="col-6">
+          <div className="col-12">
             <h1 className="greeting-text text-center">
               Welcome to your dashboard
             </h1>
           </div>
-          <div className="col-6">
-            <div className="profile-wrap">
-              <p>Name : Kumar</p>
-              <p>Email : Kumar</p>
-            </div>
-          </div>
         </div>
         <div className="row swap-container">
           <div className="col-12 col-md-2 dashboard-nav d-flex flex-column">
-            <button
-              data-tabtype="issue"
-              className="btn action-btn"
-              onClick={tabSwitch}
-            >
-              All issues
-            </button>
-            <button
-              data-tabtype="issue"
-              className="btn action-btn"
-              onClick={tabSwitch}
-            >
-              Create new issue
-            </button>
-            <button
-              data-tabtype="chat"
-              className="btn action-btn"
-              onClick={tabSwitch}
-            >
-              Messages
-            </button>
+            {tabs.map((tab, i) => (
+              <button
+                key={tab.tabText + i}
+                data-tabtype={`${tab.tabType}`}
+                className="btn action-btn"
+                onClick={tabSwitch}
+              >
+                {tab.tabText}
+              </button>
+            ))}
           </div>
           <div className="col-12 col-md-9">
-            {selectIssues ? (
-              <div className="issues-container">
-                <Issue />
-              </div>
-            ) : (
-              <div className="chat-container">
-                <Chat />
-              </div>
-            )}
+            {activeTab === "issue" && <Issue />}
+            {activeTab === "messages" && <Chat />}
+            {activeTab === "newIssue" && <NewIssue />}
+            {activeTab === "profile" && <Profile />}
           </div>
         </div>
       </div>

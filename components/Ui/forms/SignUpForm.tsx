@@ -185,7 +185,7 @@ export default function SignUpForm() {
       <h5 className="mt-2">
         {message && (
           <p className="mt-4 text-center" style={{ color: "green" }}>
-            {message}, Logging in...
+            {message}, Please login now.
           </p>
         )}
         {error && (

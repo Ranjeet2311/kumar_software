@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
 
-const issues = [
+import React, { useEffect, useState } from "react";
+
+const userIssues = [
   {
     title: "Please help me with the new design of the app",
     description:
@@ -23,30 +25,79 @@ const issues = [
   },
 ];
 
+type Issue = {
+  _id: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  issue: string;
+  description: string;
+  progress: boolean;
+  completed: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export default function Issue() {
+  const [issues, setIssues] = useState<Issue[]>([]);
+
+  useEffect(() => {
+    async function fetchIssues() {
+      try {
+        const response = await fetch("api/issue/get", {
+          method: "GET",
+        });
+
+        // console.log(`response issues section : `, response);
+
+        const result = await response.json();
+        const data = result.data;
+
+        if (response.ok) {
+          console.log(`issue result data :: `, data[0]);
+          setIssues(data);
+          console.log(` useState issues array :: `, issues);
+        }
+
+        // console.log(response?.data);
+      } catch (error) {
+        console.error("Error in fetching issues: ", error);
+      }
+    }
+
+    fetchIssues();
+  }, []);
   return (
     <>
-      {issues.map((issue, i) => (
-        <>
-          <div className="col-12 issue" key={i + issue.title}>
-            <h4 className="title">
-              ⚒️ {issue.title}
-              <span className="createdBy ms-2">
-                created by: <i className="ms-1">John Doe at 03/2/2025</i>
-              </span>
-            </h4>
-            <p className="description">{issue.description}</p>
-            <div className="col-12 d-flex mt-2">
-              <div className="pill sucsess">⚙️ In Progress</div>
-              <div className="pill completed">✅ Completed</div>
+      {issues && issues.length < 0 ? (
+        <p>Start creating</p>
+      ) : (
+        issues.map((issue, i) => (
+          <>
+            <div className="col-12 issue" key={i + issue.issue}>
+              <h4 className="title">
+                ⚒️ {issue.issue}
+                <span className="createdBy ms-2">
+                  created by:
+                  <i className="ms-1">
+                    {issue.firstName + " " + issue.lastName} at{" "}
+                    {issue.createdAt}
+                  </i>
+                </span>
+              </h4>
+              <p className="description">{issue.description}</p>
+              <div className="col-12 d-flex mt-2">
+                <div className="pill sucsess">⚙️ In Progress</div>
+                <div className="pill completed">✅ Completed</div>
+              </div>
+              <div className="col-12 d-flex mt-3 issue-actions">
+                <button className="btn">📝 Update</button>
+                <button className="btn">🗑️ Delete</button>
+              </div>
             </div>
-            <div className="col-12 d-flex mt-3 issue-actions">
-              <button className="btn">📝 Update</button>
-              <button className="btn">🗑️ Delete</button>
-            </div>
-          </div>
-        </>
-      ))}
+          </>
+        ))
+      )}
     </>
   );
 }
