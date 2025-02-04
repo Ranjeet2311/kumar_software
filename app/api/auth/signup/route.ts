@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { firstName, lastName, contact, email, subject, password } = body;
+    const { firstName, lastName, contact, email, password } = body;
 
     if (!firstName || !lastName || !contact || !email || !password) {
       return new Response(
@@ -17,10 +17,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Ensure contact is stored as a string
+    const formattedContact = String(contact);
+
     // Hash the password before saving
 
     const salt = await genSalt(12); // Generate a salt
     const hashPassword = await hash(password, salt);
+
+    console.log(`Creating new user`);
 
     const newUser = new Authentication({
       firstName: firstName,
@@ -28,9 +33,14 @@ export async function POST(req: NextRequest) {
       contact: contact,
       email: email,
       password: hashPassword,
+      position: "",
     });
 
+    console.log(`before saving user`);
+
     await newUser.save();
+
+    console.log(`Saved new user`);
 
     return new Response(JSON.stringify({ message: "Sign up successfull!" }), {
       status: 201,

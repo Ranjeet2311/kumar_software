@@ -1,6 +1,7 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import NewIssue from "@/models/NewIssue";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 
@@ -9,6 +10,7 @@ type User = {
   firstName: string;
   lastName: string;
   userId: string;
+  position: string;
 };
 
 interface DecodedToken {
@@ -37,15 +39,29 @@ export async function GET(req: NextRequest) {
     }
     const decodedToken = jwt.decode(authCookie?.value) as DecodedToken | null;
     const userId = decodedToken?.user?.userId;
-    const issuesByUser = await NewIssue.find({ userId });
+    console.log(`get route all issues : `, decodedToken);
 
-    return new Response(
-      JSON.stringify({
-        message: "Issues fetched successfully",
-        data: issuesByUser,
-      }),
-      { status: 200 }
-    );
+    if (decodedToken?.user.position !== "admin") {
+      const issuesByUser = await NewIssue.find({
+        userId: new mongoose.Types.ObjectId(userId),
+      });
+      return new Response(
+        JSON.stringify({
+          message: "All user issues fetched successfully",
+          data: issuesByUser,
+        }),
+        { status: 200 }
+      );
+    } else {
+      const allIssues = await NewIssue.find({});
+      return new Response(
+        JSON.stringify({
+          message: "All admin issues fetched successfully",
+          data: allIssues,
+        }),
+        { status: 200 }
+      );
+    }
   } catch (error) {
     console.log(`error : `, error);
     return new Response(

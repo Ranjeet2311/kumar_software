@@ -115,7 +115,7 @@ export default function NewIssue() {
         const response = await fetch("/api/cookie");
         const data: string = await response.json();
 
-        console.log(`Token: `, data);
+        // console.log(`Token: `, data);
 
         if (data) {
           const decoded = jwt.decode(data) as DecodedToken | null;
@@ -123,7 +123,7 @@ export default function NewIssue() {
 
           if (decoded?.user) {
             const user = decoded.user;
-            console.log(`decoded.user: `, user);
+            // console.log(`decoded.user: `, user);
 
             setUser((prevUser) => {
               return {

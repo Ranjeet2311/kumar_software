@@ -1,20 +1,23 @@
 import mongoose, { Schema } from "mongoose";
+import { unique } from "next/dist/build/utils";
 
-export interface Iauth extends Document {
+export interface IAuth extends Document {
   firstName: string;
   lastName: string;
   contact: string;
   email: string;
   password: string;
+  position: "admin" | "";
 }
 
 const authSchema: Schema = new Schema(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    contact: { type: Number, required: true },
-    email: { type: String, required: true },
+    contact: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    position: { type: String, enum: ["admin", ""], required: false },
   },
   {
     timestamps: true,
@@ -22,5 +25,5 @@ const authSchema: Schema = new Schema(
 );
 
 const Authentication =
-  mongoose.models.Auth || mongoose.model<Iauth>("Auth", authSchema);
+  mongoose.models.Auth || mongoose.model<IAuth>("Auth", authSchema);
 export default Authentication;

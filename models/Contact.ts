@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-export interface Icontact extends Document {
+export interface IContact extends Document {
   firstName: string;
   lastName: string;
   contact: string;
@@ -25,5 +25,5 @@ const contactSchema: Schema = new Schema(
 
 const ContactForm =
   mongoose.models.ContactForm ||
-  mongoose.model<Icontact>("ContactForm", contactSchema);
+  mongoose.model<IContact>("ContactForm", contactSchema);
 export default ContactForm;

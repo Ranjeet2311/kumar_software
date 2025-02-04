@@ -54,9 +54,9 @@ export default function Issue() {
         const data = result.data;
 
         if (response.ok) {
-          console.log(`issue result data :: `, data[0]);
+          console.log(`issue result data :: `, data);
           setIssues(data);
-          console.log(` useState issues array :: `, issues);
+          // console.log(` useState issues array :: `, issues);
         }
 
         // console.log(response?.data);

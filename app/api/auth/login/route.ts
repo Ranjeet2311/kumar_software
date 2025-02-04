@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
       firstName: string;
       lastName: string;
       email: string;
+      position: string | "";
     };
 
     const userInfo: UserType = {
@@ -49,6 +50,7 @@ export async function POST(req: NextRequest) {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      position: user.position,
     };
 
     const token = sign(
