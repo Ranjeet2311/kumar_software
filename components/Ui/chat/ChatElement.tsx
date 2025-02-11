@@ -1,7 +1,4 @@
-import React from "react";
-import ChatForm from "../forms/ChatForm";
-
-export default function Chat() {
+export default function ChatElement() {
   return (
     <>
       <div className="chat-user col-12">
@@ -26,7 +23,6 @@ export default function Chat() {
           </p>
         </div>
       </div>
-      <ChatForm />
     </>
   );
 }

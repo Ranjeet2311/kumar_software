@@ -1,4 +1,5 @@
 import { connectToDatabase } from "@/lib/mongodb";
+import ChatModel from "@/models/Chat";
 import NewIssue from "@/models/NewIssue";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
@@ -25,7 +26,7 @@ export async function GET(req: NextRequest) {
   try {
     const cookiesInstance = await cookies();
     const authCookie = await cookiesInstance.get("authToken");
-    // console.log(`authCookie in get : `, authCookie);
+    console.log(`authCookie in get chat route: `, authCookie);
 
     if (!authCookie) {
       return new Response(
@@ -40,22 +41,26 @@ export async function GET(req: NextRequest) {
     // console.log(`get route all issues : `, decodedToken);
 
     if (decodedToken?.user.position !== "admin") {
-      const issuesByUser = await NewIssue.find({
-        userId: new mongoose.Types.ObjectId(userId),
+      const chatByUser = await ChatModel.find({
+        userId: userId,
       });
+      console.log(`chatByUser : `, chatByUser);
+
       return new Response(
         JSON.stringify({
-          message: "All user issues fetched successfully",
-          data: issuesByUser,
+          message: "All user messages fetched successfully",
+          data: chatByUser,
         }),
         { status: 200 }
       );
     } else {
-      const allIssues = await NewIssue.find({});
+      const allChats = await ChatModel.find({});
+      console.log(`allChats :: `, allChats);
+
       return new Response(
         JSON.stringify({
-          message: "All admin issues fetched successfully",
-          data: allIssues,
+          message: "All admin messages fetched successfully",
+          data: allChats,
         }),
         { status: 200 }
       );
@@ -64,7 +69,8 @@ export async function GET(req: NextRequest) {
     console.log(`error : `, error);
     return new Response(
       JSON.stringify({
-        message: "Internal server error, couldn't fetch issues created by user",
+        message:
+          "Internal server error, couldn't fetch chat messages created by user",
       }),
       { status: 500 }
     );

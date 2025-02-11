@@ -1,12 +1,16 @@
 "use client";
 
 import Footer from "@/components/footer/Footer";
-import Chat from "@/components/Ui/chat/Chat";
+import Chat from "@/components/Ui/chat/ChatElement";
 import Issue from "@/components/Ui/issue/Issue";
 import NewIssue from "@/components/Ui/forms/NewIssue";
+import Message from "@/components/message/Message";
 import Profile from "@/components/Ui/profile/Profile";
 import { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import { setAppUser } from "@/store/slices/userSlice";
 
 type TabType = {
   tabText: string;
@@ -17,6 +21,7 @@ type UserData = {
   lastName: string;
   userId: string;
   position: string;
+  email: string;
 };
 
 type User = {
@@ -47,21 +52,8 @@ export default function DashboardPage() {
     lastName: "",
     userId: "",
     position: "",
+    email: "",
   });
-
-  const tabSwitch = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const tabType = event.currentTarget.dataset.tabtype;
-    console.log(`tabType :: `, tabType);
-
-    if (tabType) {
-      setactiveTab(tabType);
-    }
-    // if (tabType === "issue") {
-    //   setSelectIssues(true);
-    // }
-  };
-
-  console.log(`user dashboard :: `, user);
 
   useEffect(() => {
     async function fetchToken() {
@@ -86,11 +78,13 @@ export default function DashboardPage() {
                 lastName: user.lastName,
                 userId: user.userId,
                 position: user.position,
+                email: user.email,
               };
             });
 
-            console.log(`setting user: `, user);
-            // console.log(`setting user position: `, user.position);
+            dispatch(setAppUser(user));
+
+            console.log(`setting User from token on page : `, user);
           } else {
             console.error("Invalid decoded user data");
           }
@@ -105,13 +99,28 @@ export default function DashboardPage() {
     fetchToken();
   }, []);
 
+  const dispatch = useDispatch<AppDispatch>();
+  const userData = useSelector((state: RootState) => state.user.user);
+
+  console.log(`userData :: `, userData);
+
+  const tabSwitch = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const tabType = event.currentTarget.dataset.tabtype;
+    console.log(`tabType :: `, tabType);
+
+    if (tabType) {
+      setactiveTab(tabType);
+    }
+  };
+
   return (
     <>
       <div className="container dashboard">
         <div className="row greeting">
           <div className="col-12">
             <h1 className="greeting-text text-center">
-              Welcome {user.firstName} {user.position} to your dashboard
+              Welcome {userData?.firstName} {userData?.position} to your
+              dashboard
             </h1>
           </div>
         </div>
@@ -130,7 +139,7 @@ export default function DashboardPage() {
           </div>
           <div className="col-12 col-md-9">
             {activeTab === "issue" && <Issue />}
-            {activeTab === "messages" && <Chat />}
+            {activeTab === "messages" && <Message />}
             {activeTab === "newIssue" && <NewIssue />}
             {activeTab === "profile" && <Profile />}
           </div>

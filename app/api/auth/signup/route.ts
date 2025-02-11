@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       contact: contact,
       email: email,
       password: hashPassword,
-      position: "",
+      position: "user",
     });
 
     console.log(`before saving user`);

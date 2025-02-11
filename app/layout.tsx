@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "@/components/navbar/Navbar";
+import { ReduxProvider } from "@/store/slices/provider";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -34,8 +35,10 @@ export default function RootLayout({
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="app-wrap container-fluid px-0">{children}</div>
+        <ReduxProvider>
+          <Navbar />
+          <div className="app-wrap container-fluid px-0">{children}</div>
+        </ReduxProvider>
       </body>
     </html>
   );
