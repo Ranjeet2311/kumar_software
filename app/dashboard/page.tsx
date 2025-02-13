@@ -1,16 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Footer from "@/components/footer/Footer";
-import Chat from "@/components/Ui/chat/ChatElement";
 import Issue from "@/components/Ui/issue/Issue";
 import NewIssue from "@/components/Ui/forms/NewIssue";
 import Message from "@/components/message/Message";
 import Profile from "@/components/Ui/profile/Profile";
-import { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { setAppUser } from "@/store/slices/userSlice";
+import { useRouter } from "next/router"; // Import from next/router, not next/navigation
 
 type TabType = {
   tabText: string;
@@ -45,7 +45,7 @@ const tabs: TabType[] = [
 ];
 
 export default function DashboardPage() {
-  const [activeTab, setactiveTab] = useState("issue");
+  const [activeTab, setActiveTab] = useState("issue");
   const [error, setError] = useState<string | null>(null);
   const [user, setUser] = useState<UserData>({
     firstName: "",
@@ -55,7 +55,18 @@ export default function DashboardPage() {
     email: "",
   });
 
+  // -------------------------
+
+  // const router = useRouter();
+  // const { tab } = router.query; // Get query parameters
+
+  // -----------------
+
   useEffect(() => {
+    // if (tab) {
+    //   setActiveTab(tab as string); // Set tab based on URL if present
+    // }
+
     async function fetchToken() {
       try {
         const response = await fetch("/api/cookie");
@@ -109,7 +120,8 @@ export default function DashboardPage() {
     console.log(`tabType :: `, tabType);
 
     if (tabType) {
-      setactiveTab(tabType);
+      setActiveTab(tabType);
+      // router.push(`?tab=${tabType}`, { scroll: false }); // Update URL without page reload
     }
   };
 

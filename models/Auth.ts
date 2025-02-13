@@ -7,7 +7,7 @@ export interface IAuth extends Document {
   contact: string;
   email: string;
   password: string;
-  position: "admin" | "";
+  position: "admin" | "user";
 }
 
 const authSchema: Schema = new Schema(
@@ -17,7 +17,7 @@ const authSchema: Schema = new Schema(
     contact: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    position: { type: String, enum: ["admin", ""], required: false },
+    position: { type: String, enum: ["admin", "user"], required: false },
   },
   {
     timestamps: true,

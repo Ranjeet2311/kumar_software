@@ -10,6 +10,7 @@ export default function ChatForm() {
   const [sending, setSending] = useState<boolean>(false);
 
   const user = useSelector((state: RootState) => state.user.user);
+  const userChatId = useSelector((state: RootState) => state.chat.chatId);
 
   console.log(`chat user, userData: `, user);
 
@@ -24,13 +25,25 @@ export default function ChatForm() {
     setSending(true);
     setMessage(null);
 
-    const newMessage = {
-      userId: user?.userId,
-      firstName: user?.firstName,
-      lastName: user?.lastName,
-      position: user?.position,
-      textMessage: chatMessage,
-    };
+    let newMessage;
+
+    if (user?.position === "admin") {
+      newMessage = {
+        userId: userChatId,
+        firstName: user?.firstName,
+        lastName: user?.lastName,
+        position: user?.position,
+        textMessage: chatMessage,
+      };
+    } else {
+      newMessage = {
+        userId: user?.userId,
+        firstName: user?.firstName,
+        lastName: user?.lastName,
+        position: user?.position,
+        textMessage: chatMessage,
+      };
+    }
 
     const response = await fetch("/api/chat/postChat", {
       method: "POST",

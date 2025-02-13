@@ -587,3 +587,10 @@ a,
   color: black !important;
   background: white;
 }
+
+// ----------chatbox------
+
+.chatbox-wrap {
+  max-height: 600px;
+  overflow-y: scroll;
+}
