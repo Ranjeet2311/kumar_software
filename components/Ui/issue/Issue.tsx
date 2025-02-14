@@ -1,31 +1,4 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-
-const userIssues = [
-  {
-    title: "Please help me with the new design of the app",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolore nam perspiciatis consectetur dolorem hic voluptatum necessitatibus debitis consequatur fugit numquam, cupiditate minus sapiente consequuntur rem facilis quidem cumque! Nam?",
-  },
-  {
-    title: "Add new database",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolore nam perspiciatis consectetur dolorem hic voluptatum necessitatibus debitis consequatur fugit numquam, cupiditate minus sapiente consequuntur rem facilis quidem cumque! Nam?",
-  },
-  {
-    title: "Contact messages not received",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolore nam perspiciatis consectetur dolorem hic voluptatum necessitatibus debitis consequatur fugit numquam, cupiditate minus sapiente consequuntur rem facilis quidem cumque! Nam?",
-  },
-  {
-    title: "Need yearly maintenance",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolore nam perspiciatis consectetur dolorem hic voluptatum necessitatibus debitis consequatur fugit numquam, cupiditate minus sapiente consequuntur rem facilis quidem cumque! Nam?",
-  },
-];
-
-type Issue = {
+interface Issues {
   _id: string;
   userId: string;
   firstName: string;
@@ -36,43 +9,19 @@ type Issue = {
   completed: boolean;
   createdAt: string;
   updatedAt: string;
-};
+}
 
-export default function Issue() {
-  const [issues, setIssues] = useState<Issue[]>([]);
+interface IssueProps {
+  issuesList: Issues[];
+}
 
-  useEffect(() => {
-    async function fetchIssues() {
-      try {
-        const response = await fetch("api/issue/get", {
-          method: "GET",
-        });
-
-        // console.log(`response issues section : `, response);
-
-        const result = await response.json();
-        const data = result.data;
-
-        if (response.ok) {
-          // console.log(`issue result data :: `, data);
-          setIssues(data);
-          // console.log(` useState issues array :: `, issues);
-        }
-
-        // console.log(response?.data);
-      } catch (error) {
-        console.error("Error in fetching issues: ", error);
-      }
-    }
-
-    fetchIssues();
-  }, []);
+export default function Issue({ issuesList }: IssueProps) {
   return (
     <>
-      {issues && issues.length < 0 ? (
+      {issuesList && issuesList.length < 0 ? (
         <p>Start creating</p>
       ) : (
-        issues.map((issue, i) => (
+        issuesList.map((issue, i) => (
           <>
             <div className="col-12 issue" key={i + issue.issue}>
               <h4 className="title">

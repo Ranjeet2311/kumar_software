@@ -1,11 +1,13 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
-import ChatForm from "../Ui/forms/ChatForm";
-import ChatElement from "../Ui/chat/ChatElement";
-import ChatUsers from "../Ui/chatUser/ChatUsers";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
 import { setUserChat } from "@/store/slices/chatSlice";
 import { AppDispatch } from "@/store/store";
+import ChatUsers from "@/components/Ui/chatUser/ChatUsers";
+import ChatElement from "@/components/Ui/chat/ChatElement";
+import ChatForm from "@/components/Ui/forms/ChatForm";
 
 type Chat = {
   sender: string;
@@ -22,20 +24,23 @@ interface User {
   updatedAt: string;
 }
 
-export default function Message() {
+export default function MessagesPage() {
   const [chats, setChats] = useState<User[]>([]);
   const user = useSelector((state: RootState) => state.user.user);
-
+  const chatList = useSelector((state: RootState) => state.chat.chats);
   const dispatch = useDispatch<AppDispatch>();
+
+  // console.log(`message chat list from store: `, chatList);
 
   useEffect(() => {
     async function fetchAllChats() {
       try {
-        const response = await fetch("api/chat/getChat", {
+        const response = await fetch("/api/chat/getChat", {
           method: "GET",
         });
-
         const result = await response.json();
+
+        // console.log(`fetch all chats result : `, result);
 
         if (!response.ok) {
           throw new Error(
@@ -44,8 +49,7 @@ export default function Message() {
         }
         setChats(result.data);
 
-        console.log(`all chat data : `, result.data);
-        console.log(`chat user chat : `, chats);
+        // console.log(`chat user chat : `, chats);
       } catch (error) {
         console.error(`ChatUser component error  :`, error);
       }
@@ -53,12 +57,11 @@ export default function Message() {
 
     fetchAllChats();
   }, []);
-
   useEffect(() => {
     if (chats.length > 0) {
       dispatch(setUserChat(chats));
     }
-    console.log(`chat dispatched`);
+    // console.log(`chat dispatched`);
   }, [chats, dispatch]);
 
   return (
@@ -66,7 +69,7 @@ export default function Message() {
       <div className="row">
         {user?.position === "admin" && (
           <div className="col-12 col-lg-4">
-            <ChatUsers />
+            <ChatUsers users={chats} />
           </div>
         )}
         <div className="col-12 col-lg-8">

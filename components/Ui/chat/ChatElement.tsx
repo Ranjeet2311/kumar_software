@@ -11,15 +11,15 @@ export default function ChatElement() {
     (state: RootState) => state.chat.selectedChat
   );
 
-  console.log(`chat element getUserChat: `, getUserChat);
-  console.log(`chat element getUserPosition: `, getUserPosition);
+  // console.log(`chat element getUserChat: `, getUserChat);
+  // console.log(`chat element getUserPosition: `, getUserPosition);
 
   const chatList =
     getUserPosition === "admin"
       ? getSelectedChat.flatMap((chat, i) => chat.chatlist)
       : getUserChat.flatMap((chat, i) => chat.chatlist);
 
-  console.log(`chatList :: `, chatList);
+  // console.log(`chatList :: `, chatList);
 
   return (
     <>

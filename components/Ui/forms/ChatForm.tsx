@@ -12,7 +12,7 @@ export default function ChatForm() {
   const user = useSelector((state: RootState) => state.user.user);
   const userChatId = useSelector((state: RootState) => state.chat.chatId);
 
-  console.log(`chat user, userData: `, user);
+  // console.log(`chat user, userData: `, user);
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -54,8 +54,8 @@ export default function ChatForm() {
     });
 
     const result = await response.json();
-    console.log(`chat response :: `, response);
-    console.log(`chat result :: `, result);
+    // console.log(`chat response :: `, response);
+    // console.log(`chat result :: `, result);
 
     if (response.ok) {
       console.log("Message sent successfully");

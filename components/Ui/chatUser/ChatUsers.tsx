@@ -18,25 +18,23 @@ interface User {
   updatedAt: string;
 }
 
-export default function ChatUsers() {
-  const dispatch = useDispatch();
+interface chatProps {
+  users: User[];
+}
 
+export default function ChatUsers({ users }: chatProps) {
+  const dispatch = useDispatch();
   const selectedChat = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e.currentTarget.dataset.tabtype);
-    console.log(e.currentTarget.value);
-    const selectedUserTab = e.currentTarget.dataset.tabtype as string;
+    const selectedUserTab = e.currentTarget.dataset.tabtype ?? "";
+    // Use ?? when you only want to check for null or undefined.
     dispatch(setChatId(selectedUserTab));
   };
 
-  const getUser = useSelector((state: RootState) => state.chat.chats);
-
-  console.log(` user list :`, getUser);
-
   return (
     <ul>
-      {getUser.length > 0 ? (
-        getUser &&
-        getUser.map((chat, i) => (
+      {users.length ? (
+        users &&
+        users.map((chat, i) => (
           <li key={`${chat.userName + chat.updatedAt}`}>
             <button
               onClick={selectedChat}

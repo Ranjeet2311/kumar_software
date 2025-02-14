@@ -134,7 +134,7 @@ export default function NewIssue() {
               };
             });
 
-            console.log(`setting user: `, user);
+            // console.log(`setting user: `, user);
           } else {
             console.error("Invalid decoded user data");
           }
