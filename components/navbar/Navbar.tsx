@@ -8,6 +8,9 @@ import logo from "../../assets/images/logo1.png";
 import burger from "../../assets/images/buger.svg";
 import close from "../../assets/images/close.svg";
 import facebook from "../../assets/images/facebook-front.png";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import useAuthCheck from "@/hooks/useAuthCheck";
 
 const menuLinks = [
   { name: "Home", url: "/#home" },
@@ -31,21 +34,13 @@ const menuLinks = [
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
-  // const [showDropDown, setShowDropDown] = useState(false);
+  const user = useSelector((state: RootState) => state.user.user);
+
+  useAuthCheck();
 
   const clickHandler = () => {
-    setShowMenu(!showMenu);
+    setShowMenu((prev) => !prev);
   };
-
-  // const handleMouseEnter = () => {
-  //   console.log("Mouse Enter");
-  //   return setShowDropDown(true);
-  // };
-
-  // const handleMouseLeave = () => {
-  //   console.log("Mouse leave");
-  //   return setShowDropDown(false);
-  // };
 
   useEffect(() => {
     setShowMenu(false);
@@ -58,16 +53,6 @@ export default function Navbar() {
           <Image className="logo-image" src={logo} alt="logo" />
         </Link>
         <div onClick={clickHandler} className="burger-menu">
-          {/* <Image
-            src={close}
-            alt="close-icon"
-            className={showMenu ? "" : "hidden"}
-          />
-          <Image
-            src={burger}
-            alt="menu-icons"
-            className={!showMenu ? "" : "hidden"}
-          /> */}
           {showMenu ? (
             <Image src={close} alt="close-icon" />
           ) : (
@@ -78,10 +63,7 @@ export default function Navbar() {
           <ul className={showMenu ? "menu-list" : "menu-list-close"}>
             {menuLinks.map((link) => {
               return (
-                <li
-                  key={link.url}
-                  // onClick={link.dropdown ? handleMouseEnter : null}
-                >
+                <li key={link.url}>
                   <Link
                     onClick={() => {
                       setShowMenu(!showMenu);
@@ -90,21 +72,10 @@ export default function Navbar() {
                   >
                     {link.name}
                   </Link>
-                  {/* {showDropDown && link.dropdown && (
-                      <ul className="dropdown" onMouseLeave={handleMouseLeave}>
-                        {link.dropdown.map((link) => (
-                          <DropDown key={link.name}>
-                            <li>
-                              <Link href={link.url}> {link.name} </Link>
-                            </li>
-                          </DropDown>
-                        ))}
-                      </ul>
-                    )} */}
                 </li>
               );
             })}
-            <li>
+            {/* <li>
               <a
                 href="https://www.facebook.com/SoftSmartServices1"
                 target="_blank"
@@ -112,7 +83,12 @@ export default function Navbar() {
               >
                 <Image src={facebook} alt="facebook-link" width={30} />
               </a>
-            </li>
+            </li> */}
+            {user && user?.userId && (
+              <li>
+                <Link href="/dashboard">👤 Dashboard</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

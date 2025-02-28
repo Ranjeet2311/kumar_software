@@ -34,8 +34,6 @@ export default function Hero({
   imgAlt,
   localRoute,
 }: HeroProps) {
-  console.log(`Hero para :  `, paragraph);
-
   return (
     <div className="container">
       <section className="row mt-4 pt-4 justify-content-center">

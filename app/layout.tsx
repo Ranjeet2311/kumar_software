@@ -4,6 +4,7 @@ import "./globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "@/components/navbar/Navbar";
 import { ReduxProvider } from "@/store/slices/provider";
+import { ReactNode, useEffect } from "react";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

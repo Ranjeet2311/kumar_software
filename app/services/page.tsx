@@ -1,5 +1,5 @@
-import React from "react";
+import { redirect } from "next/navigation";
 
 export default function ServiceDetail() {
-  return <div>service page</div>;
+  redirect("/#services");
 }

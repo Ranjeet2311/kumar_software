@@ -1,16 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignUpForm from "@/components/Ui/forms/SignUpForm";
 import LoginForm from "@/components/Ui/forms/LogInForm";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import Image from "next/image";
 import authImage from "../../assets/images/Secure-login.png";
 import Footer from "@/components/footer/Footer";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { redirect } from "next/navigation";
 
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
   const [showSignUp, setShowSignUp] = useState(false);
+
+  const user = useSelector((state: RootState) => state.user.user);
 
   const loginHandle = () => {
     console.log(`loginHandle`);
@@ -23,16 +28,17 @@ export default function Auth() {
     setShowSignUp(true);
   };
 
+  useEffect(() => {
+    console.log(`user auth : `, user);
+
+    if (user?.userId) {
+      redirect("/dashboard");
+    }
+  }, [user]);
+
   return (
     <>
       <div className="container auth-page h-100">
-        <div className="row">
-          {/* <SectionHeading
-          title="Thank you for trusting us"
-          text="Use your login email and password to create a support ticket"
-          custom_class="w-100"
-        /> */}
-        </div>
         <div className="row outer-wrap justify-content-center align-items-center">
           <div className="col-12 col-lg-7 form-section">
             <div className="row mt-4">
