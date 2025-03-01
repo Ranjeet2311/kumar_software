@@ -58,11 +58,11 @@ export default function ChatForm() {
     // console.log(`chat result :: `, result);
 
     if (response.ok) {
+      setChatMessage("");
       console.log("Message sent successfully");
       setSending(false);
       setMessage(result.message);
       setError(null);
-      // setChatMessage("");
     } else {
       console.error("Error:", result.message);
       setError(result.message);
@@ -83,7 +83,7 @@ export default function ChatForm() {
             <textarea
               className="form-control"
               id="exampleFormControlTextarea1"
-              rows={4}
+              rows={2}
               name="message"
               value={chatMessage}
               onChange={handleChange}

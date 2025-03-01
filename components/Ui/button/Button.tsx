@@ -19,8 +19,6 @@ export default function Button({
   customClass,
   localRoute,
 }: ButtonProps) {
-  console.log("button : ", button);
-
   if (button) {
     return (
       <button className={`"btn ${mode} ${customClass}`}> {children} </button>

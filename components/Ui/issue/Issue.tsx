@@ -22,8 +22,8 @@ export default function Issue({ issuesList }: IssueProps) {
         <p>Start creating</p>
       ) : (
         issuesList.map((issue, i) => (
-          <>
-            <div className="col-12 issue" key={i + issue.issue}>
+          <div className="issue row" key={i + issue.issue}>
+            <div className="col-10">
               <h4 className="title">
                 ⚒️ {issue.issue}
                 <span className="createdBy ms-2">
@@ -35,16 +35,14 @@ export default function Issue({ issuesList }: IssueProps) {
                 </span>
               </h4>
               <p className="description">{issue.description}</p>
-              <div className="col-12 d-flex mt-2">
-                <div className="pill sucsess">⚙️ In Progress</div>
-                <div className="pill completed">✅ Completed</div>
-              </div>
-              <div className="col-12 d-flex mt-3 issue-actions">
-                <button className="btn">📝 Update</button>
-                <button className="btn">🗑️ Delete</button>
-              </div>
             </div>
-          </>
+            <div className="col-2 d-flex mt-2 flex-column">
+              <div className="pill sucsess">Proceed</div>
+              <div className="pill completed">Done</div>
+              <button className="pill edit">Edit</button>
+              <button className="pill edit">Delete</button>
+            </div>
+          </div>
         ))
       )}
     </>

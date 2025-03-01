@@ -38,7 +38,7 @@ export default function Auth() {
 
   return (
     <>
-      <div className="container auth-page h-100">
+      <div className="container auth-page">
         <div className="row outer-wrap justify-content-center align-items-center">
           <div className="col-12 col-lg-7 form-section">
             <div className="row mt-4">

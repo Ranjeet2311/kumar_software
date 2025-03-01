@@ -8,11 +8,8 @@ import { setAppUser } from "@/store/slices/userSlice";
 import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import Sidebar from "@/components/sidebar/Sidebar";
 
-type TabType = {
-  name: string;
-  path: string;
-};
 type UserData = {
   firstName: string;
   lastName: string;
@@ -34,12 +31,14 @@ interface DecodedToken {
   user: User;
 }
 
-const tabs: TabType[] = [
-  { name: "All issues", path: "/dashboard/issues" },
-  { name: "Create new issue", path: "/dashboard/new-issue" },
-  { name: "Messages", path: "/dashboard/messages" },
-  { name: "User profile", path: "/dashboard/profile" },
-];
+// const tabs: TabType[] = [
+//   { name: "All issues", path: "/dashboard/issues" },
+//   { name: "Create new issue", path: "/dashboard/new-issue" },
+//   { name: "Completed issues", path: "/dashboard/issues" },
+//   { name: "Progressing issues", path: "/dashboard/issues" },
+//   { name: "Messages", path: "/dashboard/messages" },
+//   { name: "User profile", path: "/dashboard/profile" },
+// ];
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [error, setError] = useState<string | null>(null);
@@ -58,36 +57,18 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     <>
       <div className="container dashboard">
         <div className="row greeting">
-          <div className="col-12">
-            <h1 className="greeting-text text-center">
+          {/* <div className="col-12">
+            <h1 className="greeting-text text-start">
               {userData?.firstName
                 ? `Welcome ${userData?.firstName} ${userData?.position} to your
                 dashboard`
                 : "No user in store"}
             </h1>
-          </div>
+          </div> */}
         </div>
-        <div className="row swap-container">
-          <div className="col-12 col-md-2 dashboard-nav d-flex flex-column">
-            {tabs.map((tab, i) => (
-              <Link
-                key={tab.path}
-                // data-tabtype={`${tab.tabType}`}
-                className="btn action-btn"
-                // onClick={tabSwitch}
-                href={tab.path}
-              >
-                {tab.name}
-              </Link>
-            ))}
-          </div>
-          <div className="col-12 col-md-9">
-            {children}
-            {/* {activeTab === "issue" && <Issue />}
-            {activeTab === "messages" && <Message />}
-            {activeTab === "newIssue" && <NewIssue />}
-            {activeTab === "profile" && <Profile />} */}
-          </div>
+        <div className="row">
+          <Sidebar />
+          <div className="col-12 col-md-8 ms-md-4">{children}</div>
         </div>
       </div>
       <Footer />

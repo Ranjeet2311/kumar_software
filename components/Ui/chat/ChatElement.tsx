@@ -27,7 +27,11 @@ export default function ChatElement() {
         chatList.map((chat, i) => {
           return (
             <div className="chat-user col-12" key={chat.timestamps}>
-              <div className="col-12 col-md-2 user">🥑 {chat.sender} </div>
+              <div className="col-12 col-md-2 ">
+                <p className="avatar">
+                  {chat.sender.slice(0, 4).toUpperCase()}
+                </p>
+              </div>
               <div className="col-12 col-md-10">
                 <p className="message">{chat.message}</p>
                 {chat.timestamps}

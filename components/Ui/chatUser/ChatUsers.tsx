@@ -31,7 +31,7 @@ export default function ChatUsers({ users }: chatProps) {
   };
 
   return (
-    <ul>
+    <ul className="user_chat_list">
       {users.length ? (
         users &&
         users.map((chat, i) => (
@@ -39,7 +39,7 @@ export default function ChatUsers({ users }: chatProps) {
             <button
               onClick={selectedChat}
               data-tabtype={chat.userId}
-              className="w-100 mb-2"
+              className="w-100 mb-2 btn_main"
               value={chat.userName}
             >
               {chat.userName}

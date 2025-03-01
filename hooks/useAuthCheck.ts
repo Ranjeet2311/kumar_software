@@ -25,7 +25,7 @@ export default function useAuthCheck() {
 
   const path = usePathname();
   const router = useRouter();
-  console.log(`params : `, path);
+  // console.log(`params : `, path);
 
   useEffect(() => {
     async function checkAuth() {
@@ -36,7 +36,7 @@ export default function useAuthCheck() {
         const response = await fetch("/api/cookie");
         const data: string = await response.json();
 
-        console.log(`useAuthCheck found  :: `, data);
+        // console.log(`useAuthCheck found  :: `, data);
 
         if (!data) {
           dispatch(setAppUser(null));
@@ -45,11 +45,11 @@ export default function useAuthCheck() {
 
         const decoded = jwt.decode(data) as DecodedToken | null;
 
-        console.log(`useAuthCheck decoded :: `, decoded);
+        // console.log(`useAuthCheck decoded :: `, decoded);
 
         if (decoded?.user) {
           const currentTime = Math.floor(Date.now() / 1000);
-          console.log(`currentTime :: `, currentTime);
+          // console.log(`currentTime :: `, currentTime);
 
           // if (decoded.exp < currentTime) {
           //   throw new Error("Token expired");
@@ -62,7 +62,7 @@ export default function useAuthCheck() {
           throw new Error("Invalid decoded user data");
         }
 
-        console.log("useAuthCheck try running");
+        // console.log("useAuthCheck try running");
       } catch (error: unknown) {
         // error instanceof Error: a type guard that ensures the error is actually an Error object before accessing properties like message.
 
