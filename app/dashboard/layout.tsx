@@ -81,13 +81,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </div>
-          <div className="col-12 col-md-9">
-            {children}
-            {/* {activeTab === "issue" && <Issue />}
-            {activeTab === "messages" && <Message />}
-            {activeTab === "newIssue" && <NewIssue />}
-            {activeTab === "profile" && <Profile />} */}
-          </div>
+          <div className="col-12 col-md-9">{children}</div>
         </div>
       </div>
       <Footer />

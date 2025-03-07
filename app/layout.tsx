@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "@/components/navbar/Navbar";
 import { ReduxProvider } from "@/store/slices/provider";
 import { ReactNode, useEffect } from "react";
+import ChakraClientWrapper from "@/components/ChakraClientWrapper";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -33,12 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <ReduxProvider>
-          <Navbar />
-          <div className="app-wrap container-fluid px-0">{children}</div>
+          <ChakraClientWrapper>
+            <Navbar />
+            <div className="app-wrap container-fluid px-0">{children}</div>
+          </ChakraClientWrapper>
         </ReduxProvider>
       </body>
     </html>
