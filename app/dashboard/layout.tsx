@@ -54,7 +54,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   // const dispatch = useDispatch<AppDispatch>();
   const userData = useSelector((state: RootState) => state.user.user);
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <>
@@ -69,11 +69,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             </h1>
           </div>
         </div> */}
-        <div className="row swap-container">
+        <div className="row">
           {/* Sidebar */}
           <div
             className={`dashboard-sidebar ${
-              isExpanded ? "col-md-2" : "col-md-1"
+              isExpanded ? "col-sm-2" : "col-sm-1"
             }`}
           >
             <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />

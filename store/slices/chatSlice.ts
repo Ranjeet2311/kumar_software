@@ -32,7 +32,7 @@ const chatSlice = createSlice({
 
   reducers: {
     setUserChat: (state, action: PayloadAction<userChat[]>) => {
-      console.log(`action user chat : `, action.payload);
+      // console.log(`action user chat : `, action.payload);
 
       state.chats = action.payload;
     },

@@ -1,42 +1,63 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { ElementType, useEffect, useState } from "react";
 import Link from "next/link";
 import "./navbar.scss";
 import Image from "next/image";
 import logo from "../../assets/images/logo1.png";
-import burger from "../../assets/images/buger.svg";
-import close from "../../assets/images/close.svg";
-import facebook from "../../assets/images/facebook-front.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import useAuthCheck from "@/hooks/useAuthCheck";
+import {
+  AlignJustify,
+  X,
+  House,
+  ChartNetwork,
+  PanelLeftDashed,
+  Wallet,
+  MessageCircleHeart,
+  Contact,
+  LayoutDashboard,
+  LogOut,
+  LogIn,
+} from "lucide-react";
+import { usePathname } from "next/navigation";
+import useLogout from "@/hooks/useLogout";
 
-const menuLinks = [
-  { name: "Home", url: "/#home" },
+type linksType = {
+  name: string;
+  url: string;
+  icon: ElementType;
+};
+
+const menuLinks: linksType[] = [
+  { name: "Home", url: "/#home", icon: House },
   {
     name: "Services",
     url: "/#services",
-    dropdown: [
-      { name: "Web Apps", url: "#services" },
-      { name: "Frontend Codes", url: "#services" },
-      { name: "API Development", url: "#services" },
-      { name: "Node & PHP Backend", url: "#services" },
-      { name: "WordPress Websites", url: "#services" },
-      { name: "E-commerce Platform", url: "#services" },
-    ],
+    icon: ChartNetwork,
+    // dropdown: [
+    //   { name: "Web Apps", url: "#services", icon: House },
+    //   { name: "Frontend Codes", url: "#services", icon: House },
+    //   { name: "API Development", url: "#services", icon: House },
+    //   { name: "Node & PHP Backend", url: "#services", icon: House },
+    //   { name: "WordPress Websites", url: "#services", icon: House },
+    //   { name: "E-commerce Platform", url: "#services", icon: House },
+    // ],
   },
-  { name: "Process", url: "/#process" },
-  { name: "Plans", url: "/#plans" },
-  { name: "Feedbacks", url: "/#feedback" },
-  { name: "Contact", url: "/#contact" },
+  { name: "Process", url: "/#process", icon: PanelLeftDashed },
+  { name: "Plans", url: "/#plans", icon: Wallet },
+  { name: "Feedbacks", url: "/#feedback", icon: MessageCircleHeart },
+  { name: "Contact", url: "/#contact", icon: Contact },
 ];
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((state: RootState) => state.user.user);
-
   useAuthCheck();
+
+  const path = usePathname();
+  const logout = useLogout();
 
   const clickHandler = () => {
     setShowMenu((prev) => !prev);
@@ -54,32 +75,69 @@ export default function Navbar() {
         </Link>
         <div onClick={clickHandler} className="burger-menu">
           {showMenu ? (
-            <Image src={close} alt="close-icon" />
+            <X size={36} strokeWidth={1.75} />
           ) : (
-            <Image src={burger} alt="menu-icons" />
+            <AlignJustify size={28} strokeWidth={1.5} />
           )}
         </div>
         <nav>
           <ul className={showMenu ? "menu-list" : "menu-list-close"}>
-            {menuLinks.map((link) => {
+            {menuLinks.map(({ name, url, icon: Icon }) => {
               return (
-                <li key={link.url}>
+                <li key={url} className="text-start">
                   <Link
                     onClick={() => {
                       setShowMenu(!showMenu);
                     }}
-                    href={link.url}
+                    href={url}
                   >
-                    {link.name}
+                    <Icon
+                      size={18}
+                      strokeWidth={1.75}
+                      className="me-2 d-inline"
+                    />
+                    <span>{name}</span>
                   </Link>
                 </li>
               );
             })}
-            {user && user?.userId && (
+            {user ? (
+              <>
+                {!path.startsWith("/dashboard") && (
+                  <li>
+                    <Link href={`${user?.userId ? "/dashboard" : "/auth"}`}>
+                      <LayoutDashboard
+                        size={18}
+                        strokeWidth={1.75}
+                        className="me-2 d-inline"
+                      />
+                      <span>Dashboard</span>
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <button onClick={() => logout()}>
+                    <LogOut
+                      size={18}
+                      strokeWidth={1.75}
+                      className="me-2 d-inline"
+                    />
+                    <span> Logout</span>
+                  </button>
+                </li>
+              </>
+            ) : !path.startsWith("/auth") ? (
               <li>
-                <Link href="/dashboard">👤 Dashboard</Link>
+                <Link href="/auth">
+                  <LogIn
+                    size={18}
+                    strokeWidth={1.75}
+                    className="me-2 d-inline"
+                  />
+                  <span>Login</span>
+                </Link>
               </li>
-            )}
+            ) : null}
           </ul>
         </nav>
       </div>

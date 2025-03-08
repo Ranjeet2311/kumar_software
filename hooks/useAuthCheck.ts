@@ -25,11 +25,11 @@ export default function useAuthCheck() {
 
   const path = usePathname();
   const router = useRouter();
-  console.log(`params : `, path);
+  // console.log(`params : `, path);
 
   useEffect(() => {
     async function checkAuth() {
-      if (path === "/") return; // Skip home page
+      // if (path === "/") return; // Skip home page
       // if (user?.userId) return; // Skip if user is already authenticated
 
       try {
@@ -40,6 +40,7 @@ export default function useAuthCheck() {
 
         if (!data) {
           dispatch(setAppUser(null));
+          console.log(`No token in auth check`);
           throw new Error("No token found");
         }
 
@@ -49,22 +50,24 @@ export default function useAuthCheck() {
 
         if (decoded?.user) {
           const currentTime = Math.floor(Date.now() / 1000);
-          console.log(`currentTime :: `, currentTime);
+          // console.log(`currentTime :: `, currentTime);
 
           // if (decoded.exp < currentTime) {
           //   throw new Error("Token expired");
           // }
-
+          // console.log(`setting user in auth check`);
           dispatch(setAppUser(decoded.user));
         } else {
           dispatch(setAppUser(null));
-          router.push("/auth");
+          // router.push("/auth");
+          // console.log(`Setting user to null in auth check`);
           throw new Error("Invalid decoded user data");
         }
 
         console.log("useAuthCheck try running");
       } catch (error: unknown) {
         // error instanceof Error: a type guard that ensures the error is actually an Error object before accessing properties like message.
+        console.log(`Error in useAuthCheck ::: `, error);
 
         if (error instanceof Error) {
           if (error.message === "No token found") {
@@ -78,16 +81,18 @@ export default function useAuthCheck() {
           console.error("An unexpected error occurred", error);
         }
         dispatch(setAppUser(null));
-        router.push("/auth");
+        // router.push("/auth");
+
+        // if (path === "/" && path.startsWith("/services") && path !== "/auth") {
+        //   console.log("Redirecting to /auth");
+        //   router.push("/auth");
+        // }
+
         console.log("useAuthCheck catch running");
       }
     }
 
     checkAuth();
-
-    const handleRouteChange = () => {
-      checkAuth();
-    };
 
     const authInterval = setInterval(checkAuth, 10000);
     console.log("useAuthCheck running");

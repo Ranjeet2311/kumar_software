@@ -19,7 +19,7 @@ export default function Button({
   customClass,
   localRoute,
 }: ButtonProps) {
-  console.log("button : ", button);
+  // console.log("button : ", button);
 
   if (button) {
     return (

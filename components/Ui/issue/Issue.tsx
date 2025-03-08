@@ -17,13 +17,13 @@ interface IssueProps {
 
 export default function Issue({ issuesList }: IssueProps) {
   return (
-    <>
+    <div className="row">
       {issuesList && issuesList.length < 0 ? (
         <p>Start creating</p>
       ) : (
         issuesList.map((issue, i) => (
           <>
-            <div className="col-12 issue" key={i + issue.issue}>
+            <div className="col-11 col-lg-6 issue" key={i + issue.issue}>
               <h4 className="title">
                 ⚒️ {issue.issue}
                 <span className="createdBy ms-2">
@@ -47,6 +47,6 @@ export default function Issue({ issuesList }: IssueProps) {
           </>
         ))
       )}
-    </>
+    </div>
   );
 }

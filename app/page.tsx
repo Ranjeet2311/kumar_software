@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import LogInBar from "@/components/login-bar/LogInBar";
 
 export default function Home() {
-  console.log("runs: Main page.tsx");
+  // console.log("runs: Main page.tsx");
 
   return (
     <main>

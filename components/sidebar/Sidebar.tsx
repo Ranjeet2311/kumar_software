@@ -1,9 +1,12 @@
 "use client";
 
 import { ElementType } from "react";
-import { Home, MessageSquare, Menu, User } from "lucide-react";
+import { Home, MessageSquare, Menu, User, LogOut } from "lucide-react";
+import { Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./Sidebr.module.scss";
+import Button from "../Ui/button/Button";
+import useLogout from "@/hooks/useLogout";
 
 type TabType = {
   name: string;
@@ -24,6 +27,8 @@ export default function Sidebar({
   isExpanded: boolean;
   setIsExpanded: (expanded: boolean) => void;
 }) {
+  const logout = useLogout();
+
   return (
     <div className={`d-flex ${styles.layout_}`}>
       <div
@@ -50,6 +55,17 @@ export default function Sidebar({
               </span>
             </Link>
           ))}
+          <hr />
+          <button
+            onClick={() => logout()}
+            className={`nav-link text-light ${styles.menuItem}`}
+          >
+            {/* <Logout className="me-2" /> */}
+            <LogOut className="me-2" />
+            <span className={`${isExpanded ? "d-inline" : "d-none"}`}>
+              Logout
+            </span>
+          </button>
         </nav>
       </div>
     </div>

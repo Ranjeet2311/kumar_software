@@ -44,27 +44,6 @@ $screen-xxl: 1399px;
 
 // -----------------
 
-@mixin lg-992px {
-  @media (max-width: 992px) {
-    @content;
-  }
-}
-@mixin mid-768px {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-@mixin small-600px {
-  @media (max-width: 600px) {
-    @content;
-  }
-}
-@mixin extra-sm-425px {
-  @media (max-width: 425px) {
-    @content;
-  }
-}
-
 $gradient-background-primary: linear-gradient(
   338deg,
   #faa343 2.79%,
