@@ -8,6 +8,7 @@ import { setAppUser } from "@/store/slices/userSlice";
 import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import Sidebar from "@/components/sidebar/Sidebar";
 
 type TabType = {
   name: string;
@@ -53,11 +54,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   // const dispatch = useDispatch<AppDispatch>();
   const userData = useSelector((state: RootState) => state.user.user);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <>
       <div className="container dashboard">
-        <div className="row greeting">
+        {/* <div className="row greeting">
           <div className="col-12">
             <h1 className="greeting-text text-center">
               {userData?.firstName
@@ -66,22 +68,25 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 : "No user in store"}
             </h1>
           </div>
-        </div>
+        </div> */}
         <div className="row swap-container">
-          <div className="col-12 col-md-2 dashboard-nav d-flex flex-column">
-            {tabs.map((tab, i) => (
-              <Link
-                key={tab.path}
-                // data-tabtype={`${tab.tabType}`}
-                className="btn action-btn"
-                // onClick={tabSwitch}
-                href={tab.path}
-              >
-                {tab.name}
-              </Link>
-            ))}
+          {/* Sidebar */}
+          <div
+            className={`dashboard-sidebar ${
+              isExpanded ? "col-md-2" : "col-md-1"
+            }`}
+          >
+            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
           </div>
-          <div className="col-12 col-md-9">{children}</div>
+
+          {/* Main Content */}
+          <div
+            className={`dashboard-content ${
+              isExpanded ? "col-md-10" : "col-md-11"
+            }`}
+          >
+            {children}
+          </div>
         </div>
       </div>
       <Footer />

@@ -47,8 +47,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="top-wrap">
-      <div className="Navbar-wrap container">
+    <div className="Navbar_wrap">
+      <div className="Navbar container">
         <Link href="/" className="logo">
           <Image className="logo-image" src={logo} alt="logo" />
         </Link>
@@ -75,15 +75,6 @@ export default function Navbar() {
                 </li>
               );
             })}
-            {/* <li>
-              <a
-                href="https://www.facebook.com/SoftSmartServices1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image src={facebook} alt="facebook-link" width={30} />
-              </a>
-            </li> */}
             {user && user?.userId && (
               <li>
                 <Link href="/dashboard">👤 Dashboard</Link>

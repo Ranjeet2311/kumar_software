@@ -1,7 +1,7 @@
 @use "../../app/globals.scss" as *;
 @use "../../app/css_variables.scss";
 
-.top-wrap {
+.Navbar_wrap {
   position: fixed;
   top: 18px;
   left: 0;
@@ -9,7 +9,7 @@
   padding: 6px 0;
   z-index: 999;
 
-  .Navbar-wrap {
+  .Navbar {
     padding: 6px 12px;
     display: flex;
     justify-content: space-between;
