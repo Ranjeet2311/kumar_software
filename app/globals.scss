@@ -428,6 +428,19 @@ a,
   .greeting-text {
     @include fonts(36px, 44px, 600);
   }
+
+  .broad_sidebar {
+    width: 30% !important;
+  }
+  .narrow_sidebar {
+    width: 15% !important;
+  }
+  .broad_content {
+    width: 85% !important;
+  }
+  .narrow_content {
+    width: 65% !important;
+  }
 }
 
 // .dashboard-nav {
@@ -479,6 +492,9 @@ a,
   border-radius: 12px;
   background: white;
   transition: all 0.3s ease-in-out;
+  height: fit-content;
+  cursor: pointer;
+  position: relative;
 
   // @include lg {
   //   max-width: 460px !important;

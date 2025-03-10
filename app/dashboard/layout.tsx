@@ -56,38 +56,40 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const userData = useSelector((state: RootState) => state.user.user);
   const [isExpanded, setIsExpanded] = useState(false);
 
+  useEffect(() => {
+    console.log(`user auth : `, userData);
+
+    if (!userData?.userId) {
+      redirect("/auth");
+    }
+  }, [userData]);
+
   return (
     <>
       <div className="container dashboard">
-        {/* <div className="row greeting">
-          <div className="col-12">
-            <h1 className="greeting-text text-center">
-              {userData?.firstName
-                ? `Welcome ${userData?.firstName} ${userData?.position} to your
-                dashboard`
-                : "No user in store"}
-            </h1>
-          </div>
-        </div> */}
-        <div className="row">
-          {/* Sidebar */}
-          <div
-            className={`dashboard-sidebar ${
-              isExpanded ? "col-sm-2" : "col-sm-1"
-            }`}
-          >
-            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
-          </div>
+        {userData ? (
+          <div className="row">
+            {/* Sidebar */}
+            <div
+              className={`dashboard-sidebar ${
+                isExpanded ? "broad_sidebar" : "narrow_sidebar"
+              }`}
+            >
+              <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+            </div>
 
-          {/* Main Content */}
-          <div
-            className={`dashboard-content ${
-              isExpanded ? "col-md-10" : "col-md-11"
-            }`}
-          >
-            {children}
+            {/* Main Content */}
+            <div
+              className={`dashboard-content ${
+                isExpanded ? "narrow_content" : "broad_content"
+              }`}
+            >
+              {children}
+            </div>
           </div>
-        </div>
+        ) : (
+          <p>Loading</p>
+        )}
       </div>
       <Footer />
     </>

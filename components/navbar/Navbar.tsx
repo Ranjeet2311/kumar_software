@@ -105,7 +105,10 @@ export default function Navbar() {
               <>
                 {!path.startsWith("/dashboard") && (
                   <li>
-                    <Link href={`${user?.userId ? "/dashboard" : "/auth"}`}>
+                    <Link
+                      href={`${user?.userId ? "/dashboard" : "/auth"}`}
+                      onClick={() => setShowMenu(!showMenu)}
+                    >
                       <LayoutDashboard
                         size={18}
                         strokeWidth={1.75}
@@ -115,7 +118,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                 )}
-                <li>
+                <li onClick={() => setShowMenu(!showMenu)}>
                   <button onClick={() => logout()}>
                     <LogOut
                       size={18}
@@ -128,7 +131,7 @@ export default function Navbar() {
               </>
             ) : !path.startsWith("/auth") ? (
               <li>
-                <Link href="/auth">
+                <Link href="/auth" onClick={() => setShowMenu(!showMenu)}>
                   <LogIn
                     size={18}
                     strokeWidth={1.75}

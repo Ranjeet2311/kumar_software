@@ -1,7 +1,14 @@
 "use client";
 
 import { ElementType } from "react";
-import { Home, MessageSquare, Menu, User, LogOut } from "lucide-react";
+import {
+  LayoutDashboard,
+  Bug,
+  MessagesSquare,
+  Menu,
+  ShieldUser,
+  LogOut,
+} from "lucide-react";
 import { Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./Sidebr.module.scss";
@@ -15,9 +22,10 @@ type TabType = {
 };
 
 const tabs: TabType[] = [
-  { name: "All issues", path: "/dashboard/issues", icon: Home },
-  { name: "Messages", path: "/dashboard/messages", icon: MessageSquare },
-  { name: "User stats", path: "/dashboard/stats", icon: User },
+  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { name: "Issues", path: "/dashboard/issues", icon: Bug },
+  { name: "Messages", path: "/dashboard/messages", icon: MessagesSquare },
+  { name: "Profile", path: "/dashboard/profile", icon: ShieldUser },
 ];
 
 export default function Sidebar({
@@ -45,6 +53,7 @@ export default function Sidebar({
         <nav className="nav flex-column px-0">
           {tabs.map(({ name, path, icon: Icon }) => (
             <Link
+              // onClick={() => setIsExpanded(!isExpanded)}
               key={name}
               href={path}
               className={`nav-link text-light ${styles.menuItem}`}
