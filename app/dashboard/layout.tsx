@@ -44,6 +44,9 @@ const tabs: TabType[] = [
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [error, setError] = useState<string | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   // const [user, setUser] = useState<UserData>({
   //   firstName: "",
   //   lastName: "",
@@ -54,15 +57,22 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   // const dispatch = useDispatch<AppDispatch>();
   const userData = useSelector((state: RootState) => state.user.user);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     console.log(`user auth : `, userData);
+
+    if (userData?.userId) {
+      setLoading(false);
+    }
 
     if (!userData?.userId) {
       redirect("/auth");
     }
   }, [userData]);
+
+  if (loading) {
+    return <p className="text-center mt-5">Loading...</p>;
+  }
 
   return (
     <>

@@ -1,6 +1,8 @@
 import { RootState } from "@/store/store";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Avatar, For, HStack } from "@chakra-ui/react";
+import { ShieldUser } from "lucide-react";
 
 export default function ChatElement() {
   const getUserChat = useSelector((state: RootState) => state.chat.chats);
@@ -26,8 +28,20 @@ export default function ChatElement() {
       {chatList &&
         chatList.map((chat, i) => {
           return (
-            <div className="chat-user col-12" key={chat.timestamps}>
-              <div className="col-12 col-md-2 user">🥑 {chat.sender} </div>
+            <div className="chat-list col-12" key={chat.timestamps}>
+              <div className="col-12 col-md-2 user">
+                {/* 🥑 {chat.sender} */}
+                <Avatar.Root>
+                  <Avatar.Fallback>
+                    {chat.sender === "admin" ? (
+                      <ShieldUser size={30} />
+                    ) : (
+                      chat.sender
+                    )}
+                  </Avatar.Fallback>
+                  {/* <Avatar.Image src="https://bit.ly/broken-link" /> */}
+                </Avatar.Root>
+              </div>
               <div className="col-12 col-md-10">
                 <p className="message">{chat.message}</p>
                 {chat.timestamps}

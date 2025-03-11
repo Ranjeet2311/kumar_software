@@ -6,7 +6,7 @@ import {
   Bug,
   MessagesSquare,
   Menu,
-  ShieldUser,
+  User,
   LogOut,
 } from "lucide-react";
 import { Icon } from "@chakra-ui/react";
@@ -25,7 +25,7 @@ const tabs: TabType[] = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { name: "Issues", path: "/dashboard/issues", icon: Bug },
   { name: "Messages", path: "/dashboard/messages", icon: MessagesSquare },
-  { name: "Profile", path: "/dashboard/profile", icon: ShieldUser },
+  { name: "Profile", path: "/dashboard/profile", icon: User },
 ];
 
 export default function Sidebar({

@@ -66,13 +66,13 @@ export default function MessagesPage() {
 
   return (
     <>
-      <div className="row">
+      <div className="row chat_section">
         {user?.position === "admin" && (
-          <div className="col-12 col-lg-4">
+          <div className="col-lg-3 user_list px-0">
             <ChatUsers users={chats} />
           </div>
         )}
-        <div className="col-12 col-lg-8">
+        <div className="col-lg-9">
           <div className="chatbox-wrap">
             <ChatElement />
           </div>

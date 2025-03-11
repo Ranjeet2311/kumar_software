@@ -83,7 +83,7 @@ export default function ChatForm() {
             <textarea
               className="form-control"
               id="exampleFormControlTextarea1"
-              rows={4}
+              rows={3}
               name="message"
               value={chatMessage}
               onChange={handleChange}

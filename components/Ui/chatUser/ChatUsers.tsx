@@ -24,18 +24,21 @@ interface chatProps {
 
 export default function ChatUsers({ users }: chatProps) {
   const dispatch = useDispatch();
-  const selectedChat = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const selectedChat = (e: React.MouseEvent<HTMLElement>) => {
     const selectedUserTab = e.currentTarget.dataset.tabtype ?? "";
     // Use ?? when you only want to check for null or undefined.
     dispatch(setChatId(selectedUserTab));
   };
 
   return (
-    <ul>
+    <ul className="chat_user_list px-0">
       {users.length ? (
         users &&
         users.map((chat, i) => (
-          <li key={`${chat.userName + chat.updatedAt}`}>
+          <li
+            className="chat_user_btn"
+            key={`${chat.userName + chat.updatedAt}`}
+          >
             <button
               onClick={selectedChat}
               data-tabtype={chat.userId}

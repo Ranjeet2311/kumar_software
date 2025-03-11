@@ -14,6 +14,7 @@ import { redirect } from "next/navigation";
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const user = useSelector((state: RootState) => state.user.user);
 
@@ -29,12 +30,20 @@ export default function Auth() {
   };
 
   useEffect(() => {
-    console.log(`user auth : `, user);
+    console.log(`user auth page: `, user);
+
+    if (user !== undefined) {
+      setLoading(false);
+    }
 
     if (user?.userId) {
       redirect("/dashboard");
     }
   }, [user]);
+
+  if (loading) {
+    return <p className="text-center mt-5">Loading...</p>;
+  }
 
   return (
     <>
