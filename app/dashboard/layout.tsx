@@ -9,6 +9,7 @@ import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import Sidebar from "@/components/sidebar/Sidebar";
+import Loader from "@/components/Loader";
 
 type TabType = {
   name: string;
@@ -71,13 +72,23 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   }, [userData]);
 
   if (loading) {
-    return <p className="text-center mt-5">Loading...</p>;
+    return (
+      <div className="container dashboard d-flex justify-content-center ">
+        <div className="row">
+          <div className="col-12">
+            <p className="text-center mt-5 mx-auto">
+              <Loader size="lg" />
+            </p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
     <>
       <div className="container dashboard">
-        {userData ? (
+        {userData && (
           <div className="row">
             {/* Sidebar */}
             <div
@@ -97,8 +108,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               {children}
             </div>
           </div>
-        ) : (
-          <p>Loading</p>
         )}
       </div>
       <Footer />

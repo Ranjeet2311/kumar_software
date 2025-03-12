@@ -1,8 +1,10 @@
 "use client";
 
+import Loader from "@/components/Loader";
 import Issue from "@/components/Ui/issue/Issue";
 import { setIssues } from "@/store/slices/issuesSlice";
 import { AppDispatch, RootState } from "@/store/store";
+import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -37,10 +39,17 @@ export default function IssuesPage() {
 
   return (
     <div>
-      {issuesList.length > 0 ? (
+      {issuesList && issuesList.length > 0 ? (
         <Issue issuesList={issuesList} />
       ) : (
-        "No issue list found"
+        <div className="text-center">
+          <p>
+            No issues found.
+            <Link className="ms-1" href="/dashboard/add-issue">
+              create it now
+            </Link>
+          </p>
+        </div>
       )}
     </div>
   );

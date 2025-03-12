@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { setChatId, setUserChat } from "@/store/slices/chatSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "@/components/Loader";
 
 type Chat = {
   sender: string;
@@ -32,8 +33,7 @@ export default function ChatUsers({ users }: chatProps) {
 
   return (
     <ul className="chat_user_list px-0">
-      {users.length ? (
-        users &&
+      {users && users.length ? (
         users.map((chat, i) => (
           <li
             className="chat_user_btn"
@@ -50,7 +50,9 @@ export default function ChatUsers({ users }: chatProps) {
           </li>
         ))
       ) : (
-        <p>No chats available.</p>
+        <p>
+          <Loader size="md" />
+        </p>
       )}
     </ul>
   );

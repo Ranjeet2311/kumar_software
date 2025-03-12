@@ -31,12 +31,8 @@ export default function Card({
 
   return (
     <div className={`${classes.custom_card} card my-2 h-100`}>
-      <div className={classes.card_img}>
-        {img ? (
-          <Image className={classes.img} src={img} alt="Card image" />
-        ) : (
-          <p>No image available</p>
-        )}
+      <div className={img && classes.card_img}>
+        {img && <Image className={classes.img} src={img} alt="Card image" />}
       </div>
       <div className={`${classes.card_body} card-body`}>
         <h5 className={`${classes.card_title} card-title my-2`}>{title}</h5>

@@ -1,5 +1,15 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { truncateText } from "@/utils/Truncate";
+import { Badge } from "@chakra-ui/react";
+import {
+  CircleAlert,
+  Wrench,
+  CircleCheckBig,
+  Settings2,
+  Trash2,
+} from "lucide-react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 interface Issues {
   _id: string;
@@ -23,11 +33,44 @@ export default function Issue({ issuesList }: IssueProps) {
     null
   );
 
-  // function handleDescLenght(e: React.MouseEvent<HTMLDivElement>) {
-  //   console.log(e.currentTarget);
-  //   console.log(e.currentTarget.children[1]);
-  //   setExpandDescription(!expandDescription);
-  // }
+  const user = useSelector((state: RootState) => state.user.user);
+
+  // console.log(`issue user: `, user);
+
+  function handleExpand(id: string) {
+    if (expandDescription === id) {
+      setExpandDescription(null);
+      return;
+    }
+    setExpandDescription(id);
+  }
+
+  async function handleStatus(issueId: string, tag: string) {
+    console.log("In handle-Progress");
+
+    try {
+      const response = await fetch("/api/issue/update", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ issueId: issueId, tag: tag }),
+      });
+      console.log(`issue update response : `, response);
+
+      const result = await response.json();
+      console.log("Issue update result:", result);
+    } catch (error) {
+      console.log(`error : `, error);
+    }
+  }
+
+  function handleUpdate(e: React.MouseEvent<HTMLElement>) {
+    console.log("In handle-Update");
+  }
+  function handleDelete(e: React.MouseEvent<HTMLElement>) {
+    console.log("In handle-Delete");
+  }
 
   return (
     <div className="row">
@@ -35,42 +78,105 @@ export default function Issue({ issuesList }: IssueProps) {
         <p>Start creating</p>
       ) : (
         issuesList.map((issue, i) => (
-          <>
+          <Fragment key={issue._id}>
             <div
               key={issue._id}
-              onMouseEnter={() => {
-                setExpandDescription(issue._id);
-              }}
-              onMouseLeave={() => {
-                setExpandDescription(null);
-              }}
+              onClick={() => handleExpand(issue._id)}
               className="col-11 col-lg-6 issue"
             >
+              {/* <p> {issue._id} </p> */}
               <h4 className="title">
-                ⚒️ {issue.issue}
-                <span className="createdBy ms-2">
-                  created by:
-                  <i className="ms-1">
-                    {issue.firstName + " " + issue.lastName} at{" "}
-                    {issue.createdAt}
-                  </i>
-                </span>
+                <CircleAlert />
+                <span className="d-block mt-2"> {issue.issue}</span>
               </h4>
+              {/* <hr /> */}
+              <h3 className="createdBy">
+                created by:
+                <i className="ms-1">
+                  {issue.firstName + " " + issue.lastName} at {issue.createdAt}
+                </i>
+              </h3>
               <p className="description">
                 {expandDescription === issue._id
                   ? issue.description
                   : truncateText({ text: issue.description, maxLength: 60 })}
               </p>
-              <div className="col-12 d-flex mt-2">
-                <div className="pill sucsess">⚙️ In Progress</div>
-                <div className="pill completed">✅ Completed</div>
+              {(issue.progress || issue.completed) && <hr />}
+              <div className="my-2">
+                {issue.progress && (
+                  <Badge
+                    size="sm"
+                    className="pill"
+                    variant="solid"
+                    colorPalette="accent"
+                  >
+                    <Wrench size={16} className="me-1" />
+                    <span>In Progress</span>
+                  </Badge>
+                )}
+                {issue.completed && (
+                  <Badge
+                    size="sm"
+                    className="pill"
+                    variant="solid"
+                    colorPalette="green"
+                  >
+                    <CircleCheckBig size={16} className="me-1" />
+                    <span>Completed</span>
+                  </Badge>
+                )}
               </div>
-              <div className="col-12 d-flex mt-3 issue-actions">
-                <button className="btn">📝 Update</button>
-                <button className="btn">🗑️ Delete</button>
-              </div>
+
+              {user && user.position === "admin" && (
+                <div className="col-12 d-flex flex-wrap mt-2">
+                  <div onClick={() => handleStatus(issue._id, "inProgress")}>
+                    <Badge
+                      size="sm"
+                      className="pill"
+                      variant="solid"
+                      colorPalette="accent"
+                    >
+                      <Wrench size={16} className="me-1" />
+                      <span>In Progress</span>
+                    </Badge>
+                  </div>
+                  <div onClick={() => handleStatus(issue._id, "completed")}>
+                    <Badge
+                      size="sm"
+                      className="pill"
+                      variant="solid"
+                      colorPalette="green"
+                    >
+                      <CircleCheckBig size={16} className="me-1" />
+                      <span>Completed</span>
+                    </Badge>
+                  </div>
+                  <button onClick={handleUpdate}>
+                    <Badge
+                      size="sm"
+                      className="pill"
+                      variant="solid"
+                      colorPalette="cyan"
+                    >
+                      <Settings2 size={16} className="me-1" />
+                      <span>Update</span>
+                    </Badge>
+                  </button>
+                  <button onClick={handleDelete}>
+                    <Badge
+                      size="sm"
+                      className="pill"
+                      variant="solid"
+                      colorPalette="pink"
+                    >
+                      <Trash2 size={16} className="me-1" />
+                      <span>Delete</span>
+                    </Badge>
+                  </button>
+                </div>
+              )}
             </div>
-          </>
+          </Fragment>
         ))
       )}
     </div>

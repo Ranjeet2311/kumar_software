@@ -520,22 +520,22 @@ a,
   }
 }
 
-.issue-actions {
-  .btn {
-    @include fonts(14px, 16px, 500);
-    border: none;
-    border-radius: 43px;
-    padding: 6px 16px;
-    box-shadow: -2px 4px 6px rgb(203, 203, 203);
-    margin-right: 10px;
-    transition: all 0.3s ease-in-out;
+// .issue-actions {
+//   .btn {
+//     @include fonts(14px, 16px, 500);
+//     border: none;
+//     border-radius: 43px;
+//     padding: 6px 16px;
+//     box-shadow: -2px 4px 6px rgb(203, 203, 203);
+//     margin-right: 10px;
+//     transition: all 0.3s ease-in-out;
 
-    &:hover {
-      background-color: #31b5c2;
-      color: white;
-    }
-  }
-}
+//     &:hover {
+//       background-color: #31b5c2;
+//       color: white;
+//     }
+//   }
+// }
 
 // -------chat section -------------
 
@@ -657,10 +657,8 @@ a,
 
 .pill {
   margin: 6px 4px;
-  padding: 4px 16px;
+  padding: 6px 16px;
   border-radius: 20px;
-  line-height: 18px;
-  font-size: 12px;
   max-width: fit-content;
   list-style: none;
   text-align: center;
@@ -668,25 +666,30 @@ a,
   border: none;
   box-shadow: -2px 2px 4px rgb(203, 203, 203);
   @include fonts(12px, 16px, 600);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: -3px 2px 6px rgb(86, 87, 87);
+  }
 }
-.sucsess {
-  color: white !important;
-  background: -webkit-linear-gradient(
-    to right,
-    rgb(48, 113, 28),
-    rgb(48, 113, 28),
-    rgb(48, 113, 28)
-  );
-  background: linear-gradient(
-    to right,
-    rgb(48, 113, 28),
-    rgb(48, 113, 28),
-    rgb(48, 113, 28)
-  );
-}
-.completed {
-  color: black !important;
-  background: white;
-}
+// .sucsess {
+//   color: white !important;
+//   background: -webkit-linear-gradient(
+//     to right,
+//     rgb(48, 113, 28),
+//     rgb(48, 113, 28),
+//     rgb(48, 113, 28)
+//   );
+//   background: linear-gradient(
+//     to right,
+//     rgb(48, 113, 28),
+//     rgb(48, 113, 28),
+//     rgb(48, 113, 28)
+//   );
+// }
+// .completed {
+//   color: black !important;
+//   background: white;
+// }
 
 // ----------chatbox------

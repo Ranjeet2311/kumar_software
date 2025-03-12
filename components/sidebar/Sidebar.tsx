@@ -4,6 +4,7 @@ import { ElementType } from "react";
 import {
   LayoutDashboard,
   Bug,
+  BadgeAlert,
   MessagesSquare,
   Menu,
   User,
@@ -24,6 +25,7 @@ type TabType = {
 const tabs: TabType[] = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { name: "Issues", path: "/dashboard/issues", icon: Bug },
+  { name: "Add issue", path: "/dashboard/add-issue", icon: BadgeAlert },
   { name: "Messages", path: "/dashboard/messages", icon: MessagesSquare },
   { name: "Profile", path: "/dashboard/profile", icon: User },
 ];

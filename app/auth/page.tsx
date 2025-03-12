@@ -10,6 +10,7 @@ import Footer from "@/components/footer/Footer";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { redirect } from "next/navigation";
+import Loader from "@/components/Loader";
 
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
@@ -42,7 +43,13 @@ export default function Auth() {
   }, [user]);
 
   if (loading) {
-    return <p className="text-center mt-5">Loading...</p>;
+    return (
+      <div className="container auth-page h-100">
+        <p className="text-center mt-5">
+          <Loader />{" "}
+        </p>
+      </div>
+    );
   }
 
   return (
