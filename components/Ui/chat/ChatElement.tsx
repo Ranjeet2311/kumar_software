@@ -10,12 +10,16 @@ export default function ChatElement() {
   const getUserPosition = useSelector(
     (state: RootState) => state.user.user?.position
   );
+  const user = useSelector((state: RootState) => state.user.user);
   const getSelectedChat = useSelector(
     (state: RootState) => state.chat.selectedChat
   );
 
-  // console.log(`chat element getUserChat: `, getUserChat);
-  // console.log(`chat element getUserPosition: `, getUserPosition);
+  console.log(`chat user : `, user);
+
+  const selectedUser = getSelectedChat.map(
+    (chat, i) => chat.userName.substring(0, 2).toUpperCase() + ".."
+  );
 
   const chatList =
     getUserPosition === "admin"
@@ -26,31 +30,49 @@ export default function ChatElement() {
 
   return (
     <>
-      {chatList && chatList.length
+      {chatList && chatList.length > 0
         ? chatList.map((chat, i) => {
             return (
-              <div className="chat-list col-12" key={chat.timestamps}>
-                <div className="col-12 col-md-2 user">
-                  {/* 🥑 {chat.sender} */}
-                  <Avatar.Root>
-                    <Avatar.Fallback>
-                      {chat.sender === "admin" ? (
-                        <ShieldUser size={30} />
+              <>
+                <div className="chat-list col-12" key={chat.timestamps}>
+                  <div className="row px-0 ps-1 d-flex align-items-center">
+                    <div className="user px-0">
+                      {user?.position === "admin" ? (
+                        <Avatar.Root>
+                          <Avatar.Fallback>
+                            {chat.sender === "admin" && (
+                              <ShieldUser size={30} />
+                            )}
+                            {chat.sender === "user" &&
+                              selectedUser &&
+                              selectedUser}
+                          </Avatar.Fallback>
+                        </Avatar.Root>
                       ) : (
-                        chat.sender
+                        <Avatar.Root>
+                          <Avatar.Fallback>
+                            {chat.sender === "admin" && (
+                              <ShieldUser size={30} />
+                            )}
+                            {chat.sender === "user" &&
+                              user?.firstName.substring(0, 2).toUpperCase() +
+                                ".."}
+                          </Avatar.Fallback>
+                        </Avatar.Root>
                       )}
-                    </Avatar.Fallback>
-                    {/* <Avatar.Image src="https://bit.ly/broken-link" /> */}
-                  </Avatar.Root>
+                    </div>
+                    <div className="px-0 ps-2">
+                      <p className="message">{chat.message}</p>
+                      {chat.timestamps}
+                    </div>
+                  </div>
                 </div>
-                <div className="col-12 col-md-10">
-                  <p className="message">{chat.message}</p>
-                  {chat.timestamps}
-                </div>
-              </div>
+              </>
             );
           })
-        : "No chat selected"}
+        : user?.position === "admin"
+        ? "Select chat to communicate"
+        : "Your chat will appear hear"}
     </>
   );
 }

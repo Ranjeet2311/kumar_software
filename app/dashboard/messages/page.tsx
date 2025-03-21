@@ -68,16 +68,16 @@ export default function MessagesPage() {
     <>
       <div className="row chat_section">
         {user?.position === "admin" && (
-          <div className="col-lg-3 user_list px-0">
-            <ChatUsers users={chats} />
-          </div>
+          // <div className="col-lg-2 user_list px-0">
+          <ChatUsers users={chats} />
+          // </div>
         )}
-        <div className="col-lg-9">
-          <div className="chatbox-wrap">
-            <ChatElement />
-          </div>
-          <ChatForm />
+        {/* <div className="col-lg-9"> */}
+        <div className="chatbox-wrap">
+          <ChatElement />
         </div>
+        <ChatForm />
+        {/* </div> */}
       </div>
     </>
   );

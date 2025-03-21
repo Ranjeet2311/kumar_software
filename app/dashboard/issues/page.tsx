@@ -12,6 +12,8 @@ export default function IssuesPage() {
   const issuesList = useSelector((state: RootState) => state.issues.issuesList);
   const dispatch = useDispatch<AppDispatch>();
 
+  const user = useSelector((state: RootState) => state.user.user);
+
   useEffect(() => {
     async function fetchIssues() {
       try {
@@ -39,18 +41,49 @@ export default function IssuesPage() {
 
   return (
     <div>
-      {issuesList && issuesList.length > 0 ? (
+      {!issuesList ? (
+        <div className="text-center d-flex justify-content-center align-items-center flex-column">
+          <p>Loading all issues</p>
+          <Loader size="lg" />
+        </div>
+      ) : issuesList.length > 0 ? (
         <Issue issuesList={issuesList} />
       ) : (
-        <div className="text-center">
-          <p>
-            No issues found.
+        <h4 className="text-center">
+          No issues found
+          <br />
+          {user?.position !== "admin" && (
             <Link className="ms-1" href="/dashboard/add-issue">
               create it now
             </Link>
-          </p>
-        </div>
+          )}
+        </h4>
       )}
     </div>
+
+    // <div>
+    //   {issuesList && issuesList.length > 0 ? (
+    //     <Issue issuesList={issuesList} />
+    //   ) : (
+    //     <div className="text-center">
+    //       {user?.position === "admin" ? (
+    //         <div className="text-center d-flex justify-content-center align-items-center flex-column">
+    //           <p>Loading all issues</p>
+    //           <Loader size="lg" />
+    //         </div>
+    //       ) : (
+    //         <h3 className="text-center">
+    //           {issuesList.length === 0
+    //             ? "No issues found"
+    //             : "Loading all issues"}
+    //           <br />
+    //           <Link className="ms-1" href="/dashboard/add-issue">
+    //             create it now
+    //           </Link>
+    //         </h3>
+    //       )}
+    //     </div>
+    //   )}
+    // </div>
   );
 }

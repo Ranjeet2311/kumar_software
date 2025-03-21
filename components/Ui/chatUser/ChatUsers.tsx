@@ -32,7 +32,7 @@ export default function ChatUsers({ users }: chatProps) {
   };
 
   return (
-    <ul className="chat_user_list px-0">
+    <ul className="chat_user_list">
       {users && users.length ? (
         users.map((chat, i) => (
           <li

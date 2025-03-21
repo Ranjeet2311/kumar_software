@@ -1,24 +1,25 @@
-.layout_ {
-  width: 100%;
-}
+// .layout_ {
+//   width: 100%;
+// }
 
 .sidebar {
   height: 100vh;
+  width: 100%;
   background: #343a40;
   color: white;
   display: flex;
   flex-direction: column;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
-  width: 100%;
+  overflow: hidden;
 
-  &.expanded {
-    width: 100%;
-  }
+  // &.expanded {
+  //   width: 100%;
+  // }
 
-  &.collapsed {
-    width: 60px;
-  }
+  // &.collapsed {
+  //   width: 20%;
+  // }
 }
 
 .toggleButton {
@@ -32,7 +33,8 @@
   padding: 10px;
   color: white;
   text-decoration: none;
-  transition: background 0.2s ease;
+  // transition: background 0.2s ease;
+  transition: all 0.5s ease-in-out;
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
