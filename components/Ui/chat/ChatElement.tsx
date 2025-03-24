@@ -16,7 +16,7 @@ export default function ChatElement() {
     (state: RootState) => state.chat.selectedChat
   );
 
-  console.log(`chat user : `, user);
+  // console.log(`chat user : `, user);
 
   const selectedUser = getSelectedChat.map(
     (chat, i) => chat.userName.substring(0, 2).toUpperCase() + ".."
@@ -52,8 +52,7 @@ export default function ChatElement() {
                         <Avatar.Fallback>
                           {chat.sender === "admin" && <ShieldUser size={30} />}
                           {chat.sender === "user" &&
-                            user?.firstName.substring(0, 2).toUpperCase() +
-                              ".."}
+                            user?.firstName.substring(0, 2).toUpperCase()}
                         </Avatar.Fallback>
                       </Avatar.Root>
                     )}

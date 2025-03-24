@@ -119,7 +119,7 @@ export default function NewIssue() {
 
         if (data) {
           const decoded = jwt.decode(data) as DecodedToken | null;
-          console.log(`decoded: `, decoded);
+          // console.log(`decoded: `, decoded);
 
           if (decoded?.user) {
             const user = decoded.user;

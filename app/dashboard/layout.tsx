@@ -60,7 +60,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const userData = useSelector((state: RootState) => state.user.user);
 
   useEffect(() => {
-    console.log(`user auth : `, userData);
+    // console.log(`user auth : `, userData);
 
     if (userData?.userId) {
       setLoading(false);

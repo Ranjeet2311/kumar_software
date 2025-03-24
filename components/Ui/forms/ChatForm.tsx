@@ -1,5 +1,6 @@
+import { setUserChat } from "@/store/slices/chatSlice";
 import { RootState } from "@/store/store";
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import xss from "xss";
 
@@ -62,7 +63,7 @@ export default function ChatForm() {
       setSending(false);
       setMessage(result.message);
       setError(null);
-      // setChatMessage("");
+      setChatMessage("");
     } else {
       console.error("Error:", result.message);
       setError(result.message);

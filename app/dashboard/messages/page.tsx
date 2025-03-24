@@ -30,8 +30,6 @@ export default function MessagesPage() {
   const chatList = useSelector((state: RootState) => state.chat.chats);
   const dispatch = useDispatch<AppDispatch>();
 
-  // console.log(`message chat list from store: `, chatList);
-
   useEffect(() => {
     async function fetchAllChats() {
       try {
@@ -72,12 +70,16 @@ export default function MessagesPage() {
           <ChatUsers users={chats} />
           // </div>
         )}
-        {/* <div className="col-lg-9"> */}
-        <div className="chatbox-wrap">
-          <ChatElement />
+        <div className="col-8">
+          <div className="row chatbox-wrap">
+            <div className="col-12 message_section">
+              <ChatElement />
+            </div>
+            <div className="col-12 message_form">
+              <ChatForm />
+            </div>
+          </div>
         </div>
-        <ChatForm />
-        {/* </div> */}
       </div>
     </>
   );

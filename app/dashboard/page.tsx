@@ -2,21 +2,32 @@
 
 import Loader from "@/components/Loader";
 import Card from "@/components/Ui/card/Card";
+import useFetchIssues from "@/hooks/useFetchIssues";
 import { RootState } from "@/store/store";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { shallowEqual, useSelector } from "react-redux";
 
 export default function DashboardPage() {
   // redirect("/dashboard/issues"); // Redirect to the issues page
-
-  const issuesList = useSelector((state: RootState) => state.issues.issuesList);
-  const issueProgressing = issuesList.filter(
-    (issue) => issue.progress && !issue.completed
+  const issuesList = useSelector(
+    (state: RootState) => state.issues.issuesList,
+    shallowEqual
   );
-  const issueFinished = issuesList.filter((issue) => issue.completed);
+  const issueProgressing = issuesList.filter(
+    (issue) => issue.progress && !issue.completed,
+    shallowEqual
+  );
+  const issueFinished = issuesList.filter(
+    (issue) => issue.completed,
+    shallowEqual
+  );
+  const fetchIssues = useFetchIssues();
 
-  console.log(`isProgressing :: , `, issueProgressing);
+  useEffect(() => {
+    fetchIssues();
+  }, [fetchIssues]);
 
   return (
     <div className="container">
@@ -42,13 +53,16 @@ export default function DashboardPage() {
               <hr />
             </div>
             <div className="col-12 col-md-6 mb-4">Issues stats</div>
-            <div className="col-12 col-md-6 mb-4 d-flex flex-column  justify-content-center align-items-center">
-              <button className="btn btn-primary mb-2">
-                <Link href="/dashboard/issues" /> See all issues
-              </button>
-              <button className="btn btn-primary mb-2">
-                <Link href="/dashboard/messages" /> Chat with admin
-              </button>
+            <div className="col-12 col-md-6 mb-4 d-flex flex-wrap justify-content-center align-items-center">
+              <Link
+                href="/dashboard/issues"
+                className="btn btn-primary mb-2 me-2"
+              >
+                See all issues
+              </Link>
+              <Link href="/dashboard/messages" className="btn btn-primary mb-2">
+                Chat with admin
+              </Link>
             </div>
           </div>
         </div>
