@@ -2,11 +2,21 @@
 
 import Loader from "@/components/Loader";
 import Card from "@/components/Ui/card/Card";
+import { RootState } from "@/store/store";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { useSelector } from "react-redux";
 
 export default function DashboardPage() {
   // redirect("/dashboard/issues"); // Redirect to the issues page
+
+  const issuesList = useSelector((state: RootState) => state.issues.issuesList);
+  const issueProgressing = issuesList.filter(
+    (issue) => issue.progress && !issue.completed
+  );
+  const issueFinished = issuesList.filter((issue) => issue.completed);
+
+  console.log(`isProgressing :: , `, issueProgressing);
 
   return (
     <div className="container">
@@ -18,13 +28,15 @@ export default function DashboardPage() {
         <div className="col-12">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title="Total issues: 10" />
+              <Card title={`Total issues: ${issuesList.length}  `} />
             </div>
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title=" Completed issues: 10" />
+              <Card title={`Completed issues: ${issueFinished.length}  `} />
             </div>
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title="Progressing issues: 10" />
+              <Card
+                title={`Progressing issues: ${issueProgressing.length}  `}
+              />
             </div>
             <div className="col-12">
               <hr />

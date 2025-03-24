@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Avatar, For, HStack } from "@chakra-ui/react";
 import { ShieldUser } from "lucide-react";
 import Loader from "@/components/Loader";
+import { formatTime } from "@/utils/TimeConverter";
 
 export default function ChatElement() {
   const getUserChat = useSelector((state: RootState) => state.chat.chats);
@@ -35,36 +36,32 @@ export default function ChatElement() {
             return (
               <>
                 <div className="chat-list col-12" key={chat.timestamps}>
-                  <div className="row px-0 ps-1 d-flex align-items-center">
-                    <div className="user px-0">
-                      {user?.position === "admin" ? (
-                        <Avatar.Root>
-                          <Avatar.Fallback>
-                            {chat.sender === "admin" && (
-                              <ShieldUser size={30} />
-                            )}
-                            {chat.sender === "user" &&
-                              selectedUser &&
-                              selectedUser}
-                          </Avatar.Fallback>
-                        </Avatar.Root>
-                      ) : (
-                        <Avatar.Root>
-                          <Avatar.Fallback>
-                            {chat.sender === "admin" && (
-                              <ShieldUser size={30} />
-                            )}
-                            {chat.sender === "user" &&
-                              user?.firstName.substring(0, 2).toUpperCase() +
-                                ".."}
-                          </Avatar.Fallback>
-                        </Avatar.Root>
-                      )}
-                    </div>
-                    <div className="px-0 ps-2">
-                      <p className="message">{chat.message}</p>
-                      {chat.timestamps}
-                    </div>
+                  <div className="row px-0 ps-1 user">
+                    {/* <div className="px-0"> */}
+                    {user?.position === "admin" ? (
+                      <Avatar.Root className="avatar-root">
+                        <Avatar.Fallback>
+                          {chat.sender === "admin" && <ShieldUser size={30} />}
+                          {chat.sender === "user" &&
+                            selectedUser &&
+                            selectedUser}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
+                    ) : (
+                      <Avatar.Root>
+                        <Avatar.Fallback>
+                          {chat.sender === "admin" && <ShieldUser size={30} />}
+                          {chat.sender === "user" &&
+                            user?.firstName.substring(0, 2).toUpperCase() +
+                              ".."}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
+                    )}
+                    {/* </div> */}
+                    {/* <div className="px-0 ps-2"> */}
+                    <p className="message px-0">{chat.message}</p>
+                    <p className="time_stamp">{formatTime(chat.timestamps)}</p>
+                    {/* </div> */}
                   </div>
                 </div>
               </>

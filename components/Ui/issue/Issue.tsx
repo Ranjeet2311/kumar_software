@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { formatTime } from "@/utils/TimeConverter";
 
 interface Issues {
   _id: string;
@@ -84,16 +85,15 @@ export default function Issue({ issuesList }: IssueProps) {
               onClick={() => handleExpand(issue._id)}
               className="col-11 col-lg-6 issue"
             >
-              {/* <p> {issue._id} </p> */}
               <h4 className="title">
                 <CircleAlert />
                 <span className="d-block mt-2"> {issue.issue}</span>
               </h4>
-              {/* <hr /> */}
               <h3 className="createdBy">
-                created by:
+                By:
                 <i className="ms-1">
-                  {issue.firstName + " " + issue.lastName} at {issue.createdAt}
+                  {issue.firstName + " " + issue.lastName},{" "}
+                  <span>{formatTime(issue.createdAt)}</span>
                 </i>
               </h3>
               <p className="description">

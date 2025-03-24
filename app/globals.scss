@@ -529,36 +529,21 @@ a,
   }
 
   .title {
-    @include fonts(20px, 26px, 700);
-    margin-bottom: 8px !important;
+    @include fonts(18px, 26px, 600);
+    margin-bottom: 4px !important;
   }
   .description {
-    @include fonts(16px, 22px, 500);
+    @include fonts(14px, 22px, 400);
     margin-bottom: 4px !important;
   }
   .createdBy {
-    @include fonts(12px, 20px, 600);
-    margin-bottom: 4px !important;
-    margin-top: 8px;
+    @include fonts(12px, 20px, 700);
+    // margin-bottom: 8px !important;
+    margin-top: 4px;
+    // border-bottom: 1px solid grey;
+    padding-bottom: 6px;
   }
 }
-
-// .issue-actions {
-//   .btn {
-//     @include fonts(14px, 16px, 500);
-//     border: none;
-//     border-radius: 43px;
-//     padding: 6px 16px;
-//     box-shadow: -2px 4px 6px rgb(203, 203, 203);
-//     margin-right: 10px;
-//     transition: all 0.3s ease-in-out;
-
-//     &:hover {
-//       background-color: #31b5c2;
-//       color: white;
-//     }
-//   }
-// }
 
 // -------chat section -------------
 
@@ -602,17 +587,27 @@ a,
 // }
 
 .chatbox-wrap {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-bottom: 30px;
-  box-shadow: inset 0px 0px 1px grey;
   border: none;
-  border-radius: 12px;
-  max-width: 270px !important;
-  background-color: rgb(239, 249, 250);
-  min-height: 500px;
+  // border-radius: 12px;
+  // max-width: 270px !important;
+  // background-color: rgb(239, 249, 250);
+  // min-height: 500px;
   padding: 20px 6px;
-  // max-width: 94% !important;
+  width: 100% !important;
+
+  .message_section {
+    margin-bottom: 30px;
+    overflow-y: auto;
+    max-height: 550px;
+    min-height: 300px;
+    max-height: 300px;
+    border: none;
+    border-bottom: 2px solid grey;
+  }
+
+  .form-wrap {
+    box-shadow: none;
+  }
 
   // @include lg {
   //   max-height: 450px;
@@ -696,17 +691,49 @@ a,
   .user {
     @include fonts(16px, 26px, 500);
     margin-bottom: 8px !important;
-    padding: 2px 18px 2px 18px;
     height: max-content;
     border-radius: 12px;
+    background-color: #31b5c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 4px;
+
+    @include lg {
+      padding-top: 6px;
+    }
+
+    .avatar-root,
+    .chakra-avatar__root {
+      max-width: fit-content;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
   }
 
   .message {
-    @include fonts(16px, 22px, 500);
+    @include fonts(14px, 20px, 400);
     margin-bottom: 4px !important;
-    background-color: #d8f3f6;
-    padding: 18px 16px;
+    // background-color: #d8f3f6;
+    padding: 20px 16px 18px;
     border-radius: 12px;
+    width: 80%;
+    margin-left: 8px;
+  }
+
+  .time_stamp {
+    @include fonts(12px, 14px, 600);
+    margin-bottom: 4px !important;
+    // color: #31b5c2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    padding-top: 8px;
   }
 }
 
