@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     const salt = await genSalt(12); // Generate a salt
     const hashPassword = await hash(password, salt);
 
-    console.log(`Creating new user`);
+    // console.log(`Creating new user`);
 
     const newUser = new Authentication({
       firstName: firstName,
@@ -36,11 +36,11 @@ export async function POST(req: NextRequest) {
       position: "user",
     });
 
-    console.log(`before saving user`);
+    // console.log(`before saving user`);
 
     await newUser.save();
 
-    console.log(`Saved new user`);
+    // console.log(`Saved new user`);
 
     return new Response(JSON.stringify({ message: "Sign up successfull!" }), {
       status: 201,

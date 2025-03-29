@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { stat } from "fs";
 
 type Chat = {
   sender: string;
@@ -46,8 +45,45 @@ const chatSlice = createSlice({
 
       console.log(`setChatId state.selectedChat => `, state.selectedChat);
     },
+
+    sendMessage: (
+      state,
+      action: PayloadAction<{
+        userId: string;
+        userName: string;
+        userType: string;
+        newMessage: Chat;
+      }>
+    ) => {
+      console.log("Updating chat state with message:", action.payload);
+      if (state.chats.length == 0) {
+        console.log("Adding new message to the list");
+
+        state.chats = [
+          ...state.chats,
+
+          {
+            userId: action.payload.userId,
+            userName: action.payload.userName,
+            userType: action.payload.userType,
+            chatlist: [action.payload.newMessage],
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          },
+        ];
+      } else {
+        state.chats = state.chats.map((chat) =>
+          action.payload.userId === chat.userId
+            ? {
+                ...chat,
+                chatlist: [...chat.chatlist, action.payload.newMessage],
+              }
+            : chat
+        );
+      }
+    },
   },
 });
 
-export const { setUserChat, setChatId } = chatSlice.actions;
+export const { setUserChat, setChatId, sendMessage } = chatSlice.actions;
 export default chatSlice.reducer;

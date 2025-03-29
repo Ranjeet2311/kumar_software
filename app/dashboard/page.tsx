@@ -11,6 +11,7 @@ import { shallowEqual, useSelector } from "react-redux";
 
 export default function DashboardPage() {
   // redirect("/dashboard/issues"); // Redirect to the issues page
+  const user = useSelector((state: RootState) => state.user.user, shallowEqual);
   const issuesList = useSelector(
     (state: RootState) => state.issues.issuesList,
     shallowEqual
@@ -34,20 +35,38 @@ export default function DashboardPage() {
       <div className="row">
         <div className="col-12">
           <h1>Dashboard</h1>
-          <p>Welcome to the dashboard.</p>
+          <p>
+            Welcome to the dashboard,{" "}
+            <strong className="fwb">
+              {user &&
+                user?.firstName?.charAt(0).toUpperCase() +
+                  user?.firstName?.slice(1)}
+              .
+            </strong>
+          </p>
         </div>
         <div className="col-12">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`Total issues: ${issuesList.length}  `} />
+              {issuesList.length ? (
+                <Card title={`All issues : ${issuesList.length}  `} />
+              ) : (
+                <Loader />
+              )}
             </div>
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`Completed issues: ${issueFinished.length}  `} />
+              {issueFinished.length ? (
+                <Card title={`Completed : ${issueFinished.length}`} />
+              ) : (
+                <Loader />
+              )}
             </div>
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card
-                title={`Progressing issues: ${issueProgressing.length}  `}
-              />
+              {issueProgressing.length ? (
+                <Card title={`Progressing : ${issueProgressing.length}  `} />
+              ) : (
+                <Loader />
+              )}
             </div>
             <div className="col-12">
               <hr />

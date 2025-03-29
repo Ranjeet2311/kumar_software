@@ -44,7 +44,7 @@ export async function GET(req: NextRequest) {
       const chatByUser = await ChatModel.find({
         userId: userId,
       });
-      console.log(`chatByUser : `, chatByUser);
+      // console.log(`chatByUser : `, chatByUser);
 
       return new Response(
         JSON.stringify({
@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
       );
     } else {
       const allChats = await ChatModel.find({});
-      console.log(`allChats :: `, allChats);
+      // console.log(`allChats :: `, allChats);
 
       return new Response(
         JSON.stringify({

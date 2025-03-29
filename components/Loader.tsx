@@ -1,9 +1,12 @@
 import { HStack, Spinner } from "@chakra-ui/react";
 
-export default function Loader({ size }: { size?: string }) {
+type LoaderProp = { size?: string; message?: string; color?: string };
+
+export default function Loader({ size, message, color }: LoaderProp) {
   return (
-    <HStack gap="5">
-      <Spinner size="md" />
-    </HStack>
+    <>
+      <Spinner color={!color ? "grey.700" : color} size="md" />{" "}
+      <span className="ms-2"> {message} </span>
+    </>
   );
 }

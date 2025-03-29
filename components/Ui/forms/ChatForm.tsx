@@ -1,19 +1,24 @@
-import { setUserChat } from "@/store/slices/chatSlice";
-import { RootState } from "@/store/store";
+import AlertMessage from "@/components/AlertMessage";
+import Loader from "@/components/Loader";
+import { sendMessage, setUserChat } from "@/store/slices/chatSlice";
+import { AppDispatch, RootState } from "@/store/store";
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import xss from "xss";
 
 export default function ChatForm() {
-  const [chatMessage, setChatMessage] = useState<string>();
+  const [chatMessage, setChatMessage] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [sending, setSending] = useState<boolean>(false);
 
   const user = useSelector((state: RootState) => state.user.user);
   const userChatId = useSelector((state: RootState) => state.chat.chatId);
+  const useChatLIst = useSelector((state: RootState) => state.chat.chats);
 
   // console.log(`chat user, userData: `, user);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -26,50 +31,72 @@ export default function ChatForm() {
     setSending(true);
     setMessage(null);
 
-    let newMessage;
+    if (chatMessage?.trim()?.length && user?.userId) {
+      console.log(`Dispatching cnew message`);
 
-    if (user?.position === "admin") {
-      newMessage = {
-        userId: userChatId,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        position: user?.position,
-        textMessage: chatMessage,
-      };
-    } else {
-      newMessage = {
-        userId: user?.userId,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        position: user?.position,
-        textMessage: chatMessage,
-      };
+      dispatch(
+        sendMessage({
+          userId: user?.userId,
+          userName: user?.firstName,
+          userType: user?.position,
+          newMessage: {
+            sender: user?.position,
+            message: chatMessage,
+            timestamps: new Date().toISOString(),
+          },
+        })
+      );
     }
 
-    const response = await fetch("/api/chat/postChat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newMessage),
-    });
+    let newMessage;
 
-    const result = await response.json();
-    // console.log(`chat response :: `, response);
-    // console.log(`chat result :: `, result);
+    if (chatMessage?.trim()?.length) {
+      if (user?.position === "admin") {
+        newMessage = {
+          userId: userChatId,
+          firstName: user?.firstName,
+          lastName: user?.lastName,
+          position: user?.position,
+          textMessage: chatMessage,
+        };
+      } else {
+        newMessage = {
+          userId: user?.userId,
+          firstName: user?.firstName,
+          lastName: user?.lastName,
+          position: user?.position,
+          textMessage: chatMessage,
+        };
+      }
 
-    if (response.ok) {
-      console.log("Message sent successfully");
-      setSending(false);
-      setMessage(result.message);
-      setError(null);
-      setChatMessage("");
-    } else {
-      console.error("Error:", result.message);
-      setError(result.message);
-      setTimeout(() => {
+      const response = await fetch("/api/chat/postChat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMessage),
+      });
+
+      const result = await response.json();
+      // console.log(`chat response :: `, response);
+      // console.log(`chat result :: `, result);
+
+      if (response.ok) {
+        // console.log("Message sent successfully");
         setSending(false);
-      }, 1500);
+        setMessage(result.message);
+        setError(null);
+        setChatMessage("");
+      } else {
+        console.error("Error:", result.message);
+        setError(result.message);
+        setTimeout(() => {
+          setSending(false);
+        }, 1500);
+      }
+    } else {
+      setError("Please add your message");
+      setSending(false);
     }
   };
 
@@ -95,15 +122,19 @@ export default function ChatForm() {
           <div className="mb-0">
             <button
               type="submit"
-              className="btn btn-bg w-100 text-dark"
+              className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${
+                sending ? "bg-primary" : null
+              }`}
               disabled={sending}
             >
-              {sending ? "Sending..." : "Send"}
+              {sending ? <Loader size="lg" message="Sending..." /> : "Send"}{" "}
             </button>
           </div>
         </form>
-        <p className="bg-primary text-white">{message && message} </p>
-        <p className="bg-primary text-white">{error && error} </p>
+        <h5 className="mt-3">
+          {message && <AlertMessage status="success" message={message} />}
+          {error && <AlertMessage status="error" message={error} />}
+        </h5>
       </div>
     </div>
   );

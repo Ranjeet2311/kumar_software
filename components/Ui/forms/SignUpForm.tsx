@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import eyeOpen from "../../../assets/images/eye-open.png";
 import eyeClosed from "../../../assets/images/eye-closed.png";
+import AlertMessage from "../../AlertMessage";
+import Loader from "@/components/Loader";
 
 type Signup = {
   firstName: string;
@@ -175,24 +177,27 @@ export default function SignUpForm() {
         <div className="mb-0">
           <button
             type="submit"
-            className="btn btn-bg w-100 border-0 text-white"
+            className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${
+              loading ? "bg-primary" : null
+            }`}
             disabled={loading}
           >
-            {loading ? "Creating account..." : "Create account"}
+            {loading ? (
+              <Loader size="lg" message="Creating account..." />
+            ) : (
+              "Creating account"
+            )}{" "}
           </button>
         </div>
       </form>
-      <h5 className="mt-2">
+      <h5 className="mt-3">
         {message && (
-          <p className="mt-4 text-center" style={{ color: "green" }}>
-            {message}, Please login now.
-          </p>
+          <AlertMessage
+            status="success"
+            message={message + ", redirecting for Login"}
+          />
         )}
-        {error && (
-          <p className="mt-4 text-center" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
+        {error && <AlertMessage status="error" message={error} />}
       </h5>
     </div>
   );

@@ -12,7 +12,7 @@ export default function IssuesPage() {
   const user = useSelector((state: RootState) => state.user.user);
 
   return (
-    <div>
+    <>
       {!issuesList ? (
         <div className="text-center d-flex justify-content-center align-items-center flex-column">
           <p>Loading all issues</p>
@@ -31,6 +31,6 @@ export default function IssuesPage() {
           )}
         </h4>
       )}
-    </div>
+    </>
   );
 }

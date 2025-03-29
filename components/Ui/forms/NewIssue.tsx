@@ -4,6 +4,8 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import { sanitizeInput } from "@/utils/SanitizeInput";
 import xss from "xss";
+import Loader from "@/components/Loader";
+import AlertMessage from "@/components/AlertMessage";
 
 type Issue = {
   issue: string;
@@ -119,7 +121,7 @@ export default function NewIssue() {
 
         if (data) {
           const decoded = jwt.decode(data) as DecodedToken | null;
-          // console.log(`decoded: `, decoded);
+          console.log(`decoded: `, decoded);
 
           if (decoded?.user) {
             const user = decoded.user;
@@ -184,23 +186,22 @@ export default function NewIssue() {
           <div className="mb-0">
             <button
               type="submit"
-              className="btn btn-bg w-100 border-0 text-white"
+              className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center text-white ${
+                loading ? "bg-primary" : null
+              }`}
+              disabled={loading}
             >
-              {loading ? "creating issue..." : "create issue"}
+              {loading ? (
+                <Loader color="red.500" size="lg" message="Creating issue..." />
+              ) : (
+                "Add your issue"
+              )}{" "}
             </button>
           </div>
         </form>
         <h5 className="mt-2">
-          {message && (
-            <p className="mt-4 text-center" style={{ color: "green" }}>
-              {message}
-            </p>
-          )}
-          {error && (
-            <p className="mt-4 text-center" style={{ color: "red" }}>
-              {error}
-            </p>
-          )}
+          {message && <AlertMessage status="success" message={message} />}
+          {error && <AlertMessage status="error" message={error} />}
         </h5>
       </div>
     </div>
