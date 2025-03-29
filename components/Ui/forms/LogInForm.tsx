@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 // import "./form.scss";
 import eyeOpen from "../../../assets/images/eye-open.png";
 import eyeClosed from "../../../assets/images/eye-closed.png";
+import AlertMessage from "../../AlertMessage";
+import Loader from "@/components/Loader";
 // import { useRouter } from "next/router";
 
 type LogIn = {
@@ -40,7 +42,7 @@ export default function LoginForm() {
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(`handleLogin :: `, loginData);
+    // console.log(`handleLogin :: `, loginData);
 
     setLoading(true);
     setMessage(null);
@@ -55,25 +57,21 @@ export default function LoginForm() {
     });
 
     const result = await response.json();
-    console.log(`response :: `, response);
-    console.log(`result :: `, result);
+    // console.log(`response :: `, response);
+    // console.log(`result :: `, result);
 
     setLoading(false);
 
-    console.log(`response.ok :  `, response.ok);
+    // console.log(`response.ok :  `, response.ok);
     if (response.ok) {
-      console.log(`if response.ok`);
+      // console.log(`if response.ok`);
 
       setMessage(result.message);
-      // setLoginData({
-      //   email: "",
-      //   password: "",
-      // });
 
       console.log(`'router should begin`);
       redirect("/dashboard"); // Navigate to the dashboard after login
 
-      console.log(`Navigating to dashboard...`);
+      // console.log(`Navigating to dashboard...`);
       // router.push("/dashboard"); // Navigate to the dashboard after login
     } else {
       setError(
@@ -145,25 +143,28 @@ export default function LoginForm() {
           <div className="mb-0">
             <button
               type="submit"
-              className="btn btn-bg w-100 border-0 text-white"
+              className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${
+                loading ? "bg-primary" : null
+              }`}
               disabled={loading}
             >
-              {loading ? "Login..." : "Login"}{" "}
+              {loading ? (
+                <Loader size="lg" message="Authenticating" />
+              ) : (
+                "Login"
+              )}{" "}
             </button>
           </div>
         </form>
       </div>
-      <h5 className="mt-2">
+      <h5 className="mt-3">
         {message && (
-          <p className="mt-4 text-center" style={{ color: "green" }}>
-            {message}
-          </p>
+          <AlertMessage
+            status="success"
+            message={message + ", redirecting to dashboard..."}
+          />
         )}
-        {error && (
-          <p className="mt-4 text-center" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
+        {error && <AlertMessage status="error" message={error} />}
       </h5>
     </div>
   );

@@ -44,10 +44,14 @@ export default function Auth() {
 
   if (loading) {
     return (
-      <div className="container auth-page h-100">
-        <p className="text-center mt-5">
-          <Loader />{" "}
-        </p>
+      <div className="container dashboard d-flex justify-content-center ">
+        <div className="row">
+          <div className="col-12">
+            <p className="text-center mt-5 mx-auto">
+              <Loader size="lg" />
+            </p>
+          </div>
+        </div>
       </div>
     );
   }

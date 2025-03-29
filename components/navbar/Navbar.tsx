@@ -77,7 +77,9 @@ export default function Navbar() {
           {showMenu ? (
             <X size={36} strokeWidth={1.75} />
           ) : (
-            <AlignJustify size={28} strokeWidth={1.5} />
+            <>
+              <AlignJustify size={28} strokeWidth={1.5} /> <span>Menu</span>{" "}
+            </>
           )}
         </div>
         <nav>
@@ -106,7 +108,9 @@ export default function Navbar() {
                 {!path.startsWith("/dashboard") && (
                   <li>
                     <Link
-                      href={`${user?.userId ? "/dashboard" : "/auth"}`}
+                      href={`${
+                        user?.userId ? "/dashboard" : "/authentication"
+                      }`}
                       onClick={() => setShowMenu(!showMenu)}
                     >
                       <LayoutDashboard
@@ -129,9 +133,12 @@ export default function Navbar() {
                   </button>
                 </li>
               </>
-            ) : !path.startsWith("/auth") ? (
+            ) : !path.startsWith("/authentication") ? (
               <li>
-                <Link href="/auth" onClick={() => setShowMenu(!showMenu)}>
+                <Link
+                  href="/authentication"
+                  onClick={() => setShowMenu(!showMenu)}
+                >
                   <LogIn
                     size={18}
                     strokeWidth={1.75}

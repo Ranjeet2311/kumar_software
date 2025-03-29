@@ -22,8 +22,8 @@ export default function useLogout() {
 
       console.log(`logout response : `, response);
       console.log("Logout successful");
-      router.replace("/auth");
-      console.log("Redirected to /auth after logout");
+      router.replace("/authentication");
+      console.log("Redirected to /authentication after logout");
     } catch (error) {
       console.log(`Logout error : `, error);
 

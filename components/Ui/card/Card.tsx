@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
 import classes from "./card.module.scss";
 import Button from "../button/Button";
@@ -16,6 +16,7 @@ type CardProps = {
   btnText?: string;
   img?: string | StaticImageData;
   showBtn?: boolean;
+  children?: ReactNode;
 };
 
 export default function Card({
@@ -24,6 +25,7 @@ export default function Card({
   btnText,
   img,
   showBtn,
+  children,
 }: CardProps) {
   const slugifiedTitle = title ? slugify(title) : "default-slug";
 
@@ -40,6 +42,7 @@ export default function Card({
         <p className="card-text">
           {truncateText({ text: description || "", maxLength: 65 })}
         </p>
+        {children && children}
         {showBtn && (
           <Button
             button={false}

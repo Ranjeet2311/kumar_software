@@ -6,7 +6,8 @@ import {
   Bug,
   BadgeAlert,
   MessagesSquare,
-  Menu,
+  PanelRightClose,
+  PanelLeftClose,
   User,
   LogOut,
 } from "lucide-react";
@@ -50,16 +51,20 @@ export default function Sidebar({
       }`}
     >
       <button
-        className={`btn btn-dark w-100 ${styles.toggleButton}`}
+        className={`btn py-4 btn-dark w-100 ${styles.toggleButton}`}
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <Menu />
+        {isExpanded ? (
+          <PanelLeftClose style={{ width: "26px" }} />
+        ) : (
+          <PanelRightClose style={{ width: "26px" }} />
+        )}
       </button>
       <nav className="nav flex-column px-0">
         {tabs.map(({ name, path, icon: Icon }) => {
           const isActive = path === pathname;
 
-          console.log(`isActive :: `, isActive);
+          // console.log(`isActive :: `, isActive);
 
           return (
             <Link

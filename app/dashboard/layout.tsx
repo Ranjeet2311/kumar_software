@@ -45,7 +45,7 @@ const tabs: TabType[] = [
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [error, setError] = useState<string | null>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [loading, setLoading] = useState(true);
 
   // const [user, setUser] = useState<UserData>({
@@ -67,23 +67,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     }
 
     if (!userData?.userId) {
-      redirect("/auth");
+      redirect("/authentication");
     }
   }, [userData]);
-
-  if (loading) {
-    return (
-      <div className="container dashboard d-flex justify-content-center ">
-        <div className="row">
-          <div className="col-12">
-            <p className="text-center mt-5 mx-auto">
-              <Loader size="lg" />
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -105,7 +91,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 isExpanded ? "narrow_content" : "broad_content"
               }`}
             >
-              {children}
+              {loading ? (
+                <div className="col-12">
+                  <p className="text-center mt-5 mx-auto">
+                    <Loader size="lg" />
+                  </p>
+                </div>
+              ) : (
+                children
+              )}
             </div>
           </div>
         )}

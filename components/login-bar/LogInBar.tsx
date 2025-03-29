@@ -32,7 +32,7 @@ export default function LogInBar() {
               </span>
               <Button
                 button={false}
-                link="/auth"
+                link="/authentication"
                 customClass={`text-light btn ms-3`}
                 localRoute={true}
               >

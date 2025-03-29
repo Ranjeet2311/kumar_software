@@ -6,11 +6,13 @@ import useFetchIssues from "@/hooks/useFetchIssues";
 import { RootState } from "@/store/store";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 
 export default function DashboardPage() {
   // redirect("/dashboard/issues"); // Redirect to the issues page
+  const [loading, setLoading] = useState(true);
+  const user = useSelector((state: RootState) => state.user.user);
   const issuesList = useSelector(
     (state: RootState) => state.issues.issuesList,
     shallowEqual
@@ -27,27 +29,37 @@ export default function DashboardPage() {
 
   useEffect(() => {
     fetchIssues();
+    setLoading(false);
   }, [fetchIssues]);
+
+  if (loading) {
+    return <Loader />; // Show loader until issues are fetched
+  }
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-12">
-          <h1>Dashboard</h1>
-          <p>Welcome to the dashboard.</p>
+          <p>
+            Welcome to the dashboard,{" "}
+            <strong className="fwb">
+              {user &&
+                user?.firstName?.charAt(0).toUpperCase() +
+                  user?.firstName?.slice(1)}
+              .
+            </strong>
+          </p>
         </div>
         <div className="col-12">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`Total issues: ${issuesList.length}  `} />
+              <Card title={`All issues : ${issuesList.length}`} />
             </div>
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`Completed issues: ${issueFinished.length}  `} />
+              <Card title={`Completed : ${issueFinished.length}`} />
             </div>
             <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card
-                title={`Progressing issues: ${issueProgressing.length}  `}
-              />
+              <Card title={`Progressing : ${issueProgressing.length}`} />
             </div>
             <div className="col-12">
               <hr />
