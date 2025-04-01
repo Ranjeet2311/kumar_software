@@ -52,11 +52,14 @@ const menuLinks: linksType[] = [
 ];
 
 export default function Navbar() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState<boolean>(false); // Track if it's client-side, when comp mounts
+
   const user = useSelector((state: RootState) => state.user.user);
   useAuthCheck();
 
   const path = usePathname();
+
   const logout = useLogout();
 
   const clickHandler = () => {
@@ -65,6 +68,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setShowMenu(false);
+    setIsClient(true);
   }, []);
 
   return (
@@ -75,10 +79,10 @@ export default function Navbar() {
         </Link>
         <div onClick={clickHandler} className="burger-menu">
           {showMenu ? (
-            <X size={36} strokeWidth={1.75} />
+            <X size={28} strokeWidth={1.75} />
           ) : (
             <>
-              <AlignJustify size={28} strokeWidth={1.5} /> <span>Menu</span>{" "}
+              <AlignJustify size={28} strokeWidth={2} /> <span>Menu</span>
             </>
           )}
         </div>
@@ -92,6 +96,11 @@ export default function Navbar() {
                       setShowMenu(!showMenu);
                     }}
                     href={url}
+                    className={
+                      isClient && `/${window.location.hash}` === url
+                        ? "active"
+                        : ""
+                    }
                   >
                     <Icon
                       size={18}

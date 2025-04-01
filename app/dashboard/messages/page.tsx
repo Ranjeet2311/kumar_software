@@ -27,7 +27,7 @@ interface User {
 export default function MessagesPage() {
   const [chats, setChats] = useState<User[]>([]);
   const user = useSelector((state: RootState) => state.user.user);
-  const chatList = useSelector((state: RootState) => state.chat.chats);
+  // const chatList = useSelector((state: RootState) => state.chat.chats);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function MessagesPage() {
           <ChatUsers users={chats} />
           // </div>
         )}
-        <div className="col-8">
+        <div className="col-9">
           <div className="row chatbox-wrap">
             <div className="col-12 message_section">
               <ChatElement />

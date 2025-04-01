@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { redirect } from "next/navigation";
 import Loader from "@/components/Loader";
+import { Link } from "@chakra-ui/react";
 
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
@@ -58,7 +59,7 @@ export default function Auth() {
 
   return (
     <>
-      <div className="container auth-page h-100">
+      <div className="container auth-page">
         <div className="row outer-wrap justify-content-center align-items-center">
           <div className="col-12 col-lg-7 form-section">
             <div className="row mt-4">
@@ -76,11 +77,16 @@ export default function Auth() {
               <div className="col-12">
                 {showLogin && (
                   <h5
-                    className="my-0 py-0 btn text-center w-100"
                     onClick={signUpHandle}
+                    className="my-0 py-0 btn text-center w-100"
                   >
-                    Are you a customer but have no support account yet.
-                    <span className="fw-bold ms-1">Create a new</span>
+                    Already a customer but don&apos;t have a support account?
+                    <span
+                      className="fw-bold ms-1"
+                      style={{ color: "#3778c2", textDecoration: "underline" }}
+                    >
+                      Sign up now
+                    </span>
                   </h5>
                 )}
                 {showSignUp && (
@@ -88,7 +94,13 @@ export default function Auth() {
                     className="my-0 py-0 btn text-center w-100"
                     onClick={loginHandle}
                   >
-                    Go back to <span className="fw-bold ms-1">Login</span>
+                    Go back to
+                    <span
+                      className="fw-bold ms-1"
+                      style={{ color: "#3778c2", textDecoration: "underline" }}
+                    >
+                      Login
+                    </span>
                   </h5>
                 )}
               </div>

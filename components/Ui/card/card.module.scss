@@ -1,14 +1,16 @@
 @import "../../../app/css_variables.scss";
 
 .custom_card {
-  border-radius: 43px !important;
+  border-radius: 12px !important;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
   padding: 15px 15px 0 15px !important;
+  border: 2px solid $theme_light_gray;
+  // filter: drop-shadow(-0.5px 0.5px 2px $theme-text-color);
 
   &:hover {
     transition: all 0.4s ease-in;
-    filter: drop-shadow(-2px 4px 12px $theme-text-color);
+    filter: drop-shadow(-1px 1px 2px $theme-text-color);
 
     .img {
       transition: all 0.4s ease-in;
@@ -38,16 +40,16 @@
     width: 100% !important;
     height: 200px;
     overflow: hidden;
-    border-radius: 32px !important;
+    border-radius: 12px !important;
     // filter: drop-shadow(-2px 4px 12px $theme-text-color);
-    box-shadow: -1px 1px 4px $theme-text-color;
+    box-shadow: -1px 1px 4px $theme_light_gray;
 
     .img {
       height: 100%;
       width: 100%;
       background-size: 200%;
       object-fit: cover !important;
-      border-radius: 18px 0px 0px;
+      border-radius: 12px 0px 0px;
       transition: all 0.4s ease-in;
     }
   }

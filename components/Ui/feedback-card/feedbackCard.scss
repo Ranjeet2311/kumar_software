@@ -3,15 +3,14 @@
 .feedback-card {
   max-width: 320px;
   min-height: 200px;
-  border: 1px solid #ddd;
-  border-radius: 43px;
+  border-radius: 12px;
   padding: 24px 20px;
   background-color: white;
-  // color: white;
   transition: all 0.4s ease-out;
-  filter: drop-shadow(-1px 1px 1px $theme-text-color);
+  filter: drop-shadow(-1px 2px 4px $theme_medium_gray);
   // background: linear-gradient(-162deg, #31b5c2 49%, #8f38ae 75%, #31b5c2 82%);
   cursor: grab;
+  min-height: 240px;
 
   // &:hover {
   //   background: linear-gradient(
@@ -30,7 +29,8 @@
   }
 
   .feedback-text {
-    font-size: 16px !important;
+    @include fonts(16px, 22px, 500);
+    font-family: $theme-font-Subheading;
     min-height: 100px;
   }
 

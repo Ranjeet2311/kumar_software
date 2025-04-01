@@ -4,6 +4,8 @@ import arrow from "../../../assets/images/check_list.png";
 import Image from "next/image";
 import star from "../../../assets/images/stars.png";
 import diamond from "../../../assets/images/diamond.png";
+import Button from "../button/Button";
+import btnClasses from "@/components/Ui/button/button.module.scss";
 
 type PlanCardProps = {
   title: string;
@@ -36,7 +38,7 @@ export default function PlanCard({
               objectFit: "contain",
               position: "absolute",
               top: "-6px",
-              transform: "translate(-50%, -50%)",
+              transform: "translate(-5%, -50%)",
             }}
             className="star"
             alt="arrow"
@@ -50,7 +52,7 @@ export default function PlanCard({
               objectFit: "contain",
               position: "absolute",
               top: "-2px",
-              transform: "translate(-50%, -50%) rotate(180deg",
+              transform: "translate(-5%, -50%) rotate(180deg",
             }}
             className="star"
             alt="arrow"
@@ -79,18 +81,22 @@ export default function PlanCard({
                 src={arrow}
                 width={16}
                 alt="arrow"
-                style={{ backgroundColor: "#8f38ae", borderRadius: "50%" }}
+                style={{ backgroundColor: "#159957", borderRadius: "50%" }}
                 className="mt-2 tick"
               />
               <li className={classes.benefit_item}>{benefit}</li>
             </div>
           ))}
         </ul>
-        <div className="text-center">
-          <a href={buttonLink} className={`${classes.btn}`}>
-            {buttonText}
-          </a>
-        </div>
+        <Button
+          button={false}
+          mode={btnClasses.btn_main}
+          link={buttonLink}
+          localRoute={true}
+          customClass="w-100"
+        >
+          {buttonText}
+        </Button>
       </div>
     </div>
   );

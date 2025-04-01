@@ -60,6 +60,26 @@ $theme-font-Heading: "Poppins", sans-serif;
 $theme-font-Subheading: "Montserrat", serif;
 $theme-font-Paragraph: "Open Sans", serif;
 
+// -------Theme scheme-------
+
+$theme_silver: #f8fafc;
+
+$light_blue: #a1e3f9;
+$blue_1: #578fca;
+$blue_2: #3674b5;
+$light_green: #d1f8ef;
+
+$theme_blue: #3778c2; //medium blue for primary actions.
+$theme_green: #33c48d; //A lively green for success messages
+$theme_yelloL: w #f6c344; //For warnings and attention-grabbing elements.
+$theme_red: #e63946; //For errors or destructive actions
+
+$theme_dark_gray: #343a40; //For text and dark accents.s
+$theme_medium_gray: #6c757d; //For secondary text or subtle elements.
+$theme_light_gray: #f4f4f4; //For backgrounds or dividers.
+
+// -----------------------------
+
 @mixin fonts($fontSize, $lineHeight, $fontWeight) {
   font-size: $fontSize !important;
   line-height: $lineHeight !important;

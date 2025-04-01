@@ -1,11 +1,22 @@
 @use "../../app/globals.scss" as *;
 @use "../../app/css_variables.scss";
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .Navbar_wrap {
   position: fixed;
   top: 0;
   width: 100vw;
-  padding: 6px 0;
   z-index: 999;
 
   .Navbar {
@@ -26,13 +37,16 @@
       position: absolute;
       top: 20px;
       left: 20px;
+      background-color: #ffffff;
+      padding: 0 4px 0 0;
+      border-radius: 12px;
 
       @include md {
         left: 0px;
       }
 
       .logo-image {
-        border: 1px solid white;
+        // border: 1px solid white;
         width: auto;
         height: 60px;
         object-fit: contain;
@@ -47,9 +61,16 @@
       position: absolute;
       top: 30px;
       right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        @include fonts(14px, 16px, 600);
+      }
 
       @include md {
-        right: 0px;
+        right: 5px;
       }
       // }
     }
@@ -67,19 +88,32 @@
         width: 50%;
         top: 0;
         right: 0;
-        background-color: #edf0f0;
         padding-top: 60px;
+        background: linear-gradient(
+          45deg,
+          $light_green,
+          $theme_blue
+        ) !important;
+        background-size: 300% 300% !important;
+        animation: gradientShift 8s ease infinite;
+
+        @include md {
+          width: 460px;
+          padding-top: 28px;
+        }
 
         &.menu-list {
           transform: translateX(0rem);
-          right: 0;
-          transition: all 0.5s ease-in-out;
+          right: -10px;
+          transition: all 0.6s ease-out;
+          // background-color: $light_blue !important;
         }
 
         &.menu-list-close {
           transform: translateX(400rem);
-          transition: all 0.5s ease-in-out;
           width: 0;
+          // background-color: $theme_silver !important;
+          transition: all 0.9s ease-in;
         }
 
         @include lg {
@@ -89,43 +123,61 @@
         li {
           list-style: none;
           list-style: none;
-          margin-bottom: 20px;
+          margin-bottom: 8px;
+          width: 100%;
+          padding: 4px 8px 4px 20px;
+
+          @include md {
+            margin-bottom: 15px;
+          }
 
           button,
           .btn,
           a {
             border-bottom: 1px solid transparent;
             text-decoration: none;
-            color: black;
+            color: white;
             font-family: $theme-font-Heading !important;
             position: relative;
-            @include fonts(18px, 20px, 500);
+            @include fonts(16px, 28px, 600);
+            transition: all 0.2s ease-in;
 
-            &:active {
+            @include md {
+              @include fonts(18px, 20px, 600);
+            }
+
+            &.active {
+              //active is on the same level as a
               width: 100%;
               transition: all 0.6s ease-in-out;
-              color: #31b5c2 !important;
+              // color: $light_green !important;
+              color: $light_green !important;
+
+              &::after {
+                content: "";
+                width: 100%;
+              }
             }
             &:focus {
-              color: #31b5c2 !important;
+              color: $light_green !important;
             }
             &:hover {
-              color: #31b5c2 !important;
+              color: $light_green !important;
             }
 
             &::after {
               content: "";
               width: 0%;
               margin-top: 4px;
-              height: 6px;
+              height: 4px;
               background: linear-gradient(
                 -45deg,
-                #31b5c2 25%,
-                #8f38ae 45%,
-                #31b5c2 60%
+                $light_green 20%,
+                $theme_silver 60%,
+                $blue_2 20%
               );
 
-              border-radius: 12px;
+              border-radius: 80px;
               display: block;
               top: 22px;
               position: absolute;
@@ -137,14 +189,6 @@
               color: white !important;
               z-index: 99;
             }
-          }
-        }
-        .active {
-          text-decoration: underline;
-          filter: drop-shadow(0 0 80px #000ce8aa);
-
-          &::after {
-            background-color: transparent;
           }
         }
       }
@@ -160,3 +204,13 @@
     }
   }
 }
+
+// .active {
+//   text-decoration: underline;
+//   filter: drop-shadow(0 0 80px #000ce8aa);
+//   color: red;
+
+//   &::after {
+//     background-color: transparent;
+//   }
+// }

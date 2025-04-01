@@ -3,7 +3,7 @@
 .plan_card {
   margin: 20px auto;
   border: 1px solid #ddd;
-  border-radius: 43px;
+  border-radius: 12px;
   padding: 0;
   background: linear-gradient(45deg, #f1fcfc 10%, transparent, #f1fcfc 80%);
   // background: #8f38ae;
@@ -29,9 +29,11 @@
     .card_header {
       background: linear-gradient(
         -45deg,
-        #8f38ae 60%,
-        #bf3663 10%,
-        #8f38ae 80%
+        $theme_green,
+        #a1e3f9,
+        $theme_blue,
+        $light_green,
+        #3778c2
       );
       background-size: 100%;
     }
@@ -53,24 +55,23 @@
     // font-style: normal;
     @include fonts(24px, 30px, 600);
     text-align: center;
-    border-radius: 43px 43px 0 0;
+    border-radius: 12px 12px 0 0;
     background-color: white;
     border-bottom: 1px solid ddd;
-    background: linear-gradient(-45deg, #8f38ae 20%, #e2e1e1 10%, #8f38ae 80%);
+    background: linear-gradient(-45deg, $theme_green, #a1e3f9, $theme_blue);
     padding: 30px;
     background-size: 200%; /* Allow the background to scale */
     transition: all 0.4s ease-in;
   }
   .title {
     @include fonts(32px, 36px, 700);
+    font-family: $theme-font-Heading;
     color: white;
   }
   .price {
     // color: #f7f7f7 !important;
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 24px;
-    font-style: normal;
+    @include fonts(20px, 24px, 700);
+    font-family: $theme-font-Subheading;
     color: white;
   }
 
@@ -79,7 +80,8 @@
     background-color: white;
     height: 100%;
     padding-bottom: 20px;
-    border-radius: 0 0 43px 43px;
+    border-radius: 0 0 12px 12px;
+    font-family: $theme-font-Paragraph;
   }
 
   .benefits_list {
@@ -94,37 +96,12 @@
   .benefit_item {
     padding: 2px 6px 5px 8px;
     text-align: start;
-    @include fonts(18px, 28px, 400) // &::before {
+    color: $theme-font-Paragraph;
+    @include fonts(16px, 28px, 400) // &::before {
       //   content: url(../../../assets/images/check_list.png);
       //   margin-right: 8px;
       // }
 ;
-  }
-
-  .btn {
-    // background: linear-gradient(338deg, #bf3663, #8f38ae);
-    // background: linear-gradient(-45deg, #31b5c2 25%, #31b5c2 45%, #31b5c2 60%);
-    background: #8f38ae;
-    color: white;
-    border: none;
-    border-radius: 43px;
-    padding: 12px 20px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    transition: all 0.4s ease-out;
-    width: 100%;
-    display: block;
-
-    &:hover {
-      background: linear-gradient(
-        338deg,
-        #faa343 2.79%,
-        #bf3663 27.07%,
-        #8f38ae 63.78%,
-        // #31b5c2 102.02%
-      );
-    }
   }
 }
 
@@ -149,11 +126,18 @@
   font-family: $theme-font-Heading;
   background: -webkit-linear-gradient(
     to right,
-    #f6a04e 40%,
-    #d85b7d 20%,
-    #f6a04e 60%
+    $theme_green,
+    #ffd700,
+    $theme_blue,
+    $theme_silver
   );
-  background: linear-gradient(to right, #f6a04e 40%, #d85b7d 20%, #f6a04e 60%);
+  background: linear-gradient(
+    to right,
+    $theme_green,
+    #ffd700,
+    $theme_blue,
+    $theme_silver
+  );
   -webkit-background-clip: text;
   color: transparent !important;
   text-shadow: none;

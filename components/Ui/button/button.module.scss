@@ -1,66 +1,63 @@
 @import "../../../app/css_variables.scss";
 
+// Main Button - Soft Gradient and Glow
 .btn_main {
-  // background: linear-gradient(338deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
   color: white !important;
   border: none;
-  border-radius: 43px 43px 43px 0;
+  border-radius: 30px;
   padding: 12px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.5;
-  transition: all 0.4s ease-out;
-  background-size: 200%;
-  background: #8f38ae;
-  // border: 2px solid #8f38ae;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(90deg, $light_green, $theme_blue);
+  // background-size: 100% 100%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
+  border: 1px solid $light_green;
+  @include fonts(18px, 22px, 500);
 
   @include md {
+    @include fonts(20px, 24px, 500);
     width: fit-content;
   }
 
   &:hover {
-    // background: linear-gradient(338deg, #8f38ae 63.78%3, #faa343 40.79%);
-    background: linear-gradient(
-      338deg,
-      #8f38ae 25%,
-      // #faa343 45%,
-      #bf3663 60.07%,
-      #8f38ae 60%
-    );
-    background-size: 100%;
+    // background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   }
 }
+
+// Secondary Button - Subtle Blue-Gray with Soft Gradient on Hover
 .btn_second {
-  // background: linear-gradient(-45deg, #31b5c2 25%, #8f38ae 45%, #31b5c2 60%);
-  color: black;
+  color: $theme_dark_gray;
   border: none;
-  border-radius: 43px 43px 43px 0;
+  border-radius: 30px;
   padding: 12px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.5;
-  transition: all 0.4s ease-out;
-  background-size: 200%;
-  width: fit-content;
-  background: white;
-  border: 1px solid rgb(238, 239, 239);
+  transition: all 0.3s ease;
+  background: lighten($theme_blue, 60%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
+  border: 1px solid $theme_light_gray;
+  @include fonts(18px, 22px, 600);
 
   @include md {
     width: fit-content;
+    @include fonts(20px, 24px, 600);
   }
 
   &:hover {
-    background: linear-gradient(-45deg, #31b5c2 25%, #31b5c2 45%, #31b5c2 60%);
-    // background: linear-gradient(
-    //   338deg,
-    //   #faa343 2.79%,
-    //   #bf3663 27.07%,
-    //   #8f38ae 63.78%,
-    //   #31b5c2 102.02%
-    // );
-    background-size: 100%;
+    background: linear-gradient(90deg, lighten($theme_blue, 20%), $light_blue);
     color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }

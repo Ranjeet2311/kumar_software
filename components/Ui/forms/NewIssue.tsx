@@ -6,6 +6,7 @@ import { sanitizeInput } from "@/utils/SanitizeInput";
 import xss from "xss";
 import Loader from "@/components/Loader";
 import AlertMessage from "@/components/AlertMessage";
+import { Bug } from "lucide-react";
 
 type Issue = {
   issue: string;
@@ -194,8 +195,11 @@ export default function NewIssue() {
               {loading ? (
                 <Loader color="red.500" size="lg" message="Creating issue..." />
               ) : (
-                "Add your issue"
-              )}{" "}
+                <>
+                  <Bug size={22} strokeWidth={1.75} className="me-2 d-inline" />
+                  Add your issue
+                </>
+              )}
             </button>
           </div>
         </form>

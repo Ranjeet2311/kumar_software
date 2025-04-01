@@ -7,6 +7,7 @@ import eyeOpen from "../../../assets/images/eye-open.png";
 import eyeClosed from "../../../assets/images/eye-closed.png";
 import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
+import { UserRoundPlus, Eye, EyeClosed } from "lucide-react";
 
 type Signup = {
   firstName: string;
@@ -73,7 +74,9 @@ export default function SignUpForm() {
       });
       console.log(`result.message after reset : `, result.message);
 
-      redirect("/dashboard");
+      setTimeout(() => {
+        redirect("/dashboard");
+      }, 5000);
     } else {
       setError(
         result.message ||
@@ -150,17 +153,16 @@ export default function SignUpForm() {
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Password*{" "}
-            <span>
-              <Image
-                onClick={handlePasswordShow}
-                src={signUpData.password && showPassword ? eyeOpen : eyeClosed}
-                alt="eye"
-                width={20}
-                style={{
-                  margin: "0 12px",
-                  cursor: "pointer",
-                }}
-              />
+            <span onClick={handlePasswordShow}>
+              {signUpData.password && showPassword ? (
+                <Eye size={22} strokeWidth={1.75} className="ms-2 d-inline" />
+              ) : (
+                <EyeClosed
+                  size={22}
+                  strokeWidth={1.75}
+                  className="ms-2 d-inline"
+                />
+              )}
             </span>
           </label>
           <input
@@ -185,7 +187,14 @@ export default function SignUpForm() {
             {loading ? (
               <Loader size="lg" message="Creating account..." />
             ) : (
-              "Creating account"
+              <>
+                <UserRoundPlus
+                  size={18}
+                  strokeWidth={1.75}
+                  className="me-2 d-inline"
+                />
+                Create account
+              </>
             )}{" "}
           </button>
         </div>

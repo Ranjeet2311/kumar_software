@@ -4,12 +4,11 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { sanitizeInput } from "@/utils/SanitizeInput";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-// import "./form.scss";
 import eyeOpen from "../../../assets/images/eye-open.png";
 import eyeClosed from "../../../assets/images/eye-closed.png";
 import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
-// import { useRouter } from "next/router";
+import { Key, Eye, EyeClosed } from "lucide-react";
 
 type LogIn = {
   email: string;
@@ -111,19 +110,20 @@ export default function LoginForm() {
                   className="form-label"
                 >
                   Password*
-                  <span>
-                    <Image
-                      onClick={handlePasswordShow}
-                      src={
-                        loginData.password && showPassword ? eyeOpen : eyeClosed
-                      }
-                      alt="eye"
-                      width={20}
-                      style={{
-                        margin: "0 12px",
-                        cursor: "pointer",
-                      }}
-                    />
+                  <span onClick={handlePasswordShow}>
+                    {loginData.password && showPassword ? (
+                      <Eye
+                        size={22}
+                        strokeWidth={1.75}
+                        className="ms-2 d-inline"
+                      />
+                    ) : (
+                      <EyeClosed
+                        size={22}
+                        strokeWidth={1.75}
+                        className="ms-2 d-inline"
+                      />
+                    )}
                   </span>
                 </label>
                 <input
@@ -151,8 +151,11 @@ export default function LoginForm() {
               {loading ? (
                 <Loader size="lg" message="Authenticating" />
               ) : (
-                "Login"
-              )}{" "}
+                <>
+                  <Key size={18} strokeWidth={1.75} className="me-2 d-inline" />
+                  Login
+                </>
+              )}
             </button>
           </div>
         </form>

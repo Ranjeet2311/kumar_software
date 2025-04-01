@@ -104,7 +104,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           </div>
         )}
       </div>
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
     </>
   );
 }

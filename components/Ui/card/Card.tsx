@@ -46,7 +46,7 @@ export default function Card({
         {showBtn && (
           <Button
             button={false}
-            mode={btnClasses.btn_main}
+            mode={btnClasses.btn_second}
             customClass="w-100 ms-0 ms-lg-1 d-block text-center justify-content-center"
             link={`/services/${slugifiedTitle}`}
             localRoute={true}

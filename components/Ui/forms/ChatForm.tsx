@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import xss from "xss";
+import { MessageCirclePlus } from "lucide-react";
 
 export default function ChatForm() {
   const [chatMessage, setChatMessage] = useState<string>("");
@@ -14,9 +15,16 @@ export default function ChatForm() {
 
   const user = useSelector((state: RootState) => state.user.user);
   const userChatId = useSelector((state: RootState) => state.chat.chatId);
-  const useChatLIst = useSelector((state: RootState) => state.chat.chats);
+  // const useChatLIst = useSelector((state: RootState) => state.chat.chats);
+  const selectedChat = useSelector(
+    (state: RootState) => state.chat.selectedChat
+  );
+  const selectedUserId = selectedChat.map((chat) => chat.userId);
+  console.log(`selectedUserId :: `, selectedUserId);
 
   // console.log(`chat user, userData: `, user);
+
+  console.log(`User position : `, user?.position);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -34,9 +42,14 @@ export default function ChatForm() {
     if (chatMessage?.trim()?.length && user?.userId) {
       console.log(`Dispatching cnew message`);
 
+      const userId =
+        user.position === "admin" ? selectedUserId[0] : user?.userId;
+
+      console.log(`sender userId : `, userId);
+
       dispatch(
         sendMessage({
-          userId: user?.userId,
+          userId: userId,
           userName: user?.firstName,
           userType: user?.position,
           newMessage: {
@@ -102,7 +115,7 @@ export default function ChatForm() {
 
   return (
     <div>
-      <div className="form-wrap">
+      <div className="form-wrap w-100">
         <form onSubmit={handleMessages}>
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
@@ -127,7 +140,18 @@ export default function ChatForm() {
               }`}
               disabled={sending}
             >
-              {sending ? <Loader size="lg" message="Sending..." /> : "Send"}{" "}
+              {sending ? (
+                <Loader size="lg" message="Sending..." />
+              ) : (
+                <>
+                  <MessageCirclePlus
+                    size={20}
+                    strokeWidth={1.75}
+                    className="me-2 d-inline"
+                  />
+                  Send
+                </>
+              )}
             </button>
           </div>
         </form>

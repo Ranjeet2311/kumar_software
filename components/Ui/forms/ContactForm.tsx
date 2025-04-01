@@ -5,6 +5,9 @@ import "./form.scss";
 import { sanitizeInput } from "@/utils/SanitizeInput";
 import { servicesList } from "@/utils/List";
 import xss from "xss";
+import { Send } from "lucide-react";
+import Loader from "@/components/Loader";
+import AlertMessage from "@/components/AlertMessage";
 
 type FormData = {
   firstName: string;
@@ -56,9 +59,9 @@ export default function ContactForm() {
     });
 
     const result = await response.json();
-    setLoading(false);
 
     if (response.ok) {
+      setLoading(false);
       setMessage(result.message);
       setFormData({
         firstName: "",
@@ -72,6 +75,7 @@ export default function ContactForm() {
       console.log(`Form data after reset : `, formData);
     } else {
       setError(result.message || "Something went wrong. Please try again.");
+      setLoading(false);
     }
   };
 
@@ -183,23 +187,25 @@ export default function ContactForm() {
         <div className="mb-0">
           <button
             type="submit"
-            className="btn btn-bg w-100 border-0 text-white"
+            className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${
+              loading ? "bg-primary" : null
+            }`}
+            disabled={loading}
           >
-            {loading ? "Sending..." : "Send"}{" "}
+            {loading ? (
+              <Loader size="lg" message="Sending..." />
+            ) : (
+              <>
+                <Send size={18} strokeWidth={1.75} className="me-2 d-inline" />
+                Send
+              </>
+            )}
           </button>
         </div>
       </form>
       <h5 className="mt-2">
-        {message && (
-          <p className="mt-4 text-center" style={{ color: "green" }}>
-            {message}
-          </p>
-        )}
-        {error && (
-          <p className="mt-4 text-center" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
+        {message && <AlertMessage status="success" message={message} />}
+        {error && <AlertMessage status="error" message={error} />}
       </h5>
     </div>
   );

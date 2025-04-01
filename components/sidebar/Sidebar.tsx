@@ -42,7 +42,7 @@ export default function Sidebar({
   const logout = useLogout();
 
   const pathname = usePathname();
-  console.log(`path :: `, pathname);
+  console.log(`path of dashboard :: `, pathname);
 
   return (
     <div
@@ -51,13 +51,13 @@ export default function Sidebar({
       }`}
     >
       <button
-        className={`btn py-4 btn-dark w-100 ${styles.toggleButton}`}
+        className={`btn py-3 collapse_btn w-100 ${styles.toggleButton}`}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         {isExpanded ? (
-          <PanelLeftClose style={{ width: "26px" }} />
+          <PanelLeftClose size={28} strokeWidth={2} />
         ) : (
-          <PanelRightClose style={{ width: "26px" }} />
+          <PanelRightClose size={28} strokeWidth={2} />
         )}
       </button>
       <nav className="nav flex-column px-0">

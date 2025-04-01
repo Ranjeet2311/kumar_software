@@ -12,6 +12,10 @@
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: $theme_silver important;
+}
+
 .top-padding {
   padding-top: 80px;
 
@@ -24,7 +28,6 @@
 #process,
 #feedback {
   padding-bottom: 60px;
-  background: rgba(255, 255, 255, 1);
 
   @include lg {
     padding-bottom: 62px;
@@ -34,7 +37,6 @@
 #plans,
 #contact {
   padding-bottom: 60px;
-  background: #f2fbfc;
 
   @include lg {
     padding-bottom: 62px;
@@ -43,14 +45,7 @@
 
 #footer {
   padding: 8px 0 !important;
-  background: linear-gradient(
-    to right,
-    // #faa343 10%,
-    // #bf3663 27%,
-    #31b5c2 102%,
-    #8f38ae 63%,
-    #31b5c2 102%
-  );
+  background: linear-gradient(to right, $theme_blue, $theme_green, $theme_blue);
 }
 .footer {
   p {
@@ -122,12 +117,22 @@ a,
     position: absolute;
     top: 0;
     right: 0;
+    // background: linear-gradient(
+    //   45deg,
+    //   #a9edf5 27.07%,
+    //   #f2fbfc 63.78%,
+    //   #a9edf5 102.02%
+    // );
+
     background: linear-gradient(
       45deg,
-      #a9edf5 27.07%,
-      #f2fbfc 63.78%,
-      #a9edf5 102.02%
-    );
+      $theme_green,
+      #a1e3f9,
+      $theme_blue,
+      $light_green,
+      #3778c2
+    ) !important;
+    background-size: 150% 150% !important;
 
     @include lg {
       height: 380px !important;
@@ -157,6 +162,9 @@ a,
 
 .section-heading {
   margin-bottom: 60px;
+  background-color: aliceblue;
+  border-radius: 12px;
+  padding: 20px 6px;
 
   @include lg {
     margin-bottom: 100px;
@@ -193,20 +201,40 @@ a,
 
 .work {
   margin-bottom: 60px;
-  margin-top: 60px !important;
+  // margin-top: 60px !important;
 
   &:last-child {
     margin-bottom: 0 !important;
+  }
+
+  .process {
+    padding: 18px;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: $light_green;
+    }
   }
 
   h2 {
     font-style: normal;
     margin-bottom: 0;
     color: #3e4581 !important;
-    @include fonts(26px, 36px, 600);
+    @include fonts(18px, 22px, 700);
 
     @include lg {
-      @include fonts(35px, 45px, 600);
+      @include fonts(22px, 28px, 700);
+    }
+  }
+
+  h4 {
+    font-style: normal;
+    margin-bottom: 0;
+    color: $theme_dark_gray !important;
+    @include fonts(16px, 20px, 700);
+
+    @include lg {
+      @include fonts(18px, 22px, 600);
     }
   }
   hr {
@@ -232,21 +260,35 @@ a,
 // ------------------------------------
 
 .colored-text {
+  // background: -webkit-linear-gradient(
+  //   to right,
+  //   #8f38ae 15%,
+  //   #faa343 35%,
+  //   #bf3663 47%,
+  //   #8f38ae 53%,
+  //   #31b5c2 90%
+  // );
+  // background: linear-gradient(
+  //   to right,
+  //   #8f38ae 15%,
+  //   #faa343 35%,
+  //   #bf3663 47%,
+  //   #8f38ae 53%,
+  //   #31b5c2 90%
+  // );
   background: -webkit-linear-gradient(
     to right,
-    #8f38ae 15%,
-    #faa343 35%,
-    #bf3663 47%,
-    #8f38ae 53%,
-    #31b5c2 90%
+    $theme_medium_gray,
+    $blue_1,
+    $blue_1,
+    #31b5c2
   );
   background: linear-gradient(
     to right,
-    #8f38ae 15%,
-    #faa343 35%,
-    #bf3663 47%,
-    #8f38ae 53%,
-    #31b5c2 90%
+    $theme_medium_gray,
+    $blue_1,
+    $blue_1,
+    #31b5c2
   );
   -webkit-background-clip: text;
   color: transparent !important;
@@ -283,7 +325,7 @@ a,
 
   .outer-wrap {
     margin: 0 auto !important;
-    border-radius: 43px;
+    border-radius: 12px;
     padding: 15px 10px;
     // background: linear-gradient(
     //   45deg,
@@ -314,13 +356,7 @@ a,
   display: flex;
   justify-content: center;
   left: 1%;
-  background: linear-gradient(
-    to right,
-    #faa343 10%,
-    #bf3663 27%,
-    #8f38ae 63%,
-    #31b5c2 102%
-  );
+  background: linear-gradient(-55deg, $blue_2, $theme-green, $blue_2);
 
   // background: linear-gradient(
   //   338deg,
@@ -330,7 +366,7 @@ a,
   // );
 
   padding: 12px 18px;
-  border-radius: 43px;
+  border-radius: 12px;
   z-index: 99;
 
   .bar {
@@ -358,7 +394,7 @@ a,
     border: 1px solid white;
     width: max-content;
     transition: all 0.4s ease-out;
-    border-radius: 43px 43px 43px 0;
+    border-radius: 12px 12px 12px 0;
 
     &:hover {
       background: #bf3663;
@@ -415,15 +451,6 @@ a,
   border-radius: 12px;
   padding: 0px 30px;
 
-  .greeting {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .greeting-text {
-    @include fonts(36px, 44px, 600);
-  }
-
   .form-wrap {
     box-shadow: -1px 1px 2px #e9c1f8;
     border-radius: 12px;
@@ -433,8 +460,54 @@ a,
     overflow: hidden;
   }
 
+  .collapse_btn {
+    background-color: $theme_blue !important;
+    border-radius: 0;
+    color: white;
+  }
+
+  .greeting {
+    @include fonts(20px, 24px, 700);
+
+    @include md {
+      @include fonts(26px, 30px, 700);
+    }
+  }
+
+  .dashboard-content {
+    a,
+    button {
+      @include fonts(14px, 16px, 500);
+      text-align: center;
+
+      @include md {
+        @include fonts(18px, 20px, 500);
+      }
+    }
+
+    .card {
+      // border: none !important;
+
+      h5 {
+        @include fonts(16px, 20px, 600);
+        text-align: center;
+
+        @include md {
+          @include fonts(20px, 24px, 600);
+        }
+      }
+      h3 {
+        @include fonts(18px, 20px, 600);
+        text-align: center;
+
+        @include md {
+          @include fonts(22px, 26px, 600);
+        }
+      }
+    }
+  }
   .active_tab {
-    background-color: #0d6efd; /* Active background color */
+    background-color: $theme_blue !important; /* Active background color */
     color: white !important; /* Active text color */
     font-weight: bold;
     // border-radius: 8px;
@@ -459,24 +532,67 @@ a,
     @include md {
       width: 90% !important;
     }
+
+    @include lg {
+      width: 92% !important;
+    }
   }
   .narrow_content {
-    width: 40% !important;
+    width: 45% !important;
     transition: all 0.3s ease-in-out;
 
-    @include md {
+    @include sm {
       width: 60% !important;
     }
+
     @include lg {
       width: 70% !important;
+    }
+
+    @include xl {
+      width: 78% !important;
     }
   }
 }
 
+.btn_main {
+  color: white !important;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(90deg, $light_green, $theme_blue);
+  // background-size: 100% 100%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border: 1px solid $light_green;
+  @include fonts(18px, 22px, 500);
+
+  @include md {
+    @include fonts(20px, 24px, 500);
+    width: fit-content;
+  }
+
+  &:hover {
+    // background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// .dashboard-content {
+//   background-color: #e3f4f5;
+// }
+
 .chat-container {
   background: #f3f3f3;
   box-shadow: -4px 4px 12px #b2b2b2;
-  border-radius: 43px;
+  border-radius: 12px;
   min-height: 500px;
   scroll-behavior: smooth;
   padding: 30px 10px;
@@ -530,13 +646,13 @@ a,
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 2px grey;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #31b5c2;
-  border-radius: 10px;
+  background: $theme_blue;
+  border-radius: 12px;
 }
 
 /* Handle on hover */
@@ -577,6 +693,7 @@ a,
     max-height: 550px;
     min-height: 300px;
     max-height: 300px;
+    width: 100% !important;
     border: none;
     border-bottom: 2px solid grey;
   }
@@ -616,8 +733,8 @@ a,
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    background: $theme-blue;
+    border-radius: 12px;
     transition: background 0.3s;
   }
 
@@ -633,7 +750,7 @@ a,
     @include fonts(16px, 26px, 500);
     margin-bottom: 8px;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
     border: none;
     background: #d8f3f6;
     cursor: pointer;

@@ -55,9 +55,11 @@ const chatSlice = createSlice({
         newMessage: Chat;
       }>
     ) => {
-      console.log("Updating chat state with message:", action.payload);
+      console.log("user ID to upda5te: ", action.payload.userId);
+
+      console.log("Updating chat state with message:", action.payload.userId);
       if (state.chats.length == 0) {
-        console.log("Adding new message to the list");
+        console.log("Adding new message");
 
         state.chats = [
           ...state.chats,
@@ -72,6 +74,7 @@ const chatSlice = createSlice({
           },
         ];
       } else {
+        console.log("Adding new message to the list");
         state.chats = state.chats.map((chat) =>
           action.payload.userId === chat.userId
             ? {
@@ -80,6 +83,8 @@ const chatSlice = createSlice({
               }
             : chat
         );
+
+        console.log("Message added");
       }
     },
   },
