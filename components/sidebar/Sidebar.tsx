@@ -25,7 +25,7 @@ type TabType = {
 };
 
 const tabs: TabType[] = [
-  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { name: "Stats", path: "/dashboard", icon: LayoutDashboard },
   { name: "Issues", path: "/dashboard/issues", icon: Bug },
   { name: "Add issue", path: "/dashboard/add-issue", icon: BadgeAlert },
   { name: "Messages", path: "/dashboard/messages", icon: MessagesSquare },
@@ -53,22 +53,30 @@ export default function Sidebar({
       <button
         className={`btn py-3 collapse_btn w-100 ${styles.toggleButton}`}
         onClick={() => setIsExpanded(!isExpanded)}
+        style={{ textAlign: "left", whiteSpace: "nowrap" }}
       >
-        {isExpanded ? (
-          <PanelLeftClose size={28} strokeWidth={2} />
-        ) : (
-          <PanelRightClose size={28} strokeWidth={2} />
-        )}
+        <span style={{ display: "inline-block", verticalAlign: "middle" }}>
+          {isExpanded ? <PanelLeftClose /> : <PanelRightClose />}
+        </span>
+        <span
+          className={`${isExpanded ? "d-inline ms-2" : "d-none"}`}
+          style={{
+            display: "inline-block",
+            verticalAlign: "middle",
+            marginLeft: "8px",
+            fontWeight: "600",
+          }}
+        >
+          Dashboard
+        </span>
       </button>
+
       <nav className="nav flex-column px-0">
         {tabs.map(({ name, path, icon: Icon }) => {
           const isActive = path === pathname;
 
-          // console.log(`isActive :: `, isActive);
-
           return (
             <Link
-              // onClick={() => setIsExpanded(!isExpanded)}
               key={name}
               href={path}
               className={`nav-link text-light ${styles.menuItem} ${
@@ -76,7 +84,16 @@ export default function Sidebar({
               }`}
             >
               <Icon className="me-2" />
-              <span className={`${isExpanded ? "d-inline" : "d-none"}`}>
+              <span
+                style={{
+                  visibility: isExpanded ? "visible" : "hidden",
+                  display: "inline-block",
+                  width: isExpanded ? "auto" : "0px",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  transition: "width 0.3s ease, visibility 0.3s ease",
+                }}
+              >
                 {name}
               </span>
             </Link>
