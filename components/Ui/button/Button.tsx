@@ -9,6 +9,13 @@ type ButtonProps = {
   children?: React.ReactNode;
   customClass?: string;
   localRoute?: boolean;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  onMouseOver?: () => void;
+  onMouseOut?: () => void;
 };
 
 export default function Button({
@@ -18,12 +25,30 @@ export default function Button({
   mode,
   customClass,
   localRoute,
+  type = "button",
+  disabled = false,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  onMouseOver,
+  onMouseOut,
 }: ButtonProps) {
   // console.log("button : ", button);
 
   if (button) {
     return (
-      <button className={`"btn ${mode} ${customClass}`}> {children} </button>
+      <button
+        className={`"btn ${mode} ${customClass}`}
+        type={type}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onMouseOver={onMouseOver}
+        onMouseOut={onMouseOut}
+        disabled={disabled}
+      >
+        {children}
+      </button>
     );
   }
 

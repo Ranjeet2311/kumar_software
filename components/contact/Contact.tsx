@@ -5,7 +5,6 @@ import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 // import emailIcon from "../../assets/images/email-icon.png";
 import contact from "../../assets/images/rocket.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 type ContactProps = {
   showImage?: boolean;

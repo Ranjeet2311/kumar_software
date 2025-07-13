@@ -3,7 +3,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { Avatar, For, HStack } from "@chakra-ui/react";
 import { ShieldUser } from "lucide-react";
-import Loader from "@/components/Loader";
 import { formatTime } from "@/utils/TimeConverter";
 
 type Chatlist = {
@@ -13,8 +12,6 @@ type Chatlist = {
 };
 
 export default function ChatElement() {
-  const [chatlist, setChatlist] = useState<Chatlist[] | null>();
-
   const getUserChat = useSelector(
     (state: RootState) => state.chat.chats,
     shallowEqual
@@ -47,8 +44,8 @@ export default function ChatElement() {
 
   // Scroll to the bottom when chatList updates
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [chatList]); // Runs whenever chatList updates
+    // chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chatList]);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import AlertMessage from "@/components/AlertMessage";
 import Loader from "@/components/Loader";
-import { sendMessage, setUserChat } from "@/store/slices/chatSlice";
+import { sendMessage } from "@/store/slices/chatSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

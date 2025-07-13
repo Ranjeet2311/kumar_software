@@ -1,4 +1,4 @@
-@import "../../../app/css_variables.scss";
+@use "../../../app/css_variables.scss" as vars;
 
 .plan_card {
   margin: 20px auto;
@@ -6,33 +6,22 @@
   border-radius: 12px;
   padding: 0;
   background: linear-gradient(45deg, #f1fcfc 10%, transparent, #f1fcfc 80%);
-  // background: #8f38ae;
-  // background-image: url("../../../assets/images/login.png");
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
   transition: all 0.4s ease-in;
-  background-size: 200%; /* Allow the background to scale */
+  background-size: 200%;
 
   &:hover {
     color: white;
-    // background: linear-gradient(
-    //   338deg,
-    //   #8f38ae 20.78%,
-    //   #faa343 27.79%,
-    //   #bf3663 103.07%
-    // );
     background-size: 100%;
-    filter: drop-shadow(-2px 4px 12px $theme-text-color);
+    filter: drop-shadow(-2px 4px 12px vars.$theme_text_color);
     border: 1px solid transparent;
 
     .card_header {
       background: linear-gradient(
         -45deg,
-        $theme_green,
+        vars.$theme_green,
         #a1e3f9,
-        $theme_blue,
-        $light_green,
+        vars.$theme_blue,
+        vars.$light_green,
         #3778c2
       );
       background-size: 100%;
@@ -49,29 +38,30 @@
   }
 
   .card_header {
-    // font-size: 30px;
-    // font-weight: normal;
-    // line-height: 30px;
-    // font-style: normal;
-    @include fonts(24px, 30px, 600);
+    @include vars.fonts(24px, 30px, 600);
     text-align: center;
     border-radius: 12px 12px 0 0;
     background-color: white;
     border-bottom: 1px solid ddd;
-    background: linear-gradient(-45deg, $theme_green, #a1e3f9, $theme_blue);
+    background: linear-gradient(
+      -45deg,
+      vars.$theme_green,
+      #a1e3f9,
+      vars.$theme_blue
+    );
     padding: 30px;
     background-size: 200%; /* Allow the background to scale */
     transition: all 0.4s ease-in;
   }
   .title {
-    @include fonts(32px, 36px, 700);
-    font-family: $theme-font-Heading;
+    @include vars.fonts(32px, 36px, 700);
+    font-family: vars.$theme-font-Heading;
     color: white;
   }
   .price {
     // color: #f7f7f7 !important;
-    @include fonts(20px, 24px, 700);
-    font-family: $theme-font-Subheading;
+    @include vars.fonts(20px, 24px, 700);
+    font-family: vars.$theme-font-Subheading;
     color: white;
   }
 
@@ -81,7 +71,7 @@
     height: 100%;
     padding-bottom: 20px;
     border-radius: 0 0 12px 12px;
-    font-family: $theme-font-Paragraph;
+    font-family: vars.$theme-font-Paragraph;
   }
 
   .benefits_list {
@@ -96,12 +86,8 @@
   .benefit_item {
     padding: 2px 6px 5px 8px;
     text-align: start;
-    color: $theme-font-Paragraph;
-    @include fonts(16px, 28px, 400) // &::before {
-      //   content: url(../../../assets/images/check_list.png);
-      //   margin-right: 8px;
-      // }
-;
+    color: vars.$theme-font-Paragraph;
+    @include vars.fonts(16px, 28px, 400);
   }
 }
 
@@ -111,32 +97,23 @@
       transform: rotate(180deg) !important;
     }
   }
-
-  // .star {
-  //   width: 100%;
-  //   height: 55px;
-  //   object-fit: contain;
-  //   position: absolute;
-  //   top: -6px;
-  //   transform: translate(-50%, -50%);
-  // }
 }
 .gold_card_title {
-  @include fonts(36px, 38px, 700);
-  font-family: $theme-font-Heading;
+  @include vars.fonts(36px, 38px, 700);
+  font-family: vars.$theme-font-Heading;
   background: -webkit-linear-gradient(
     to right,
-    $theme_green,
+    vars.$theme_green,
     #ffd700,
-    $theme_blue,
-    $theme_silver
+    vars.$theme_blue,
+    vars.$theme_silver
   );
   background: linear-gradient(
     to right,
-    $theme_green,
+    vars.$theme_green,
     #ffd700,
-    $theme_blue,
-    $theme_silver
+    vars.$theme_blue,
+    vars.$theme_silver
   );
   -webkit-background-clip: text;
   color: transparent !important;

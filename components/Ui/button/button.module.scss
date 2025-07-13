@@ -1,4 +1,5 @@
-@import "../../../app/css_variables.scss";
+@use "sass:color";
+@use "../../../app/css_variables.scss" as vars;
 
 // Main Button - Soft Gradient and Glow
 .btn_main {
@@ -7,20 +8,17 @@
   border-radius: 30px;
   padding: 12px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg, $light_green, $theme_blue);
-  // background-size: 100% 100%;
+  background: linear-gradient(90deg, vars.$light_green, vars.$theme_blue);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  border: 1px solid $light_green;
-  @include fonts(18px, 22px, 500);
+  border: 1px solid vars.$light_green;
+  @include vars.fonts(16px, 20px, 600);
 
-  @include md {
-    @include fonts(20px, 24px, 500);
-    width: fit-content;
+  @include vars.md {
+    @include vars.fonts(18px, 20px, 600);
   }
 
   &:hover {
-    // background-position: right center;
     transform: translateY(-2px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
   }
@@ -33,24 +31,28 @@
 
 // Secondary Button - Subtle Blue-Gray with Soft Gradient on Hover
 .btn_second {
-  color: $theme_dark_gray;
+  color: vars.$theme_dark_gray;
   border: none;
   border-radius: 30px;
   padding: 12px 20px;
   transition: all 0.3s ease;
-  background: lighten($theme_blue, 60%);
+  background: color.adjust(vars.$theme_blue, $lightness: 60%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
-  border: 1px solid $theme_light_gray;
-  @include fonts(18px, 22px, 600);
+  border: 1px solid vars.$theme_light_gray;
+  @include vars.fonts(16px, 20px, 600);
 
-  @include md {
-    width: fit-content;
-    @include fonts(20px, 24px, 600);
+  @include vars.md {
+    // width: fit-content;
+    @include vars.fonts(18px, 20px, 600);
   }
 
   &:hover {
-    background: linear-gradient(90deg, lighten($theme_blue, 20%), $light_blue);
+    background: linear-gradient(
+      90deg,
+      color.adjust(vars.$theme_blue, $lightness: 20%),
+      vars.$light_blue
+    );
     color: white !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);

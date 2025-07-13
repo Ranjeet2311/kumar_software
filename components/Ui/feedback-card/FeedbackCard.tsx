@@ -1,7 +1,6 @@
 import React from "react";
 import "./feedbackCard.scss";
 import Image, { StaticImageData } from "next/image";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 type FeedbackCardProps = {
   name: string;

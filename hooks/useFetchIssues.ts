@@ -20,7 +20,7 @@ export default function useFetchIssues() {
       const data = result.data;
 
       if (response.ok) {
-        // console.log(`issue result data :: `, data);
+        console.log(`issue result data :: `, data);
         dispatch(setIssues(data));
         // console.log(` useState issues array :: `, issues);
       }

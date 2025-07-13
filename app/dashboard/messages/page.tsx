@@ -63,15 +63,20 @@ export default function MessagesPage() {
   }, [chats, dispatch]);
 
   return (
-    <>
+    <div className="container">
       <div className="row chat_section">
         {user?.position === "admin" && (
-          // <div className="col-lg-2 user_list px-0">
-          <ChatUsers users={chats} />
-          // </div>
+          <div className="col-12 col-lg-4">
+            <ChatUsers users={chats} />
+          </div>
         )}
-        <div className="col-9">
+        <div className="col-12 col-lg-8">
           <div className="row chatbox-wrap">
+            {user?.position === "admin" ? (
+              <h4>Admin Chat</h4>
+            ) : (
+              <h4>Your Chat</h4>
+            )}
             <div className="col-12 message_section">
               <ChatElement />
             </div>
@@ -81,6 +86,6 @@ export default function MessagesPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

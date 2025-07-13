@@ -2,10 +2,7 @@
 
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { sanitizeInput } from "@/utils/SanitizeInput";
-import Image from "next/image";
 import { redirect } from "next/navigation";
-import eyeOpen from "../../../assets/images/eye-open.png";
-import eyeClosed from "../../../assets/images/eye-closed.png";
 import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
 import { Key, Eye, EyeClosed } from "lucide-react";

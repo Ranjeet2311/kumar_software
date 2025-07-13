@@ -1,0 +1,17 @@
+@use "../../../app/css_variables.scss" as vars;
+
+.tooltip_wrap {
+  position: relative;
+}
+.tooltip {
+  position: absolute;
+  top: -34px;
+  right: -28px;
+  z-index: 99;
+  background: vars.$gradient-background-primary;
+  font-family: vars.$theme-font-Subheading;
+  color: white;
+  padding: 8px 12px !important;
+  border-radius: 12px;
+  white-space: nowrap;
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { setChatId, setUserChat } from "@/store/slices/chatSlice";
-import { AppDispatch, RootState } from "@/store/store";
-import { useDispatch, useSelector } from "react-redux";
+import { setChatId } from "@/store/slices/chatSlice";
+import { useDispatch } from "react-redux";
 import Loader from "@/components/Loader";
 
 type Chat = {

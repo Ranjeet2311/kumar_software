@@ -11,6 +11,7 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { formatTime } from "@/utils/TimeConverter";
+import classes from "./Issue.module.scss";
 
 interface Issues {
   _id: string;
@@ -35,8 +36,6 @@ export default function Issue({ issuesList }: IssueProps) {
   );
 
   const user = useSelector((state: RootState) => state.user.user);
-
-  // console.log(`issue user: `, user);
 
   function handleExpand(id: string) {
     if (expandDescription === id) {
@@ -83,96 +82,91 @@ export default function Issue({ issuesList }: IssueProps) {
             <div
               key={issue._id}
               onClick={() => handleExpand(issue._id)}
-              className="col-11 col-lg-6 issue"
+              className={`${classes.issue} `}
             >
-              <h4 className="title">
-                <CircleAlert />
-                <span className="d-block mt-2"> {issue.issue}</span>
+              <h4 className={classes.title}>
+                <CircleAlert size={18} />
+                <span className="d-block"> {issue.issue}</span>
               </h4>
-              <h3 className="createdBy">
-                By:
+              <h3 className={classes.createdBy}>
                 <i className="ms-1">
                   {issue.firstName + " " + issue.lastName},{" "}
                   <span>{formatTime(issue.createdAt)}</span>
                 </i>
               </h3>
-              <p className="description">
+              <p className={classes.description}>
                 {expandDescription === issue._id
                   ? issue.description
                   : truncateText({ text: issue.description, maxLength: 60 })}
               </p>
-              {(issue.progress || issue.completed) && <hr />}
-              <div className="my-2">
-                {issue.progress && (
-                  <Badge
-                    size="sm"
-                    className="pill"
-                    variant="solid"
-                    colorPalette="accent"
-                  >
-                    <Wrench size={16} className="me-1" />
-                    <span>In Progress</span>
-                  </Badge>
-                )}
-                {issue.completed && (
-                  <Badge
-                    size="sm"
-                    className="pill"
-                    variant="solid"
-                    colorPalette="green"
-                  >
-                    <CircleCheckBig size={16} className="me-1" />
-                    <span>Completed</span>
-                  </Badge>
-                )}
-              </div>
+              {(issue.progress || issue.completed) && <hr className="my-1" />}
+
+              {issue.progress && (
+                <Badge
+                  size="sm"
+                  className="pill"
+                  variant="solid"
+                  colorPalette="orange"
+                >
+                  <Wrench size={12} className="me-1" />
+                  <span>Progress</span>
+                </Badge>
+              )}
+              {issue.completed && (
+                <Badge
+                  size="sm"
+                  className="pill"
+                  variant="solid"
+                  colorPalette="teal"
+                >
+                  <CircleCheckBig size={12} className="me-1" />
+                  <span>Completed</span>
+                </Badge>
+              )}
 
               {user && user.position === "admin" && (
                 <div className="col-12 d-flex flex-wrap mt-2">
-                  <div onClick={() => handleStatus(issue._id, "inProgress")}>
-                    <Badge
-                      size="sm"
-                      className="pill"
-                      variant="solid"
-                      colorPalette="accent"
-                    >
-                      <Wrench size={16} className="me-1" />
-                      <span>In Progress</span>
-                    </Badge>
-                  </div>
-                  <div onClick={() => handleStatus(issue._id, "completed")}>
-                    <Badge
-                      size="sm"
-                      className="pill"
-                      variant="solid"
-                      colorPalette="green"
-                    >
-                      <CircleCheckBig size={16} className="me-1" />
-                      <span>Completed</span>
-                    </Badge>
-                  </div>
-                  <button onClick={handleUpdate}>
-                    <Badge
-                      size="sm"
-                      className="pill"
-                      variant="solid"
-                      colorPalette="cyan"
-                    >
-                      <Settings2 size={16} className="me-1" />
-                      <span>Update</span>
-                    </Badge>
-                  </button>
-                  <button onClick={handleDelete}>
-                    <Badge
-                      size="sm"
-                      className="pill"
-                      variant="solid"
-                      colorPalette="pink"
-                    >
-                      <Trash2 size={16} className="me-1" />
-                      <span>Delete</span>
-                    </Badge>
-                  </button>
+                  <hr className="w-100 my-1" />
+                  <Badge
+                    size="sm"
+                    className="pill"
+                    variant="solid"
+                    colorPalette="orange"
+                    onClick={() => handleStatus(issue._id, "inProgress")}
+                  >
+                    <Wrench size={12} className="me-1" />
+                    <span>Progress</span>
+                  </Badge>
+                  <Badge
+                    onClick={() => handleStatus(issue._id, "completed")}
+                    size="sm"
+                    className="pill"
+                    variant="solid"
+                    colorPalette="teal"
+                  >
+                    <CircleCheckBig size={12} className="me-1" />
+                    <span>Completed</span>
+                  </Badge>
+                  <Badge
+                    onClick={handleUpdate}
+                    size="sm"
+                    className="pill"
+                    variant="solid"
+                    colorPalette="blue"
+                  >
+                    <Settings2 size={12} className="me-1" />
+                    <span>Update</span>
+                  </Badge>
+                  <Badge
+                    onClick={handleUpdate}
+                    size="sm"
+                    className="pill"
+                    variant="solid"
+                    colorPalette="pink"
+                  >
+                    <Trash2 size={12} className="me-1" />
+                    <span>Delete</span>
+                  </Badge>
                 </div>
               )}
             </div>

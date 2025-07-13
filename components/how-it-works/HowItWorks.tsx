@@ -1,8 +1,4 @@
 import React from "react";
-import discuss from "../../assets/images/discuss.png";
-import insight from "../../assets/images/insight.png";
-import start from "../../assets/images/start-project.png";
-import Image from "next/image";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Plane, Lightbulb, Rocket } from "lucide-react";

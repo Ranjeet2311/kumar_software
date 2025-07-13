@@ -1,5 +1,4 @@
-@use "../../app/globals.scss" as *;
-@use "../../app/css_variables.scss";
+@use "../../app/css_variables.scss" as vars;
 
 @keyframes gradientShift {
   0% {
@@ -41,7 +40,7 @@
       padding: 0 4px 0 0;
       border-radius: 12px;
 
-      @include md {
+      @include vars.md {
         left: 0px;
       }
 
@@ -66,10 +65,10 @@
       align-items: center;
 
       span {
-        @include fonts(14px, 16px, 600);
+        @include vars.fonts(14px, 16px, 600);
       }
 
-      @include md {
+      @include vars.md {
         right: 5px;
       }
       // }
@@ -91,13 +90,13 @@
         padding-top: 60px;
         background: linear-gradient(
           45deg,
-          $light_green,
-          $theme_blue
+          vars.$light_green,
+          vars.$theme_blue
         ) !important;
         background-size: 300% 300% !important;
         animation: gradientShift 8s ease infinite;
 
-        @include md {
+        @include vars.md {
           width: 460px;
           padding-top: 28px;
         }
@@ -112,11 +111,10 @@
         &.menu-list-close {
           transform: translateX(400rem);
           width: 0;
-          // background-color: $theme_silver !important;
           transition: all 0.9s ease-in;
         }
 
-        @include lg {
+        @include vars.lg {
           padding-top: 60px;
         }
 
@@ -127,7 +125,7 @@
           width: 100%;
           padding: 4px 8px 4px 20px;
 
-          @include md {
+          @include vars.md {
             margin-bottom: 15px;
           }
 
@@ -137,13 +135,13 @@
             border-bottom: 1px solid transparent;
             text-decoration: none;
             color: white;
-            font-family: $theme-font-Heading !important;
+            font-family: vars.$theme-font-Heading !important;
             position: relative;
-            @include fonts(16px, 28px, 600);
+            @include vars.fonts(16px, 28px, 600);
             transition: all 0.2s ease-in;
 
-            @include md {
-              @include fonts(18px, 20px, 600);
+            @include vars.md {
+              @include vars.fonts(18px, 20px, 600);
             }
 
             &.active {
@@ -151,7 +149,7 @@
               width: 100%;
               transition: all 0.6s ease-in-out;
               // color: $light_green !important;
-              color: $light_green !important;
+              color: vars.$light_green !important;
 
               &::after {
                 content: "";
@@ -159,10 +157,10 @@
               }
             }
             &:focus {
-              color: $light_green !important;
+              color: vars.$light_green !important;
             }
             &:hover {
-              color: $light_green !important;
+              color: vars.$light_green !important;
             }
 
             &::after {
@@ -172,9 +170,9 @@
               height: 4px;
               background: linear-gradient(
                 -45deg,
-                $light_green 20%,
-                $theme_silver 60%,
-                $blue_2 20%
+                vars.$light_green 20%,
+                vars.$theme_silver 60%,
+                vars.$blue_2 20%
               );
 
               border-radius: 80px;
@@ -204,13 +202,3 @@
     }
   }
 }
-
-// .active {
-//   text-decoration: underline;
-//   filter: drop-shadow(0 0 80px #000ce8aa);
-//   color: red;
-
-//   &::after {
-//     background-color: transparent;
-//   }
-// }

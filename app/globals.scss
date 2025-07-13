@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@use "./css_variables.scss" as vars;
 
-@import "./css_variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 // font-family: "Montserrat Alternates", sans-serif;
 // font-family: "Roboto Mono", monospace;
@@ -13,13 +13,13 @@
 }
 
 body {
-  background-color: $theme_silver important;
+  background-color: vars.$theme_silver !important;
 }
 
 .top-padding {
   padding-top: 80px;
 
-  @include lg {
+  @include vars.lg {
     padding-top: 130px;
   }
 }
@@ -29,7 +29,7 @@ body {
 #feedback {
   padding-bottom: 60px;
 
-  @include lg {
+  @include vars.lg {
     padding-bottom: 62px;
   }
 }
@@ -38,58 +38,63 @@ body {
 #contact {
   padding-bottom: 60px;
 
-  @include lg {
+  @include vars.lg {
     padding-bottom: 62px;
   }
 }
 
 #footer {
   padding: 8px 0 !important;
-  background: linear-gradient(to right, $theme_blue, $theme_green, $theme_blue);
+  background: linear-gradient(
+    to right,
+    vars.$theme_blue,
+    vars.$theme_green,
+    vars.$theme_blue
+  );
 }
 .footer {
   p {
     margin-bottom: 0 !important;
     color: white !important;
-    @include fonts(16px, 28px, 600);
+    @include vars.fonts(16px, 28px, 600);
   }
 }
 
 h1 {
-  @include fonts(44px, 48px, 600);
-  font-family: $theme-font-Heading !important;
+  @include vars.fonts(44px, 48px, 600);
+  font-family: vars.$theme-font-Heading !important;
   font-weight: 800;
   line-height: 88px;
-  color: $theme-text-color !important;
+  color: vars.$theme-text-color !important;
 
-  @include lg {
-    @include fonts(64px, 68px, 600);
+  @include vars.lg {
+    @include vars.fonts(64px, 68px, 600);
   }
 }
 
 h2,
 h3,
 h4 {
-  font-family: $theme-font-Subheading !important;
+  font-family: vars.$theme-font-Subheading !important;
   font-weight: 600 !important;
 }
 
 h2 {
-  @include fonts(24px, 32px, 600);
+  @include vars.fonts(24px, 32px, 600);
 
-  @include lg {
-    @include fonts(44px, 56px, 600);
+  @include vars.lg {
+    @include vars.fonts(44px, 56px, 600);
   }
 }
 p {
-  font-family: $theme-font-Paragraph !important;
-  @include fonts(18px, 32px, 400);
+  font-family: vars.$theme-font-Paragraph !important;
+  @include vars.fonts(18px, 32px, 400);
   color: #0b0d39 !important;
 }
 
 a,
 .btn {
-  font-family: $theme-font-Subheading !important;
+  font-family: vars.$theme-font-Subheading !important;
   text-decoration: none !important;
 }
 
@@ -126,15 +131,15 @@ a,
 
     background: linear-gradient(
       45deg,
-      $theme_green,
+      vars.$theme_green,
       #a1e3f9,
-      $theme_blue,
-      $light_green,
+      vars.$theme_blue,
+      vars.$light_green,
       #3778c2
     ) !important;
     background-size: 150% 150% !important;
 
-    @include lg {
+    @include vars.lg {
       height: 380px !important;
       width: 380px !important;
     }
@@ -146,7 +151,7 @@ a,
     object-fit: cover;
     z-index: 10;
 
-    @include lg {
+    @include vars.lg {
       width: 400px;
     }
   }
@@ -155,7 +160,7 @@ a,
 .section-space {
   padding-top: 60px;
 
-  @include lg {
+  @include vars.lg {
     padding-top: 60px;
   }
 }
@@ -166,7 +171,7 @@ a,
   border-radius: 12px;
   padding: 20px 6px;
 
-  @include lg {
+  @include vars.lg {
     margin-bottom: 100px;
   }
 
@@ -174,20 +179,20 @@ a,
     font-style: normal;
     text-align: center;
     margin-bottom: 20px;
-    @include fonts(32px, 38px, 600);
+    @include vars.fonts(32px, 38px, 600);
 
-    @include lg {
-      @include fonts(48px, 56px, 700);
+    @include vars.lg {
+      @include vars.fonts(48px, 56px, 700);
     }
   }
   p {
     font-style: normal;
     text-align: center;
     margin-bottom: 0;
-    @include fonts(20px, 28px, 500);
+    @include vars.fonts(20px, 28px, 500);
 
-    @include lg {
-      @include fonts(24px, 32px, 600);
+    @include vars.lg {
+      @include vars.fonts(24px, 32px, 600);
     }
   }
 }
@@ -212,7 +217,7 @@ a,
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
     &:hover {
-      background-color: $light_green;
+      background-color: vars.$light_green;
     }
   }
 
@@ -220,32 +225,32 @@ a,
     font-style: normal;
     margin-bottom: 0;
     color: #3e4581 !important;
-    @include fonts(18px, 22px, 700);
+    @include vars.fonts(18px, 22px, 700);
 
-    @include lg {
-      @include fonts(22px, 28px, 700);
+    @include vars.lg {
+      @include vars.fonts(22px, 28px, 700);
     }
   }
 
   h4 {
     font-style: normal;
     margin-bottom: 0;
-    color: $theme_dark_gray !important;
-    @include fonts(16px, 20px, 700);
+    color: vars.$theme_dark_gray !important;
+    @include vars.fonts(16px, 20px, 700);
 
-    @include lg {
-      @include fonts(18px, 22px, 600);
+    @include vars.lg {
+      @include vars.fonts(18px, 22px, 600);
     }
   }
   hr {
     margin: 12px 0;
-    border: 1px solid $theme-text-color;
+    border: 1px solid vars.$theme_text_color;
   }
   .work-image-wrap {
     max-height: 450px;
     margin: 0 auto !important;
 
-    @include lg {
+    @include vars.lg {
       width: 450px;
     }
 
@@ -260,34 +265,18 @@ a,
 // ------------------------------------
 
 .colored-text {
-  // background: -webkit-linear-gradient(
-  //   to right,
-  //   #8f38ae 15%,
-  //   #faa343 35%,
-  //   #bf3663 47%,
-  //   #8f38ae 53%,
-  //   #31b5c2 90%
-  // );
-  // background: linear-gradient(
-  //   to right,
-  //   #8f38ae 15%,
-  //   #faa343 35%,
-  //   #bf3663 47%,
-  //   #8f38ae 53%,
-  //   #31b5c2 90%
-  // );
   background: -webkit-linear-gradient(
     to right,
-    $theme_medium_gray,
-    $blue_1,
-    $blue_1,
+    vars.$theme_medium_gray,
+    vars.$blue_1,
+    vars.$blue_1,
     #31b5c2
   );
   background: linear-gradient(
     to right,
-    $theme_medium_gray,
-    $blue_1,
-    $blue_1,
+    vars.$theme_medium_gray,
+    vars.$blue_1,
+    vars.$blue_1,
     #31b5c2
   );
   -webkit-background-clip: text;
@@ -298,12 +287,6 @@ a,
 // ------------ServiceDetail-----------
 
 .service-hero {
-  // background: linear-gradient(
-  //   45deg,
-  //   #a9edf5 27.07%,
-  //   #f2fbfc 63.78%,
-  //   #a9edf5 102.02%
-  // );
   background: #f2fbfc;
   padding-bottom: 40px;
 
@@ -320,19 +303,12 @@ a,
   display: block;
   border-radius: 8px;
   padding: 40px 16px;
-  // background: linear-gradient(-260deg, #d0eff2 25%, #d9b6e7 45%, #d0eff2 60%);
   background: rgb(250, 250, 250);
 
   .outer-wrap {
     margin: 0 auto !important;
     border-radius: 12px;
     padding: 15px 10px;
-    // background: linear-gradient(
-    //   45deg,
-    //   #a9edf5 27.07%,
-    //   #f2fbfc 63.78%,
-    //   #a9edf5 102.02%
-    // );
     background: #f2fbfc;
 
     .form-section {
@@ -356,14 +332,12 @@ a,
   display: flex;
   justify-content: center;
   left: 1%;
-  background: linear-gradient(-55deg, $blue_2, $theme-green, $blue_2);
-
-  // background: linear-gradient(
-  //   338deg,
-  //   #8f38ae 20.78%,
-  //   #faa343 27.79%,
-  //   #bf3663 103.07%
-  // );
+  background: linear-gradient(
+    -55deg,
+    vars.$blue_2,
+    vars.$theme_green,
+    vars.$blue_2
+  );
 
   padding: 12px 18px;
   border-radius: 12px;
@@ -377,7 +351,7 @@ a,
       flex-direction: column;
       color: white !important;
 
-      @include lg {
+      @include vars.lg {
         flex-direction: row;
       }
     }
@@ -408,7 +382,7 @@ a,
     border: none;
     background-color: rgb(255, 251, 251) !important;
     color: black !important;
-    @include fonts(14px, 18px, 600);
+    @include vars.fonts(14px, 18px, 600);
     transition: all 0.4s ease-out;
 
     &:hover {
@@ -421,7 +395,7 @@ a,
   max-width: 270px !important;
   transition: all 2s ease-out;
 
-  @include lg {
+  @include vars.lg {
     max-width: 1000px !important;
   }
 }
@@ -445,113 +419,90 @@ a,
 
 // ---------------------dashboard----------------------------------------
 .dashboard {
-  // background: #ececec;
   margin-top: 100px;
   height: 100dvh;
   border-radius: 12px;
-  padding: 0px 30px;
+  padding: 0 30px;
 
   .form-wrap {
     box-shadow: -1px 1px 2px #e9c1f8;
     border-radius: 12px;
   }
 
-  .dashboard-sidebar {
-    overflow: hidden;
-  }
-
   .collapse_btn {
-    background-color: $theme_blue !important;
-    border-radius: 0;
+    background-color: vars.$theme_blue;
+    border-radius: 6px 6px 0 0;
     color: white;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: vars.$gradient-background-primary;
+    }
   }
 
   .greeting {
-    @include fonts(20px, 24px, 700);
+    @include vars.fonts(20px, 24px, 700);
+    @include vars.md {
+      @include vars.fonts(26px, 30px, 700);
+    }
+  }
 
-    @include md {
-      @include fonts(26px, 30px, 700);
+  .dashboard-layout {
+    display: flex;
+    width: 100%;
+  }
+
+  .dashboard-sidebar {
+    // overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    flex: 0 0 54px;
+
+    &.broad_sidebar {
+      flex: 0 0 180px;
+
+      @include vars.md {
+        flex: 0 0 250px;
+      }
     }
   }
 
   .dashboard-content {
+    flex: 1 1 auto;
+    transition: all 0.3s ease-in-out;
+
     a,
     button {
-      @include fonts(14px, 16px, 500);
+      @include vars.fonts(14px, 16px, 500);
       text-align: center;
 
-      @include md {
-        @include fonts(18px, 20px, 500);
+      @include vars.md {
+        @include vars.fonts(18px, 20px, 500);
       }
     }
 
     .card {
-      // border: none !important;
-
       h5 {
-        @include fonts(16px, 20px, 600);
+        @include vars.fonts(16px, 20px, 600);
         text-align: center;
-
-        @include md {
-          @include fonts(20px, 24px, 600);
+        @include vars.md {
+          @include vars.fonts(20px, 24px, 600);
         }
       }
+
       h3 {
-        @include fonts(18px, 20px, 600);
+        @include vars.fonts(18px, 20px, 600);
         text-align: center;
-
-        @include md {
-          @include fonts(22px, 26px, 600);
+        @include vars.md {
+          @include vars.fonts(22px, 26px, 600);
         }
       }
     }
   }
+
   .active_tab {
-    background-color: $theme_blue !important; /* Active background color */
-    color: white !important; /* Active text color */
+    background: vars.$gradient-background-primary;
+    color: white;
     font-weight: bold;
-    // border-radius: 8px;
-  }
-
-  .broad_sidebar {
-    width: 180px !important;
-    transition: all 0.3s ease-in-out;
-
-    @include md {
-      width: 250px !important;
-    }
-  }
-  .narrow_sidebar {
-    width: 70px !important;
-    transition: all 0.3s ease-in-out;
-  }
-  .broad_content {
-    width: 78% !important;
-    transition: all 0.3s ease-in-out;
-
-    @include md {
-      width: 90% !important;
-    }
-
-    @include lg {
-      width: 92% !important;
-    }
-  }
-  .narrow_content {
-    width: 45% !important;
-    transition: all 0.3s ease-in-out;
-
-    @include sm {
-      width: 60% !important;
-    }
-
-    @include lg {
-      width: 70% !important;
-    }
-
-    @include xl {
-      width: 78% !important;
-    }
   }
 }
 
@@ -561,15 +512,15 @@ a,
   border-radius: 30px;
   padding: 12px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg, $light_green, $theme_blue);
+  background: linear-gradient(90deg, vars.$light_green, vars.$theme_blue);
   // background-size: 100% 100%;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  border: 1px solid $light_green;
-  @include fonts(18px, 22px, 500);
+  border: 1px solid vars.$light_green;
+  @include vars.fonts(18px, 22px, 500);
 
-  @include md {
-    @include fonts(20px, 24px, 500);
+  @include vars.md {
+    @include vars.fonts(20px, 24px, 500);
     width: fit-content;
   }
 
@@ -585,10 +536,6 @@ a,
   }
 }
 
-// .dashboard-content {
-//   background-color: #e3f4f5;
-// }
-
 .chat-container {
   background: #f3f3f3;
   box-shadow: -4px 4px 12px #b2b2b2;
@@ -596,44 +543,6 @@ a,
   min-height: 500px;
   scroll-behavior: smooth;
   padding: 30px 10px;
-}
-
-.issue {
-  max-width: 360px !important;
-  margin: 10px auto;
-  padding: 15px;
-  box-shadow: -1px 2px 4px #31b5c2;
-  border-radius: 12px;
-  background: white;
-  transition: all 0.3s ease-in-out;
-  height: fit-content;
-  cursor: pointer;
-  position: relative;
-
-  // @include lg {
-  //   max-width: 460px !important;
-  // }
-
-  &:hover {
-    box-shadow: 0px 8px 18px #31b5c2;
-    background: white;
-  }
-
-  .title {
-    @include fonts(18px, 26px, 600);
-    margin-bottom: 4px !important;
-  }
-  .description {
-    @include fonts(14px, 22px, 400);
-    margin-bottom: 4px !important;
-  }
-  .createdBy {
-    @include fonts(12px, 20px, 700);
-    // margin-bottom: 8px !important;
-    margin-top: 4px;
-    // border-bottom: 1px solid grey;
-    padding-bottom: 6px;
-  }
 }
 
 // -------chat section -------------
@@ -651,7 +560,7 @@ a,
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $theme_blue;
+  background: vars.$theme_blue;
   border-radius: 12px;
 }
 
@@ -659,23 +568,6 @@ a,
 ::-webkit-scrollbar-thumb:hover {
   background: #31b5c2;
 }
-
-// .user_list {
-//   // border: 1px solid red;
-//   height: fit-content;
-//   overflow-y: scroll;
-//   border-right: 1px solid #1bb0c1;
-
-//   @include lg {
-//     height: 100vh;
-//   }
-// }
-
-// .chat_section {
-//   form {
-//     border-radius: 12px;
-//   }
-// }
 
 .chatbox-wrap {
   border: none;
@@ -688,23 +580,18 @@ a,
   align-items: center;
 
   .message_section {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     overflow-y: auto;
     max-height: 550px;
     min-height: 300px;
-    max-height: 300px;
     width: 100% !important;
     border: none;
     border-bottom: 2px solid grey;
   }
 
-  // .message_form{
-
+  // @include vars.lg {
+  //   max-width: 80% !important;
   // }
-
-  @include lg {
-    max-width: 80% !important;
-  }
 }
 
 .chat_user_list {
@@ -713,7 +600,7 @@ a,
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  max-width: clamp(20%, 24%, 300px) !important;
+  // max-width: clamp(20%, 24%, 300px) !important;
   max-height: 520px;
   overflow-y: auto; // Changed to auto for better behavior
   scroll-behavior: smooth;
@@ -723,9 +610,9 @@ a,
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 
-  @include lg {
-    max-width: 20% !important;
-  }
+  // @include vars.lg {
+  //   max-width: 20% !important;
+  // }
 
   // Custom Scrollbar for modern UI
   &::-webkit-scrollbar {
@@ -733,7 +620,7 @@ a,
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $theme-blue;
+    background: vars.$theme-blue;
     border-radius: 12px;
     transition: background 0.3s;
   }
@@ -747,7 +634,7 @@ a,
   }
 
   .chat_user_btn {
-    @include fonts(16px, 26px, 500);
+    @include vars.fonts(16px, 26px, 500);
     margin-bottom: 8px;
     width: 100%;
     border-radius: 12px;
@@ -768,14 +655,12 @@ a,
 }
 
 .chat-list {
-  margin-bottom: 8px;
   padding: 8px 10px;
   display: flex;
   justify-content: start;
 
   .user {
-    @include fonts(16px, 26px, 500);
-    margin-bottom: 8px !important;
+    @include vars.fonts(16px, 26px, 500);
     height: max-content;
     border-radius: 12px;
     background-color: #31b5c2;
@@ -787,7 +672,7 @@ a,
     padding-top: 30px;
     padding-bottom: 4px;
 
-    @include lg {
+    @include vars.lg {
       padding-top: 6px;
     }
 
@@ -801,7 +686,7 @@ a,
   }
 
   .message {
-    @include fonts(14px, 20px, 400);
+    @include vars.fonts(14px, 20px, 400);
     margin-bottom: 4px !important;
     // background-color: #d8f3f6;
     padding: 20px 16px 18px;
@@ -811,7 +696,7 @@ a,
   }
 
   .time_stamp {
-    @include fonts(12px, 14px, 600);
+    @include vars.fonts(12px, 14px, 600);
     margin-bottom: 4px !important;
     // color: #31b5c2;
     position: absolute;
@@ -833,32 +718,30 @@ a,
   text-align: center;
   cursor: pointer;
   border: none;
-  box-shadow: -2px 2px 4px rgb(203, 203, 203);
-  @include fonts(12px, 16px, 600);
+  // box-shadow: -2px 2px 4px rgb(203, 203, 203);
+  @include vars.fonts(10px, 14px, 500);
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: -3px 2px 6px rgb(86, 87, 87);
+    box-shadow: -2px 2px 4px rgb(86, 87, 87);
   }
 }
-// .sucsess {
-//   color: white !important;
-//   background: -webkit-linear-gradient(
-//     to right,
-//     rgb(48, 113, 28),
-//     rgb(48, 113, 28),
-//     rgb(48, 113, 28)
-//   );
-//   background: linear-gradient(
-//     to right,
-//     rgb(48, 113, 28),
-//     rgb(48, 113, 28),
-//     rgb(48, 113, 28)
-//   );
-// }
-// .completed {
-//   color: black !important;
-//   background: white;
-// }
 
-// ----------chatbox------
+// ----------Tool tip------
+
+.tooltip {
+  position: absolute;
+  z-index: 99;
+  background: vars.$gradient-background-primary;
+  font-family: vars.$theme-font-Subheading !important;
+  color: white;
+  border: none !important;
+}
+
+.tooltip .tooltip-inner {
+  background: linear-gradient(to right, red, blue) !important;
+}
+
+.tooltip .tooltip-arrow {
+  border-color: #333 !important;
+}

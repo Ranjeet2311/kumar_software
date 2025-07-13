@@ -1,6 +1,4 @@
 import React from "react";
-// import classes from "./DropDown.module.scss";
-// import Link from "next/link";
 
 type PlanProps = {
   children: React.ReactNode;

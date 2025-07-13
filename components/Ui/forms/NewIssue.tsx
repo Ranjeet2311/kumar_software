@@ -2,11 +2,11 @@
 
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
-import { sanitizeInput } from "@/utils/SanitizeInput";
 import xss from "xss";
 import Loader from "@/components/Loader";
 import AlertMessage from "@/components/AlertMessage";
 import { Bug } from "lucide-react";
+import Button from "../button/Button";
 
 type Issue = {
   issue: string;
@@ -185,9 +185,10 @@ export default function NewIssue() {
             ></textarea>
           </div>
           <div className="mb-0">
-            <button
+            <Button
+              button={true}
               type="submit"
-              className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center text-white ${
+              customClass={`btn btn-bg  border-0 d-flex justify-content-center align-items-center text-white ${
                 loading ? "bg-primary" : null
               }`}
               disabled={loading}
@@ -200,7 +201,7 @@ export default function NewIssue() {
                   Add your issue
                 </>
               )}
-            </button>
+            </Button>
           </div>
         </form>
         <h5 className="mt-2">

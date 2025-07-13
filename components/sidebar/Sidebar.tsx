@@ -1,6 +1,6 @@
 "use client";
 
-import { ElementType } from "react";
+import { ElementType, useState } from "react";
 import {
   LayoutDashboard,
   Bug,
@@ -11,12 +11,12 @@ import {
   User,
   LogOut,
 } from "lucide-react";
-import { Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./Sidebr.module.scss";
 import Button from "../Ui/button/Button";
 import useLogout from "@/hooks/useLogout";
 import { usePathname } from "next/navigation";
+import Tooltip from "../Ui/tooltip/Tooltip";
 
 type TabType = {
   name: string;
@@ -39,13 +39,18 @@ export default function Sidebar({
   isExpanded: boolean;
   setIsExpanded: (expanded: boolean) => void;
 }) {
-  const logout = useLogout();
+  const [tooltip, setTooltip] = useState<string | null>(null);
 
+  const logout = useLogout();
   const pathname = usePathname();
-  console.log(`path of dashboard :: `, pathname);
+
+  const showTooltip = (tab: string) => {
+    setTooltip(tab);
+  };
 
   return (
     <div
+      onMouseLeave={() => setTooltip(null)}
       className={`${styles.sidebar} ${
         isExpanded ? styles.expanded : styles.collapsed
       }`}
@@ -54,6 +59,7 @@ export default function Sidebar({
         className={`btn py-3 collapse_btn w-100 ${styles.toggleButton}`}
         onClick={() => setIsExpanded(!isExpanded)}
         style={{ textAlign: "left", whiteSpace: "nowrap" }}
+        onMouseOver={() => showTooltip("dashboard")}
       >
         <span style={{ display: "inline-block", verticalAlign: "middle" }}>
           {isExpanded ? <PanelLeftClose /> : <PanelRightClose />}
@@ -69,19 +75,23 @@ export default function Sidebar({
         >
           Dashboard
         </span>
+        {!isExpanded && tooltip === "dashboard" && (
+          <span>
+            <Tooltip message={"dashboard"} placement="right" />
+          </span>
+        )}
       </button>
-
       <nav className="nav flex-column px-0">
         {tabs.map(({ name, path, icon: Icon }) => {
           const isActive = path === pathname;
-
           return (
             <Link
-              key={name}
+              key={name + path}
               href={path}
               className={`nav-link text-light ${styles.menuItem} ${
-                isActive ? "active_tab" : ""
+                isActive ? styles.active_tab : ""
               }`}
+              onMouseOver={() => showTooltip(name)}
             >
               <Icon className="me-2" />
               <span
@@ -96,20 +106,31 @@ export default function Sidebar({
               >
                 {name}
               </span>
+              {!isExpanded && tooltip === name && (
+                <span>
+                  <Tooltip message={name} placement="right" key={name} />
+                </span>
+              )}
             </Link>
           );
         })}
         <hr />
-        <button
+        <Button
+          button={true}
           onClick={() => logout()}
-          className={`nav-link text-light ${styles.menuItem}`}
+          onMouseOver={() => showTooltip("logout")}
+          customClass={`nav-link text-light ${styles.menuItem}`}
         >
-          {/* <Logout className="me-2" /> */}
           <LogOut className="me-2" />
           <span className={`${isExpanded ? "d-inline" : "d-none"}`}>
             Logout
           </span>
-        </button>
+          {!isExpanded && tooltip === "logout" && (
+            <span>
+              <Tooltip message={"logout"} placement="right" />
+            </span>
+          )}
+        </Button>
       </nav>
     </div>
   );

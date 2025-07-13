@@ -1,18 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Loader from "@/components/Loader";
 import Issue from "@/components/Ui/issue/Issue";
 import { RootState } from "@/store/store";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import useFetchIssues from "@/hooks/useFetchIssues";
 
 export default function IssuesPage() {
   const issuesList = useSelector((state: RootState) => state.issues.issuesList);
   const user = useSelector((state: RootState) => state.user.user);
+  const fetchIssues = useFetchIssues();
+
+  useEffect(() => {
+    fetchIssues();
+  }, [fetchIssues]);
 
   return (
-    <>
+    <div className="container ps-4">
       {!issuesList ? (
         <div className="text-center d-flex justify-content-center align-items-center flex-column">
           <p>Loading all issues</p>
@@ -31,6 +37,6 @@ export default function IssuesPage() {
           )}
         </h4>
       )}
-    </>
+    </div>
   );
 }

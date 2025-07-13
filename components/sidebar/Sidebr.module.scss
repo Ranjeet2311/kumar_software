@@ -1,4 +1,4 @@
-@import "../../app/css_variables.scss";
+@use "../../app/css_variables.scss" as vars;
 
 .sidebar {
   height: 100vh;
@@ -7,14 +7,8 @@
   display: flex;
   flex-direction: column;
   transition: width 0.3s ease-in-out;
-  overflow: hidden;
-  background: linear-gradient(
-    -135deg,
-    $blue_2,
-    $theme-green,
-    $theme_silver,
-    $blue_2
-  );
+  border-radius: 6px !important;
+  background: vars.$gradient-background-primary;
 }
 
 .toggleButton {
@@ -28,10 +22,22 @@
   padding: 10px;
   color: white;
   text-decoration: none;
-  // transition: background 0.2s ease;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
+  }
+  &:active {
+    background: vars.$gradient-background-primary;
+  }
+}
+
+.active_tab {
+  background: vars.$gradient-background-primary;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background: vars.$gradient-background-primary;
   }
 }
