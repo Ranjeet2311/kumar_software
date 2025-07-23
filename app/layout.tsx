@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.scss";
+import "@/styles/globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "@/components/navbar/Navbar";
 import { ReduxProvider } from "@/store/slices/provider";

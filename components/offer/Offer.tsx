@@ -2,10 +2,10 @@ import React from "react";
 import Card from "../Ui/card/Card";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
 import { servicesList } from "@/utils/List";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function Offer() {
-  const { scrollYProgress } = useScroll();
   return (
     <div className="container">
       <section className="row section-space">
@@ -31,7 +31,11 @@ export default function Offer() {
                     img={image}
                     title={title}
                     description={description[0].para}
-                    btnText="Read more"
+                    btnText={
+                      <span className="d-flex align-items-center justify-content-center mb-0">
+                        Read more <ArrowRight size={18} className="ms-2" />{" "}
+                      </span>
+                    }
                     showBtn={true}
                   />
                 </div>

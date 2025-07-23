@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
 import Button from "@/components/Ui/button/Button";
 import btnClasses from "@/components/Ui/button/button.module.scss";
+import classes from "./Hero.module.scss";
 
 type DescriptionList = {
   para: string;
@@ -11,11 +12,11 @@ type HeroProps = {
   heading?: ReactNode | string;
   paragraph?: string;
   descriptionList?: DescriptionList[];
-  showButton: boolean;
-  ButtonText?: string;
-  showLink: boolean;
-  linkUrl?: string;
-  linkText?: string;
+  showButton?: boolean;
+  buttonOneText?: ReactNode | string;
+  linkOne?: string;
+  linkTwo?: string;
+  buttonTwoText?: ReactNode | string;
   img?: string | StaticImageData;
   imgAlt?: string;
   localRoute?: boolean;
@@ -26,10 +27,10 @@ export default function Hero({
   paragraph,
   descriptionList,
   showButton,
-  ButtonText,
-  showLink,
-  linkUrl,
-  linkText,
+  buttonTwoText,
+  linkOne,
+  linkTwo,
+  buttonOneText,
   img,
   imgAlt,
   localRoute,
@@ -39,7 +40,7 @@ export default function Hero({
       <section className="row mt-4 pt-4 justify-content-center">
         <div className="col-12 col-lg-6 order-lg-1 order-2 ">
           {heading && (
-            <h1 className="text-center text-lg-start mb-4 pb-4 hero-h1-text">
+            <h1 className="text-center text-lg-start mb-4 hero-h1-text position-relative">
               {heading}
             </h1>
           )}
@@ -52,29 +53,29 @@ export default function Hero({
             ))}
           <div className="row align-items-center mt-5">
             {showButton && (
-              <div className="col-12 col-lg-4">
-                <Button
-                  mode={btnClasses.btn_main}
-                  button={true}
-                  customClass="mb-2 mb-lg-0"
-                >
-                  {ButtonText}
-                </Button>
-              </div>
+              <>
+                <div className="col-12 d-flex flex-column flex-md-row justify-content-between justify-content-lg-start mb-2 mb-lg-0">
+                  <Button
+                    mode={btnClasses.btn_main}
+                    button={false}
+                    customClass={`mb-2 mb-lg-0 me-md-4 ${classes.btn}`}
+                    link={linkOne}
+                    localRoute={localRoute}
+                  >
+                    {buttonOneText}
+                  </Button>
+                  <Button
+                    mode={btnClasses.btn_second}
+                    button={false}
+                    customClass={`mb-2 mb-lg-0 ${classes.btn}`}
+                    link={linkTwo}
+                    localRoute={localRoute}
+                  >
+                    {buttonTwoText}
+                  </Button>
+                </div>
+              </>
             )}
-            <div className="col-12 col-lg-4">
-              {showLink && (
-                <Button
-                  mode={btnClasses.btn_second}
-                  button={false}
-                  customClass="mb-2 mb-lg-0"
-                  link={linkUrl}
-                  localRoute={localRoute}
-                >
-                  {linkText}
-                </Button>
-              )}
-            </div>
           </div>
         </div>
         <div className="col-12 col-lg-6 mt-4 mt-lg-0 order-lg-2 order-1 mb-4 mb-lg-0">

@@ -1,0 +1,9 @@
+@use "../../styles/css_variables.scss" as vars;
+
+.btn {
+  max-width: 100%;
+
+  @include vars.lg {
+    max-width: 220px;
+  }
+}

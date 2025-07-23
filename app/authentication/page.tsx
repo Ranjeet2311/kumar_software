@@ -110,9 +110,9 @@ export default function Auth() {
             <Image src={authImage} alt="auth-image" className="authImage" />
           </div>
         </div>
-      </div>
-      <div id="footer">
-        <Footer />
+        <div id="footer">
+          <Footer />
+        </div>
       </div>
     </>
   );

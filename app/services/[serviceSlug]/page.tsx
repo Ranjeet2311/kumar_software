@@ -6,7 +6,7 @@ import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import { servicesList } from "@/utils/List";
 import { slugify } from "@/utils/Slugify";
 import { StaticImageData } from "next/image";
-import RelatedServices from "@/components/related-services/RelatedServices";
+import { ReceiptText } from "lucide-react";
 
 type Service = {
   title: string;
@@ -53,10 +53,13 @@ export default async function ServiceDetail({
         <div className="service-hero">
           <Hero
             descriptionList={service.description}
-            showButton={false}
-            showLink={true}
-            linkUrl="/#contact"
-            linkText="Get in touch"
+            showButton={true}
+            buttonOneText={
+              <div className="d-flex align-items-center justify-content-center">
+                <ReceiptText className="me-2" /> Get a quote
+              </div>
+            }
+            linkOne="/#contact"
             img={service.image}
             imgAlt={service.title}
             localRoute={true}

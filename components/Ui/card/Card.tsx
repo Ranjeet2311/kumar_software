@@ -13,7 +13,7 @@ import { truncateText } from "@/utils/Truncate";
 type CardProps = {
   title?: string;
   description?: string;
-  btnText?: string;
+  btnText?: string | ReactNode;
   img?: string | StaticImageData;
   showBtn?: boolean;
   children?: ReactNode;
@@ -36,11 +36,11 @@ export default function Card({
       <div className={img && classes.card_img}>
         {img && <Image className={classes.img} src={img} alt="Card image" />}
       </div>
-      <div className={`${classes.card_body} card-body`}>
-        <h5 className={`${classes.card_title} card-title my-2`}>{title}</h5>
-        <hr />
-        <p className="card-text">
-          {truncateText({ text: description || "", maxLength: 65 })}
+      <div className={`${classes.card_body}`}>
+        <h5 className={`${classes.card_title}`}>{title}</h5>
+        <hr className="my-1" />
+        <p className={classes.card_description}>
+          {truncateText({ text: description || "", maxLength: 94 })}
         </p>
         {children && children}
         {showBtn && (

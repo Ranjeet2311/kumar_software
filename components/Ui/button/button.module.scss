@@ -1,5 +1,5 @@
 @use "sass:color";
-@use "../../../app/css_variables.scss" as vars;
+@use "../../../styles/css_variables.scss" as vars;
 
 // Main Button - Soft Gradient and Glow
 .btn_main {
@@ -11,7 +11,7 @@
   background: linear-gradient(90deg, vars.$light_green, vars.$theme_blue);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  border: 1px solid vars.$light_green;
+  text-align: center;
   @include vars.fonts(16px, 20px, 600);
 
   @include vars.md {
@@ -35,15 +35,14 @@
   border: none;
   border-radius: 30px;
   padding: 12px 20px;
-  transition: all 0.3s ease;
   background: color.adjust(vars.$theme_blue, $lightness: 60%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
-  border: 1px solid vars.$theme_light_gray;
+  text-align: center;
   @include vars.fonts(16px, 20px, 600);
+  transition: all 0.2s ease;
 
   @include vars.md {
-    // width: fit-content;
     @include vars.fonts(18px, 20px, 600);
   }
 

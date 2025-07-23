@@ -10,6 +10,9 @@ import Contact from "@/components/contact/Contact";
 import banner_Image from "../assets/images/hero/hero_v1.png";
 import { motion } from "framer-motion";
 import LogInBar from "@/components/login-bar/LogInBar";
+import Image from "next/image";
+import zigzag from "@/assets/images/zigZag_line.svg";
+import { ReceiptText, Wallet } from "lucide-react";
 
 export default function Home() {
   // console.log("runs: Main page.tsx");
@@ -26,8 +29,12 @@ export default function Home() {
           <Hero
             heading={
               <>
-                The <span className="colored-text">software</span> your company
-                needs
+                The{" "}
+                <span className="colored-text">
+                  software
+                  <Image src={zigzag} alt="zigzag" className="zigzag" />
+                </span>{" "}
+                your company needs
               </>
             }
             paragraph="At Kumar Softwares, we specialize in crafting dynamic websites and
@@ -37,10 +44,18 @@ export default function Home() {
           Build your digital presence today with websites tailored to your
             business needs."
             showButton={true}
-            ButtonText="View Our Work"
-            showLink={true}
-            linkUrl="/#contact"
-            linkText=" Get in touch"
+            buttonOneText={
+              <div className="d-flex align-items-center justify-content-center">
+                <ReceiptText className="me-2" /> Get a quote
+              </div>
+            }
+            linkOne="/#contact"
+            buttonTwoText={
+              <div className="d-flex align-items-center justify-content-center">
+                <Wallet className="me-2" /> Plans
+              </div>
+            }
+            linkTwo="/#plans"
             img={banner_Image}
             imgAlt="Hero image"
             localRoute={true}

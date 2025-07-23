@@ -22,7 +22,7 @@ export default function Feedbacks() {
             <CustomCarousel
               infinite={true}
               responsive={maxFourSlide}
-              autoPlay={true}
+              autoPlay={false}
               swipeable={true}
               draggable={true}
               showDots={false}

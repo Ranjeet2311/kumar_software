@@ -1,10 +1,9 @@
 import React from "react";
 import ContactForm from "@/components/Ui/forms/ContactForm";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
-// import Image from "next/image";
-// import emailIcon from "../../assets/images/email-icon.png";
 import contact from "../../assets/images/rocket.png";
 import Image from "next/image";
+import classes from "./Contact.module.scss";
 
 type ContactProps = {
   showImage?: boolean;
@@ -46,19 +45,22 @@ export default function Contact({
             />
           )}
 
-          <div className="mt-2 mt-lg-4 fw-bold text-center">
+          <div className={classes.contact_info}>
             <span>
-              <a className="text-dark" href="tel:+38669638945">
+              <a className={classes.contact_details} href="tel:+38669638945">
                 📞 +386-6963-8945
               </a>
             </span>
             <span> | </span>
             <span>
-              <a className="text-dark" href="mailto:hello@kumarsoftwares.com">
+              <a
+                className={classes.contact_details}
+                href="mailto:hello@kumarsoftwares.com"
+              >
                 📧 hello@kumarsoftwares.com
               </a>
             </span>
-            <p className="mt-4">
+            <p className={classes.contact_text}>
               We’re always here to answer all your questions. Feel free to reach
               us anytime. We’ll be happy to hear from you.
             </p>

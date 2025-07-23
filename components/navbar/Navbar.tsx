@@ -2,7 +2,7 @@
 
 import React, { ElementType, useEffect, useState } from "react";
 import Link from "next/link";
-import "./navbar.scss";
+import "./Navbars.scss";
 import Image from "next/image";
 import logo from "../../assets/images/logo1.png";
 import { useSelector } from "react-redux";
@@ -79,7 +79,7 @@ export default function Navbar() {
         </Link>
         <div onClick={clickHandler} className="burger-menu">
           {showMenu ? (
-            <X size={28} strokeWidth={1.75} />
+            <X size={28} strokeWidth={2} />
           ) : (
             <>
               <AlignJustify size={28} strokeWidth={2} /> <span>Menu</span>

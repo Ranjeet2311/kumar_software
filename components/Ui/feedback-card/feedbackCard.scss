@@ -1,43 +1,40 @@
-@import "../../../app/css_variables.scss";
+@use "../../../styles/css_variables.scss" as vars;
 
 .feedback-card {
   max-width: 320px;
   min-height: 200px;
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 24px 20px;
   background-color: white;
   transition: all 0.4s ease-out;
-  filter: drop-shadow(-1px 2px 4px $theme_medium_gray);
-  // background: linear-gradient(-162deg, #31b5c2 49%, #8f38ae 75%, #31b5c2 82%);
   cursor: grab;
   min-height: 240px;
+  box-shadow: 0 1px 6px rgba(vars.$theme_blue, 0.6);
 
-  // &:hover {
-  //   background: linear-gradient(
-  //     338deg,
-  //     #8f38ae 20.78%,
-  //     #faa343 27.79%,
-  //     #bf3663 103.07%
-  //   );
-  //   background-size: 100%;
-  // }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(vars.$theme_blue, 0.6);
+  }
 
   .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: vars.$theme-green;
   }
 
   .feedback-text {
-    @include fonts(16px, 22px, 500);
-    font-family: $theme-font-Subheading;
+    @include vars.fonts(16px, 22px, 500);
+    font-family: vars.$theme-font-Subheading;
     min-height: 100px;
+    margin-bottom: 0;
   }
 
   .name {
     font-weight: 700;
     font-size: 18px !important;
     margin: 5px 0;
+    color: vars.$theme-blue !important;
   }
 
   .designation {

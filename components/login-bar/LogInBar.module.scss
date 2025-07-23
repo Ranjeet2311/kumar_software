@@ -1,0 +1,63 @@
+@use "../../styles/css_variables.scss" as vars;
+
+.bar_wrap {
+  position: fixed;
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+  left: 1%;
+  background: linear-gradient(
+    -55deg,
+    vars.$blue_2,
+    vars.$theme_green,
+    vars.$blue_2
+  );
+  padding: 6px 8px;
+  border-radius: 12px;
+  z-index: 99;
+
+  .bar {
+    .stretched {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white !important;
+
+      @include vars.fonts(16px, 22px, 500);
+      text-align: center;
+
+      @include vars.lg {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .btn {
+    font-size: 14px !important;
+    border: 1px solid white;
+    width: max-content;
+    transition: all 0.4s ease-out;
+    border-radius: 12px 12px 12px 0;
+    @include vars.fonts(16px, 18px, 400);
+
+    &:hover {
+      background: #bf3663;
+      color: white !important;
+    }
+  }
+  .close {
+    position: absolute;
+    top: -10px;
+    right: -24px;
+    border: none;
+    background: vars.$theme_blue !important;
+    color: vars.$theme-white !important;
+    @include vars.fonts(12px, 12px, 600);
+    transition: all 0.4s ease-out;
+
+    &:hover {
+      background: vars.$theme_yellow !important;
+    }
+  }
+}
