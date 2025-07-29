@@ -4,6 +4,7 @@ import SectionHeading from "../Ui/section-heading/SectionHeading";
 import { servicesList } from "@/utils/List";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import classes from "./Offer.module.scss";
 
 export default function Offer() {
   return (
@@ -28,15 +29,21 @@ export default function Offer() {
               {servicesList.map(({ title, description, image }) => (
                 <div key={title} className="col-12 col-md-6 col-lg-4">
                   <Card
+                    customImageClass={classes.offer_card_img}
                     img={image}
                     title={title}
                     description={description[0].para}
                     btnText={
                       <span className="d-flex align-items-center justify-content-center mb-0">
-                        Read more <ArrowRight size={18} className="ms-2" />{" "}
+                        Read more{" "}
+                        <ArrowRight
+                          size={25}
+                          className={`ms-2 ${classes.arrow_icon}`}
+                        />
                       </span>
                     }
                     showBtn={true}
+                    btnCss={classes.btn}
                   />
                 </div>
               ))}

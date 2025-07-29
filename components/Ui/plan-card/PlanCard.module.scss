@@ -8,6 +8,7 @@
   background: linear-gradient(45deg, #f1fcfc 10%, transparent, #f1fcfc 80%);
   transition: all 0.4s ease-in;
   background-size: 200%;
+  height: fit-content;
 
   &:hover {
     color: white;
@@ -50,7 +51,7 @@
       vars.$theme_blue
     );
     padding: 30px;
-    background-size: 200%; /* Allow the background to scale */
+    background-size: 200%;
     transition: all 0.4s ease-in;
   }
   .title {
@@ -59,7 +60,6 @@
     color: white;
   }
   .price {
-    // color: #f7f7f7 !important;
     @include vars.fonts(20px, 24px, 700);
     font-family: vars.$theme-font-Subheading;
     color: white;
@@ -77,7 +77,7 @@
   .benefits_list {
     list-style: none;
     padding: 0 8px 0 18px;
-    min-height: 390px;
+    min-height: 310px;
     text-align: center;
     margin: 20px auto;
     color: black;
@@ -91,31 +91,7 @@
   }
 }
 
-.gold-card {
-  &:hover {
-    .star {
-      transform: rotate(180deg) !important;
-    }
-  }
-}
-.gold_card_title {
-  @include vars.fonts(36px, 38px, 700);
-  font-family: vars.$theme-font-Heading;
-  background: -webkit-linear-gradient(
-    to right,
-    vars.$theme_green,
-    #ffd700,
-    vars.$theme_blue,
-    vars.$theme_silver
-  );
-  background: linear-gradient(
-    to right,
-    vars.$theme_green,
-    #ffd700,
-    vars.$theme_blue,
-    vars.$theme_silver
-  );
-  -webkit-background-clip: text;
-  color: transparent !important;
-  text-shadow: none;
+.main_card {
+  transform: scale(1.1);
+  height: 110px !important;
 }

@@ -12,11 +12,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: vars.$theme_green;
+    // background-color: vars.$theme_green;
 
-    .contact_text {
-      color: vars.$theme-white !important;
-    }
+    // .contact_text,
+    // .contact_details {
+    //   color: vars.$theme-white !important;
+    // }
   }
 
   @include vars.lg {

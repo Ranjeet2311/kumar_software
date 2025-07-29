@@ -16,7 +16,7 @@
       transition: all 0.4s ease-in;
       overflow: hidden;
       background-size: 100%;
-      transform: scale(1.2);
+      // transform: scale(1.1);
     }
 
     .card_body {
@@ -30,10 +30,10 @@
   }
 
   .card_img {
-    width: 100% !important;
-    height: 200px;
+    width: 100%;
+    height: auto;
     overflow: hidden;
-    border-radius: 18px !important;
+    border-radius: 18px;
     box-shadow: -1px 1px 4px vars.$theme_light_gray;
 
     .img {

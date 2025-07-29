@@ -1,0 +1,30 @@
+.btn {
+  max-width: 200px;
+
+  margin-top: 20px;
+  &:hover {
+    .arrow_icon {
+      transform: translateX(15px);
+    }
+  }
+
+  .arrow_icon {
+    transition: transform 0.3s ease;
+  }
+}
+
+.offer_card_img {
+  width: 50px !important;
+  height: 50px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  img {
+    width: 80%;
+    height: auto;
+    border-radius: 0;
+  }
+}

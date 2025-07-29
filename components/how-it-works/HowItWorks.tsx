@@ -1,8 +1,11 @@
 import React from "react";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Plane, Lightbulb, Rocket } from "lucide-react";
+import lightIcon from "@/assets/work/lightbulb.svg";
+import designIcon from "@/assets/work/pencil-ruler.svg";
+import PlaneIcon from "@/assets/work/rocket.svg";
 import classes from "./How.module.scss";
+import Image from "next/image";
 
 const process = [
   {
@@ -11,7 +14,7 @@ const process = [
     description:
       "We start by understanding your business needs, challenges, and objectives. Through interactive sessions, we discuss your vision for the project. The target audience and user expectations. Specific features, functionality, and scope of work. During this phase, we gather all the critical information and establish a clear roadmap, ensuring we’re aligned on your goals from the very beginning. Our goal is to collaborate with you as a partner to turn your ideas into reality.",
 
-    icon: Plane,
+    icon: lightIcon,
     number: "1",
   },
   {
@@ -19,7 +22,7 @@ const process = [
     subTitle: "Crafting strategies to meet your goals",
     description:
       "Once we’ve analyzed your requirements, our expert team gets to work. We provide insights into the latest technologies and frameworks that fit your needs. Offer creative solutions to enhance user experience, design, and functionality. Share timelines, milestones, and actionable strategies to move forward efficiently. By leveraging our experience and market knowledge, we create a tailored solution that sets your business up for success.",
-    icon: Lightbulb,
+    icon: designIcon,
     number: "2",
   },
   {
@@ -27,7 +30,7 @@ const process = [
     subTitle: "Putting into action with a clear plan",
     description:
       "After aligning on the plan, timelines, and deliverables: Our developers, designers, and project managers collaborate to kickstart the work. We keep you in the loop with regular updates, ensuring transparency throughout the process. We use Agile methodologies, breaking the project into smaller milestones, so we can test and refine the product iteratively. This phase ensures that you see progress at every step while allowing us to make improvements where necessary.",
-    icon: Rocket,
+    icon: PlaneIcon,
     number: "3",
   },
 ];
@@ -62,11 +65,19 @@ export default function HowItWorks() {
                 key={item.title}
               >
                 <h2 className={classes.title}>
-                  <item.icon
+                  {/* <item.icon
                     size={24}
                     strokeWidth={2}
                     className="me-2 d-inline"
+                  /> */}
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={24}
+                    height={24}
+                    className="me-2 d-inline"
                   />
+
                   {item.title}
                 </h2>
                 <hr className="my-1" />

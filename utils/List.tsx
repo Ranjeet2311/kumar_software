@@ -1,9 +1,9 @@
-import frontend from "../assets/images/code_frontend.png";
-import custom from "../assets/images/code_custom_software.png";
-import backend from "../assets/images/code_backend.png";
-import api from "../assets/images/code_api.png";
-import wordpress from "../assets/images/code_wordpress.png";
-import ecommerce from "../assets/images/code_ecommerce.png";
+import frontend from "../assets/offer/code.svg";
+import custom from "../assets/offer/monitor.svg";
+import backend from "../assets/offer/server.svg";
+import api from "../assets/offer/plug.svg";
+import wordpress from "../assets/offer/layout-template.svg";
+import ecommerce from "../assets/offer/shopping-cart.svg";
 import maleAvatar from "../assets/images/avatar_male.png";
 import femaleAvatar from "../assets/images/avatar_female.png";
 

@@ -67,7 +67,10 @@ export default function Contact({
           </div>
         </div>
         {showForm && (
-          <div className="col-12 col-lg-6 d-block mt-4 mt-lg-0 d-lg-flex justify-content-end">
+          <div
+            className="col-12 col-lg-6 d-block mt-4 mt-lg-0 d-lg-flex justify-content-end"
+            style={{ height: "fit-content" }}
+          >
             <ContactForm />
           </div>
         )}

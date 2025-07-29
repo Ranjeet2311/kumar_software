@@ -17,6 +17,9 @@ type CardProps = {
   img?: string | StaticImageData;
   showBtn?: boolean;
   children?: ReactNode;
+  customClass?: string;
+  customImageClass?: string;
+  btnCss?: string;
 };
 
 export default function Card({
@@ -26,14 +29,21 @@ export default function Card({
   img,
   showBtn,
   children,
+  customClass,
+  customImageClass,
+  btnCss = "",
 }: CardProps) {
   const slugifiedTitle = title ? slugify(title) : "default-slug";
 
   // console.log(`Card descriptionList ::: `, descriptionList);
 
   return (
-    <div className={`${classes.custom_card} card my-2 h-100`}>
-      <div className={img && classes.card_img}>
+    <div
+      className={`${classes.custom_card} ${
+        customClass && customClass
+      } card my-2 h-100`}
+    >
+      <div className={`${img && classes.card_img} ${customImageClass}`}>
         {img && <Image className={classes.img} src={img} alt="Card image" />}
       </div>
       <div className={`${classes.card_body}`}>
@@ -47,7 +57,7 @@ export default function Card({
           <Button
             button={false}
             mode={btnClasses.btn_second}
-            customClass="w-100 ms-0 ms-lg-1 d-block text-center justify-content-center"
+            customClass={`w-100 ms-0 ms-lg-1 d-block text-center justify-content-center ${btnCss}`}
             link={`/services/${slugifiedTitle}`}
             localRoute={true}
           >

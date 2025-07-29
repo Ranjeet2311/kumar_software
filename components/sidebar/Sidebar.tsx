@@ -4,8 +4,8 @@ import { ElementType, useState } from "react";
 import {
   LayoutDashboard,
   Bug,
-  BadgeAlert,
-  MessagesSquare,
+  CirclePlus,
+  MessageSquare,
   PanelRightClose,
   PanelLeftClose,
   User,
@@ -25,10 +25,10 @@ type TabType = {
 };
 
 const tabs: TabType[] = [
-  { name: "Stats", path: "/dashboard", icon: LayoutDashboard },
-  { name: "Issues", path: "/dashboard/issues", icon: Bug },
-  { name: "Add issue", path: "/dashboard/add-issue", icon: BadgeAlert },
-  { name: "Messages", path: "/dashboard/messages", icon: MessagesSquare },
+  { name: "Report", path: "/dashboard", icon: LayoutDashboard },
+  { name: "All Issues", path: "/dashboard/issues", icon: Bug },
+  { name: "Add Issue", path: "/dashboard/add-issue", icon: CirclePlus },
+  { name: "Messages", path: "/dashboard/messages", icon: MessageSquare },
   { name: "Profile", path: "/dashboard/profile", icon: User },
 ];
 
@@ -56,7 +56,7 @@ export default function Sidebar({
       }`}
     >
       <button
-        className={`btn py-3 collapse_btn w-100 ${styles.toggleButton}`}
+        className={`btn py-3 collapse_btn w-100 position-relative ${styles.toggleButton}`}
         onClick={() => setIsExpanded(!isExpanded)}
         style={{ textAlign: "left", whiteSpace: "nowrap" }}
         onMouseOver={() => showTooltip("dashboard")}
@@ -76,7 +76,9 @@ export default function Sidebar({
           Dashboard
         </span>
         {!isExpanded && tooltip === "dashboard" && (
-          <span>
+          <span
+            style={{ position: "absolute", right: "-70px", bottom: "10px" }}
+          >
             <Tooltip message={"dashboard"} placement="right" />
           </span>
         )}
@@ -88,9 +90,9 @@ export default function Sidebar({
             <Link
               key={name + path}
               href={path}
-              className={`nav-link text-light ${styles.menuItem} ${
-                isActive ? styles.active_tab : ""
-              }`}
+              className={`nav-link text-light position-relative ${
+                styles.menuItem
+              } ${isActive ? styles.active_tab : ""}`}
               onMouseOver={() => showTooltip(name)}
             >
               <Icon className="me-2" />
@@ -107,7 +109,13 @@ export default function Sidebar({
                 {name}
               </span>
               {!isExpanded && tooltip === name && (
-                <span>
+                <span
+                  style={{
+                    position: "absolute",
+                    right: "-70px",
+                    bottom: "10px",
+                  }}
+                >
                   <Tooltip message={name} placement="right" key={name} />
                 </span>
               )}
@@ -119,14 +127,16 @@ export default function Sidebar({
           button={true}
           onClick={() => logout()}
           onMouseOver={() => showTooltip("logout")}
-          customClass={`nav-link text-light ${styles.menuItem}`}
+          customClass={`nav-link text-light position-relative ${styles.menuItem}`}
         >
           <LogOut className="me-2" />
           <span className={`${isExpanded ? "d-inline" : "d-none"}`}>
             Logout
           </span>
           {!isExpanded && tooltip === "logout" && (
-            <span>
+            <span
+              style={{ position: "absolute", right: "-70px", bottom: "10px" }}
+            >
               <Tooltip message={"logout"} placement="right" />
             </span>
           )}
