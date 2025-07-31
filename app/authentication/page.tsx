@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import SignUpForm from "@/components/Ui/forms/SignUpForm";
 import LoginForm from "@/components/Ui/forms/LogInForm";
-import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import Image from "next/image";
 import authImage from "../../assets/images/Secure-login.png";
 import Footer from "@/components/footer/Footer";
@@ -11,7 +10,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { redirect } from "next/navigation";
 import Loader from "@/components/Loader";
-import { Link } from "@chakra-ui/react";
 
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);

@@ -173,7 +173,7 @@ export default function SignUpForm() {
             required
           />
         </div>
-        <div className="mb-0">
+        <div className="mb-0 mt-4">
           <button
             type="submit"
             className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${

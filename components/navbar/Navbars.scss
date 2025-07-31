@@ -36,7 +36,7 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      background-color: rgba(vars.$theme-white, 0.4);
+      // background-color: rgba(vars.$theme-blue, 0.4);
       padding: 0 4px 0 0;
       border-radius: 12px;
 
@@ -47,7 +47,7 @@
       .logo-image {
         // border: 1px solid white;
         width: auto;
-        height: 60px;
+        height: 40px;
         object-fit: contain;
         width: 100px;
         border: none;
@@ -85,7 +85,7 @@
         z-index: 999;
         height: 100vh;
         width: 80%;
-        top: 136px;
+        top: 100px;
         right: 0;
         padding-top: 60px;
         // background: linear-gradient(

@@ -14,6 +14,7 @@
 
 body {
   background-color: vars.$theme_silver !important;
+  height: 100vh;
 }
 
 .top-padding {
@@ -241,20 +242,23 @@ a,
 // -------------auth-page--------------
 
 .auth-page {
-  margin: 100px auto;
-  display: block;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
   border-radius: 8px;
   padding: 40px 16px;
-  background: rgb(250, 250, 250);
 
   .outer-wrap {
     margin: 0 auto !important;
     border-radius: 12px;
     padding: 15px 10px;
-    background: #f2fbfc;
+    margin-top: 30px !important;
 
     .form-section {
       max-width: 520px;
+      width: 100%;
     }
   }
 
@@ -319,9 +323,14 @@ a,
   }
 
   .greeting {
-    @include vars.fonts(20px, 24px, 700);
+    margin: 20px auto;
+
+    text-align: center;
+    @include vars.fonts(22px, 28px, 700);
+
     @include vars.md {
-      @include vars.fonts(26px, 30px, 700);
+      text-align: start;
+      @include vars.fonts(32px, 38px, 700);
     }
   }
 
@@ -331,48 +340,67 @@ a,
   }
 
   .dashboard-sidebar {
-    // overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    flex: 0 0 54px;
+    position: fixed;
+    top: 100px;
+    // left: 0;
+    height: 100vh;
+    background: vars.$gradient-background-primary;
+    transition: width 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 100;
+    border-radius: 12px;
+
+    /* Narrow default */
+    width: 54px;
 
     &.broad_sidebar {
-      flex: 0 0 180px;
+      width: 180px;
 
       @include vars.md {
-        flex: 0 0 250px;
+        width: 250px;
       }
     }
   }
 
   .dashboard-content {
     flex: 1 1 auto;
-    transition: all 0.3s ease-in-out;
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 54px; /* Default narrow sidebar width */
 
-    a,
-    button {
-      @include vars.fonts(14px, 16px, 500);
-      text-align: center;
+    &.content-shift {
+      margin-left: 180px; /* Expanded sidebar width */
 
       @include vars.md {
-        @include vars.fonts(18px, 20px, 500);
+        margin-left: 250px;
       }
     }
 
+    .pie_chart {
+      max-height: 400px;
+      display: flex;
+      justify-content: start;
+      align-items: start;
+    }
+
+    a,
+    button {
+      @include vars.fonts(14px, 20px, 500);
+      text-align: center;
+      padding: 8px 28px !important;
+    }
+
     .card {
+      height: fit-content !important;
       h5 {
         @include vars.fonts(16px, 20px, 600);
         text-align: center;
-        @include vars.md {
-          @include vars.fonts(20px, 24px, 600);
-        }
       }
 
       h3 {
-        @include vars.fonts(18px, 20px, 600);
+        @include vars.fonts(24px, 20px, 600);
         text-align: center;
-        @include vars.md {
-          @include vars.fonts(22px, 26px, 600);
-        }
+        color: vars.$theme-blue;
+        margin-bottom: 0;
       }
     }
   }

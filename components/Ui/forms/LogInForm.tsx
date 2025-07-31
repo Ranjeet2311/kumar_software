@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { sanitizeInput } from "@/utils/SanitizeInput";
 import { redirect } from "next/navigation";
 import AlertMessage from "../../AlertMessage";
@@ -21,9 +21,6 @@ export default function LoginForm() {
     email: "",
     password: "",
   });
-  // const [isMounted, setIsMounted] = useState(false);
-
-  // const router = useRouter();
 
   const handlePasswordShow = () => setShowPassword(!showPassword);
 
@@ -38,8 +35,6 @@ export default function LoginForm() {
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    // console.log(`handleLogin :: `, loginData);
-
     setLoading(true);
     setMessage(null);
     setError(null);
@@ -53,11 +48,7 @@ export default function LoginForm() {
     });
 
     const result = await response.json();
-    // console.log(`response :: `, response);
-    // console.log(`result :: `, result);
-
     setLoading(false);
-
     // console.log(`response.ok :  `, response.ok);
     if (response.ok) {
       // console.log(`if response.ok`);
@@ -66,9 +57,6 @@ export default function LoginForm() {
 
       console.log(`'router should begin`);
       redirect("/dashboard"); // Navigate to the dashboard after login
-
-      // console.log(`Navigating to dashboard...`);
-      // router.push("/dashboard"); // Navigate to the dashboard after login
     } else {
       setError(
         result.message ||
@@ -137,7 +125,7 @@ export default function LoginForm() {
             </div>
           </div>
 
-          <div className="mb-0">
+          <div className="mb-0 mt-4">
             <button
               type="submit"
               className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${

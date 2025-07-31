@@ -5,9 +5,13 @@ import Card from "@/components/Ui/card/Card";
 import useFetchIssues from "@/hooks/useFetchIssues";
 import { RootState } from "@/store/store";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
+import { Bug, Cable, Send } from "lucide-react";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function DashboardPage() {
   // redirect("/dashboard/issues"); // Redirect to the issues page
@@ -37,7 +41,21 @@ export default function DashboardPage() {
     return <Loader />; // Show loader until issues are fetched
   }
 
-  console.log(`user : `, user);
+  const data = {
+    labels: ["All issues", "Completed issues", "Progressing issues"],
+    datasets: [
+      {
+        data: [
+          issuesList.length,
+          issueFinished.length,
+          issueProgressing.length,
+        ],
+        backgroundColor: ["#74b9ff", "#55efc4", "#ffeaa7"],
+        borderColor: ["#74b9ff", "#55efc4", "#ffeaa7"],
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
     <div className="container">
@@ -54,38 +72,56 @@ export default function DashboardPage() {
         </div>
         <div className="col-12">
           <div className="row">
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`All issues`}>
-                <h3>{issuesList.length}</h3>
-              </Card>
+            <div className="col-12 col-md-6 pie_chart d-none d-md-block">
+              <Pie
+                data={data}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                }}
+              />
             </div>
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`Completed`}>
-                <h3>{issueFinished.length}</h3>
-              </Card>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <Card title={`Progressing`}>
-                <h3>{issueProgressing.length}</h3>
-              </Card>
-            </div>
-            {user?.position === "admin" && (
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
-                <Card title={`Chats`}>
-                  <h3>{chatList.length}</h3>
-                </Card>
+            <div className="col-12 col-md-6">
+              <div className="row">
+                <div className="col-12 col-md-6">
+                  <Card customClass="p-0" title={`All issues`}>
+                    <h3>{issuesList.length}</h3>
+                  </Card>
+                </div>
+                <div className="col-12 col-md-6">
+                  <Card customClass="p-0" title={`Completed`}>
+                    <h3>{issueFinished.length}</h3>
+                  </Card>
+                </div>
+                <div className="col-12 col-md-6">
+                  <Card customClass="p-0" title={`Progressing`}>
+                    <h3>{issueProgressing.length}</h3>
+                  </Card>
+                </div>
+                {user?.position === "admin" && (
+                  <div className="col-12 col-md-6">
+                    <Card customClass="p-0" title={`Chats`}>
+                      <h3>{chatList.length}</h3>
+                    </Card>
+                  </div>
+                )}
+                <div className="col-12 d-flex flex-wrap justify-content-start align-items-center pb-4 mt-4">
+                  <Link
+                    href="/dashboard/issues"
+                    className="btn_main me-2 mb-2 d-flex justify-content-center"
+                  >
+                    <Cable size={18} strokeWidth={2} />
+                    <span className="ms-2">See all issues</span>
+                  </Link>
+                  <Link
+                    href="/dashboard/messages"
+                    className="btn_main me-2 mb-2 d-flex justify-content-center"
+                  >
+                    <Send size={18} strokeWidth={2} />
+                    <span className="ms-2">Send message</span>
+                  </Link>
+                </div>
               </div>
-            )}
-            <div className="col-12">
-              <hr />
-            </div>
-            <div className="col-12 d-flex flex-wrap justify-content-start align-items-center ">
-              <Link href="/dashboard/issues" className="btn_main me-2 mb-2">
-                See all issues
-              </Link>
-              <Link href="/dashboard/messages" className="btn_main mb-2">
-                Chat with admin
-              </Link>
             </div>
           </div>
         </div>
