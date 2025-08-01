@@ -6,10 +6,6 @@ import btnClasses from "@/components/Ui/button/button.module.scss";
 import { slugify } from "@/utils/Slugify";
 import { truncateText } from "@/utils/Truncate";
 
-// type DescriptionList = {
-//   para: string;
-// };
-
 type CardProps = {
   title?: string;
   description?: string;

@@ -10,6 +10,8 @@ type ContactProps = {
   showForm?: boolean;
   showHeading?: boolean;
   showSubHeading?: boolean;
+  showSectionHead?: boolean;
+  formButtonStyle?: string;
 };
 
 export default function Contact({
@@ -17,22 +19,26 @@ export default function Contact({
   showForm,
   showHeading,
   showSubHeading,
+  showSectionHead,
+  formButtonStyle,
 }: ContactProps) {
   return (
     <div className="container">
       <div className="row section-space">
-        <div className="col-12">
-          <SectionHeading
-            title={
-              <>
-                <span className="colored-text">Connect</span> with us
-              </>
-            }
-            text="Have a project in mind? Reach out today and let’s get started."
-            showHeading={showHeading}
-            showSubHeading={showSubHeading}
-          />
-        </div>
+        {showSectionHead && (
+          <div className="col-12">
+            <SectionHeading
+              title={
+                <>
+                  <span className="colored-text">Connect</span> with us
+                </>
+              }
+              text="Have a project in mind? Reach out today and let’s get started."
+              showHeading={showHeading}
+              showSubHeading={showSubHeading}
+            />
+          </div>
+        )}
         <div
           className={`col-12 col-lg-6 ${!showForm ? "col-lg-12" : "col-lg-6 "}`}
         >
@@ -71,7 +77,7 @@ export default function Contact({
             className="col-12 col-lg-6 d-block mt-4 mt-lg-0 d-lg-flex justify-content-end"
             style={{ height: "fit-content" }}
           >
-            <ContactForm />
+            <ContactForm buttonStyle={formButtonStyle} />
           </div>
         )}
       </div>

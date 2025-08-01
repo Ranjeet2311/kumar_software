@@ -11,7 +11,7 @@ export default function RelatedServices() {
       <div className="row">
         <div className="col-12">
           <SectionHeading
-            custom_class="mb-4 pb-2 pb-lg-4"
+            customClass="mb-4 pb-2 pb-lg-4"
             title="Related services"
             text="See more services"
           />

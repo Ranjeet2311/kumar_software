@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <div className="container footer">
       <div className="row">
-        {/* <hr /> */}
-        <p className="text-center">Copyright ©Kumar-software</p>
+        <p className="text-center">©2025 KumarSoftware. All rights reserved</p>
+        {/* ©Kumar-software */}
       </div>
     </div>
   );

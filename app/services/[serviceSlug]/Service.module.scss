@@ -1,0 +1,83 @@
+@use "../../../styles/css_variables.scss" as vars;
+
+.feature_wrap {
+  padding: 30px;
+  border-radius: 18px;
+  max-width: 100%;
+  margin-bottom: 30px;
+  height: fit-content;
+  transition: all 0.3 ease-in;
+  box-shadow: -1px 0px 4px vars.$theme-green;
+
+  @include vars.xl {
+    max-width: 650px;
+  }
+
+  &:hover {
+    box-shadow: 1px 0px 8px vars.$theme-green;
+  }
+
+  ul {
+    padding-left: 8px;
+  }
+
+  li {
+    @include vars.fonts(20px, 26px, 400);
+    margin-bottom: 8px;
+    // color: vars.$theme-white;
+
+    span {
+      color: vars.$theme-blue;
+    }
+  }
+}
+
+.formButton {
+  color: white !important;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(
+    90deg,
+    vars.$light_green,
+    vars.$theme_blue
+  ) !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+  @include vars.fonts(16px, 20px, 600);
+
+  @include vars.md {
+    @include vars.fonts(18px, 20px, 600);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.h2 {
+  @include vars.fonts(24px, 30px, 600);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid vars.$theme-dark;
+  // color: vars.$theme-white;
+}
+
+.service_hero {
+  section {
+    margin-bottom: 80px;
+  }
+  img {
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+}

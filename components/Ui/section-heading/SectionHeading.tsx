@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 type SectionHeadingProp = {
   title?: ReactNode | string;
   text?: string;
-  custom_class?: string;
+  customClass?: string;
   showHeading?: boolean;
   showSubHeading?: boolean;
 };
@@ -12,13 +12,13 @@ type SectionHeadingProp = {
 export default function SectionHeading({
   title,
   text,
-  custom_class,
+  customClass,
   showHeading = true,
   showSubHeading = true,
 }: SectionHeadingProp) {
   return (
     <div
-      className={`col-12 mx-auto text-center section-heading ${custom_class}`}
+      className={`col-12 mx-auto text-center section-heading ${customClass}`}
     >
       {showHeading && <h2>{title}</h2>}
       <hr />

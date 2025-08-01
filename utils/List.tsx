@@ -6,88 +6,161 @@ import wordpress from "../assets/offer/layout-template.svg";
 import ecommerce from "../assets/offer/shopping-cart.svg";
 import maleAvatar from "../assets/images/avatar_male.png";
 import femaleAvatar from "../assets/images/avatar_female.png";
+import App_hero from "../assets/images/code_custom_software.png";
+import Fe_hero from "../assets/images/code_frontend.png";
+import Api_hero from "../assets/images/code_api.png";
+import Bck_hero from "../assets/images/code_backend.png";
+import Wp_hero from "../assets/images/code_wordpress.png";
+import Ecom_hero from "../assets/images/code_ecommerce.png";
 
 export const servicesList = [
   {
     title: "App Development",
+    subTitle: "Build Engaging, High-Performance Apps",
     description: [
       {
-        para: "Our custom website development service focuses on creating beautifully designed, fast, and responsive websites that align perfectly with your business goals and vision. We utilize modern frontend technologies such as HTML, CSS, SCSS, and frameworks like Bootstrap, Tailwind CSS, and React to ensure pixel-perfect designs. With JavaScript and TypeScript, we ensure dynamic functionality and smooth user interactions.",
-      },
-      {
-        para: "Whether you need a simple landing page or a complex web application, our team employs best practices in SEO, performance optimization, and accessibility. We deliver websites that provide a seamless user experience across devices, ensuring your site is mobile-friendly and fast-loading. We also use frameworks like Vue.js and Angular for building scalable, interactive user interfaces, offering flexibility and enhanced user engagement. Our approach to custom development ensures your website stands out in both design and functionality, helping you to achieve your business objectives effectively.",
+        para: "Our mobile and web application development services focus on delivering intuitive, scalable, and visually appealing applications. From concept to deployment, we create products that work seamlessly across devices, providing an exceptional user experience.",
       },
     ],
-
+    KeyFeatures: [
+      "Cross-platform compatibility",
+      "Scalable architecture for future growth",
+      "Seamless integration with APIs and third-party tools",
+      "Secure data handling and encryption Process",
+    ],
+    process: [
+      "Concept & Planning – Define project goals, target audience, and features.",
+      "UI/UX Design – Create visually engaging, user-friendly interfaces.",
+      "Development – Build high-performance, scalable applications.",
+      "Testing & QA – Rigorously test for performance, security, and usability.",
+      "Launch & Support – Deploy and maintain your app for long-term success.",
+    ],
+    bigImag: App_hero,
     image: custom,
     url: "/services/custom-website-development",
   },
   {
     title: "Frontend Code Implementation",
+    subTitle: "Crafting Pixel-Perfect User Interfaces",
     description: [
       {
-        para: "Our frontend code implementation focuses on delivering pixel-perfect, clean, and optimized frontend solutions. We use a combination of HTML, CSS, SCSS, and popular frameworks like Bootstrap and Tailwind to create responsive, modern, and stylish web interfaces. Our team leverages JavaScript and TypeScript along with frameworks such as React, Vue, and Angular to build dynamic, user-friendly experiences.",
-      },
-      {
-        para: "We prioritize performance, ensuring fast load times and smooth navigation by optimizing assets and code. Whether it’s a single-page application or a complex user interface, we apply best practices in frontend development, including state management with Redux, Redux Toolkit, VueX, and Ngrx. With the use of RxJS, we provide seamless, reactive data flow, ensuring that your users interact with a fluid, responsive interface. Our team guarantees that every aspect of the frontend is not only functional but also delightful to use, creating interfaces that drive user engagement and satisfaction.",
+        para: "We specialize in transforming creative designs into functional, responsive frontends that deliver exceptional user experiences. Whether it’s a single-page application or a complex web platform, we code with precision and performance in mind.",
       },
     ],
-
+    KeyFeatures: [
+      "Pixel-perfect design implementation",
+      "Responsive layouts for all devices",
+      "Optimized loading speed and accessibility",
+      "Integration with modern frameworks (React, Next.js, Vue.js)",
+    ],
+    process: [
+      "Design Handoff and Analysis",
+      "Responsive Layout Development",
+      "Component-Based Implementation",
+      "Performance Optimization",
+      "Integration & Deployment",
+    ],
+    bigImag: Fe_hero,
     image: frontend,
     url: "/services/custom-website-development",
   },
   {
     title: "API Development",
+    subTitle: "Reliable & Scalable API Solutions",
     description: [
       {
-        para: "Our API development service focuses on creating modern and scalable APIs that offer robust performance and flexibility for your applications. We use RESTful architecture or GraphQL to design APIs that integrate seamlessly with both frontend and backend systems. Our expertise in backend technologies like Node.js and Express.js ensures your API performs efficiently under heavy loads. We work with databases like MongoDB and SQL to ensure smooth data management and retrieval.",
-      },
-      {
-        para: "Whether you need public-facing APIs or private APIs for internal use, we tailor our solutions to meet your unique needs. Our team leverages best practices in API security, including OAuth, JWT authentication, and rate limiting, ensuring that your data and services remain safe and protected. We also ensure that the API is scalable, flexible, and can evolve with your business needs. This allows for easy integrations with other platforms and third-party services, enhancing the overall functionality of your application.",
+        para: "Our API development services ensure seamless data exchange and integration across your applications. We create robust RESTful and GraphQL APIs that are secure, efficient, and future-proof.",
       },
     ],
-
+    KeyFeatures: [
+      "RESTful & GraphQL API development",
+      "Secure authentication and authorization",
+      "High-performance and scalable architecture",
+      "Third-party API integrations",
+    ],
+    process: [
+      "Requirement Analysis",
+      "API Architecture Design",
+      "Secure Endpoint Development",
+      "Integration & Testing",
+      "Documentation & Support",
+    ],
+    bigImag: Api_hero,
     image: api,
     url: "/services/api-development",
   },
   {
     title: "Node & PHP Development",
+    subTitle: "Powerful, Scalable Backend Solutions",
     description: [
       {
-        para: "Our Node.js and PHP backend development services provide powerful, secure, and scalable solutions that ensure your applications run smoothly and efficiently. With Node.js and Express.js, we develop high-performance, asynchronous backend architectures that handle large-scale data and traffic. We also use PHP to build dynamic websites and web applications with secure backend infrastructure. Our team is skilled in working with various databases like MongoDB, SQL, and MySQL, ensuring efficient data storage and management.",
-      },
-      {
-        para: "For state management, we leverage Redux, Redux Toolkit, VueX, and Ngrx for smooth handling of application data. Additionally, we implement RxJS for reactive programming, creating responsive and scalable solutions. Whether you need an API service, content management system, or custom backend logic, we ensure that all backend components are designed to handle the load and deliver optimal performance. Our solutions are secure, with strong attention to user authentication, session management, and database security practices.",
+        para: "Our Node.js and PHP development services deliver high-performance, secure, and scalable backends that power your applications. Whether it’s building a robust API, integrating complex business logic, or handling large-scale data processing, we design solutions tailored to your needs.",
       },
     ],
-
+    KeyFeatures: [
+      "Scalable architecture for high-traffic applications",
+      "RESTful & GraphQL API development",
+      "Secure authentication & authorization mechanisms",
+      "Seamless integration with databases and third-party services",
+    ],
+    process: [
+      "Discovery & Planning – Define business goals, technical requirements, and architecture approach.",
+      "Architecture Design – Create a scalable, modular backend structure optimized for performance",
+      "Development & Integration – Build APIs, implement business logic, and integrate with databases",
+      "Testing & Optimization – Ensure security, stability, and performance with rigorous testing.",
+      "Deployment & Maintenance – Launch, monitor, and continuously improve your backend.",
+    ],
+    bigImag: Bck_hero,
     image: backend,
     url: "/services/node-php-backend-development",
   },
   {
     title: "WordPress Development",
+    subTitle: "Custom, Scalable WordPress Solutions",
     description: [
       {
-        para: "Leverage the power of WordPress for building highly customizable and manageable websites. Our WordPress development service includes creating both simple websites and complex, feature-rich web platforms. We specialize in developing custom WordPress themes and plugins to meet your unique business needs. Whether you require a blog, portfolio site, or a multi-functional business website, we ensure seamless integration with your branding and business requirements.",
-      },
-      {
-        para: "Our team works with WooCommerce for building powerful e-commerce sites, integrating payment gateways, product management, and user authentication. We optimize WordPress websites for fast loading times, mobile responsiveness, and SEO. Additionally, we implement a secure architecture to protect your site from vulnerabilities. WordPress also makes managing and updating your site easier, so you can focus on growing your business while we handle the technical aspects. With extensive experience in theme customization, plugin development, and site optimization, we offer comprehensive WordPress solutions for all your needs.",
+        para: " We develop high-performance WordPress websites that are easy to manage and tailored to your brand. From simple blogs to complex corporate sites, we deliver secure and scalable solutions.",
       },
     ],
+    KeyFeatures: [
+      "Custom theme and plugin development",
+      "SEO-friendly structure",
+      "WooCommerce integration for e-commerce",
+      "Performance optimization",
+    ],
+    process: [
+      "Planning & Wireframing",
+      "Custom Theme Development",
+      "Plugin Integration & Customization",
+      "Testing & Optimization",
+      "Launch & Maintenance",
+    ],
+    bigImag: Wp_hero,
     image: wordpress,
     url: "/services/wordpress-website-development",
   },
   {
     title: "E-commerce Development",
+    subTitle: "Scalable Online Stores for Your Business",
     description: [
       {
-        para: "Create feature-rich, scalable e-commerce platforms that help your business grow and scale effortlessly. Our team specializes in developing e-commerce solutions using platforms like WooCommerce, Magento, and custom solutions tailored to your unique business needs. We ensure that your online store is built with a modern, mobile-responsive design that enhances the shopping experience. Our expertise includes integrating payment gateways, inventory management systems, product catalogs, and order fulfillment solutions for seamless operations.",
-      },
-      {
-        para: "We use modern frontend technologies like React, Vue, and Angular to create dynamic product pages and interactive shopping carts. Backend systems built with Node.js, Express.js, and PHP ensure robust and secure management of your product and customer data. We also integrate powerful marketing tools, such as email marketing automation, product recommendations, and social media integrations, to boost sales. Our focus is on delivering platforms that provide a smooth, secure, and user-friendly shopping experience, helping you grow your business online.",
+        para: "We design and develop e-commerce platforms that help you sell more and grow faster. From intuitive product catalogs to secure payment gateways, we cover all aspects of online selling.",
       },
     ],
-
+    KeyFeatures: [
+      "Custom e-commerce store design",
+      "Secure payment gateway integration",
+      "Mobile-optimized shopping experience",
+      "Inventory and order management systems",
+    ],
+    process: [
+      "Requirement Analysis",
+      "Storefront & UX Design",
+      "Backend & Payment Integration",
+      "Testing & Security Checks",
+      "Launch & Sales Optimization",
+    ],
+    bigImag: Ecom_hero,
     image: ecommerce,
     url: "/services/ecommerce-platform-development",
   },

@@ -18,7 +18,11 @@ type FormData = {
   description: string;
 };
 
-export default function ContactForm() {
+type ContactProps = {
+  buttonStyle?: string;
+};
+
+export default function ContactForm({ buttonStyle }: ContactProps) {
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -187,7 +191,7 @@ export default function ContactForm() {
         <div className="mb-0">
           <button
             type="submit"
-            className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${
+            className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${buttonStyle} ${
               loading ? "bg-primary" : null
             }`}
             disabled={loading}

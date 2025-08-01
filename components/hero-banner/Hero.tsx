@@ -20,6 +20,7 @@ type HeroProps = {
   img?: string | StaticImageData;
   imgAlt?: string;
   localRoute?: boolean;
+  customClass?: string;
 };
 
 export default function Hero({
@@ -34,11 +35,16 @@ export default function Hero({
   img,
   imgAlt,
   localRoute,
+  customClass,
 }: HeroProps) {
   return (
-    <div className="container">
-      <section className="row mt-4 pt-4 justify-content-center">
-        <div className="col-12 col-lg-6 order-lg-1 order-2 ">
+    <div className="container hero">
+      <section className="row mt-4 pt-4 justify-content-center hero">
+        <div
+          className={`col-12 col-lg-6 order-lg-1 order-2 ${
+            customClass && customClass
+          }`}
+        >
           {heading && (
             <h1 className="text-center text-lg-start mb-4 hero-h1-text position-relative">
               {heading}
