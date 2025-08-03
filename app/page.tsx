@@ -37,12 +37,6 @@ export default function Home() {
                 your company needs
               </>
             }
-            paragraph="At Kumar Softwares, we specialize in crafting dynamic websites and
-          powerful web applications to help your brand stand out. With a focus
-          on modern design, seamless functionality, and exceptional
-          performance, we create solutions that resonate with your audience.
-          Build your digital presence today with websites tailored to your
-            business needs."
             showButton={true}
             buttonOneText={
               <div className="d-flex align-items-center justify-content-center">
@@ -59,7 +53,16 @@ export default function Home() {
             img={banner_Image}
             imgAlt="Hero image"
             localRoute={true}
-          />
+          >
+            <p>
+              At Kumar Softwares, we specialize in crafting dynamic websites and
+              powerful web applications to help your brand stand out. With a
+              focus on modern design, seamless functionality, and exceptional
+              performance, we create solutions that resonate with your audience.
+              Build your digital presence today with websites tailored to your
+              business needs.
+            </p>
+          </Hero>
         </motion.div>
       </div>
       <div id="services">

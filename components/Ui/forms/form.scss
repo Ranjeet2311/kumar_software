@@ -3,14 +3,14 @@
 
 .form-wrap {
   padding: 30px;
-  box-shadow: 0 0 4px rgba(vars.$theme_green, 0.8);
+  box-shadow: 0 0 4px rgba(vars.$theme-blue, 0.4);
   background: transparent;
   border-radius: 12px;
   z-index: 2;
   transition: all 0.6s ease-in-out;
 
   &:hover {
-    box-shadow: -1px 1px 22px rgba(vars.$theme_green, 0.8);
+    box-shadow: -1px 1px 16px rgba(vars.$theme-blue, 0.8);
   }
 
   label {

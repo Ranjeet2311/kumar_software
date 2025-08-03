@@ -19,10 +19,12 @@ const initialstate: {
   chats: userChat[];
   chatId: string | null;
   selectedChat: userChat[];
+  lastSeenMap: Record<string, string>; // chatId -> ISO timestamp
 } = {
   chats: [],
   chatId: null,
   selectedChat: [],
+  lastSeenMap: {}, // initially empty
 };
 
 const chatSlice = createSlice({
@@ -32,18 +34,19 @@ const chatSlice = createSlice({
   reducers: {
     setUserChat: (state, action: PayloadAction<userChat[]>) => {
       // console.log(`action user chat : `, action.payload);
-
       state.chats = action.payload;
     },
 
     setChatId: (state, action: PayloadAction<string | null>) => {
       state.chatId = action.payload;
 
+      // console.log("Set chat from slice :  ", action.payload);
+
       state.selectedChat = action.payload
         ? state.chats.filter((chat) => chat.userId === action.payload)
         : [];
 
-      console.log(`setChatId state.selectedChat => `, state.selectedChat);
+      // console.log(`setChatId state.selectedChat => `, state.selectedChat);
     },
 
     sendMessage: (
@@ -55,11 +58,11 @@ const chatSlice = createSlice({
         newMessage: Chat;
       }>
     ) => {
-      console.log("user ID to upda5te: ", action.payload.userId);
+      // console.log("user ID to upda5te: ", action.payload.userId);
+      // console.log("Updating chat state with message:", action.payload.userId);
 
-      console.log("Updating chat state with message:", action.payload.userId);
       if (state.chats.length == 0) {
-        console.log("Adding new message");
+        // console.log("Adding new message");
 
         state.chats = [
           ...state.chats,
@@ -74,7 +77,7 @@ const chatSlice = createSlice({
           },
         ];
       } else {
-        console.log("Adding new message to the list");
+        // console.log("Adding new message to the list");
         state.chats = state.chats.map((chat) =>
           action.payload.userId === chat.userId
             ? {
@@ -84,11 +87,18 @@ const chatSlice = createSlice({
             : chat
         );
 
-        console.log("Message added");
+        // console.log("Message added");
       }
+    },
+    setChatLastSeenTime: (
+      state,
+      action: PayloadAction<{ chatId: string; time: string }>
+    ) => {
+      state.lastSeenMap[action.payload.chatId] = action.payload.time;
     },
   },
 });
 
-export const { setUserChat, setChatId, sendMessage } = chatSlice.actions;
+export const { setUserChat, setChatId, sendMessage, setChatLastSeenTime } =
+  chatSlice.actions;
 export default chatSlice.reducer;

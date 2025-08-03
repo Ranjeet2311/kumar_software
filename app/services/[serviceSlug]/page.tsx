@@ -4,10 +4,12 @@ import Hero from "@/components/hero-banner/Hero";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import { servicesList } from "@/utils/List";
 import { slugify } from "@/utils/Slugify";
-import { ReceiptText } from "lucide-react";
+import { ReceiptText, Command, Waypoints } from "lucide-react";
 import classes from "./Service.module.scss";
 
 import Link from "next/link";
+import ContactForm from "@/components/Ui/forms/ContactForm";
+import RelatedServices from "@/components/related-services/RelatedServices";
 
 export default async function ServiceDetail({
   params,
@@ -47,7 +49,6 @@ export default async function ServiceDetail({
         />
         <div className={`${classes.service_hero}`}>
           <Hero
-            descriptionList={service.description}
             showButton={true}
             buttonOneText={
               <div
@@ -60,49 +61,84 @@ export default async function ServiceDetail({
             img={service.bigImag}
             imgAlt={service.title}
             localRoute={true}
-          />
+          >
+            <p>{service.description}</p>
+            <div className={` ${classes.feature_wrap}`}>
+              <h2 className={`${classes.h2}`}>
+                <Command
+                  style={{ display: "inline", verticalAlign: "middle" }}
+                  size={20}
+                  className="me-2"
+                />
+                Key features of {service.title.toLowerCase()}
+              </h2>
+              <ul className="col-12">
+                {service.KeyFeatures &&
+                  service.KeyFeatures.map((keyFeature, i) => (
+                    <li key={i}>
+                      <div className="d-flex justify-content-start align-items-start">
+                        {i + 1}. {keyFeature}
+                      </div>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <div className={`${classes.feature_wrap}`}>
+              <h2 className={`${classes.h2}`}>
+                <Waypoints
+                  style={{ display: "inline", verticalAlign: "middle" }}
+                  size={20}
+                  className="me-2"
+                />
+                process of {service.title.toLowerCase()}
+              </h2>
+              <ul className="col-12">
+                {service.process &&
+                  service.process.map((process, i) => (
+                    <li key={i}>
+                      <div className="d-flex justify-content-start align-items-start">
+                        {i + 1}. {process}
+                      </div>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </Hero>
         </div>
-        <div className="row justify-content-between mt-4 pt-2 px-3 px-xl-0">
-          <div className={`col-12 col-xl-6 ${classes.feature_wrap}`}>
-            <h2 className={`text-center ${classes.h2}`}>
-              Key features of {service.title}
-            </h2>
-            <ul className="col-12">
-              {service.KeyFeatures &&
-                service.KeyFeatures.map((keyFeature, i) => (
-                  <li key={i}>
-                    <div className="d-flex justify-content-start align-items-start">
-                      {i + 1}. {keyFeature}
-                    </div>
-                  </li>
-                ))}
-            </ul>
+        <div id="footer" className="my-4 pb-4">
+          <RelatedServices />
+        </div>
+        <div className={`row ${classes.get_in_touch} `}>
+          <div className="col-12">
+            <h2>Ready to Build Your Next Project?</h2>
+            <p>
+              Let’s collaborate to bring your ideas to life. Our team is ready
+              to discuss your vision, understand your goals, and craft a
+              tailored solution that drives results. Get in touch today and
+              let’s make it happen!
+            </p>
           </div>
-          <div className={`col-12 col-xl-6 ${classes.feature_wrap}`}>
-            <h2 className={`text-center ${classes.h2}`}>
-              Our {service.title} process
-            </h2>
-            <ul className="col-12">
-              {service.process &&
-                service.process.map((process, i) => (
-                  <li key={i}>
-                    <div className="d-flex justify-content-start align-items-start">
-                      {i + 1}. {process}
-                    </div>
-                  </li>
-                ))}
-            </ul>
+          <div className="col-12 col-lg-5 my-4">
+            <div className={classes.contact_info}>
+              <div>
+                <p className={classes.contact_details}>
+                  <a href="tel:+38626296389450">
+                    📞 Call us at <span>+3862-62963-89450</span>
+                  </a>
+                </p>
+                <p className={classes.contact_details}>
+                  <a href="mailto:hello@kumarsoftwares.com">
+                    📧 Email us at <span>hello@kumarsoftwares.com</span>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-lg-5 my-4">
+            <h3 className="mb-3">Leave me a message</h3>
+            <ContactForm buttonStyle={classes.formButton ?? ""} />
           </div>
         </div>
-
-        <Contact
-          showSectionHead={true}
-          showImage={true}
-          showForm={true}
-          showHeading={true}
-          showSubHeading={true}
-          formButtonStyle={classes.formButton ?? ""}
-        />
         <div id="footer" className="mt-4">
           <Footer />
         </div>

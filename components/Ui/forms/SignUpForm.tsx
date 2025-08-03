@@ -40,7 +40,7 @@ export default function SignUpForm() {
 
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(`handleSignup : `, signUpData);
+    // console.log(`handleSignup : `, signUpData);
 
     setLoading(true);
     setMessage(null);
@@ -55,8 +55,8 @@ export default function SignUpForm() {
     });
 
     const result = await response.json();
-    console.log(`response :: `, response);
-    console.log(`result :: `, result);
+    // console.log(`response :: `, response);
+    // console.log(`result :: `, result);
 
     setLoading(false);
 

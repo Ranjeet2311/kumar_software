@@ -46,7 +46,7 @@ export default function Issue({ issuesList }: IssueProps) {
   }
 
   async function handleStatus(issueId: string, tag: string) {
-    console.log("In handle-Progress");
+    // console.log("In handle-Progress");
 
     try {
       const response = await fetch("/api/issue/update", {
@@ -56,10 +56,10 @@ export default function Issue({ issuesList }: IssueProps) {
         },
         body: JSON.stringify({ issueId: issueId, tag: tag }),
       });
-      console.log(`issue update response : `, response);
+      // console.log(`issue update response : `, response);
 
       const result = await response.json();
-      console.log("Issue update result:", result);
+      // console.log("Issue update result:", result);
     } catch (error) {
       console.log(`error : `, error);
     }

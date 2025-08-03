@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
+import ChatLastSeen from "@/models/ChatLastSeen";
 
 type User = {
   email: string;
@@ -40,12 +41,17 @@ export async function GET(req: NextRequest) {
     const userId = decodedToken?.user?.userId;
     // console.log(`get route all issues : `, decodedToken);
 
+    if (!userId) {
+      return new Response(JSON.stringify({ message: "Invalid token" }), {
+        status: 401,
+      });
+    }
+    // Non-admin → only their chats
     if (decodedToken?.user.position !== "admin") {
       const chatByUser = await ChatModel.find({
         userId: userId,
       });
       // console.log(`chatByUser : `, chatByUser);
-
       return new Response(
         JSON.stringify({
           message: "All user messages fetched successfully",
@@ -54,13 +60,29 @@ export async function GET(req: NextRequest) {
         { status: 200 }
       );
     } else {
-      const allChats = await ChatModel.find({});
-      // console.log(`allChats :: `, allChats);
+      const allChats = await ChatModel.find({}).sort({ updatedAt: -1 }).lean();
+      // Get admin's last seen records
+      const lastSeenRecords = await ChatLastSeen.find({ userId }).lean();
+      const lastSeenMap = lastSeenRecords.reduce((map, rec) => {
+        map[rec.chatId] = rec.lastSeenAt;
+        return map;
+      }, {} as Record<string, Date>);
+
+      const result = allChats.map((chat) => {
+        const lastSeenAt = lastSeenMap[chat.userId];
+        let isNew = false;
+        // ✅ Mark as new if never opened OR updated after last seen
+        if (!lastSeenAt || new Date(chat.updatedAt) > new Date(lastSeenAt)) {
+          isNew = true;
+        }
+
+        return { ...chat, isNew };
+      });
 
       return new Response(
         JSON.stringify({
           message: "All admin messages fetched successfully",
-          data: allChats,
+          data: result,
         }),
         { status: 200 }
       );

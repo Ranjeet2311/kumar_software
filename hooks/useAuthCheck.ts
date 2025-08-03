@@ -40,7 +40,7 @@ export default function useAuthCheck() {
 
         if (!data) {
           dispatch(setAppUser(null));
-          console.log(`No token in auth check`);
+          // console.log(`No token in auth check`);
           throw new Error("No token found");
         }
 

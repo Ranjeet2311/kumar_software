@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
     if (decodedToken?.user.position !== "admin") {
       const issuesByUser = await NewIssue.find({
         userId: new mongoose.Types.ObjectId(userId),
-      });
+      }).sort({ createdAt: -1 });
       return new Response(
         JSON.stringify({
           message: "All user issues fetched successfully",
@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
         { status: 200 }
       );
     } else {
-      const allIssues = await NewIssue.find({});
+      const allIssues = await NewIssue.find({}).sort({ createdAt: -1 });
       return new Response(
         JSON.stringify({
           message: "All admin issues fetched successfully",

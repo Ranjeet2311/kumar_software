@@ -11,14 +11,6 @@
   border-radius: 18px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-  &:hover {
-    // background-color: vars.$theme_green;
-
-    // .contact_text,
-    // .contact_details {
-    //   color: vars.$theme-white !important;
-    // }
-  }
 
   @include vars.lg {
     margin-top: 40px;

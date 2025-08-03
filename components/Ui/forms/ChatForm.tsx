@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import xss from "xss";
-import { MessageCirclePlus } from "lucide-react";
+import { Send } from "lucide-react";
 
 export default function ChatForm() {
   const [chatMessage, setChatMessage] = useState<string>("");
@@ -20,11 +20,11 @@ export default function ChatForm() {
     (state: RootState) => state.chat.selectedChat
   );
   const selectedUserId = selectedChat.map((chat) => chat.userId);
-  console.log(`selectedUserId :: `, selectedUserId);
+  // console.log(`selectedUserId :: `, selectedUserId);
 
   // console.log(`chat user, userData: `, user);
 
-  console.log(`User position : `, user?.position);
+  // console.log(`User position : `, user?.position);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -40,12 +40,12 @@ export default function ChatForm() {
     setMessage(null);
 
     if (chatMessage?.trim()?.length && user?.userId) {
-      console.log(`Dispatching cnew message`);
+      // console.log(`Dispatching cnew message`);
 
       const userId =
         user.position === "admin" ? selectedUserId[0] : user?.userId;
 
-      console.log(`sender userId : `, userId);
+      // console.log(`sender userId : `, userId);
 
       dispatch(
         sendMessage({
@@ -115,7 +115,7 @@ export default function ChatForm() {
 
   return (
     <div>
-      <div className="form-wrap w-100">
+      <div className="form-wrap w-100 py-2 px-4">
         <form onSubmit={handleMessages}>
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
@@ -135,7 +135,7 @@ export default function ChatForm() {
           <div className="mb-0">
             <button
               type="submit"
-              className={`btn btn-bg w-100 border-0 d-flex justify-content-center align-items-center  text-white ${
+              className={`btn btn-bg w-100 border-0 d-flex mb-1 justify-content-center align-items-center  text-white ${
                 sending ? "bg-primary" : null
               }`}
               disabled={sending}
@@ -144,7 +144,7 @@ export default function ChatForm() {
                 <Loader size="lg" message="Sending..." />
               ) : (
                 <>
-                  <MessageCirclePlus
+                  <Send
                     size={20}
                     strokeWidth={1.75}
                     className="me-2 d-inline"

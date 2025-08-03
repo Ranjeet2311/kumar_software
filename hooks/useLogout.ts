@@ -18,15 +18,14 @@ export default function useLogout() {
       }
 
       ["selectedTab"].forEach((key) => localStorage.removeItem(key)); //using it like this, just in case if we have more storages
-      console.log("Local storage cleared");
+      // console.log("Local storage cleared");
 
-      console.log(`logout response : `, response);
-      console.log("Logout successful");
+      // console.log(`logout response : `, response);
+      // console.log("Logout successful");
       router.replace("/authentication");
-      console.log("Redirected to /authentication after logout");
+      // console.log("Redirected to /authentication after logout");
     } catch (error) {
-      console.log(`Logout error : `, error);
-
+      // console.log(`Logout error : `, error);
       console.error("Error during logout:", error);
     }
   }

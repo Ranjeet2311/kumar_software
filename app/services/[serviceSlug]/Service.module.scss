@@ -1,20 +1,16 @@
 @use "../../../styles/css_variables.scss" as vars;
 
 .feature_wrap {
-  padding: 30px;
   border-radius: 18px;
   max-width: 100%;
   margin-bottom: 30px;
+  margin-top: 20px;
   height: fit-content;
   transition: all 0.3 ease-in;
-  box-shadow: -1px 0px 4px vars.$theme-green;
 
   @include vars.xl {
     max-width: 650px;
-  }
-
-  &:hover {
-    box-shadow: 1px 0px 8px vars.$theme-green;
+    margin-top: 40px;
   }
 
   ul {
@@ -22,7 +18,7 @@
   }
 
   li {
-    @include vars.fonts(20px, 26px, 400);
+    @include vars.fonts(18px, 24px, 400);
     margin-bottom: 8px;
     // color: vars.$theme-white;
 
@@ -64,11 +60,11 @@
 }
 
 .h2 {
-  @include vars.fonts(24px, 30px, 600);
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  @include vars.fonts(20px, 26px, 700);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
   border-bottom: 1px solid vars.$theme-dark;
-  // color: vars.$theme-white;
+  color: vars.$theme-blue;
 }
 
 .service_hero {
@@ -79,5 +75,42 @@
     max-width: 400px;
     max-height: 300px;
     object-fit: cover;
+  }
+}
+
+.get_in_touch {
+  margin-top: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+
+  .form-wrap {
+    box-shadow: none !important;
+  }
+
+  h2 {
+    @include vars.fonts(30px, 36px, 700);
+  }
+  .contact_info {
+    @include vars.fonts(16px, 22px, 500);
+    padding: 16px;
+    border-radius: 18px;
+    transition: background-color 0.3s ease;
+
+    .contact_details {
+      color: vars.$theme-dark !important;
+      @include vars.fonts(18px, 26x, 500);
+      margin-bottom: 0;
+
+      a {
+        color: vars.$theme-dark !important;
+      }
+    }
+    .contact_text {
+      color: vars.$theme-dark !important;
+      @include vars.fonts(20px, 32x, 400);
+      padding-top: 30px;
+      margin-bottom: 0;
+    }
   }
 }

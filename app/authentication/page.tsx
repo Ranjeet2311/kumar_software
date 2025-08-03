@@ -19,18 +19,18 @@ export default function Auth() {
   const user = useSelector((state: RootState) => state.user.user);
 
   const loginHandle = () => {
-    console.log(`loginHandle`);
+    // console.log(`loginHandle`);
     setShowLogin(true);
     setShowSignUp(false);
   };
   const signUpHandle = () => {
-    console.log(`signUpHandle`);
+    // console.log(`signUpHandle`);
     setShowLogin(false);
     setShowSignUp(true);
   };
 
   useEffect(() => {
-    console.log(`user auth page: `, user);
+    // console.log(`user auth page: `, user);
 
     if (user !== undefined) {
       setLoading(false);

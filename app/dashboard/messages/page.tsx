@@ -27,7 +27,6 @@ interface User {
 export default function MessagesPage() {
   const [chats, setChats] = useState<User[]>([]);
   const user = useSelector((state: RootState) => state.user.user);
-  // const chatList = useSelector((state: RootState) => state.chat.chats);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -37,40 +36,43 @@ export default function MessagesPage() {
           method: "GET",
         });
         const result = await response.json();
-
-        // console.log(`fetch all chats result : `, result);
-
+        console.log(`fetch all chats result : `, result);
         if (!response.ok) {
           throw new Error(
             `Error fetching chats: ${result.message || "Unknown error"}`
           );
         }
-        setChats(result.data);
+        // Sort by latest updated first
+        const sortedChats: User[] = result.data.sort(
+          (a: User, b: User) =>
+            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+        );
+        setChats(sortedChats);
 
         // console.log(`chat user chat : `, chats);
       } catch (error) {
         console.error(`ChatUser component error  :`, error);
       }
     }
-
     fetchAllChats();
   }, []);
+
   useEffect(() => {
     if (chats.length > 0) {
       dispatch(setUserChat(chats));
     }
-    // console.log(`chat dispatched`);
+    // console.log(`Sorted chat users : `, chats);
   }, [chats, dispatch]);
 
   return (
     <div className="container">
       <div className="row chat_section">
         {user?.position === "admin" && (
-          <div className="col-12 col-lg-4">
-            <ChatUsers users={chats} />
+          <div className="col-12 col-lg-3">
+            <ChatUsers usersList={chats} />
           </div>
         )}
-        <div className="col-12 col-lg-8">
+        <div className="col-12 col-lg-9">
           <div className="row chatbox-wrap">
             {user?.position === "admin" ? (
               <h4>Admin Chat</h4>

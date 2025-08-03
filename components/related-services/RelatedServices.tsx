@@ -4,10 +4,11 @@ import CustomCarousel from "../Ui/custom-carousel/CustomCarousel";
 import { maxFourSlide } from "@/utils/CarouselResponsiveness";
 import { servicesList } from "@/utils/List";
 import Card from "../Ui/card/Card";
+import classes from "./RelatedServices.module.scss";
 
 export default function RelatedServices() {
   return (
-    <div className="container">
+    <div className="container mb-4">
       <div className="row">
         <div className="col-12">
           <SectionHeading
@@ -21,9 +22,10 @@ export default function RelatedServices() {
         {servicesList.slice(0, 3).map(({ title, description, image }) => (
           <div key={title} className="col-12 col-md-6 col-lg-4">
             <Card
+              customImageClass={classes.related_card_img}
               img={image}
               title={title}
-              description={description[0].para}
+              description={description}
               btnText="Read more"
               showBtn={true}
             />

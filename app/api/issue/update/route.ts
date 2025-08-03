@@ -9,7 +9,7 @@ export async function PATCH(req: NextRequest) {
   try {
     const body = await req.json();
     const { issueId, tag } = body;
-    console.log(`body in update issue route : `, body);
+    // console.log(`body in update issue route : `, body);
 
     if (!mongoose.Types.ObjectId.isValid(issueId)) {
       return new Response(
@@ -38,7 +38,7 @@ export async function PATCH(req: NextRequest) {
       { ...updateField },
       { new: true } // Returns updated document
     );
-    console.log(`updateIssue : `, updateIssue);
+    // console.log(`updateIssue : `, updateIssue);
 
     if (!updateIssue) {
       return new Response(JSON.stringify({ message: "Issue not found" }), {
@@ -54,7 +54,7 @@ export async function PATCH(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.log(`error in update issue route : `, error);
+    // console.log(`error in update issue route : `, error);
     return new Response(
       JSON.stringify({ message: "Server error while updating issue status" }),
       { status: 500 }

@@ -32,7 +32,7 @@ export default function Offer() {
                     customImageClass={classes.offer_card_img}
                     img={image}
                     title={title}
-                    description={description[0].para}
+                    description={description}
                     btnText={
                       <span className="d-flex align-items-center justify-content-center mb-0">
                         Read more{" "}

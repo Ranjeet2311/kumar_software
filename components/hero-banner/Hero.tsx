@@ -1,17 +1,12 @@
-import React, { ReactNode } from "react";
+import React, { Children, ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
 import Button from "@/components/Ui/button/Button";
 import btnClasses from "@/components/Ui/button/button.module.scss";
 import classes from "./Hero.module.scss";
 
-type DescriptionList = {
-  para: string;
-};
-
 type HeroProps = {
   heading?: ReactNode | string;
-  paragraph?: string;
-  descriptionList?: DescriptionList[];
+  paragraph?: string | ReactNode;
   showButton?: boolean;
   buttonOneText?: ReactNode | string;
   linkOne?: string;
@@ -21,12 +16,12 @@ type HeroProps = {
   imgAlt?: string;
   localRoute?: boolean;
   customClass?: string;
+  children?: ReactNode;
 };
 
 export default function Hero({
   heading,
   paragraph,
-  descriptionList,
   showButton,
   buttonTwoText,
   linkOne,
@@ -36,6 +31,7 @@ export default function Hero({
   imgAlt,
   localRoute,
   customClass,
+  children,
 }: HeroProps) {
   return (
     <div className="container hero">
@@ -50,13 +46,7 @@ export default function Hero({
               {heading}
             </h1>
           )}
-          <p>{paragraph}</p>
-          {descriptionList &&
-            descriptionList.map((desc, i) => (
-              <p key={i} className="mb-4">
-                {desc.para}
-              </p>
-            ))}
+          {children && children}
           <div className="row align-items-center mt-5">
             {showButton && (
               <>

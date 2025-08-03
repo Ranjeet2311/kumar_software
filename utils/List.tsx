@@ -17,11 +17,9 @@ export const servicesList = [
   {
     title: "App Development",
     subTitle: "Build Engaging, High-Performance Apps",
-    description: [
-      {
-        para: "Our mobile and web application development services focus on delivering intuitive, scalable, and visually appealing applications. From concept to deployment, we create products that work seamlessly across devices, providing an exceptional user experience.",
-      },
-    ],
+    description:
+      "Our mobile and web application development services focus on delivering intuitive, scalable, and visually appealing applications. From concept to deployment, we create products that work seamlessly across devices, providing an exceptional user experience.",
+
     KeyFeatures: [
       "Cross-platform compatibility",
       "Scalable architecture for future growth",
@@ -42,11 +40,9 @@ export const servicesList = [
   {
     title: "Frontend Code Implementation",
     subTitle: "Crafting Pixel-Perfect User Interfaces",
-    description: [
-      {
-        para: "We specialize in transforming creative designs into functional, responsive frontends that deliver exceptional user experiences. Whether it’s a single-page application or a complex web platform, we code with precision and performance in mind.",
-      },
-    ],
+    description:
+      "We specialize in transforming creative designs into functional, responsive frontends that deliver exceptional user experiences. Whether it’s a single-page application or a complex web platform, we code with precision and performance in mind.",
+
     KeyFeatures: [
       "Pixel-perfect design implementation",
       "Responsive layouts for all devices",
@@ -67,11 +63,9 @@ export const servicesList = [
   {
     title: "API Development",
     subTitle: "Reliable & Scalable API Solutions",
-    description: [
-      {
-        para: "Our API development services ensure seamless data exchange and integration across your applications. We create robust RESTful and GraphQL APIs that are secure, efficient, and future-proof.",
-      },
-    ],
+    description:
+      "Our API development services ensure seamless data exchange and integration across your applications. We create robust RESTful and GraphQL APIs that are secure, efficient, and future-proof.",
+
     KeyFeatures: [
       "RESTful & GraphQL API development",
       "Secure authentication and authorization",
@@ -92,11 +86,9 @@ export const servicesList = [
   {
     title: "Node & PHP Development",
     subTitle: "Powerful, Scalable Backend Solutions",
-    description: [
-      {
-        para: "Our Node.js and PHP development services deliver high-performance, secure, and scalable backends that power your applications. Whether it’s building a robust API, integrating complex business logic, or handling large-scale data processing, we design solutions tailored to your needs.",
-      },
-    ],
+    description:
+      "Our Node.js and PHP development services deliver high-performance, secure, and scalable backends that power your applications. Whether it’s building a robust API, integrating complex business logic, or handling large-scale data processing, we design solutions tailored to your needs.",
+
     KeyFeatures: [
       "Scalable architecture for high-traffic applications",
       "RESTful & GraphQL API development",
@@ -117,11 +109,9 @@ export const servicesList = [
   {
     title: "WordPress Development",
     subTitle: "Custom, Scalable WordPress Solutions",
-    description: [
-      {
-        para: " We develop high-performance WordPress websites that are easy to manage and tailored to your brand. From simple blogs to complex corporate sites, we deliver secure and scalable solutions.",
-      },
-    ],
+    description:
+      "We develop high-performance WordPress websites that are easy to manage and tailored to your brand. From simple blogs to complex corporate sites, we deliver secure and scalable solutions.",
+
     KeyFeatures: [
       "Custom theme and plugin development",
       "SEO-friendly structure",
@@ -142,11 +132,9 @@ export const servicesList = [
   {
     title: "E-commerce Development",
     subTitle: "Scalable Online Stores for Your Business",
-    description: [
-      {
-        para: "We design and develop e-commerce platforms that help you sell more and grow faster. From intuitive product catalogs to secure payment gateways, we cover all aspects of online selling.",
-      },
-    ],
+    description:
+      "We design and develop e-commerce platforms that help you sell more and grow faster. From intuitive product catalogs to secure payment gateways, we cover all aspects of online selling.",
+
     KeyFeatures: [
       "Custom e-commerce store design",
       "Secure payment gateway integration",

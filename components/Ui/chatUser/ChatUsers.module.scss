@@ -1,0 +1,60 @@
+@use "../../../styles/css_variables.scss" as vars;
+
+.chat_user_list {
+  display: flex;
+  // justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-height: 330px;
+  scroll-padding-top: 20px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding-left: 0;
+  border-radius: 12px;
+  padding: 16px 0;
+  background-color: vars.$theme_blue;
+  overflow-y: scroll;
+
+  @include vars.lg {
+    max-height: 650px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: vars.$theme_dark_gray;
+    border-radius: 12px;
+    transition: background 0.3s;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .chat_user_btn {
+    @include vars.fonts(16px, 26px, 500);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: vars.$theme-white;
+
+    &:hover {
+      background: #bf3663;
+      color: white;
+    }
+
+    button {
+      padding: 4px;
+    }
+  }
+}
