@@ -54,7 +54,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
     setMessage(null);
     setError(null);
 
-    const response = await fetch("/api/contact", {
+    const response = await fetch("/api/queries/postQueries", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

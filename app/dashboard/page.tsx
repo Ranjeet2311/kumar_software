@@ -9,7 +9,8 @@ import { useEffect, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { Bug, Cable, Send } from "lucide-react";
+import { Mail, Cable, Send } from "lucide-react";
+import useFetchQueries from "@/hooks/useFetchQueries";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -31,11 +32,14 @@ export default function DashboardPage() {
     shallowEqual
   );
   const fetchIssues = useFetchIssues();
+  const fetchQueries = useFetchQueries();
+  const queryData = useSelector((state: RootState) => state.query.queryList);
 
   useEffect(() => {
     fetchIssues();
     setLoading(false);
-  }, [fetchIssues]);
+    fetchQueries();
+  }, [fetchIssues, fetchQueries]);
 
   if (loading) {
     return <Loader />; // Show loader until issues are fetched
@@ -105,13 +109,20 @@ export default function DashboardPage() {
                     </Card>
                   </div>
                 )}
+                {user?.position === "admin" && (
+                  <div className="col-12 col-md-6">
+                    <Card customClass="p-0" title={`Queries`}>
+                      <h3>{queryData.length}</h3>
+                    </Card>
+                  </div>
+                )}
                 <div className="col-12 d-flex flex-wrap justify-content-start align-items-center pb-4 mt-4">
                   <Link
                     href="/dashboard/issues"
                     className="btn_main me-2 mb-2 d-flex justify-content-center"
                   >
                     <Cable size={18} strokeWidth={2} />
-                    <span className="ms-2">See all issues</span>
+                    <span className="ms-2">Check issues</span>
                   </Link>
                   <Link
                     href="/dashboard/messages"
@@ -120,6 +131,15 @@ export default function DashboardPage() {
                     <Send size={18} strokeWidth={2} />
                     <span className="ms-2">Send message</span>
                   </Link>
+                  {user?.position === "admin" && (
+                    <Link
+                      href="/dashboard/queries"
+                      className="btn_main me-2 mb-2 d-flex justify-content-center"
+                    >
+                      <Mail size={18} strokeWidth={2} />
+                      <span className="ms-2">See queries</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

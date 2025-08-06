@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
 import chatReducer from "./slices/chatSlice";
 import issuesReducer from "./slices/issuesSlice";
+import queryReducer from "./slices/querySlice";
 
 export const makeStore = () => {
   return configureStore({
@@ -9,6 +10,7 @@ export const makeStore = () => {
       user: userReducer,
       chat: chatReducer,
       issues: issuesReducer,
+      query: queryReducer,
     },
   });
 };

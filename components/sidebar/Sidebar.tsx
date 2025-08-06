@@ -10,6 +10,7 @@ import {
   PanelLeftClose,
   User,
   LogOut,
+  Mail,
 } from "lucide-react";
 import Link from "next/link";
 import styles from "./Sidebr.module.scss";
@@ -17,6 +18,8 @@ import Button from "../Ui/button/Button";
 import useLogout from "@/hooks/useLogout";
 import { usePathname } from "next/navigation";
 import Tooltip from "../Ui/tooltip/Tooltip";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 type TabType = {
   name: string;
@@ -29,6 +32,7 @@ const tabs: TabType[] = [
   { name: "All Issues", path: "/dashboard/issues", icon: Bug },
   { name: "Add Issue", path: "/dashboard/add-issue", icon: CirclePlus },
   { name: "Messages", path: "/dashboard/messages", icon: MessageSquare },
+  { name: "Queries", path: "/dashboard/queries", icon: Mail },
   { name: "Profile", path: "/dashboard/profile", icon: User },
 ];
 
@@ -40,7 +44,7 @@ export default function Sidebar({
   setIsExpanded: (expanded: boolean) => void;
 }) {
   const [tooltip, setTooltip] = useState<string | null>(null);
-
+  const user = useSelector((state: RootState) => state.user.user);
   const logout = useLogout();
   const pathname = usePathname();
 
@@ -87,39 +91,45 @@ export default function Sidebar({
         {tabs.map(({ name, path, icon: Icon }) => {
           const isActive = path === pathname;
           return (
-            <Link
-              key={name + path}
-              href={path}
-              className={`nav-link text-light position-relative ${
-                styles.menuItem
-              } ${isActive ? styles.active_tab : ""}`}
-              onMouseOver={() => showTooltip(name)}
-            >
-              <Icon className="me-2" />
-              <span
-                style={{
-                  visibility: isExpanded ? "visible" : "hidden",
-                  display: "inline-block",
-                  width: isExpanded ? "auto" : "0px",
-                  overflow: "hidden",
-                  whiteSpace: "nowrap",
-                  transition: "width 0.3s ease, visibility 0.3s ease",
-                }}
-              >
-                {name}
-              </span>
-              {!isExpanded && tooltip === name && (
-                <span
-                  style={{
-                    position: "absolute",
-                    right: "-70px",
-                    bottom: "10px",
-                  }}
+            <>
+              {!(
+                path === "/dashboard/queries" && user?.position !== "admin"
+              ) && (
+                <Link
+                  key={name + path}
+                  href={path}
+                  className={`nav-link text-light position-relative ${
+                    styles.menuItem
+                  } ${isActive ? styles.active_tab : ""}`}
+                  onMouseOver={() => showTooltip(name)}
                 >
-                  <Tooltip message={name} placement="right" key={name} />
-                </span>
+                  <Icon className="me-2" />
+                  <span
+                    style={{
+                      visibility: isExpanded ? "visible" : "hidden",
+                      display: "inline-block",
+                      width: isExpanded ? "auto" : "0px",
+                      overflow: "hidden",
+                      whiteSpace: "nowrap",
+                      transition: "width 0.3s ease, visibility 0.3s ease",
+                    }}
+                  >
+                    {name}
+                  </span>
+                  {!isExpanded && tooltip === name && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        right: "-70px",
+                        bottom: "10px",
+                      }}
+                    >
+                      <Tooltip message={name} placement="right" key={name} />
+                    </span>
+                  )}
+                </Link>
               )}
-            </Link>
+            </>
           );
         })}
         <hr />

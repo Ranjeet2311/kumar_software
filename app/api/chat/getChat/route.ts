@@ -1,8 +1,6 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import ChatModel from "@/models/Chat";
-import NewIssue from "@/models/NewIssue";
 import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 import ChatLastSeen from "@/models/ChatLastSeen";
