@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
 import { UserRoundPlus, Eye, EyeClosed } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type Signup = {
   firstName: string;
@@ -26,6 +27,8 @@ export default function SignUpForm() {
     email: "",
     password: "",
   });
+
+  const { t } = useTranslation();
 
   const handlePasswordShow = () => setShowPassword(!showPassword);
 
@@ -88,7 +91,7 @@ export default function SignUpForm() {
           <div className="row">
             <div className="col-12 col-md-6">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                First name*
+                {t("form.first_name")}*
               </label>
               <input
                 type="text"
@@ -103,7 +106,7 @@ export default function SignUpForm() {
             </div>
             <div className="col-12 col-md-6">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                Last name*
+                {t("form.last_name")}*
               </label>
               <input
                 type="text"
@@ -120,7 +123,7 @@ export default function SignUpForm() {
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Contact number*
+            {t("form.contact_number")}*
           </label>
           <input
             type="number"
@@ -134,7 +137,7 @@ export default function SignUpForm() {
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Your email address*
+            {t("form.email")}*
           </label>
           <input
             type="email"
@@ -149,7 +152,7 @@ export default function SignUpForm() {
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Password*{" "}
+            {t("form.password")}*
             <span onClick={handlePasswordShow}>
               {signUpData.password && showPassword ? (
                 <Eye size={22} strokeWidth={1.75} className="ms-2 d-inline" />
@@ -190,7 +193,7 @@ export default function SignUpForm() {
                   strokeWidth={1.75}
                   className="me-2 d-inline"
                 />
-                Create account
+                {t("form.create_account")}
               </>
             )}{" "}
           </button>
@@ -200,10 +203,15 @@ export default function SignUpForm() {
         {message && (
           <AlertMessage
             status="success"
-            message={message + ", redirecting for Login"}
+            message={t("form.auth.redirecting_login") || message}
           />
         )}
-        {error && <AlertMessage status="error" message={error} />}
+        {error && (
+          <AlertMessage
+            status="error"
+            message={t("form.auth.error_generic") || error}
+          />
+        )}
       </h5>
     </div>
   );

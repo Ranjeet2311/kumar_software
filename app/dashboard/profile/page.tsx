@@ -4,9 +4,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { User as UserIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ProfilePage() {
   const user = useSelector((state: RootState) => state.user.user);
+
+  const { t } = useTranslation();
 
   if (!user) {
     return (
@@ -38,11 +41,11 @@ export default function ProfilePage() {
 
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
-            <strong>Email:</strong>{" "}
+            <strong> {t("form.email")} :</strong>{" "}
             <span className="text-muted">{user.email}</span>
           </li>
           <li className="list-group-item">
-            <strong>Position:</strong>{" "}
+            <strong>{`${t("user")}  ${t("position")}`} :</strong>{" "}
             <span className="text-muted">{user.position || "N/A"}</span>
           </li>
         </ul>

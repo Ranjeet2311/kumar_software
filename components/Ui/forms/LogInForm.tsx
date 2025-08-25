@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
 import { Key, Eye, EyeClosed } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type LogIn = {
   email: string;
@@ -21,6 +22,8 @@ export default function LoginForm() {
     email: "",
     password: "",
   });
+
+  const { t } = useTranslation();
 
   const handlePasswordShow = () => setShowPassword(!showPassword);
 
@@ -76,7 +79,7 @@ export default function LoginForm() {
                   htmlFor="exampleFormControlInput1"
                   className="form-label"
                 >
-                  User email*
+                  {t("form.email")}*
                 </label>
                 <input
                   type="text"
@@ -94,7 +97,7 @@ export default function LoginForm() {
                   htmlFor="exampleFormControlInput1"
                   className="form-label"
                 >
-                  Password*
+                  {t("form.password")}*
                   <span onClick={handlePasswordShow}>
                     {loginData.password && showPassword ? (
                       <Eye
@@ -134,11 +137,11 @@ export default function LoginForm() {
               disabled={loading}
             >
               {loading ? (
-                <Loader size="lg" message="Authenticating" />
+                <Loader size="lg" message={`${t("nav.login")}...`} />
               ) : (
                 <>
                   <Key size={18} strokeWidth={1.75} className="me-2 d-inline" />
-                  Login
+                  {t("nav.login")}
                 </>
               )}
             </button>
@@ -149,10 +152,15 @@ export default function LoginForm() {
         {message && (
           <AlertMessage
             status="success"
-            message={message + ", redirecting to dashboard..."}
+            message={t("form.auth.success_redirect") || message}
           />
         )}
-        {error && <AlertMessage status="error" message={error} />}
+        {error && (
+          <AlertMessage
+            status="error"
+            message={t("form.auth.error_generic") || error}
+          />
+        )}
       </h5>
     </div>
   );

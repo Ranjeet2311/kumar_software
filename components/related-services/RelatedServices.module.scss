@@ -6,4 +6,25 @@
   border: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
+
+  img {
+    width: 80%;
+    height: auto;
+    border-radius: 0;
+  }
+}
+
+.btn {
+  max-width: 200px;
+
+  margin-top: 20px;
+  &:hover {
+    .arrow_icon {
+      transform: translateX(15px);
+    }
+  }
+
+  .arrow_icon {
+    transition: transform 0.3s ease;
+  }
 }

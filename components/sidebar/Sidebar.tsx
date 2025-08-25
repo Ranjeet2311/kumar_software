@@ -20,6 +20,7 @@ import { usePathname } from "next/navigation";
 import Tooltip from "../Ui/tooltip/Tooltip";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { useTranslation } from "react-i18next";
 
 type TabType = {
   name: string;
@@ -52,6 +53,8 @@ export default function Sidebar({
     setTooltip(tab);
   };
 
+  const { t } = useTranslation();
+
   return (
     <div
       onMouseLeave={() => setTooltip(null)}
@@ -77,14 +80,17 @@ export default function Sidebar({
             fontWeight: "600",
           }}
         >
-          Dashboard
+          {t("dashboard.sidebar.dashboard")}
         </span>
         {!isExpanded && tooltip === "dashboard" && (
-          <span
-            style={{ position: "absolute", right: "-70px", bottom: "10px" }}
-          >
-            <Tooltip message={"dashboard"} placement="right" />
-          </span>
+          // <span
+          //   style={{ position: "absolute", right: "-70px", bottom: "10px" }}
+          // >
+          <Tooltip
+            message={t("dashboard.sidebar.dashboard")}
+            placement="right"
+          />
+          // </span>
         )}
       </button>
       <nav className="nav flex-column px-0">
@@ -114,18 +120,22 @@ export default function Sidebar({
                       transition: "width 0.3s ease, visibility 0.3s ease",
                     }}
                   >
-                    {name}
+                    {t(`dashboard.sidebar.${name.toLowerCase()}`)}
                   </span>
                   {!isExpanded && tooltip === name && (
-                    <span
-                      style={{
-                        position: "absolute",
-                        right: "-70px",
-                        bottom: "10px",
-                      }}
-                    >
-                      <Tooltip message={name} placement="right" key={name} />
-                    </span>
+                    // <span
+                    //   style={{
+                    //     position: "absolute",
+                    //     right: "-70px",
+                    //     bottom: "10px",
+                    //   }}
+                    // >
+                    <Tooltip
+                      message={t(`dashboard.sidebar.${name.toLowerCase()}`)}
+                      placement="right"
+                      key={name}
+                    />
+                    // </span>
                   )}
                 </Link>
               )}
@@ -141,14 +151,17 @@ export default function Sidebar({
         >
           <LogOut className="me-2" />
           <span className={`${isExpanded ? "d-inline" : "d-none"}`}>
-            Logout
+            {t("dashboard.sidebar.logout")}
           </span>
           {!isExpanded && tooltip === "logout" && (
-            <span
-              style={{ position: "absolute", right: "-70px", bottom: "10px" }}
-            >
-              <Tooltip message={"logout"} placement="right" />
-            </span>
+            // <span
+            //   style={{ position: "absolute", right: "-70px", bottom: "10px" }}
+            // >
+            <Tooltip
+              message={t("dashboard.sidebar.logout")}
+              placement="right"
+            />
+            // </span>
           )}
         </Button>
       </nav>

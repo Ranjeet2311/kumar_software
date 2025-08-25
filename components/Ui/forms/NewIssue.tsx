@@ -7,6 +7,7 @@ import Loader from "@/components/Loader";
 import AlertMessage from "@/components/AlertMessage";
 import { Bug } from "lucide-react";
 import Button from "../button/Button";
+import { useTranslation } from "react-i18next";
 
 type Issue = {
   issue: string;
@@ -68,9 +69,6 @@ export default function NewIssue() {
     setError(null);
     setLoading(true);
 
-    // console.log(`new issue : `, newIssue);
-    // console.log(` user : `, user);
-
     const response = await fetch("/api/issue/register", {
       method: "POST",
       headers: {
@@ -111,6 +109,8 @@ export default function NewIssue() {
 
     // console.log(` issueData after setting : `, issueData);
   };
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchToken() {
@@ -157,7 +157,7 @@ export default function NewIssue() {
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Issue*
+              {t("form.issue_title")}
             </label>
             <input
               type="text"
@@ -172,7 +172,7 @@ export default function NewIssue() {
           </div>
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Short description*
+              {t("form.description")}
             </label>
             <textarea
               className="form-control"
@@ -198,7 +198,7 @@ export default function NewIssue() {
               ) : (
                 <>
                   <Bug size={22} strokeWidth={1.75} className="me-2 d-inline" />
-                  Add your issue
+                  {t("create_issue")}
                 </>
               )}
             </Button>

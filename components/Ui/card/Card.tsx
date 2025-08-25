@@ -16,6 +16,7 @@ type CardProps = {
   customClass?: string;
   customImageClass?: string;
   btnCss?: string;
+  url?: string;
 };
 
 export default function Card({
@@ -28,9 +29,8 @@ export default function Card({
   customClass,
   customImageClass,
   btnCss = "",
+  url,
 }: CardProps) {
-  const slugifiedTitle = title ? slugify(title) : "default-slug";
-
   // console.log(`Card descriptionList ::: `, descriptionList);
 
   return (
@@ -54,7 +54,7 @@ export default function Card({
             button={false}
             mode={btnClasses.btn_second}
             customClass={`w-100 ms-0 ms-lg-1 d-block text-center justify-content-center ${btnCss}`}
-            link={`/services/${slugifiedTitle}`}
+            link={url ? url : "/services/default-slug"}
             localRoute={true}
           >
             {btnText}

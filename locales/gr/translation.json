@@ -1,0 +1,291 @@
+{
+  "translation": {
+    "test_english": "test German",
+
+    "landing_page": {
+      "hero title": "Intelligente Software für Ihren Geschäftserfolg",
+      "hero para": "Bei Kumar Softwares entwickeln wir leistungsstarke Websites und Webanwendungen, die genau auf Ihre Geschäftsanforderungen zugeschnitten sind. Mit modernem Design, Funktionalität und Skalierbarkeit helfen wir Ihnen, sich digital hervorzuheben. Lassen Sie uns Ihre Ideen verwirklichen.",
+      "Get a Quote": "Angebot anfordern",
+      "View Plans": "Pläne ansehen",
+
+      "WHAT WE OFFER": "WAS WIR BIETEN",
+      "Discover how our expertise delivers tailored software solutions": "Entdecken Sie, wie unsere Expertise individuelle Softwarelösungen liefert.",
+      "Add offer translation": "Angebotsübersetzung hinzufügen",
+      "Key features": "Hauptfunktionen von",
+      "process of": "Prozess von",
+      "Related services": "Verwandte Dienstleistungen",
+      "interest you": "Die Sie interessieren könnten",
+      "Ready to Build": "Bereit für Ihr nächstes Projekt?",
+      "Lets collaborate": "Lassen Sie uns gemeinsam Ihre Ideen verwirklichen. Unser Team ist bereit, Ihre Vision zu besprechen, Ihre Ziele zu verstehen und eine maßgeschneiderte Lösung zu entwickeln, die Ergebnisse liefert. Kontaktieren Sie uns noch heute – gemeinsam machen wir es möglich!",
+      "Leave message": "Hinterlassen Sie mir eine Nachricht",
+
+      "work": {
+        "HOW WE WORK": "WIE WIR ARBEITEN",
+        "Collaborate | Strategize | Deliver": "Zusammenarbeit | Strategie | Umsetzung",
+        "Meeting": "Treffen",
+        "Strategize": "Strategisieren Sie",
+        "Start Development": "Starten Sie die Entwicklung",
+
+        "We begin by understanding your goals, audience, and technical needs": "Wir analysieren Ihre Ziele, Zielgruppe und technischen Anforderungen.",
+        "Our experts craft a roadmap and choose the right tools and frameworks": "Wir erstellen einen maßgeschneiderten Fahrplan mit den passenden Tools",
+        "Agile implementation, with clear timelines and continuous collaboration": "Agile Umsetzung mit klaren Zeitplänen und transparenter Kommunikation."
+      },
+
+      "plans": {
+        "OUR PLANS": "UNSERE PLÄNE",
+        "Basic Plan": "Basisplan",
+        "Ideal for simple websites": "Für einfache Webseiten @000",
+        "Business Plan": "Businessplan",
+        "For growing businesses": "Für wachsende Unternehmen @000",
+        "Enterprise Plan": "Enterprise-Plan",
+        "For full-scale operations": "Für umfangreiche Lösungen @000"
+      },
+      "contact": {
+        "Connect with us": "Kontaktieren Sie uns",
+        "Have a project in mind? Reach out today and let’s get started": "Sie haben ein Projekt? Kontaktieren Sie uns – wir legen los!",
+        "We’re here to answer all your questions. Let’s build something great together": "Wir beantworten gerne alle Ihre Fragen. Lassen Sie uns gemeinsam etwas Großartiges schaffen."
+      }
+    },
+
+    "app-development": {
+      "title": "App-Entwicklung",
+      "subTitle": "Erstellen Sie ansprechende, leistungsstarke Apps",
+      "description": "Unsere mobilen und Web-App-Entwicklungsdienste konzentrieren sich auf intuitive, skalierbare und visuell ansprechende Anwendungen. Von der Idee bis zur Bereitstellung erstellen wir Produkte, die nahtlos auf allen Geräten funktionieren und ein herausragendes Benutzererlebnis bieten.",
+      "key_features": [
+        "Plattformübergreifende Kompatibilität",
+        "Skalierbare Architektur für zukünftiges Wachstum",
+        "Nahtlose Integration mit APIs und Drittanbietern",
+        "Sichere Datenverarbeitung und Verschlüsselung"
+      ],
+      "process": [
+        "Konzept & Planung – Projektziele, Zielgruppe und Funktionen definieren",
+        "UI/UX-Design – Visuell ansprechende, benutzerfreundliche Oberflächen gestalten",
+        "Entwicklung – Leistungsstarke, skalierbare Anwendungen erstellen",
+        "Tests & Qualitätssicherung – Leistung, Sicherheit und Benutzerfreundlichkeit testen",
+        "Start & Support – Ihre App bereitstellen und langfristig unterstützen"
+      ]
+    },
+    "frontend-code-implementation": {
+      "title": "Frontend-Code-Umsetzung",
+      "subTitle": "Pixelgenaue Benutzeroberflächen gestalten",
+      "description": "Wir verwandeln kreative Designs in funktionale, reaktionsfähige Frontends mit hervorragendem Nutzererlebnis. Ob Single-Page-App oder komplexe Plattform – wir entwickeln mit Präzision und Leistung.",
+      "key_features": [
+        "Pixelgenaue Design-Umsetzung",
+        "Responsive Layouts für alle Geräte",
+        "Optimierte Ladegeschwindigkeit und Barrierefreiheit",
+        "Integration moderner Frameworks (React, Next.js, Vue.js)"
+      ],
+      "process": [
+        "Design-Analyse",
+        "Entwicklung des responsiven Layouts",
+        "Komponentenbasierte Umsetzung",
+        "Leistungsoptimierung",
+        "Integration & Bereitstellung"
+      ]
+    },
+    "api-development": {
+      "title": "API-Entwicklung",
+      "subTitle": "Zuverlässige & skalierbare API-Lösungen",
+      "description": "Unsere API-Dienste ermöglichen eine nahtlose Datenübertragung und Integration. Wir entwickeln sichere, leistungsstarke REST- und GraphQL-APIs, die zukunftssicher sind.",
+      "key_features": [
+        "REST- und GraphQL-API-Entwicklung",
+        "Sichere Authentifizierung & Autorisierung",
+        "Hochleistungsfähige, skalierbare Architektur",
+        "Integration von Drittanbieter-APIs"
+      ],
+      "process": [
+        "Anforderungsanalyse",
+        "API-Architektur entwerfen",
+        "Sichere Endpunkte entwickeln",
+        "Integration & Test",
+        "Dokumentation & Support"
+      ]
+    },
+    "backend-development": {
+      "title": "Node & PHP-Entwicklung",
+      "subTitle": "Leistungsstarke Backend-Lösungen",
+      "description": "Unsere Node.js- und PHP-Dienste liefern sichere, leistungsstarke Backends. Von API-Entwicklung bis zur Verarbeitung großer Datenmengen – wir bauen maßgeschneiderte Lösungen.",
+      "key_features": [
+        "Skalierbare Architektur für hohes Traffic-Aufkommen",
+        "REST- und GraphQL-API-Entwicklung",
+        "Sichere Authentifizierungsmechanismen",
+        "Nahtlose Datenbank- und Drittanbieter-Integration"
+      ],
+      "process": [
+        "Planung & Zieldefinition",
+        "Architekturdesign",
+        "Entwicklung & Integration",
+        "Tests & Optimierung",
+        "Bereitstellung & Wartung"
+      ]
+    },
+    "wordpress-development": {
+      "title": "WordPress-Entwicklung",
+      "subTitle": "Individuelle, skalierbare WordPress-Lösungen",
+      "description": "Wir entwickeln leistungsstarke WordPress-Websites, die einfach zu verwalten sind und perfekt zu Ihrer Marke passen – vom Blog bis zur Firmenwebsite.",
+      "key_features": [
+        "Eigene Themes und Plugins",
+        "SEO-optimierter Aufbau",
+        "WooCommerce-Integration",
+        "Performance-Optimierung"
+      ],
+      "process": [
+        "Planung & Wireframes",
+        "Theme-Entwicklung",
+        "Plugin-Integration",
+        "Tests & Optimierung",
+        "Launch & Wartung"
+      ]
+    },
+    "e-commerce-development": {
+      "title": "E-Commerce-Entwicklung",
+      "subTitle": "Skalierbare Onlineshops für Ihr Business",
+      "description": "Wir entwickeln E-Commerce-Plattformen, mit denen Sie mehr verkaufen und schneller wachsen – mit intuitiven Katalogen, sicheren Zahlungswegen und allem dazwischen.",
+      "key_features": [
+        "Maßgeschneidertes Shopdesign",
+        "Zahlungssystem-Integration",
+        "Mobiloptimiertes Einkaufserlebnis",
+        "Inventar- und Bestellmanagement"
+      ],
+      "process": [
+        "Anforderungsanalyse",
+        "UX & Storefront-Design",
+        "Backend- & Zahlungsintegration",
+        "Tests & Sicherheitsprüfung",
+        "Launch & Verkaufsoptimierung"
+      ]
+    },
+    "Read more": "Mehr lesen",
+    "plan_cta": "Plan auswählen",
+    "It scales with your product": "Skaliert mit Ihrem Produkt.",
+
+    "plans": {
+      "basic": {
+        "title": "Basisplan",
+        "subtitle": "Für einfache Webseiten @000",
+        "features": [
+          "Grundlegende Website-Einrichtung",
+          "Responsives Design",
+          "Bis zu 5 Seiten",
+          "Grundlegende SEO-Optimierung",
+          "1 Monat kostenloser Support"
+        ]
+      },
+      "business": {
+        "title": "Businessplan",
+        "subtitle": "Für wachsende Unternehmen @000",
+        "features": [
+          "Individuelles Webdesign",
+          "Vollständig responsives Design",
+          "Bis zu 10 Seiten und mehr",
+          "CMS (Content Management System) Integration",
+          "E-Commerce-Funktionalität",
+          "Backend-Entwicklung",
+          "Integration zusätzlicher Funktionen",
+          "3 Monate kostenloser Support"
+        ]
+      },
+      "enterprise": {
+        "title": "Enterprise-Plan",
+        "subtitle": "Für umfangreiche Lösungen @000",
+        "features": [
+          "Individuelle Webanwendungen",
+          "Erweitertes responsives Design",
+          "Unbegrenzte Seiten",
+          "API- und Drittanbieter-Integrationen",
+          "Enterprise-Backend-Lösungen",
+          "Funktionen auf Unternehmensebene",
+          "3 Monate kostenloser Support"
+        ]
+      }
+    },
+
+    "What People Say": "Was Kunden sagen",
+    "Hear what our happy clients have to say": "Lesen Sie, was unsere zufriedenen Kunden sagen.",
+
+    "form": {
+      "first_name": "Vorname*",
+      "last_name": "Nachname*",
+      "contact_number": "Telefonnummer*",
+      "email": "Ihre E-Mail-Adresse",
+      "subject": "Betreff*",
+      "select_subject_placeholder": "Dienst auswählen",
+      "description": "Kurze Beschreibung*",
+      "send": "Senden",
+      "sending": "Wird gesendet...",
+      "password": "Passwort*",
+      "create_account": "Konto erstellen",
+      "issue_title": "Titel des Problems*",
+      "add issue": "Add Issue",
+      "Your message": "Ihre Nachricht*",
+      "success_message": "Ihre Nachricht wurde erfolgreich gesendet!",
+      "error_message": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "auth": {
+        "success_redirect": "Erfolgreich angemeldet, Weiterleitung zum Dashboard...",
+        "error_generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+        "redirecting_login": "Weiterleitung zur Anmeldung..."
+      }
+    },
+
+    "create_issue": "Problem erstellen",
+    "add issue": "Problem hinzufügen",
+
+    "go_back_to": {
+      "login": "Zurück zur Anmeldung",
+      "signup": "Zurück zur Registrierung"
+    },
+    "lets_create_an_account": "Lassen Sie uns ein Konto für Sie erstellen",
+    "lets_login": "Lassen Sie uns anmelden",
+    "already_a_customer_no_account": "Sie sind bereits Kunde, haben aber kein Support-Konto?",
+    "user": "Benutzer",
+    "position": "Position",
+    "No issues": "Keine Probleme gefunden",
+    "create it now": "Jetzt erstellen",
+
+    "support_cta": {
+      "short": "Brauchen Sie Unterstützung?",
+      "full": "Brauchen Sie Unterstützung? Erstellen Sie ein Ticket."
+    },
+
+    "nav": {
+      "Menu": "Menü",
+      "home": "Startseite",
+      "services": "Dienstleistungen",
+      "process": "Ablauf",
+      "plans": "Pläne",
+      "feedbacks": "Rückmeldungen",
+      "contact": "Kontakt",
+      "login": "Anmelden",
+      "logout": "Abmelden",
+      "language": "Sprache"
+    },
+    "dashboard": {
+      "welcome": "Willkommen im Dashboard",
+      "all issues": "Alle Probleme",
+      "completed": "Abgeschlossen",
+      "progressing": "In Bearbeitung",
+      "chats": "Chats",
+      "queries": "Anfragen",
+      "check issues": "Probleme prüfen",
+      "send message": "Nachricht senden",
+      "see queries": "Anfragen anzeigen",
+
+      "sidebar": {
+        "dashboard": "Dashboard",
+        "report": "Bericht",
+        "all issues": "Alle Probleme",
+        "add issue": "Problem hinzufügen",
+        "messages": "Nachrichten",
+        "queries": "Anfragen",
+        "profile": "Profil",
+        "logout": "Abmelden"
+      },
+
+      "chart": {
+        "all": "Alle Probleme",
+        "completed": "Abgeschlossene Probleme",
+        "progressing": "Laufende Probleme"
+      }
+    }
+  }
+}

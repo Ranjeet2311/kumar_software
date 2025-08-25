@@ -11,12 +11,15 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { Mail, Cable, Send } from "lucide-react";
 import useFetchQueries from "@/hooks/useFetchQueries";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function DashboardPage() {
-  // redirect("/dashboard/issues"); // Redirect to the issues page
   const [loading, setLoading] = useState(true);
+
+  const { t } = useTranslation();
+
   const user = useSelector((state: RootState) => state.user.user);
   const chatList = useSelector((state: RootState) => state.chat.chats);
   const issuesList = useSelector(
@@ -46,7 +49,11 @@ export default function DashboardPage() {
   }
 
   const data = {
-    labels: ["All issues", "Completed issues", "Progressing issues"],
+    labels: [
+      t("dashboard.all issues"),
+      t("dashboard.completed"),
+      t("dashboard.progressing"),
+    ],
     datasets: [
       {
         data: [
@@ -66,7 +73,7 @@ export default function DashboardPage() {
       <div className="row">
         <div className="col-12">
           <h2 className="greeting w-100">
-            Welcome to the dashboard,{" "}
+            {t("dashboard.welcome")},{" "}
             <strong className="fwb colored-text">
               {user &&
                 user?.firstName?.charAt(0).toUpperCase() +
@@ -88,30 +95,30 @@ export default function DashboardPage() {
             <div className="col-12 col-md-6">
               <div className="row">
                 <div className="col-12 col-md-6">
-                  <Card customClass="p-0" title={`All issues`}>
+                  <Card customClass="p-0" title={t("dashboard.all issues")}>
                     <h3>{issuesList.length}</h3>
                   </Card>
                 </div>
                 <div className="col-12 col-md-6">
-                  <Card customClass="p-0" title={`Completed`}>
+                  <Card customClass="p-0" title={t("dashboard.completed")}>
                     <h3>{issueFinished.length}</h3>
                   </Card>
                 </div>
                 <div className="col-12 col-md-6">
-                  <Card customClass="p-0" title={`Progressing`}>
+                  <Card customClass="p-0" title={t("dashboard.progressing")}>
                     <h3>{issueProgressing.length}</h3>
                   </Card>
                 </div>
                 {user?.position === "admin" && (
                   <div className="col-12 col-md-6">
-                    <Card customClass="p-0" title={`Chats`}>
+                    <Card customClass="p-0" title={t("dashboard.chats")}>
                       <h3>{chatList.length}</h3>
                     </Card>
                   </div>
                 )}
                 {user?.position === "admin" && (
                   <div className="col-12 col-md-6">
-                    <Card customClass="p-0" title={`Queries`}>
+                    <Card customClass="p-0" title={t("dashboard.queries")}>
                       <h3>{queryData.length}</h3>
                     </Card>
                   </div>
@@ -122,14 +129,14 @@ export default function DashboardPage() {
                     className="btn_main me-2 mb-2 d-flex justify-content-center"
                   >
                     <Cable size={18} strokeWidth={2} />
-                    <span className="ms-2">Check issues</span>
+                    <span className="ms-2">{t("dashboard.check issues")}</span>
                   </Link>
                   <Link
                     href="/dashboard/messages"
                     className="btn_main me-2 mb-2 d-flex justify-content-center"
                   >
                     <Send size={18} strokeWidth={2} />
-                    <span className="ms-2">Send message</span>
+                    <span className="ms-2">{t("dashboard.send message")}</span>
                   </Link>
                   {user?.position === "admin" && (
                     <Link
@@ -137,7 +144,7 @@ export default function DashboardPage() {
                       className="btn_main me-2 mb-2 d-flex justify-content-center"
                     >
                       <Mail size={18} strokeWidth={2} />
-                      <span className="ms-2">See queries</span>
+                      <span className="ms-2">{t("dashboard.see queries")}</span>
                     </Link>
                   )}
                 </div>

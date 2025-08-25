@@ -4,18 +4,21 @@ import FeedbackCard from "@/components/Ui/feedback-card/FeedbackCard";
 import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import { maxFourSlide } from "@/utils/CarouselResponsiveness";
 import { feedbacks } from "@/utils/List";
+import { useTranslation } from "react-i18next";
 
 export default function Feedbacks() {
+  const { t } = useTranslation();
+
   return (
     <div className="container">
       <div className="row section-space">
         <SectionHeading
           title={
             <>
-              What <span className="colored-text">People</span> Say
+              <span className="colored-text">{t("What People Say")}</span>
             </>
           }
-          text="Hear what our happy clients have to say"
+          text={t("Hear what our happy clients have to say")}
         />
         <div className="col-12">
           <div className="feedback-section">

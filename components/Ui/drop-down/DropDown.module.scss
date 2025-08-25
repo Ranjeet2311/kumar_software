@@ -1,4 +1,25 @@
-.dropdown {
-  max-width: 475px;
-  background: linear-gradient(-260deg, #d9b6e7 25%, #d0eff2 45%, #d9b6e7 60%);
+@use "../../../styles/css_variables.scss" as vars;
+
+.links_wrap {
+  padding: 10px;
+}
+.dropdownButton {
+  height: fit-content;
+  &:hover {
+    background: none;
+  }
+}
+
+.link {
+  color: vars.$theme-dark;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  justify-content: start;
+  text-align: center;
+
+  &:hover {
+    color: vars.$theme-white;
+    background: rgba($color: vars.$theme-blue, $alpha: 0.4);
+  }
 }

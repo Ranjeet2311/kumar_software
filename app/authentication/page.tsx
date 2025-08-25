@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { redirect } from "next/navigation";
 import Loader from "@/components/Loader";
+import { t } from "i18next";
 
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
@@ -62,8 +63,8 @@ export default function Auth() {
           <div className="col-12 col-lg-7 form-section">
             <div className="row mt-4">
               <div className="col-12 pe-0 text-center px-0 mb-4">
-                {showLogin && <h3>Hey there let&apos;s login</h3>}
-                {showSignUp && <h3>Let&apos;s create an account for you </h3>}
+                {showLogin && <h3>{t("lets_login")}</h3>}
+                {showSignUp && <h3>{t("lets_create_an_account")}</h3>}
                 {/* <hr /> */}
               </div>
               <div className="col-12">
@@ -78,27 +79,22 @@ export default function Auth() {
                     onClick={signUpHandle}
                     className="my-0 py-0 btn text-center w-100"
                   >
-                    Already a customer but don&apos;t have a support account?
+                    {t("already_a_customer_no_account")}
                     <span
                       className="fw-bold ms-1"
                       style={{ color: "#3778c2", textDecoration: "underline" }}
                     >
-                      Sign up now
+                      {t("form.create_account")}
                     </span>
                   </h5>
                 )}
                 {showSignUp && (
                   <h5
-                    className="my-0 py-0 btn text-center w-100"
+                    className="my-0 py-0 btn text-center w-100 text-decoration-underline fw-bold"
                     onClick={loginHandle}
+                    style={{ color: "#3778c2" }}
                   >
-                    Go back to
-                    <span
-                      className="fw-bold ms-1"
-                      style={{ color: "#3778c2", textDecoration: "underline" }}
-                    >
-                      Login
-                    </span>
+                    {t("go_back_to.login")}
                   </h5>
                 )}
               </div>

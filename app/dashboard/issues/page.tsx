@@ -7,10 +7,14 @@ import { RootState } from "@/store/store";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import useFetchIssues from "@/hooks/useFetchIssues";
+import { useTranslation } from "react-i18next";
 
 export default function IssuesPage() {
   const issuesList = useSelector((state: RootState) => state.issues.issuesList);
   const user = useSelector((state: RootState) => state.user.user);
+
+  const { t } = useTranslation();
+
   const fetchIssues = useFetchIssues();
 
   useEffect(() => {
@@ -28,11 +32,14 @@ export default function IssuesPage() {
         <Issue issuesList={issuesList} />
       ) : (
         <h4 className="text-center">
-          No issues found
+          {t("No issues")}
           <br />
           {user?.position !== "admin" && (
-            <Link className="ms-1" href="/dashboard/add-issue">
-              create it now
+            <Link
+              className="ms-1 text-decoration-underline fw-bolder"
+              href="/dashboard/add-issue"
+            >
+              {t("create it now")}
             </Link>
           )}
         </h4>

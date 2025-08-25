@@ -2,87 +2,28 @@ import React from "react";
 import PlanCard from "../Ui/plan-card/PlanCard";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const plans = [
   {
-    title: "Basic Plan",
-    price: "Starts @ $0000",
-    benefits: [
-      "Basic website setup: ",
-      "Responsive design",
-      "Up to 5 Pages",
-      "Basic SEO Optimization",
-      "1-Month Free Support",
-    ],
-    additionalText:
-      "This plan is perfect for establishing an online presence with a professional and functional website.",
-    buttonText: "Choose Plan",
+    key: "basic",
+    // buttonText: "Get Started",
     buttonLink: "/#contact",
   },
-  // {
-  //   title: "Store Plan",
-  //   price: "For online stores, starts @ $0000",
-  //   benefits: [
-  //     "Custom website design",
-  //     "Fully Responsive Design",
-  //     "Unlimited products Pages and more",
-  //     "Enhanced SEO Optimization",
-  //     "Content Management System (CMS) Integration",
-  //     "E-commerce Functionality",
-  //     "Backend development",
-  //     "Additional features integration",
-  //     "Official email eg: name@yourwebsite.si",
-  //     "3-Month Free Support",
-  //   ],
-  //   additionalText:
-  //     "This plan is suitable for businesses seeking to expand their online capabilities and engage a broader audience.",
-  //   buttonText: "Get Started",
-  //   buttonLink: "/#contact",
-  // },
   {
-    title: "Business Plan",
-    price: "For Businesses, starts @ $00000",
-    benefits: [
-      "Custom website design",
-      "Fully Responsive Design",
-      "Up to 10 Pages and more",
-      // "Enhanced SEO Optimization",
-      "Content Management System (CMS) Integration",
-      "E-commerce Functionality",
-      "Backend development",
-      "Additional features integration",
-      // "Official email eg: name@yourwebsite.si",
-      "3-Month Free Support",
-    ],
-    additionalText:
-      "This plan is suitable for businesses seeking to expand their online capabilities and engage a broader audience.",
-    buttonText: "Get Started",
+    key: "business",
+    // buttonText: "Get Started",
     buttonLink: "/#contact",
   },
-
   {
-    title: "Enterprise Plan",
-    price: "For Enterprises",
-    benefits: [
-      "Tailored web apps",
-      "Comprehensive Responsive Design",
-      "Unlimited Pages",
-      // "Advanced SEO and Digital Marketing Integration",
-      "API and Third-Party Integrations",
-      "Advanced backend solutions",
-      "Enterprise-level features",
-      "3-Month Free Support",
-      // "Ongoing Support and Maintenance",
-    ],
-    additionalText:
-      "This plan is ideal for enterprises requiring a robust, scalable, and fully customized online platform to support complex operations and high traffic volumes.",
-    buttonText: "Get Started",
+    key: "enterprise",
+    // buttonText: "Get Started",
     buttonLink: "/#contact",
   },
 ];
-
 export default function Plans() {
   const { scrollYProgress } = useScroll();
+  const { t } = useTranslation();
 
   return (
     <div className="container">
@@ -90,10 +31,13 @@ export default function Plans() {
         <SectionHeading
           title={
             <>
-              Our <span className="colored-text">plans</span>
+              <span className="colored-text">
+                {" "}
+                {t("landing_page.plans.OUR PLANS")}
+              </span>
             </>
           }
-          text="It scales with your product"
+          text={t("It scales with your product")}
         />
       </div>
       <motion.div
@@ -105,7 +49,7 @@ export default function Plans() {
         <div className="row row row-cols-1 row-cols-md-2 g-4">
           {plans.map((plan, index) => (
             <div key={index} className="col-12 col-md-6 col-lg-4">
-              <PlanCard {...plan} />
+              <PlanCard planKey={plan.key} buttonLink={plan.buttonLink} />
             </div>
           ))}
         </div>

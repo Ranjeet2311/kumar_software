@@ -8,6 +8,7 @@ import { AppDispatch } from "@/store/store";
 import ChatUsers from "@/components/Ui/chatUser/ChatUsers";
 import ChatElement from "@/components/Ui/chat/ChatElement";
 import ChatForm from "@/components/Ui/forms/ChatForm";
+import { useTranslation } from "react-i18next";
 
 type Chat = {
   sender: string;
@@ -28,6 +29,8 @@ export default function MessagesPage() {
   const [chats, setChats] = useState<User[]>([]);
   const user = useSelector((state: RootState) => state.user.user);
   const dispatch = useDispatch<AppDispatch>();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchAllChats() {
@@ -77,7 +80,7 @@ export default function MessagesPage() {
             {user?.position === "admin" ? (
               <h4>Admin Chat</h4>
             ) : (
-              <h4>Your Chat</h4>
+              <h4>{t("dashboard.sidebar.messages")}</h4>
             )}
             <div className="col-12 message_section">
               <ChatElement />

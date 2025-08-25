@@ -5,6 +5,7 @@ import { Avatar, For, HStack } from "@chakra-ui/react";
 import { ShieldUser } from "lucide-react";
 import { formatTime } from "@/utils/TimeConverter";
 import classes from "./ChatElement.module.scss";
+import Loader from "@/components/Loader";
 
 // type Chatlist = {
 //   sender: string;
@@ -103,7 +104,9 @@ export default function ChatElement() {
       ) : user?.position === "admin" ? (
         <p className="text-muted">Select chat to communicate</p>
       ) : (
-        <p className="text-muted">Your chat will appear here</p>
+        <p className="mx-auto">
+          <Loader size="lg" />
+        </p>
       )}
 
       <div ref={chatEndRef} />

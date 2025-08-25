@@ -1,0 +1,289 @@
+{
+  "translation": {
+    "test_english": "test Slovene",
+
+    "landing_page": {
+      "hero title": "Pametna programska oprema za vaš uspeh.",
+      "hero para": "Pri Kumar Softwares razvijamo zmogljive in prilagojene spletne strani ter aplikacije, ki ustrezajo vašim poslovnim ciljem. S sodobnim dizajnom, funkcionalnostjo in razširljivostjo poskrbimo, da izstopate v digitalnem svetu. Uresničimo vaše ideje.",
+      "Get a Quote": "Pridobite ponudbo",
+      "View Plans": "Oglejte si pakete",
+
+      "WHAT WE OFFER": "KAJ PONUJAMO",
+      "Discover how our expertise delivers tailored software solutions": "Odkrijte, kako naše znanje prinaša prilagojene programske rešitve.",
+      "Add offer translation": "Dodaj prevod ponudbe",
+      "Key features": "Ključne funkcije za",
+      "process of": "Postopek za",
+      "Related services": "Povezane storitve",
+      "interest you": "Ki bi vas lahko zanimale",
+      "Ready to Build": "Pripravljeni na naslednji projekt?",
+      "Lets collaborate": "Sodelujmo pri uresničitvi vaših idej. Naša ekipa je pripravljena razpravljati o vaši viziji, razumeti vaše cilje in ustvariti prilagojeno rešitev, ki prinaša rezultate. Stopite v stik z nami še danes in skupaj bomo uspeli!",
+      "Leave message": "Pustite mi sporočilo",
+
+      "work": {
+        "HOW WE WORK": "KAKO DELAMO",
+        "Collaborate | Strategize | Deliver": "Sodelujemo | Strategiramo | Dostavimo",
+        "Meeting": "Sestanek",
+        "Strategize": "Strategija",
+        "Start Development": "Začetek razvoja",
+
+        "We begin by understanding your goals, audience, and technical needs": "Spoznamo vaše cilje, ciljno publiko in tehnične zahteve.",
+        "Our experts craft a roadmap and choose the right tools and frameworks": "Izdelamo strategijo in izberemo prava orodja za izvedbo.",
+        "Agile implementation, with clear timelines and continuous collaboration": "Agilen razvoj s preglednimi časovnicami in rednim sodelovanjem."
+      },
+
+      "plans": {
+        "OUR PLANS": "NAŠI NAČRTI",
+        "Basic Plan": "Osnovni paket",
+        "Ideal for simple websites": "Za enostavne spletne strani @000",
+        "Business Plan": "Poslovni paket",
+        "For growing businesses": "Za rastoča podjetja @000",
+        "Enterprise Plan": "Podjetniški paket",
+        "For full-scale operations": "Za velike sisteme @000"
+      },
+      "contact": {
+        "Connect with us": "Stopite v stik z nami",
+        "Have a project in mind? Reach out today and let’s get started": "Imate projekt v mislih? Pišite nam in začnimo sodelovanje.",
+        "We’re here to answer all your questions. Let’s build something great together": "Vedno smo vam na voljo za vsa vprašanja. Z veseljem bomo sodelovali z vami."
+      }
+    },
+
+    "app-development": {
+      "title": "Razvoj aplikacij",
+      "subTitle": "Ustvarjamo privlačne, zmogljive aplikacije",
+      "description": "Naše storitve razvoja mobilnih in spletnih aplikacij so osredotočene na intuitivnost, skalabilnost in vizualno privlačnost. Od zasnove do lansiranja ustvarjamo produkte, ki delujejo brezhibno na vseh napravah.",
+      "key_features": [
+        "Združljivost med platformami",
+        "Skalabilna arhitektura za prihodnjo rast",
+        "Integracija z API-ji in drugimi orodji",
+        "Varna obdelava podatkov in šifriranje"
+      ],
+      "process": [
+        "Načrtovanje – cilji, funkcionalnosti, ciljna publika",
+        "UI/UX – oblikovanje uporabniku prijaznega vmesnika",
+        "Razvoj – gradnja zmogljive aplikacije",
+        "Testiranje – varnost, hitrost, uporabnost",
+        "Zagon & Podpora – dolgoročna podpora in vzdrževanje"
+      ]
+    },
+    "frontend-code-implementation": {
+      "title": "Implementacija sprednje kode",
+      "subTitle": "Piksel natančni uporabniški vmesniki",
+      "description": "Preoblikujemo dizajne v funkcionalne, odzivne spletne vmesnike. Ne glede na kompleksnost projekta zagotavljamo natančnost in zmogljivost.",
+      "key_features": [
+        "Natančna izvedba dizajna",
+        "Odgovorni dizajn za vse naprave",
+        "Optimizacija hitrosti in dostopnosti",
+        "Podpora za sodobna orodja (React, Next.js, Vue)"
+      ],
+      "process": [
+        "Prevzem dizajna",
+        "Razvoj odzivnega vmesnika",
+        "Gradnja s komponentami",
+        "Optimizacija hitrosti",
+        "Integracija in lansiranje"
+      ]
+    },
+    "api-development": {
+      "title": "Razvoj API-jev",
+      "subTitle": "Zanesljive in skalabilne API rešitve",
+      "description": "Zagotavljamo enostavno povezljivost med aplikacijami z robustnimi REST in GraphQL API-ji – varnimi, hitrimi in pripravljenimi na prihodnost.",
+      "key_features": [
+        "REST in GraphQL razvoj",
+        "Varna avtentikacija in avtorizacija",
+        "Skalabilna arhitektura",
+        "Integracija tretjih ponudnikov"
+      ],
+      "process": [
+        "Analiza zahtev",
+        "Načrtovanje arhitekture",
+        "Razvoj varnih endpointov",
+        "Testiranje in integracija",
+        "Dokumentacija in podpora"
+      ]
+    },
+    "backend-development": {
+      "title": "Razvoj z Node & PHP",
+      "subTitle": "Zmogljive rešitve za strežnik",
+      "description": "Razvijamo varne, zmogljive in prilagodljive strežniške rešitve z uporabo Node.js ali PHP. Za API-je, obdelavo podatkov ali poslovno logiko.",
+      "key_features": [
+        "Skalabilna arhitektura za visoko obremenitev",
+        "REST in GraphQL podpora",
+        "Varni avtentikacijski sistemi",
+        "Integracija z bazami in storitvami"
+      ],
+      "process": [
+        "Načrtovanje & analiza",
+        "Načrt arhitekture",
+        "Razvoj in integracija",
+        "Testiranje & optimizacija",
+        "Zagon & podpora"
+      ]
+    },
+    "wordpress-development": {
+      "title": "WordPress razvoj",
+      "subTitle": "Prilagodljive, zmogljive WordPress rešitve",
+      "description": "Izdelujemo visoko zmogljive WordPress spletne strani, enostavne za upravljanje in popolnoma prilagojene vaši blagovni znamki.",
+      "key_features": [
+        "Razvoj tem in vtičnikov po meri",
+        "SEO optimizirana struktura",
+        "Integracija WooCommerce",
+        "Optimizacija hitrosti"
+      ],
+      "process": [
+        "Načrtovanje & osnutki",
+        "Razvoj teme po meri",
+        "Vgradnja & prilagoditev vtičnikov",
+        "Testiranje & optimizacija",
+        "Zagon & vzdrževanje"
+      ]
+    },
+    "e-commerce-development": {
+      "title": "Razvoj e-trgovine",
+      "subTitle": "Skalabilne spletne trgovine",
+      "description": "Oblikujemo in razvijamo e-trgovine, ki povečujejo prodajo. Vse od katalogov do varnega plačila – poskrbimo za celotno izkušnjo.",
+      "key_features": [
+        "Oblikovanje trgovine po meri",
+        "Integracija plačilnih sistemov",
+        "Nakupovalna izkušnja za mobilne naprave",
+        "Upravljanje zalog in naročil"
+      ],
+      "process": [
+        "Analiza potreb",
+        "Oblikovanje trgovine & UX",
+        "Integracija plačil & backend",
+        "Testiranje & varnost",
+        "Zagon & optimizacija prodaje"
+      ]
+    },
+    "Read more": "Preberi več",
+    "plan_cta": "Začnite zdaj",
+    "It scales with your product": "Prilagojeni rasti vašega izdelka.",
+
+    "plans": {
+      "basic": {
+        "title": "Osnovni paket",
+        "subtitle": "Za enostavne spletne strani @000",
+        "features": [
+          "Osnovna postavitev spletne strani",
+          "Odziven dizajn",
+          "Do 5 strani",
+          "Osnovna SEO optimizacija",
+          "1 mesec brezplačne podpore"
+        ]
+      },
+      "business": {
+        "title": "Poslovni paket",
+        "subtitle": "Za rastoča podjetja @000",
+        "features": [
+          "Oblikovanje spletne strani po meri",
+          "Popolnoma odziven dizajn",
+          "Do 10 strani in več",
+          "Integracija sistema za upravljanje vsebin (CMS)",
+          "Funkcionalnost spletne trgovine",
+          "Razvoj zalednega sistema",
+          "Integracija dodatnih funkcij",
+          "3-mesečna brezplačna podpora"
+        ]
+      },
+      "enterprise": {
+        "title": "Podjetniški paket",
+        "subtitle": "Za obsežne rešitve @000",
+        "features": [
+          "Prilagojene spletne aplikacije",
+          "Napreden odziven dizajn",
+          "Neomejeno število strani",
+          "Integracije API-jev in tretjih storitev",
+          "Napredne zaledne rešitve",
+          "Funkcije na ravni podjetja",
+          "3-mesečna brezplačna podpora"
+        ]
+      }
+    },
+
+    "What People Say": "Kaj pravijo stranke",
+    "Hear what our happy clients have to say": "Preberite, kaj pravijo naše zadovoljne stranke.",
+
+    "form": {
+      "first_name": "Ime*",
+      "last_name": "Priimek*",
+      "contact_number": "Telefonska številka*",
+      "email": "Vaš e-poštni naslov",
+      "subject": "Zadeva*",
+      "select_subject_placeholder": "Izberite storitev",
+      "description": "Kratek opis*",
+      "send": "Pošlji",
+      "sending": "Pošiljanje...",
+      "password": "Geslo*",
+      "create_account": "Ustvari račun",
+      "issue_title": "Naslov težave*",
+      "add issue": "Dodaj težavo",
+      "Your message": "Vaše sporočilo*",
+      "success_message": "Vaše sporočilo je bilo uspešno poslano!",
+      "error_message": "Prišlo je do napake. Poskusite znova.",
+      "auth": {
+        "success_redirect": "Uspešno ste se prijavili, preusmeritev na nadzorno ploščo...",
+        "error_generic": "Prišlo je do napake. Poskusite znova.",
+        "redirecting_login": "Preusmeritev na prijavo..."
+      }
+    },
+    "create_issue": "Ustvari težavo",
+
+    "go_back_to": {
+      "login": "Pojdi nazaj na prijavo",
+      "signup": "Pojdi nazaj na registracijo"
+    },
+    "lets_create_an_account": "Ustvarimo račun za vas",
+    "lets_login": "Pojdimo na prijavo",
+    "already_a_customer_no_account": "Že ste stranka, vendar nimate podpornega računa?",
+    "user": "uporabnik",
+    "position": "pozicija",
+    "No issues": "Ni najdenih težav",
+    "create it now": "Ustvari jo zdaj",
+
+    "support_cta": {
+      "short": "Potrebujete podporo?",
+      "full": "Potrebujete podporo? Ustvarite zahtevek."
+    },
+
+    "nav": {
+      "Menu": "Meni",
+      "home": "Domov",
+      "services": "Storitve",
+      "process": "Postopek",
+      "plans": "Paketi",
+      "feedbacks": "Povratne informacije",
+      "contact": "Kontakt",
+      "login": "Prijava",
+      "logout": "Odjava",
+      "language": "Jezik"
+    },
+    "dashboard": {
+      "welcome": "Dobrodošli na nadzorni plošči",
+      "all issues": "Vsa vprašanja",
+      "completed": "Zaključeno",
+      "progressing": "V teku",
+      "chats": "Klepeti",
+      "queries": "Poizvedbe",
+      "check issues": "Preveri vprašanja",
+      "send message": "Pošlji sporočilo",
+      "see queries": "Poglej poizvedbe",
+
+      "sidebar": {
+        "dashboard": "Nadzorna plošča",
+        "report": "Poročilo",
+        "all issues": "Vsa vprašanja",
+        "add issue": "Dodaj vprašanje",
+        "messages": "Sporočila",
+        "queries": "Poizvedbe",
+        "profile": "Profil",
+        "logout": "Odjava"
+      },
+
+      "chart": {
+        "all": "Vsa vprašanja",
+        "completed": "Zaključena vprašanja",
+        "progressing": "Vprašanja v teku"
+      }
+    }
+  }
+}

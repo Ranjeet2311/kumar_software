@@ -8,6 +8,7 @@ import xss from "xss";
 import { Send } from "lucide-react";
 import Loader from "@/components/Loader";
 import AlertMessage from "@/components/AlertMessage";
+import { useTranslation } from "react-i18next";
 
 type FormData = {
   firstName: string;
@@ -26,6 +27,8 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -90,7 +93,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
           <div className="row">
             <div className="col-12 col-md-6">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                First name*
+                {t("form.first_name")}*
               </label>
               <input
                 type="text"
@@ -105,7 +108,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
             </div>
             <div className="col-12 col-md-6">
               <label htmlFor="exampleFormControlInput1" className="form-label">
-                Last name*
+                {t("form.last_name")}*
               </label>
               <input
                 type="text"
@@ -122,7 +125,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Contact number*
+            {t("form.contact_number")}*
           </label>
           <input
             type="number"
@@ -137,7 +140,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Your email address*
+            {t("form.email")}*
           </label>
           <input
             type="email"
@@ -152,7 +155,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
         </div>
         <div className="mb-2">
           <label htmlFor="exampleFormControlInput1" className="form-label">
-            Subject*
+            {t("form.subject")}*
           </label>
           <select
             name="subject"
@@ -164,7 +167,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
             required
           >
             <option value="" disabled>
-              Any Level
+              {t("form.select_subject_placeholder")}
             </option>
             {servicesList &&
               servicesList.map((service) => (
@@ -176,7 +179,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Short description*
+            {t("form.description")}*
           </label>
           <textarea
             className="form-control"
@@ -197,19 +200,23 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
             disabled={loading}
           >
             {loading ? (
-              <Loader size="lg" message="Sending..." />
+              <Loader size="lg" message={t("form.sending") + "..."} />
             ) : (
               <>
                 <Send size={18} strokeWidth={1.75} className="me-2 d-inline" />
-                Send
+                {t("form.send")}
               </>
             )}
           </button>
         </div>
       </form>
       <h5 className="mt-2">
-        {message && <AlertMessage status="success" message={message} />}
-        {error && <AlertMessage status="error" message={error} />}
+        {message && (
+          <AlertMessage status="success" message={t("form.success_message")} />
+        )}
+        {error && (
+          <AlertMessage status="error" message={t("form.error_message")} />
+        )}
       </h5>
     </div>
   );

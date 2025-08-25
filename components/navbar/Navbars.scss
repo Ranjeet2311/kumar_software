@@ -54,6 +54,12 @@
       }
     }
 
+    .lang_switch {
+      position: absolute;
+      right: 110px;
+      top: 30px;
+    }
+
     .burger-menu {
       cursor: pointer;
       z-index: 1000;

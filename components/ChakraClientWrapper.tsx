@@ -1,27 +1,8 @@
-// components/ChakraClientWrapper.tsx
-"use client"; // This is a client-side component
+"use client";
 
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 import { ReactNode } from "react";
-// import { extendTheme } from "@chakra-ui/react";
-
-// Use it later for customization of theme
-// const chakraTheme = extendTheme({
-//   colors: {
-//     primary: {
-//       100: "#E3F2FD",
-//       500: "#2196F3", // Main blue color
-//       900: "#0D47A1",
-//     },
-//   },
-//   components: {
-//     Button: {
-//       baseStyle: {
-//         borderRadius: "8px",
-//       },
-//     },
-//   },
-// });
+import "@/i18n/i18.client"; //can't be added in rootlayout bcus of ssr
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 
 interface ChakraClientWrapperProps {
   children: ReactNode;

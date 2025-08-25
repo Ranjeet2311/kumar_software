@@ -4,6 +4,7 @@ import SectionHeading from "@/components/Ui/section-heading/SectionHeading";
 import contact from "../../assets/images/rocket.png";
 import Image from "next/image";
 import classes from "./Contact.module.scss";
+import { useTranslation } from "react-i18next";
 
 type ContactProps = {
   showImage?: boolean;
@@ -19,9 +20,10 @@ export default function Contact({
   showForm,
   showHeading,
   showSubHeading,
-  showSectionHead,
+  showSectionHead = true,
   formButtonStyle,
 }: ContactProps) {
+  const { t } = useTranslation();
   return (
     <div className="container">
       <div className="row section-space">
@@ -30,7 +32,9 @@ export default function Contact({
             <SectionHeading
               title={
                 <>
-                  <span className="colored-text">Connect</span> with us
+                  <span className="colored-text">
+                    {t("landing_page.contact.Connect with us")}
+                  </span>
                 </>
               }
               text="Have a project in mind? Reach out today and let’s get started."
@@ -50,8 +54,12 @@ export default function Contact({
               className="d-none d-lg-block mx-auto"
             />
           )}
-
           <div className={classes.contact_info}>
+            <p className={classes.contact_text}>
+              {t(
+                "landing_page.contact.Have a project in mind? Reach out today and let’s get started"
+              )}
+            </p>
             <span>
               <a className={classes.contact_details} href="tel:+38669638945">
                 📞 +386-6963-8945
@@ -66,9 +74,10 @@ export default function Contact({
                 📧 hello@kumarsoftwares.com
               </a>
             </span>
-            <p className={classes.contact_text}>
-              We’re always here to answer all your questions. Feel free to reach
-              us anytime. We’ll be happy to hear from you.
+            <p className={`mt-4 ${classes.contact_text}`}>
+              {t(
+                "landing_page.contact.We’re here to answer all your questions. Let’s build something great together"
+              )}
             </p>
           </div>
         </div>

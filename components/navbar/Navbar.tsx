@@ -20,9 +20,13 @@ import {
   LayoutDashboard,
   LogOut,
   LogIn,
+  Languages,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import useLogout from "@/hooks/useLogout";
+import Dropdown from "../Ui/drop-down/DropDown";
+import LangSwitch from "../langSwitch/LangSwitch";
+import { useTranslation } from "react-i18next";
 
 type linksType = {
   name: string;
@@ -36,14 +40,6 @@ const menuLinks: linksType[] = [
     name: "Services",
     url: "/#services",
     icon: ChartNetwork,
-    // dropdown: [
-    //   { name: "Web Apps", url: "#services", icon: House },
-    //   { name: "Frontend Codes", url: "#services", icon: House },
-    //   { name: "API Development", url: "#services", icon: House },
-    //   { name: "Node & PHP Backend", url: "#services", icon: House },
-    //   { name: "WordPress Websites", url: "#services", icon: House },
-    //   { name: "E-commerce Platform", url: "#services", icon: House },
-    // ],
   },
   { name: "Process", url: "/#process", icon: PanelLeftDashed },
   { name: "Plans", url: "/#plans", icon: Wallet },
@@ -54,6 +50,8 @@ const menuLinks: linksType[] = [
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [isClient, setIsClient] = useState<boolean>(false); // Track if it's client-side, when comp mounts
+
+  const { t } = useTranslation();
 
   const user = useSelector((state: RootState) => state.user.user);
   useAuthCheck();
@@ -77,12 +75,16 @@ export default function Navbar() {
         <Link href="/" className="logo">
           <Image className="logo-image" src={logo} alt="logo" />
         </Link>
+        <div className="lang_switch">
+          <LangSwitch />
+        </div>
         <div onClick={clickHandler} className="burger-menu">
           {showMenu ? (
             <X size={28} strokeWidth={2} />
           ) : (
             <>
-              <AlignJustify size={28} strokeWidth={2} /> <span>Menu</span>
+              <AlignJustify size={28} strokeWidth={2} />{" "}
+              <span> {t("nav.Menu")} </span>
             </>
           )}
         </div>
@@ -107,7 +109,7 @@ export default function Navbar() {
                       strokeWidth={1.75}
                       className="me-2 d-inline"
                     />
-                    <span>{name}</span>
+                    <span>{t(`nav.${name.toLowerCase()}`)}</span>
                   </Link>
                 </li>
               );
@@ -127,7 +129,7 @@ export default function Navbar() {
                         strokeWidth={1.75}
                         className="me-2 d-inline"
                       />
-                      <span>Dashboard</span>
+                      <span>{t("dashboard.sidebar.dashboard")}</span>
                     </Link>
                   </li>
                 )}
@@ -138,7 +140,7 @@ export default function Navbar() {
                       strokeWidth={1.75}
                       className="me-2 d-inline"
                     />
-                    <span> Logout</span>
+                    <span>{t(`nav.logout`)}</span>
                   </button>
                 </li>
               </>
@@ -153,7 +155,7 @@ export default function Navbar() {
                     strokeWidth={1.75}
                     className="me-2 d-inline"
                   />
-                  <span>Login</span>
+                  <span>{t(`nav.login`)}</span>
                 </Link>
               </li>
             ) : null}

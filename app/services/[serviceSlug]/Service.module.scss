@@ -1,5 +1,16 @@
 @use "../../../styles/css_variables.scss" as vars;
 
+.desc {
+  @include vars.fonts(18pxpx, 28px, 400);
+  color: vars.$theme-dark;
+  margin-top: 20px;
+
+  @include vars.md {
+    @include vars.fonts(22px, 32px, 400);
+    margin-top: 30px;
+  }
+}
+
 .feature_wrap {
   border-radius: 18px;
   max-width: 100%;
@@ -18,7 +29,7 @@
   }
 
   li {
-    @include vars.fonts(18px, 24px, 400);
+    @include vars.fonts(18px, 24px, 500);
     margin-bottom: 8px;
     // color: vars.$theme-white;
 

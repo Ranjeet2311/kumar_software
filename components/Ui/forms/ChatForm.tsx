@@ -6,6 +6,7 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import xss from "xss";
 import { Send } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ChatForm() {
   const [chatMessage, setChatMessage] = useState<string>("");
@@ -13,18 +14,15 @@ export default function ChatForm() {
   const [message, setMessage] = useState<string | null>(null);
   const [sending, setSending] = useState<boolean>(false);
 
+  const { t } = useTranslation();
+
   const user = useSelector((state: RootState) => state.user.user);
   const userChatId = useSelector((state: RootState) => state.chat.chatId);
-  // const useChatLIst = useSelector((state: RootState) => state.chat.chats);
+
   const selectedChat = useSelector(
     (state: RootState) => state.chat.selectedChat
   );
   const selectedUserId = selectedChat.map((chat) => chat.userId);
-  // console.log(`selectedUserId :: `, selectedUserId);
-
-  // console.log(`chat user, userData: `, user);
-
-  // console.log(`User position : `, user?.position);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -119,7 +117,7 @@ export default function ChatForm() {
         <form onSubmit={handleMessages}>
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Your message*
+              {t("form.Your message")} *
             </label>
             <textarea
               className="form-control"
@@ -149,7 +147,7 @@ export default function ChatForm() {
                     strokeWidth={1.75}
                     className="me-2 d-inline"
                   />
-                  Send
+                  {t("form.send")}
                 </>
               )}
             </button>

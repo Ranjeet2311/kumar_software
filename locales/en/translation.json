@@ -1,0 +1,281 @@
+{
+  "translation": {
+    "test_english": "test English",
+
+    "landing_page": {
+      "hero title": "Powering your business with smart software.",
+      "hero para": "At Kumar Softwares, we build intelligent, high-performing websites and web applications tailored to your business needs. With a focus on modern design, functionality, and scalability, we help you stand out in a digital world. Let’s bring your ideas to life.",
+      "Get a Quote": "Get a Quote",
+      "View Plans": "View Plans",
+
+      "WHAT WE OFFER": "WHAT WE OFFER",
+      "Discover how our expertise delivers tailored software solutions": "Discover how our expertise delivers tailored software solutions.",
+      "Add offer translation": "Add offer translation",
+      "Key features": "Key features of",
+      "process of": "Process of",
+      "Related services": "Related services",
+      "interest you": "That might interest you",
+      "Ready to Build": "Ready to Build Your Next Project?",
+      "Lets collaborate": "Let’s collaborate to bring your ideas to life. Our team is ready to discuss your vision, understand your goals, and craft a tailored solution that drives results. Get in touch today and let’s make it happen!",
+      "Leave message": "Leave me a message",
+
+      "work": {
+        "HOW WE WORK": "HOW WE WORK",
+        "Collaborate | Strategize | Deliver": "Collaborate | Strategize | Deliver",
+        "Meeting": "Meeting",
+        "Strategize": "Strategize",
+        "Start Development": "Start Development",
+
+        "We begin by understanding your goals, audience, and technical needs": "We begin by understanding your goals, audience, and technical needs.",
+        "Our experts craft a roadmap and choose the right tools and frameworks": "Our experts craft a roadmap and choose the right tools and frameworks.",
+        "Agile implementation, with clear timelines and continuous collaboration": "Agile implementation, with clear timelines and continuous collaboration."
+      },
+
+      "contact": {
+        "Connect with us": "Connect with us",
+        "Have a project in mind? Reach out today and let’s get started": "Have a project in mind? Reach out today and let’s get started",
+        "We’re here to answer all your questions. Let’s build something great together": "We’re here to answer all your questions. Let’s build something great together."
+      }
+    },
+
+    "app-development": {
+      "title": "App Development",
+      "subTitle": "Build Engaging, High-Performance Apps",
+      "description": "Our mobile and web application development services focus on delivering intuitive, scalable, and visually appealing applications. From concept to deployment, we create products that work seamlessly across devices, providing an exceptional user experience.",
+      "key_features": [
+        "Cross-platform compatibility",
+        "Scalable architecture for future growth",
+        "Seamless integration with APIs and third-party tools",
+        "Secure data handling and encryption Process"
+      ],
+      "process": [
+        "Concept & Planning – Define project goals, target audience, and features.",
+        "UI/UX Design – Create visually engaging, user-friendly interfaces.",
+        "Development – Build high-performance, scalable applications.",
+        "Testing & QA – Rigorously test for performance, security, and usability.",
+        "Launch & Support – Deploy and maintain your app for long-term success."
+      ]
+    },
+    "frontend-code-implementation": {
+      "title": "Frontend Code Implementation",
+      "subTitle": "Crafting Pixel-Perfect User Interfaces",
+      "description": "We specialize in transforming creative designs into functional, responsive frontends that deliver exceptional user experiences. Whether it’s a single-page application or a complex web platform, we code with precision and performance in mind.",
+      "key_features": [
+        "Pixel-perfect design implementation",
+        "Responsive layouts for all devices",
+        "Optimized loading speed and accessibility",
+        "Integration with modern frameworks (React, Next.js, Vue.js)"
+      ],
+      "process": [
+        "Design Handoff and Analysis",
+        "Responsive Layout Development",
+        "Component-Based Implementation",
+        "Performance Optimization",
+        "Integration & Deployment"
+      ]
+    },
+    "api-development": {
+      "title": "API Development",
+      "subTitle": "Reliable & Scalable API Solutions",
+      "description": "Our API development services ensure seamless data exchange and integration across your applications. We create robust RESTful and GraphQL APIs that are secure, efficient, and future-proof.",
+      "key_features": [
+        "RESTful & GraphQL API development",
+        "Secure authentication and authorization",
+        "High-performance and scalable architecture",
+        "Third-party API integrations"
+      ],
+      "process": [
+        "Requirement Analysis",
+        "API Architecture Design",
+        "Secure Endpoint Development",
+        "Integration & Testing",
+        "Documentation & Support"
+      ]
+    },
+    "backend-development": {
+      "title": "Node & PHP Development",
+      "subTitle": "Powerful, Scalable Backend Solutions",
+      "description": "Our Node.js and PHP development services deliver high-performance, secure, and scalable backends that power your applications. Whether it’s building a robust API, integrating complex business logic, or handling large-scale data processing, we design solutions tailored to your needs.",
+      "key_features": [
+        "Scalable architecture for high-traffic applications",
+        "RESTful & GraphQL API development",
+        "Secure authentication & authorization mechanisms",
+        "Seamless integration with databases and third-party services"
+      ],
+      "process": [
+        "Discovery & Planning – Define business goals, technical requirements, and architecture approach.",
+        "Architecture Design – Create a scalable, modular backend structure optimized for performance",
+        "Development & Integration – Build APIs, implement business logic, and integrate with databases",
+        "Testing & Optimization – Ensure security, stability, and performance with rigorous testing.",
+        "Deployment & Maintenance – Launch, monitor, and continuously improve your backend."
+      ]
+    },
+    "wordpress-development": {
+      "title": "WordPress Development",
+      "subTitle": "Custom, Scalable WordPress Solutions",
+      "description": "We develop high-performance WordPress websites that are easy to manage and tailored to your brand. From simple blogs to complex corporate sites, we deliver secure and scalable solutions.",
+      "key_features": [
+        "Custom theme and plugin development",
+        "SEO-friendly structure",
+        "WooCommerce integration for e-commerce",
+        "Performance optimization"
+      ],
+      "process": [
+        "Planning & Wireframing",
+        "Custom Theme Development",
+        "Plugin Integration & Customization",
+        "Testing & Optimization",
+        "Launch & Maintenance"
+      ]
+    },
+    "e-commerce-development": {
+      "title": "E-commerce Development",
+      "subTitle": "Scalable Online Stores for Your Business",
+      "description": "We design and develop e-commerce platforms that help you sell more and grow faster. From intuitive product catalogs to secure payment gateways, we cover all aspects of online selling.",
+      "key_features": [
+        "Custom e-commerce store design",
+        "Secure payment gateway integration",
+        "Mobile-optimized shopping experience",
+        "Inventory and order management systems"
+      ],
+      "process": [
+        "Requirement Analysis",
+        "Storefront & UX Design",
+        "Backend & Payment Integration",
+        "Testing & Security Checks",
+        "Launch & Sales Optimization"
+      ]
+    },
+
+    "Read more": "Read more",
+    "plan_cta": "Start Now",
+    "It scales with your product": "It scales with your product",
+
+    "plans": {
+      "basic": {
+        "title": "Basic Plan",
+        "subtitle": "Perfect for simple websites @000",
+        "features": [
+          "Basic website setup",
+          "Responsive design",
+          "Up to 5 pages",
+          "Basic SEO optimization",
+          "1-month free support"
+        ]
+      },
+      "business": {
+        "title": "Business Plan",
+        "subtitle": "Ideal for growing businesses @000",
+        "features": [
+          "Custom website design",
+          "Fully responsive design",
+          "Up to 10 pages and more",
+          "CMS (Content Management System) integration",
+          "E-commerce functionality",
+          "Backend development",
+          "Integration of additional features",
+          "3-month free support"
+        ]
+      },
+      "enterprise": {
+        "title": "Enterprise Plan",
+        "subtitle": "For large-scale solutions @000",
+        "features": [
+          "Tailored web applications",
+          "Advanced responsive design",
+          "Unlimited pages",
+          "API and third-party integrations",
+          "Enterprise-grade backend solutions",
+          "Advanced enterprise features",
+          "3-month free support"
+        ]
+      }
+    },
+
+    "What People Say": "What People Say",
+    "Hear what our happy clients have to say": "Hear what our happy clients have to say.",
+
+    "form": {
+      "first_name": "First name*",
+      "last_name": "Last name*",
+      "contact_number": "Contact number*",
+      "email": "Your email address",
+      "subject": "Subject*",
+      "select_subject_placeholder": "Any Level",
+      "description": "Short description*",
+      "send": "Send",
+      "sending": "Sending...",
+      "password": "Password*",
+      "create_account": "Create an account",
+      "issue_title": "Issue Title*",
+      "add issue": "Add Issue",
+      "Your message": "Your message*",
+      "success_message": "Your message was sent successfully!",
+      "error_message": "Something went wrong. Please try again.",
+      "auth": {
+        "success_redirect": "Successfully logged in, redirecting to dashboard...",
+        "error_generic": "Something went wrong. Please try again.",
+        "redirecting_login": "Redirecting to login..."
+      }
+    },
+    "create_issue": "Create Issue",
+
+    "go_back_to": {
+      "login": "Go back to login",
+      "signup": "Go back to signup"
+    },
+    "lets_create_an_account": "Let's create an account for you",
+    "lets_login": "Hey there let's login",
+    "already_a_customer_no_account": "Already a customer but don't have a support account?",
+    "user": "user",
+    "position": "position",
+    "No issues": "No issues found",
+    "create it now": "create it now",
+
+    "support_cta": {
+      "short": "Need support?",
+      "full": "Need support? Create a ticket."
+    },
+
+    "nav": {
+      "Menu": "Menu",
+      "home": "Home",
+      "services": "Services",
+      "process": "Process",
+      "plans": "Plans",
+      "feedbacks": "Feedbacks",
+      "contact": "Contact",
+      "login": "Login",
+      "logout": "Logout",
+      "language": "Language"
+    },
+    "dashboard": {
+      "welcome": "Welcome to the dashboard",
+      "all issues": "All issues",
+      "completed": "Completed",
+      "progressing": "Progressing",
+      "chats": "Chats",
+      "queries": "Queries",
+      "check issues": "Check issues",
+      "send message": "Send message",
+      "see queries": "See queries",
+
+      "sidebar": {
+        "dashboard": "Dashboard",
+        "report": "Report",
+        "all issues": "All Issues",
+        "add issue": "Add Issue",
+        "messages": "Messages",
+        "queries": "Queries",
+        "profile": "Profile",
+        "logout": "Logout"
+      },
+
+      "chart": {
+        "all": "All issues",
+        "completed": "Completed issues",
+        "progressing": "Progressing issues"
+      }
+    }
+  }
+}

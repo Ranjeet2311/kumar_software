@@ -1,13 +1,15 @@
 @use "../../../styles/css_variables.scss" as vars;
 
 .tooltip_wrap {
-  position: relative;
-}
-.tooltip {
   position: absolute;
-  top: -34px;
-  right: -28px;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 10px;
   z-index: 99;
+}
+
+.tooltip {
   background: vars.$gradient-background-primary;
   font-family: vars.$theme-font-Subheading;
   color: white;

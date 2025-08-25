@@ -84,7 +84,7 @@ export const servicesList = [
     url: "/services/api-development",
   },
   {
-    title: "Node & PHP Development",
+    title: "Backend Development",
     subTitle: "Powerful, Scalable Backend Solutions",
     description:
       "Our Node.js and PHP development services deliver high-performance, secure, and scalable backends that power your applications. Whether it’s building a robust API, integrating complex business logic, or handling large-scale data processing, we design solutions tailored to your needs.",

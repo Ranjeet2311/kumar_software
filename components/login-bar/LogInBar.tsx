@@ -7,26 +7,24 @@ import thumbsUp from "../../assets/images/thumbs-up.png";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import classes from "./LogInBar.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function LogInBar() {
   const [barSize, setBarSize] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>(
-    "Need support? Create a ticket."
-  );
+  const [message, setMessage] = useState<string>("");
+
+  const { t } = useTranslation();
+
   const barSizeHandle = () => {
     setBarSize((prev) => !prev);
-    if (!barSize) {
-      setMessage("Need support");
-    } else {
-      setMessage("Need support? Create a ticket.");
-    }
+    setMessage(!barSize ? t("support_cta.short") : t("support_cta.full"));
   };
 
   const user = useSelector((state: RootState) => state.user.user);
 
-  // useEffect(() => {
-  //   console.log("barSize changed:", barSize);
-  // }, [barSize]);
+  useEffect(() => {
+    setMessage(t("support_cta.full"));
+  }, [t]);
 
   return (
     <>
@@ -48,7 +46,7 @@ export default function LogInBar() {
                 customClass={`text-light btn ms-3 ${classes.btn}`}
                 localRoute={true}
               >
-                <span className="fw-bold text-light">Login</span>
+                <span className="fw-bold text-light">{t(`nav.login`)}</span>
               </Button>
             </p>
             <div
