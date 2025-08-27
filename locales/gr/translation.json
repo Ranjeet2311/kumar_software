@@ -223,7 +223,9 @@
       "auth": {
         "success_redirect": "Erfolgreich angemeldet, Weiterleitung zum Dashboard...",
         "error_generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
-        "redirecting_login": "Weiterleitung zur Anmeldung..."
+        "redirecting_login": "Weiterleitung zur Anmeldung...",
+        "User already exists with this email.": "Benutzer mit dieser E-Mail-Adresse existiert bereits.",
+        "All fields are required.": "Alle Felder sind erforderlich."
       }
     },
 
@@ -269,6 +271,7 @@
       "check issues": "Probleme prüfen",
       "send message": "Nachricht senden",
       "see queries": "Anfragen anzeigen",
+      "messages here": "Ihre Nachrichten werden hier angezeigt.",
 
       "sidebar": {
         "dashboard": "Dashboard",

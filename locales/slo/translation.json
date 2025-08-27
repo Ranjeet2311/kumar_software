@@ -223,7 +223,9 @@
       "auth": {
         "success_redirect": "Uspešno ste se prijavili, preusmeritev na nadzorno ploščo...",
         "error_generic": "Prišlo je do napake. Poskusite znova.",
-        "redirecting_login": "Preusmeritev na prijavo..."
+        "redirecting_login": "Preusmeritev na prijavo...",
+        "User already exists with this email.": "Uporabnik že obstaja s tem e-poštnim naslovom.",
+        "All fields are required.": "Vsa polja so obvezna."
       }
     },
     "create_issue": "Ustvari težavo",
@@ -267,6 +269,7 @@
       "check issues": "Preveri vprašanja",
       "send message": "Pošlji sporočilo",
       "see queries": "Poglej poizvedbe",
+      "messages here": "Vaša sporočila se bodo prikazala tukaj.",
 
       "sidebar": {
         "dashboard": "Nadzorna plošča",

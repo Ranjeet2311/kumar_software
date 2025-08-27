@@ -17,30 +17,36 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const normalizedEmail = email.toLowerCase().trim();
+
+    const existingUser = await Authentication.findOne({
+      email: normalizedEmail,
+    });
+
+    if (existingUser) {
+      return new Response(
+        JSON.stringify({ message: "User already exists with this email." }),
+        { status: 409 }
+      );
+    }
+
     // Ensure contact is stored as a string
     const formattedContact = String(contact);
 
     // Hash the password before saving
-
-    const salt = await genSalt(12); // Generate a salt
+    const salt = await genSalt(12);
     const hashPassword = await hash(password, salt);
-
-    // console.log(`Creating new user`);
 
     const newUser = new Authentication({
       firstName: firstName,
       lastName: lastName,
       contact: contact,
-      email: email,
+      email: normalizedEmail,
       password: hashPassword,
       position: "user",
     });
 
-    // console.log(`before saving user`);
-
     await newUser.save();
-
-    // console.log(`Saved new user`);
 
     return new Response(JSON.stringify({ message: "Sign up successfull!" }), {
       status: 201,

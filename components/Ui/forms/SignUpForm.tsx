@@ -43,8 +43,6 @@ export default function SignUpForm() {
 
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
-    // console.log(`handleSignup : `, signUpData);
-
     setLoading(true);
     setMessage(null);
     setError(null);
@@ -58,8 +56,13 @@ export default function SignUpForm() {
     });
 
     const result = await response.json();
-    // console.log(`response :: `, response);
-    // console.log(`result :: `, result);
+
+    console.log(`sign up response :: `, response);
+    console.log(`sign up result :: `, result);
+
+    if (response.status === 409) {
+      setError(result.message || "User already exists with this email.");
+    }
 
     setLoading(false);
 
@@ -207,10 +210,7 @@ export default function SignUpForm() {
           />
         )}
         {error && (
-          <AlertMessage
-            status="error"
-            message={t("form.auth.error_generic") || error}
-          />
+          <AlertMessage status="error" message={t(`form.auth.${error}`)} />
         )}
       </h5>
     </div>

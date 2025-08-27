@@ -5,7 +5,7 @@ import { Avatar, For, HStack } from "@chakra-ui/react";
 import { ShieldUser } from "lucide-react";
 import { formatTime } from "@/utils/TimeConverter";
 import classes from "./ChatElement.module.scss";
-import Loader from "@/components/Loader";
+import { useTranslation } from "react-i18next";
 
 // type Chatlist = {
 //   sender: string;
@@ -14,6 +14,8 @@ import Loader from "@/components/Loader";
 // };
 
 export default function ChatElement() {
+  const { t } = useTranslation();
+
   const getUserChat = useSelector(
     (state: RootState) => state.chat.chats,
     shallowEqual
@@ -105,7 +107,7 @@ export default function ChatElement() {
         <p className="text-muted">Select chat to communicate</p>
       ) : (
         <p className="mx-auto">
-          <Loader size="lg" />
+          <p className="text-muted">{t("dashboard.messages here")}</p>
         </p>
       )}
 

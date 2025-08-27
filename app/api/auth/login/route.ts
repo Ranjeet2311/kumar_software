@@ -8,10 +8,8 @@ export async function POST(req: NextRequest) {
   await connectToDatabase();
 
   try {
-    // Parse the request body
     const { email, password }: { email: string; password: string } =
       await req.json();
-    // console.log(`Data from form=>   email : ${email}, Password:  ${password}`);
 
     if (!email || !password) {
       return new Response(
@@ -21,13 +19,10 @@ export async function POST(req: NextRequest) {
         }
       );
     }
-    // Find the user in the database
-    const user = await Authentication.findOne({ email });
-    // console.log(`user : ${user}`);
+    const normalizedEmail = email.toLowerCase().trim();
+    const user = await Authentication.findOne({ email: normalizedEmail });
 
     const isPasswordMatch = await compare(password, user.password);
-
-    // console.log(`isPasswordMatch :: `, isPasswordMatch);
 
     if (!user || !isPasswordMatch) {
       return new Response(JSON.stringify({ message: "Invalid credentials." }), {

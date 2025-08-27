@@ -215,7 +215,9 @@
       "auth": {
         "success_redirect": "Successfully logged in, redirecting to dashboard...",
         "error_generic": "Something went wrong. Please try again.",
-        "redirecting_login": "Redirecting to login..."
+        "redirecting_login": "Redirecting to login...",
+        "User already exists with this email.": "User already exists with this email.",
+        "All fields are required.": "All fields are required."
       }
     },
     "create_issue": "Create Issue",
@@ -259,6 +261,7 @@
       "check issues": "Check issues",
       "send message": "Send message",
       "see queries": "See queries",
+      "messages here": "Your messages will appear here.",
 
       "sidebar": {
         "dashboard": "Dashboard",
