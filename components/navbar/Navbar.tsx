@@ -4,7 +4,7 @@ import React, { ElementType, useEffect, useState } from "react";
 import Link from "next/link";
 import "./Navbars.scss";
 import Image from "next/image";
-import logo from "../../assets/images/logo1.png";
+import logo from "../../assets/images/logo.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import useAuthCheck from "@/hooks/useAuthCheck";
