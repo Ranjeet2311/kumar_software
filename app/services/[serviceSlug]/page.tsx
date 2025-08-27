@@ -12,6 +12,7 @@ import Link from "next/link";
 import ContactForm from "@/components/Ui/forms/ContactForm";
 import RelatedServices from "@/components/related-services/RelatedServices";
 import { useTranslation } from "react-i18next";
+import { Mail, PhoneCall } from "lucide-react";
 
 export default function ServiceDetail({
   params,
@@ -146,24 +147,32 @@ export default function ServiceDetail({
           <RelatedServices />
         </div>
         <div className={`row ${classes.get_in_touch} `}>
-          <div className="col-12">
+          <div className="col-12 mb-5 pb-5">
             <h2>{t("landing_page.Ready to Build")}</h2>
             <p>{t("landing_page.Lets collaborate")}</p>
           </div>
           <div className="col-12 col-lg-5 my-4">
             <div className={classes.contact_info}>
-              <div>
-                <p className={classes.contact_details}>
-                  <a href="tel:+38626296389450">
-                    📞 <span>+3862-62963-89450</span>
-                  </a>
-                </p>
-                <p className={classes.contact_details}>
-                  <a href="mailto:hello@kumarsoftwares.com">
-                    📧 <span>hello@kumarsoftwares.com</span>
-                  </a>
-                </p>
-              </div>
+              <a className={classes.contact_details} href="tel:+38669638945">
+                <PhoneCall
+                  size={24}
+                  strokeWidth={1.75}
+                  className="me-2 d-inline"
+                />
+                <span className="ms-3">+386-6963-8945</span>
+              </a>
+              <a
+                className={classes.contact_details}
+                href="mailto:hello@kumarsoftwares.com"
+              >
+                <Mail size={24} strokeWidth={1.75} className="me-2 d-inline" />
+                <span className="ms-3">hello@kumarsoftwares.com</span>
+              </a>
+              <p className={`mt-4 ${classes.contact_text}`}>
+                {t(
+                  "landing_page.contact.We’re here to answer all your questions. Let’s build something great together"
+                )}
+              </p>
             </div>
           </div>
           <div className="col-12 col-lg-5 my-4">

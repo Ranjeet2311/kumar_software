@@ -5,12 +5,12 @@
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   padding: 15px 15px 0 15px;
-  border: 2px solid vars.$theme_light_gray;
+  // border: 1px solid vars.$theme_medium_gray;
   cursor: pointer;
 
   &:hover {
     transition: all 0.4s ease-in;
-    filter: drop-shadow(-1px 1px 22px rgba(vars.$theme_green, 0.8));
+    filter: drop-shadow(-1px 1px 16px rgba(vars.$theme_medium_gray, 0.4));
 
     .img {
       transition: all 0.4s ease-in;

@@ -7,11 +7,9 @@ import HowItWorks from "@/components/how-it-works/HowItWorks";
 import Offer from "@/components/offer/Offer";
 import Plans from "@/components/plans/Plans";
 import Contact from "@/components/contact/Contact";
-import banner_Image from "../assets/images/hero/hero_v1.png";
+import banner_Image from "../assets/images/hero/app_dev.png";
 import { motion } from "framer-motion";
 import LogInBar from "@/components/login-bar/LogInBar";
-import Image from "next/image";
-import zigzag from "@/assets/images/zigZag_line.svg";
 import { ReceiptText, Wallet } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

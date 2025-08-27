@@ -3,13 +3,13 @@
     "test_english": "test Slovene",
 
     "landing_page": {
-      "hero title": "Pametna programska oprema za vaš uspeh.",
-      "hero para": "Pri Kumar Softwares razvijamo zmogljive in prilagojene spletne strani ter aplikacije, ki ustrezajo vašim poslovnim ciljem. S sodobnim dizajnom, funkcionalnostjo in razširljivostjo poskrbimo, da izstopate v digitalnem svetu. Uresničimo vaše ideje.",
+      "hero title": "Uresničevanje vaših idej z razširljivo programsko opremo",
+      "hero para": "Pri Kumar Node razvijamo sodobne, razširljive in zmogljive spletne rešitve, zasnovane okoli vaših ciljev. Od zasnove do uvedbe pomagamo vaši viziji, da uspeva s hitrostjo, natančnostjo in učinkom.",
       "Get a Quote": "Pridobite ponudbo",
       "View Plans": "Oglejte si pakete",
 
-      "WHAT WE OFFER": "KAJ PONUJAMO",
-      "Discover how our expertise delivers tailored software solutions": "Odkrijte, kako naše znanje prinaša prilagojene programske rešitve.",
+      "WHAT WE OFFER": "Kaj ponujamo",
+      "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Raziskujte, kako Kumar Node ponuja razširljive, po meri izdelane programske rešitve, ki se razvijajo skupaj z vašim podjetjem.",
       "Add offer translation": "Dodaj prevod ponudbe",
       "Key features": "Ključne funkcije za",
       "process of": "Postopek za",
@@ -20,8 +20,8 @@
       "Leave message": "Pustite mi sporočilo",
 
       "work": {
-        "HOW WE WORK": "KAKO DELAMO",
-        "Collaborate | Strategize | Deliver": "Sodelujemo | Strategiramo | Dostavimo",
+        "HOW WE WORK": "Kako delamo",
+        "Discover | Design | Deploy": "Raziskujemo | Oblikujemo | Uvedemo",
         "Meeting": "Sestanek",
         "Strategize": "Strategija",
         "Start Development": "Začetek razvoja",
@@ -32,16 +32,10 @@
       },
 
       "plans": {
-        "OUR PLANS": "NAŠI NAČRTI",
-        "Basic Plan": "Osnovni paket",
-        "Ideal for simple websites": "Za enostavne spletne strani @000",
-        "Business Plan": "Poslovni paket",
-        "For growing businesses": "Za rastoča podjetja @000",
-        "Enterprise Plan": "Podjetniški paket",
-        "For full-scale operations": "Za velike sisteme @000"
+        "OUR PLANS": "Izberite svojo rešitev"
       },
       "contact": {
-        "Connect with us": "Stopite v stik z nami",
+        "Lets Build Something Scalable Together": "Lahko skupaj zgradimo nekaj razširljivega",
         "Have a project in mind? Reach out today and let’s get started": "Imate projekt v mislih? Pišite nam in začnimo sodelovanje.",
         "We’re here to answer all your questions. Let’s build something great together": "Vedno smo vam na voljo za vsa vprašanja. Z veseljem bomo sodelovali z vami."
       }
@@ -155,14 +149,14 @@
         "Zagon & optimizacija prodaje"
       ]
     },
-    "Read more": "Preberi več",
+    "Explore Service": " Raziščite storitev",
     "plan_cta": "Začnite zdaj",
-    "It scales with your product": "Prilagojeni rasti vašega izdelka.",
+    "Flexible Plans for Every Stage of Your Business": "Prilagodljivi paketi za vsako fazo vašega podjetja.",
 
     "plans": {
       "basic": {
         "title": "Osnovni paket",
-        "subtitle": "Za enostavne spletne strani @000",
+        "subtitle": "Perfectno za začetek vaše spletne prisotnosti @000",
         "features": [
           "Osnovna postavitev spletne strani",
           "Odziven dizajn",
@@ -173,7 +167,7 @@
       },
       "business": {
         "title": "Poslovni paket",
-        "subtitle": "Za rastoča podjetja @000",
+        "subtitle": "Zasnovan za rast vašega podjetja @000",
         "features": [
           "Oblikovanje spletne strani po meri",
           "Popolnoma odziven dizajn",
@@ -187,7 +181,7 @@
       },
       "enterprise": {
         "title": "Podjetniški paket",
-        "subtitle": "Za obsežne rešitve @000",
+        "subtitle": "Zasnovan za obsežnost, zmogljivost in integracije @000",
         "features": [
           "Prilagojene spletne aplikacije",
           "Napreden odziven dizajn",
@@ -200,8 +194,8 @@
       }
     },
 
-    "What People Say": "Kaj pravijo stranke",
-    "Hear what our happy clients have to say": "Preberite, kaj pravijo naše zadovoljne stranke.",
+    "Loved by Clients": "Ljubljeni s strani strank",
+    "Hear what our happy partners have to say": "Poslušajte, kaj imajo povedati naši zadovoljni partnerji",
 
     "form": {
       "first_name": "Ime*",

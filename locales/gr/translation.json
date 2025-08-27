@@ -3,13 +3,12 @@
     "test_english": "test German",
 
     "landing_page": {
-      "hero title": "Intelligente Software für Ihren Geschäftserfolg",
-      "hero para": "Bei Kumar Softwares entwickeln wir leistungsstarke Websites und Webanwendungen, die genau auf Ihre Geschäftsanforderungen zugeschnitten sind. Mit modernem Design, Funktionalität und Skalierbarkeit helfen wir Ihnen, sich digital hervorzuheben. Lassen Sie uns Ihre Ideen verwirklichen.",
-      "Get a Quote": "Angebot anfordern",
+      "hero title": "Verwirklichen Sie Ihre Ideen mit skalierbarer Software",
+      "hero para": "Bei Kumar Node entwickeln wir moderne, skalierbare und leistungsstarke Weblösungen, die auf Ihre Ziele zugeschnitten sind. Von der Konzeption bis zur Bereitstellung helfen wir Ihrer Vision, mit Geschwindigkeit, Präzision und Wirkung zu gedeihen.",
       "View Plans": "Pläne ansehen",
 
-      "WHAT WE OFFER": "WAS WIR BIETEN",
-      "Discover how our expertise delivers tailored software solutions": "Entdecken Sie, wie unsere Expertise individuelle Softwarelösungen liefert.",
+      "WHAT WE OFFER": "Was wir anbieten",
+      "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Erforschen Sie, wie Kumar Node skalierbare, maßgeschneiderte Softwarelösungen bietet, die mit Ihrem Unternehmen wachsen.",
       "Add offer translation": "Angebotsübersetzung hinzufügen",
       "Key features": "Hauptfunktionen von",
       "process of": "Prozess von",
@@ -20,8 +19,8 @@
       "Leave message": "Hinterlassen Sie mir eine Nachricht",
 
       "work": {
-        "HOW WE WORK": "WIE WIR ARBEITEN",
-        "Collaborate | Strategize | Deliver": "Zusammenarbeit | Strategie | Umsetzung",
+        "HOW WE WORK": "Wie wir arbeiten",
+        "Discover | Design | Deploy": "Entdecken | Entwerfen | Bereitstellen",
         "Meeting": "Treffen",
         "Strategize": "Strategisieren Sie",
         "Start Development": "Starten Sie die Entwicklung",
@@ -32,16 +31,10 @@
       },
 
       "plans": {
-        "OUR PLANS": "UNSERE PLÄNE",
-        "Basic Plan": "Basisplan",
-        "Ideal for simple websites": "Für einfache Webseiten @000",
-        "Business Plan": "Businessplan",
-        "For growing businesses": "Für wachsende Unternehmen @000",
-        "Enterprise Plan": "Enterprise-Plan",
-        "For full-scale operations": "Für umfangreiche Lösungen @000"
+        "OUR PLANS": "Wählen Sie Ihre Lösung"
       },
       "contact": {
-        "Connect with us": "Kontaktieren Sie uns",
+        "Lets Build Something Scalable Together": "Lassen Sie uns gemeinsam etwas Skalierbares schaffen",
         "Have a project in mind? Reach out today and let’s get started": "Sie haben ein Projekt? Kontaktieren Sie uns – wir legen los!",
         "We’re here to answer all your questions. Let’s build something great together": "Wir beantworten gerne alle Ihre Fragen. Lassen Sie uns gemeinsam etwas Großartiges schaffen."
       }
@@ -155,14 +148,14 @@
         "Launch & Verkaufsoptimierung"
       ]
     },
-    "Read more": "Mehr lesen",
+    "Explore Service": "Dienstleistung erkunden",
     "plan_cta": "Plan auswählen",
-    "It scales with your product": "Skaliert mit Ihrem Produkt.",
+    "Flexible Plans for Every Stage of Your Business": "Flexible Pläne für jede Phase Ihres Unternehmens",
 
     "plans": {
       "basic": {
         "title": "Basisplan",
-        "subtitle": "Für einfache Webseiten @000",
+        "subtitle": "Perfekt für den Start Ihrer Webpräsenz @000",
         "features": [
           "Grundlegende Website-Einrichtung",
           "Responsives Design",
@@ -200,8 +193,8 @@
       }
     },
 
-    "What People Say": "Was Kunden sagen",
-    "Hear what our happy clients have to say": "Lesen Sie, was unsere zufriedenen Kunden sagen.",
+    "Loved by Clients": "Geliebt von Kunden. Für Ergebnisse gebaut.",
+    "Hear what our happy partners have to say": "Hören Sie, was unsere zufriedenen Partner zu sagen haben",
 
     "form": {
       "first_name": "Vorname*",

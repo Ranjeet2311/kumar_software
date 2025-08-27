@@ -51,7 +51,7 @@ export default function RelatedServices() {
                 url={`/services/${slugify(title)}`}
                 btnText={
                   <span className="d-flex align-items-center justify-content-center mb-0">
-                    {t("Read more")}{" "}
+                    {t("Explore Service")}{" "}
                     <ArrowRight
                       size={25}
                       className={`ms-2 ${classes.arrow_icon}`}

@@ -51,7 +51,7 @@ export default function HowItWorks() {
               </span>
             </>
           }
-          text={t("landing_page.work.Collaborate | Strategize | Deliver")}
+          text={t("landing_page.work.Discover | Design | Deploy")}
         />
       </div>
       <motion.div

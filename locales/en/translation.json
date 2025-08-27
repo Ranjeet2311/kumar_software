@@ -3,13 +3,13 @@
     "test_english": "test English",
 
     "landing_page": {
-      "hero title": "Powering your business with smart software.",
-      "hero para": "At Kumar Softwares, we build intelligent, high-performing websites and web applications tailored to your business needs. With a focus on modern design, functionality, and scalability, we help you stand out in a digital world. Let’s bring your ideas to life.",
+      "hero title": "Empowering Your Ideas with Scalable Software",
+      "hero para": "At Kumar Node, we craft modern, scalable, and high-performance web solutions designed around your goals. From concept to deployment, we help your vision thrive with speed, precision, and impact.",
       "Get a Quote": "Get a Quote",
       "View Plans": "View Plans",
 
-      "WHAT WE OFFER": "WHAT WE OFFER",
-      "Discover how our expertise delivers tailored software solutions": "Discover how our expertise delivers tailored software solutions.",
+      "WHAT WE OFFER": "What we offer",
+      "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.",
       "Add offer translation": "Add offer translation",
       "Key features": "Key features of",
       "process of": "Process of",
@@ -20,8 +20,8 @@
       "Leave message": "Leave me a message",
 
       "work": {
-        "HOW WE WORK": "HOW WE WORK",
-        "Collaborate | Strategize | Deliver": "Collaborate | Strategize | Deliver",
+        "HOW WE WORK": "How we work",
+        "Discover | Design | Deploy": "Discover | Design | Deploy",
         "Meeting": "Meeting",
         "Strategize": "Strategize",
         "Start Development": "Start Development",
@@ -30,9 +30,12 @@
         "Our experts craft a roadmap and choose the right tools and frameworks": "Our experts craft a roadmap and choose the right tools and frameworks.",
         "Agile implementation, with clear timelines and continuous collaboration": "Agile implementation, with clear timelines and continuous collaboration."
       },
+      "plans": {
+        "OUR PLANS": "Choose Your Solution"
+      },
 
       "contact": {
-        "Connect with us": "Connect with us",
+        "Lets Build Something Scalable Together": "Let’s Build Something Scalable Together",
         "Have a project in mind? Reach out today and let’s get started": "Have a project in mind? Reach out today and let’s get started",
         "We’re here to answer all your questions. Let’s build something great together": "We’re here to answer all your questions. Let’s build something great together."
       }
@@ -147,14 +150,14 @@
       ]
     },
 
-    "Read more": "Read more",
+    "Explore Service": "Explore Service",
     "plan_cta": "Start Now",
-    "It scales with your product": "It scales with your product",
+    "Flexible Plans for Every Stage of Your Business": "Flexible Plans for Every Stage of Your Business",
 
     "plans": {
       "basic": {
         "title": "Basic Plan",
-        "subtitle": "Perfect for simple websites @000",
+        "subtitle": "Perfect for launching your web presence @000",
         "features": [
           "Basic website setup",
           "Responsive design",
@@ -165,7 +168,7 @@
       },
       "business": {
         "title": "Business Plan",
-        "subtitle": "Ideal for growing businesses @000",
+        "subtitle": "Designed to grow with your business @000",
         "features": [
           "Custom website design",
           "Fully responsive design",
@@ -179,7 +182,7 @@
       },
       "enterprise": {
         "title": "Enterprise Plan",
-        "subtitle": "For large-scale solutions @000",
+        "subtitle": "Built for scale, performance, and integrations @000",
         "features": [
           "Tailored web applications",
           "Advanced responsive design",
@@ -192,8 +195,8 @@
       }
     },
 
-    "What People Say": "What People Say",
-    "Hear what our happy clients have to say": "Hear what our happy clients have to say.",
+    "Loved by Clients": "Loved by Clients. Built for Results.",
+    "Hear what our happy partners have to say": "Hear what our happy partners have to say.",
 
     "form": {
       "first_name": "First name*",

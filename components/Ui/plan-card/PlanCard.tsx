@@ -18,7 +18,8 @@ export default function PlanCard({ planKey, buttonLink }: PlanCardProps) {
   const subtitle = t(`plans.${planKey}.subtitle`);
   const features = t(`plans.${planKey}.features`, {
     returnObjects: true,
-  }) as string[];
+  });
+  const featureList = Array.isArray(features) ? features : [];
 
   return (
     <div className={`${classes.plan_card} card my-2 h-100 position-relative`}>
@@ -29,7 +30,7 @@ export default function PlanCard({ planKey, buttonLink }: PlanCardProps) {
       </div>
       <div className={classes.card_body}>
         <ul className={classes.benefits_list}>
-          {features.map((feature, index) => (
+          {featureList.map((feature, index) => (
             <div
               key={index}
               className="d-flex justify-content-start align-items-start"

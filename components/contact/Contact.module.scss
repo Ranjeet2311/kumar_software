@@ -1,31 +1,62 @@
+@use "sass:color";
 @use "../../styles/css_variables.scss" as vars;
 
 .contact_info {
-  margin-top: 20px;
+  // margin-top: 20px;
   margin-bottom: 30px;
   text-align: center;
   color: vars.$theme-white !important;
-  @include vars.fonts(16px, 22px, 500);
   background-color: vars.$theme-white;
-  padding: 26px 16px;
+  padding: 26px;
   border-radius: 18px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  text-align: start !important;
+  // position: absolute;
+  // top: 120px;
 
   @include vars.lg {
-    margin-top: 40px;
+    // margin-top: 40px;
     margin-bottom: 20px;
   }
 
   .contact_details {
     color: vars.$theme-dark !important;
-    @include vars.fonts(20px, 36x, 600);
+    @include vars.fonts(20px, 36px, 500);
     margin-bottom: 0;
+    display: block;
+    text-align: start;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 4px 12px;
+    border-radius: 12px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: color.adjust(vars.$theme_blue, $lightness: 20%);
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    &:hover {
+      color: white !important;
+    }
   }
   .contact_text {
     color: vars.$theme-dark !important;
-    @include vars.fonts(20px, 32x, 400);
+    @include vars.fonts(20px, 32x, 3400);
     padding-top: 30px;
-    margin-bottom: 0;
+    margin-bottom: 40px;
   }
 }

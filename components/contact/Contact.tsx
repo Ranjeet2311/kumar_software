@@ -5,6 +5,7 @@ import contact from "../../assets/images/rocket.png";
 import Image from "next/image";
 import classes from "./Contact.module.scss";
 import { useTranslation } from "react-i18next";
+import { Mail, PhoneCall } from "lucide-react";
 
 type ContactProps = {
   showImage?: boolean;
@@ -33,7 +34,9 @@ export default function Contact({
               title={
                 <>
                   <span className="colored-text">
-                    {t("landing_page.contact.Connect with us")}
+                    {t(
+                      "landing_page.contact.Lets Build Something Scalable Together"
+                    )}
                   </span>
                 </>
               }
@@ -44,36 +47,40 @@ export default function Contact({
           </div>
         )}
         <div
-          className={`col-12 col-lg-6 ${!showForm ? "col-lg-12" : "col-lg-6 "}`}
+          className={`col-12 col-lg-6 position-relative ${
+            !showForm ? "col-lg-12" : "col-lg-6 "
+          }`}
         >
-          {showImage && (
+          {/* {showImage && (
             <Image
               src={contact}
               style={{ width: "400px", height: "400px", objectFit: "contain" }}
               alt="contact"
               className="d-none d-lg-block mx-auto"
             />
-          )}
+          )} */}
           <div className={classes.contact_info}>
             <p className={classes.contact_text}>
               {t(
                 "landing_page.contact.Have a project in mind? Reach out today and let’s get started"
               )}
             </p>
-            <span>
-              <a className={classes.contact_details} href="tel:+38669638945">
-                📞 +386-6963-8945
-              </a>
-            </span>
-            <span> | </span>
-            <span>
-              <a
-                className={classes.contact_details}
-                href="mailto:hello@kumarsoftwares.com"
-              >
-                📧 hello@kumarsoftwares.com
-              </a>
-            </span>
+
+            <a className={classes.contact_details} href="tel:+38669638945">
+              <PhoneCall
+                size={24}
+                strokeWidth={1.75}
+                className="me-2 d-inline"
+              />
+              <span className="ms-3">+386-6963-8945</span>
+            </a>
+            <a
+              className={classes.contact_details}
+              href="mailto:hello@kumarsoftwares.com"
+            >
+              <Mail size={24} strokeWidth={1.75} className="me-2 d-inline" />
+              <span className="ms-3">hello@kumarsoftwares.com</span>
+            </a>
             <p className={`mt-4 ${classes.contact_text}`}>
               {t(
                 "landing_page.contact.We’re here to answer all your questions. Let’s build something great together"

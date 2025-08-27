@@ -37,7 +37,7 @@ export default function Plans() {
               </span>
             </>
           }
-          text={t("It scales with your product")}
+          text={t("Flexible Plans for Every Stage of Your Business")}
         />
       </div>
       <motion.div

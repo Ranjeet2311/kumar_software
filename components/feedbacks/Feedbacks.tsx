@@ -15,10 +15,10 @@ export default function Feedbacks() {
         <SectionHeading
           title={
             <>
-              <span className="colored-text">{t("What People Say")}</span>
+              <span className="colored-text">{t("Loved by Clients")}</span>
             </>
           }
-          text={t("Hear what our happy clients have to say")}
+          text={t("Hear what our happy partners have to say")}
         />
         <div className="col-12">
           <div className="feedback-section">

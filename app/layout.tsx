@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   title: "Kumar Software - Dinamične Spletne Strani & Spletne Aplikacije",
   description:
     "V Kumar Softwares razvijamo dinamične spletne strani in zmogljive spletne aplikacije z modernim dizajnom, brezskrbno funkcionalnostjo in izjemnimi zmogljivostmi. Preoblikujte svoje poslovanje z digitalnimi rešitvami, prilagojenimi vašim potrebam.",
-  keywords:
-    "Kumar Software, dinamične spletne strani, spletne aplikacije, HTML5, CSS3, SCSS, JavaScript, TypeScript, React, Vue, Angular, GitHub, GitLab, Bootstrap, Tailwind, Webpack, Vite, Jest, Cypress, Node.js, Express.js, PHP, MongoDB, SQL, Docker, Figma, Adobe XD, Jira, EsLint, WordPress, WooCommerce",
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
@@ -26,18 +24,18 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/assets/images/code_frontend.png",
-        width: 1200, // Recommended width
-        height: 630, // Recommended height (aspect ratio 1.91:1)
-        alt: "Kumar Software Social Media Image", // Alt text for accessibility
+        width: 1200,
+        height: 630,
+        alt: "Kumar Software Social Media Image",
       },
     ],
-    locale: "sl_SI", // Locale for Slovene
+    locale: "sl_SI",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image", // Large image card for Twitter
-    site: "@kumarssoftware", // Twitter handle of the company
-    creator: "@kumarssoftware", // Creator's Twitter handle
+    card: "summary_large_image",
+    site: "@kumarssoftware",
+    creator: "@kumarssoftware",
     title: "Kumar Software - Spletne Aplikacije & Dinamične Spletne Strani",
     description:
       "Transformirajte svoje podjetje z modernimi spletnimi stranmi in spletnimi aplikacijami, ki jih razvije Kumar Softwares.",
@@ -53,11 +51,24 @@ export default function RootLayout({
   return (
     <html lang="sl">
       <head>
-        {/* Manually adding hreflang links */}
+        {/* SEO Essentials */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        {/* Hreflang for SEO in multiple languages */}
         <link
           rel="alternate"
           href="https://kumar-software.netlify.app/"
           hrefLang="sl"
+        />
+        <link
+          rel="alternate"
+          href="https://kumar-software.netlify.app/?lang=en"
+          hrefLang="en"
+        />
+        <link
+          rel="alternate"
+          href="https://kumar-software.netlify.app/?lang=gr"
+          hrefLang="de"
         />
       </head>
       <body>

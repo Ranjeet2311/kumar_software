@@ -22,7 +22,7 @@ export default function Offer() {
             </>
           }
           text={t(
-            "landing_page.Discover how our expertise delivers tailored software solutions"
+            "landing_page.explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business."
           )}
         />
         <motion.div
@@ -56,7 +56,7 @@ export default function Offer() {
                       url={`/services/${slugify(title)}`}
                       btnText={
                         <span className="d-flex align-items-center justify-content-center mb-0">
-                          {t("Read more")}{" "}
+                          {t("Explore Service")}{" "}
                           <ArrowRight
                             size={25}
                             className={`ms-2 ${classes.arrow_icon}`}

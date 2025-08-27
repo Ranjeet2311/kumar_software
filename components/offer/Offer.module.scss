@@ -1,6 +1,6 @@
 .btn {
-  max-width: 200px;
-
+  max-width: fit-content;
+  text-align: start;
   margin-top: 20px;
   &:hover {
     .arrow_icon {
