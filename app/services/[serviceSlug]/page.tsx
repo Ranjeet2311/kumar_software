@@ -153,20 +153,40 @@ export default function ServiceDetail({
           </div>
           <div className="col-12 col-lg-5 my-4">
             <div className={classes.contact_info}>
+              <p className={classes.contact_text}>
+                {t(
+                  "landing_page.contact.Have a project in mind? Reach out today and let’s get started"
+                )}
+              </p>
+
               <a className={classes.contact_details} href="tel:+38669638945">
                 <PhoneCall
                   size={24}
                   strokeWidth={1.75}
-                  className="me-2 d-inline"
+                  className="me-2 d-none d-md-inline"
                 />
-                <span className="ms-3">+386-6963-8945</span>
+                <PhoneCall
+                  size={16}
+                  strokeWidth={1.75}
+                  className="me-2 d-inline d-md-none"
+                />
+                <span className="ms-1 ms-md-3">+386-6963-8945</span>
               </a>
               <a
                 className={classes.contact_details}
-                href="mailto:hello@kumarsoftwares.com"
+                href="mailto:hello@kumar-node.com"
               >
-                <Mail size={24} strokeWidth={1.75} className="me-2 d-inline" />
-                <span className="ms-3">hello@kumarsoftwares.com</span>
+                <Mail
+                  size={24}
+                  strokeWidth={1.75}
+                  className="me-2 d-none d-md-inline"
+                />
+                <Mail
+                  size={16}
+                  strokeWidth={1.75}
+                  className="me-2 d-inline d-md-none"
+                />
+                <span className="ms-1 ms-md-3">hello@kumar-node.com</span>
               </a>
               <p className={`mt-4 ${classes.contact_text}`}>
                 {t(

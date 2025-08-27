@@ -43,7 +43,7 @@ export default function LogInBar() {
               <Button
                 button={false}
                 link="/authentication"
-                customClass={`text-light btn ms-3 ${classes.btn}`}
+                customClass={`text-light btn ms-lg-3 ${classes.btn}`}
                 localRoute={true}
               >
                 <span className="fw-bold text-light">{t(`nav.login`)}</span>

@@ -90,7 +90,7 @@ h2 {
 }
 p {
   font-family: vars.$theme-font-Paragraph !important;
-  @include vars.fonts(18px, 32px, 400);
+  @include vars.fonts(18px, 28px, 400);
   color: #0b0d39 !important;
 }
 
@@ -119,9 +119,13 @@ a,
 }
 
 .hero-h1-text {
-  @include vars.fonts(64px, 72px, 700);
+  @include vars.fonts(36px, 46px, 700);
   position: sticky;
   z-index: 99 !important;
+
+  @include vars.lg {
+    @include vars.fonts(64px, 72px, 700);
+  }
 }
 
 .sub_heading {

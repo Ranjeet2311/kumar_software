@@ -2,7 +2,8 @@
 
 .bar_wrap {
   position: fixed;
-  bottom: 50px;
+  bottom: 200px;
+  right: inherit;
   display: flex;
   justify-content: center;
   left: 1%;
@@ -23,8 +24,7 @@
       align-items: center;
       flex-direction: column;
       color: white !important;
-
-      @include vars.fonts(16px, 22px, 500);
+      @include vars.fonts(12px, 22px, 500);
       text-align: center;
 
       @include vars.lg {
@@ -34,12 +34,17 @@
   }
 
   .btn {
-    font-size: 14px !important;
+    font-size: 12px !important;
     border: 1px solid white;
     width: max-content;
     transition: all 0.4s ease-out;
     border-radius: 12px 12px 12px 0;
-    @include vars.fonts(16px, 18px, 400);
+    @include vars.fonts(12px, 22px, 500);
+
+    @include vars.lg {
+      @include vars.fonts(16px, 26px, 500);
+      padding: 8px !important;
+    }
 
     &:hover {
       background: #bf3663;

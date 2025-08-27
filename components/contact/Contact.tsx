@@ -70,16 +70,30 @@ export default function Contact({
               <PhoneCall
                 size={24}
                 strokeWidth={1.75}
-                className="me-2 d-inline"
+                className="me-2 d-none d-md-inline"
               />
-              <span className="ms-3">+386-6963-8945</span>
+              <PhoneCall
+                size={16}
+                strokeWidth={1.75}
+                className="me-2 d-inline d-md-none"
+              />
+              <span className="ms-1 ms-md-3">+386-6963-8945</span>
             </a>
             <a
               className={classes.contact_details}
-              href="mailto:hello@kumarsoftwares.com"
+              href="mailto:hello@kumar-node.com"
             >
-              <Mail size={24} strokeWidth={1.75} className="me-2 d-inline" />
-              <span className="ms-3">hello@kumarsoftwares.com</span>
+              <Mail
+                size={24}
+                strokeWidth={1.75}
+                className="me-2 d-none d-md-inline"
+              />
+              <Mail
+                size={16}
+                strokeWidth={1.75}
+                className="me-2 d-inline d-md-none"
+              />
+              <span className="ms-1 ms-md-3">hello@kumar-node.com</span>
             </a>
             <p className={`mt-4 ${classes.contact_text}`}>
               {t(

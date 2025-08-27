@@ -36,7 +36,7 @@ export default function LangSwitch() {
       btnText={
         <>
           <Languages size={18} />{" "}
-          <p className="inline-block mb-0">{LangText}</p>
+          <p className="inline-block mb-0 fw-bold">{LangText}</p>
         </>
       }
     />
