@@ -69,7 +69,7 @@ export default function ServiceDetail({
 
   return (
     <>
-      <div className="container top-padding">
+      <div className={`container top-padding`}>
         <SectionHeading
           customClass="mb-4 pb-2 pb-lg-4"
           title={title}

@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar/Navbar";
 import { ReduxProvider } from "@/store/slices/provider";
 import { ReactNode } from "react";
 import ChakraClientWrapper from "@/components/ChakraClientWrapper";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import GoogleAnalyticsReporter from "@/components/analytics/GoogleAnalyticsReporter";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kumar-software.netlify.app/"),
@@ -72,6 +74,8 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <GoogleAnalytics />
+        <GoogleAnalyticsReporter />
         <ReduxProvider>
           <ChakraClientWrapper>
             <Navbar />

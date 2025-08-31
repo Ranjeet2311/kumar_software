@@ -9,7 +9,6 @@ import Plans from "@/components/plans/Plans";
 import Contact from "@/components/contact/Contact";
 import banner_Image from "../assets/images/hero/app_dev.png";
 import { motion } from "framer-motion";
-import LogInBar from "@/components/login-bar/LogInBar";
 import { ReceiptText, Wallet } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -91,7 +90,6 @@ export default function Home() {
       <div id="footer">
         <Footer />
       </div>
-      <LogInBar />
     </main>
   );
 }
