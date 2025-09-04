@@ -43,7 +43,7 @@
       top: 0;
       height: 100%;
       width: 0;
-      background: color.adjust(vars.$theme_blue, $lightness: 20%);
+      background: linear-gradient(to right, vars.$theme_blue, vars.$light_blue);
       z-index: -1;
       transition: width 0.4s ease;
     }

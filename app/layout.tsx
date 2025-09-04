@@ -10,7 +10,7 @@ import GoogleAnalyticsReporter from "@/components/analytics/GoogleAnalyticsRepor
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kumar-software.netlify.app/"),
-  title: "Kumar Software - Dinamične Spletne Strani & Spletne Aplikacije",
+  title: "Kumar-Node - Dinamične Spletne Strani & Spletne Aplikacije",
   description:
     "V Kumar Softwares razvijamo dinamične spletne strani in zmogljive spletne aplikacije z modernim dizajnom, brezskrbno funkcionalnostjo in izjemnimi zmogljivostmi. Preoblikujte svoje poslovanje z digitalnimi rešitvami, prilagojenimi vašim potrebam.",
   icons: {

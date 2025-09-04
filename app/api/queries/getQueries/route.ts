@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
   try {
     const cookiesInstance = await cookies();
     const authCookie = await cookiesInstance.get("authToken");
-    console.log(`authCookie in get chat route: `, authCookie);
+    // console.log(`authCookie in get chat route: `, authCookie);
 
     if (!authCookie) {
       return new Response(

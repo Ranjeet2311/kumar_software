@@ -57,9 +57,6 @@ export default function SignUpForm() {
 
     const result = await response.json();
 
-    console.log(`sign up response :: `, response);
-    console.log(`sign up result :: `, result);
-
     if (response.status === 409) {
       setError(result.message || "User already exists with this email.");
     }
@@ -75,7 +72,7 @@ export default function SignUpForm() {
         email: "",
         password: "",
       });
-      console.log(`result.message after reset : `, result.message);
+      // console.log(`result.message after reset : `, result.message);
 
       setTimeout(() => {
         redirect("/dashboard");

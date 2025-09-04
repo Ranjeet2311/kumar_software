@@ -78,8 +78,6 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
         subject: "",
         description: "",
       });
-      console.log(`result.message after reset : `, result.message);
-      console.log(`Form data after reset : `, formData);
     } else {
       setError(result.message || "Something went wrong. Please try again.");
       setLoading(false);
@@ -172,7 +170,7 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
             {servicesList &&
               servicesList.map((service) => (
                 <option key={service.title} value={service.title}>
-                  {service.title}
+                  {service.title.replace("Development", "")}
                 </option>
               ))}
           </select>

@@ -9,23 +9,17 @@
   transition: all 0.4s ease-in;
   background-size: 200%;
   height: fit-content;
+  cursor: pointer;
 
   &:hover {
     color: white;
     background-size: 100%;
-    filter: drop-shadow(-2px 4px 12px vars.$theme_text_color);
+    filter: drop-shadow(-1px 1px 16px rgba(vars.$theme_medium_gray, 0.4));
     border: 1px solid transparent;
+    transform: translateY(-5px);
 
     .card_header {
-      background: linear-gradient(
-        -45deg,
-        vars.$theme_green,
-        #a1e3f9,
-        vars.$theme_blue,
-        vars.$light_green,
-        #3778c2
-      );
-      background-size: 100%;
+      background-size: 180%;
     }
   }
 

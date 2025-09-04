@@ -15,7 +15,6 @@ export default function useFetchQueries() {
       const data = result.data;
 
       if (response.ok) {
-        console.log(`Query data :: `, data);
         dispatch(setQueries(data));
         // console.log(` useState issues array :: `, issues);
       }

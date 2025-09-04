@@ -155,7 +155,7 @@
     "plans": {
       "basic": {
         "title": "Basisplan",
-        "subtitle": "Perfekt für den Start Ihrer Webpräsenz @000",
+        "subtitle": "Perfekt für den Start Ihrer Webpräsenz @ €449",
         "features": [
           "Grundlegende Website-Einrichtung",
           "Responsives Design",
@@ -166,7 +166,7 @@
       },
       "business": {
         "title": "Businessplan",
-        "subtitle": "Für wachsende Unternehmen @000",
+        "subtitle": "Für wachsende Unternehmen @ €849",
         "features": [
           "Individuelles Webdesign",
           "Vollständig responsives Design",
@@ -180,7 +180,7 @@
       },
       "enterprise": {
         "title": "Enterprise-Plan",
-        "subtitle": "Für umfangreiche Lösungen @000",
+        "subtitle": "Für umfangreiche Lösungen @ €1949",
         "features": [
           "Individuelle Webanwendungen",
           "Erweitertes responsives Design",

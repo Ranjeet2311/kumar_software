@@ -68,9 +68,6 @@ export default function Issue({ issuesList }: IssueProps) {
   function handleUpdate(e: React.MouseEvent<HTMLElement>) {
     console.log("In handle-Update");
   }
-  function handleDelete(e: React.MouseEvent<HTMLElement>) {
-    console.log("In handle-Delete");
-  }
 
   return (
     <div className="row">

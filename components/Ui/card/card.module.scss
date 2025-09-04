@@ -11,6 +11,7 @@
   &:hover {
     transition: all 0.4s ease-in;
     filter: drop-shadow(-1px 1px 16px rgba(vars.$theme_medium_gray, 0.4));
+    transform: translateY(-5px);
 
     .img {
       transition: all 0.4s ease-in;

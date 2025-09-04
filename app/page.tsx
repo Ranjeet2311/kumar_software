@@ -13,7 +13,6 @@ import { ReceiptText, Wallet } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  // console.log("runs: Main page.tsx");
   const { t } = useTranslation();
 
   return (

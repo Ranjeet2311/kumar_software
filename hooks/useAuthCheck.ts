@@ -67,7 +67,7 @@ export default function useAuthCheck() {
         // console.log("useAuthCheck try running");
       } catch (error: unknown) {
         // error instanceof Error: a type guard that ensures the error is actually an Error object before accessing properties like message.
-        console.log(`Error in useAuthCheck ::: `, error);
+        console.log(`error`, error);
 
         if (error instanceof Error) {
           if (error.message === "No token found") {
@@ -87,15 +87,13 @@ export default function useAuthCheck() {
         //   console.log("Redirecting to /auth");
         //   router.push("/auth");
         // }
-
-        console.log("useAuthCheck catch running");
       }
     }
 
     checkAuth();
 
     const authInterval = setInterval(checkAuth, 10000);
-    console.log("useAuthCheck running");
+    // console.log("useAuthCheck running");
 
     return () => clearInterval(authInterval);
   }, [path, user, router, dispatch]);

@@ -157,7 +157,7 @@
     "plans": {
       "basic": {
         "title": "Basic Plan",
-        "subtitle": "Perfect for launching your web presence @000",
+        "subtitle": "Perfect for launching your web presence @ €449",
         "features": [
           "Basic website setup",
           "Responsive design",
@@ -168,7 +168,7 @@
       },
       "business": {
         "title": "Business Plan",
-        "subtitle": "Designed to grow with your business @000",
+        "subtitle": "Designed to grow with your business @ €849",
         "features": [
           "Custom website design",
           "Fully responsive design",
@@ -182,7 +182,7 @@
       },
       "enterprise": {
         "title": "Enterprise Plan",
-        "subtitle": "Built for scale, performance, and integrations @000",
+        "subtitle": "Built for scale, performance, and integrations @ €1949",
         "features": [
           "Tailored web applications",
           "Advanced responsive design",

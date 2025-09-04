@@ -39,7 +39,7 @@ export default function MessagesPage() {
           method: "GET",
         });
         const result = await response.json();
-        console.log(`fetch all chats result : `, result);
+        // console.log(`fetch all chats result : `, result);
         if (!response.ok) {
           throw new Error(
             `Error fetching chats: ${result.message || "Unknown error"}`

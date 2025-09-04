@@ -23,7 +23,7 @@ export default function LangSwitch() {
   const LangText = t("nav.language");
 
   const handleLanguageChange = (val: string) => {
-    console.log(`Lang click : `, val);
+    // console.log(`Lang click : `, val);
     i18n.changeLanguage(val);
   };
 
