@@ -27,11 +27,6 @@ export default function Home() {
           <Hero
             heading={
               <>
-                {/* <span className="colored-text">
-                  software
-                  <Image src={zigzag} alt="zigzag" className="zigzag" />
-                </span>{" "}
-                your company needs */}
                 <span className="colored-text">
                   {t("landing_page.hero title")}
                 </span>
@@ -40,13 +35,13 @@ export default function Home() {
             showButton={true}
             buttonOneText={
               <div className="d-flex align-items-center justify-content-center">
-                <ReceiptText className="me-2" /> {t("landing_page.Get a Quote")}
+                <ReceiptText className="me-2" /> {t("landing_page.Get_a_Quote")}
               </div>
             }
             linkOne="/#contact"
             buttonTwoText={
               <div className="d-flex align-items-center justify-content-center">
-                <Wallet className="me-2" /> {t("landing_page.View Plans")}
+                <Wallet className="me-2" /> {t("landing_page.View_Plans")}
               </div>
             }
             linkTwo="/#plans"

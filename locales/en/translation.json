@@ -5,8 +5,8 @@
     "landing_page": {
       "hero title": "Empowering Your Ideas with Scalable Software",
       "hero para": "At Kumar Node, we craft modern, scalable, and high-performance web solutions designed around your goals. From concept to deployment, we help your vision thrive with speed, precision, and impact.",
-      "Get a Quote": "Get a Quote",
-      "View Plans": "View Plans",
+      "Get_a_Quote": "Get a Quote",
+      "View_Plans": "View Plans",
 
       "WHAT WE OFFER": "What we offer",
       "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.",
@@ -282,6 +282,11 @@
         "completed": "Completed issues",
         "progressing": "Progressing issues"
       }
+    },
+    "cookie_consent": {
+      "message": "This website uses cookies to enhance the user experience. By continuing to browse the site, you agree to our use of cookies.",
+      "essential": "Essential Cookies Only",
+      "all": "Accept All Cookies"
     }
   }
 }

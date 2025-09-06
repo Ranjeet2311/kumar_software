@@ -24,7 +24,6 @@ import {
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import useLogout from "@/hooks/useLogout";
-import Dropdown from "../Ui/drop-down/DropDown";
 import LangSwitch from "../langSwitch/LangSwitch";
 import { useTranslation } from "react-i18next";
 

@@ -5,7 +5,8 @@
     "landing_page": {
       "hero title": "Verwirklichen Sie Ihre Ideen mit skalierbarer Software",
       "hero para": "Bei Kumar Node entwickeln wir moderne, skalierbare und leistungsstarke Weblösungen, die auf Ihre Ziele zugeschnitten sind. Von der Konzeption bis zur Bereitstellung helfen wir Ihrer Vision, mit Geschwindigkeit, Präzision und Wirkung zu gedeihen.",
-      "View Plans": "Pläne ansehen",
+      "Get_a_Quote": "Ein Angebot anfordern",
+      "View_Plans": "Pläne ansehen",
 
       "WHAT WE OFFER": "Was wir anbieten",
       "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Erforschen Sie, wie Kumar Node skalierbare, maßgeschneiderte Softwarelösungen bietet, die mit Ihrem Unternehmen wachsen.",
@@ -282,6 +283,11 @@
         "completed": "Abgeschlossene Probleme",
         "progressing": "Laufende Probleme"
       }
+    },
+    "cookie_consent": {
+      "message": "Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Cookies zu.",
+      "essential": "Nur notwendige Cookies",
+      "all": "Alle Cookies akzeptieren"
     }
   }
 }

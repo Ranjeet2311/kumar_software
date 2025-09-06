@@ -139,7 +139,7 @@ export default function NewIssue() {
 
             // console.log(`setting user: `, user);
           } else {
-            console.error("Invalid decoded user data");
+            console.log("Invalid decoded user data");
           }
         } else {
           console.error("No token value found");

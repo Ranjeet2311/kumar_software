@@ -5,8 +5,8 @@
     "landing_page": {
       "hero title": "Uresničevanje vaših idej z razširljivo programsko opremo",
       "hero para": "Pri Kumar Node razvijamo sodobne, razširljive in zmogljive spletne rešitve, zasnovane okoli vaših ciljev. Od zasnove do uvedbe pomagamo vaši viziji, da uspeva s hitrostjo, natančnostjo in učinkom.",
-      "Get a Quote": "Pridobite ponudbo",
-      "View Plans": "Oglejte si pakete",
+      "Get_a_Quote": "Pridobite ponudbo",
+      "View_Plans": "Oglejte si pakete",
 
       "WHAT WE OFFER": "Kaj ponujamo",
       "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Raziskujte, kako Kumar Node ponuja razširljive, po meri izdelane programske rešitve, ki se razvijajo skupaj z vašim podjetjem.",
@@ -281,6 +281,11 @@
         "completed": "Zaključena vprašanja",
         "progressing": "Vprašanja v teku"
       }
+    },
+    "cookie_consent": {
+      "message": "Ta spletna stran uporablja piškotke za izboljšanje uporabniške izkušnje. Z nadaljnjo uporabo strani se strinjate z uporabo piškotkov.",
+      "essential": "Samo nujni piškotki",
+      "all": "Sprejmi vse piškotke"
     }
   }
 }

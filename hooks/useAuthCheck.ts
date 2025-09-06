@@ -29,14 +29,9 @@ export default function useAuthCheck() {
 
   useEffect(() => {
     async function checkAuth() {
-      // if (path === "/") return; // Skip home page
-      // if (user?.userId) return; // Skip if user is already authenticated
-
       try {
         const response = await fetch("/api/cookie");
         const data: string = await response.json();
-
-        // console.log(`useAuthCheck found  :: `, data);
 
         if (!data) {
           dispatch(setAppUser(null));
@@ -45,8 +40,6 @@ export default function useAuthCheck() {
         }
 
         const decoded = jwt.decode(data) as DecodedToken | null;
-
-        // console.log(`useAuthCheck decoded :: `, decoded);
 
         if (decoded?.user) {
           const currentTime = Math.floor(Date.now() / 1000);
@@ -59,9 +52,9 @@ export default function useAuthCheck() {
           dispatch(setAppUser(decoded.user));
         } else {
           dispatch(setAppUser(null));
-          // router.push("/auth");
-          // console.log(`Setting user to null in auth check`);
-          throw new Error("Invalid decoded user data");
+
+          // throw new Error("Invalid decoded user data");
+          console.log(`Invalid user`);
         }
 
         // console.log("useAuthCheck try running");
@@ -73,7 +66,7 @@ export default function useAuthCheck() {
           if (error.message === "No token found") {
             console.error("No token found in cookie");
           } else if (error.message === "Invalid decoded user data") {
-            console.error("Token decoding failed");
+            console.log("Token decoding failed");
           } else {
             console.error("Error checking authentication:", error);
           }
