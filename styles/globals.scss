@@ -98,6 +98,9 @@ a,
 .btn {
   font-family: vars.$theme-font-Subheading !important;
   text-decoration: none !important;
+  border: none !important;
+  border-radius: 30px;
+  padding: 12px 20px;
 }
 
 // for banner------------

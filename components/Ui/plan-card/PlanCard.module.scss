@@ -36,7 +36,7 @@
   .card_header {
     @include vars.fonts(24px, 30px, 600);
     text-align: center;
-    border-radius: 18px 18px 0 0;
+    border-radius: 18px 18px 0 0 !important;
     background-color: white;
     border-bottom: 1px solid ddd;
     background: linear-gradient(

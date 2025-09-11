@@ -4,7 +4,7 @@
 // Main Button - Soft Gradient and Glow
 .btn_main {
   color: white !important;
-  border: 0 !important;
+  border: none !important;
   border-radius: 30px !important;
   padding: 12px 20px !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -36,7 +36,7 @@
 // Secondary Button - Subtle Blue-Gray with Soft Gradient on Hover
 .btn_second {
   color: vars.$theme_dark_gray;
-  border: 0 !important;
+  border: none !important;
   border-radius: 30px !important;
   padding: 12px 20px !important;
   background: color.adjust(vars.$theme_blue, $lightness: 60%);

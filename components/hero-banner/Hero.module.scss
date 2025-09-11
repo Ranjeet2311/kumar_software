@@ -2,6 +2,9 @@
 
 .btn {
   max-width: 100%;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 12px 20px !important;
 
   @include vars.lg {
     width: fit-content;
