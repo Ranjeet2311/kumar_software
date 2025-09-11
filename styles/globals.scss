@@ -94,7 +94,11 @@ p {
   color: #0b0d39 !important;
 }
 
-a,
+a {
+  font-family: vars.$theme-font-Subheading !important;
+  text-decoration: none !important;
+}
+
 .btn {
   font-family: vars.$theme-font-Subheading !important;
   text-decoration: none !important;
