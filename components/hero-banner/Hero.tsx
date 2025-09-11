@@ -21,7 +21,6 @@ type HeroProps = {
 
 export default function Hero({
   heading,
-  paragraph,
   showButton,
   buttonTwoText,
   linkOne,

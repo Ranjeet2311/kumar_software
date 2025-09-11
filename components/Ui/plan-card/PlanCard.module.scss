@@ -1,6 +1,7 @@
 @use "../../../styles/css_variables.scss" as vars;
 
-.plan_card {
+.plan_card,
+.card {
   margin: 20px auto;
   border: 1px solid #ddd;
   border-radius: 18px !important;
