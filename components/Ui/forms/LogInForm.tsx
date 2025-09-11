@@ -7,6 +7,7 @@ import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
 import { Key, Eye, EyeClosed } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { clearTranslation } from "@/lib/cleanForTranslation";
 
 type LogIn = {
   email: string;
@@ -61,10 +62,8 @@ export default function LoginForm() {
       console.log(`'router should begin`);
       redirect("/dashboard"); // Navigate to the dashboard after login
     } else {
-      setError(
-        result.message ||
-          "Something went wrong. Please try again. We'll reachout to you asap"
-      );
+      console.log("login error", result.message);
+      setError(result.message);
     }
   };
 
@@ -152,13 +151,13 @@ export default function LoginForm() {
         {message && (
           <AlertMessage
             status="success"
-            message={t("form.auth.success_redirect") || message}
+            message={t(`form.auth.${clearTranslation(message)}`)}
           />
         )}
         {error && (
           <AlertMessage
             status="error"
-            message={t("form.auth.error_generic") || error}
+            message={t(`form.auth.${clearTranslation(error)}`)}
           />
         )}
       </h5>

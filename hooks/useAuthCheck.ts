@@ -35,8 +35,8 @@ export default function useAuthCheck() {
 
         if (!data) {
           dispatch(setAppUser(null));
-          // console.log(`No token in auth check`);
-          throw new Error("No token found");
+          console.log(`No token in auth check`);
+          // throw new Error("No token found");
         }
 
         const decoded = jwt.decode(data) as DecodedToken | null;
@@ -54,12 +54,9 @@ export default function useAuthCheck() {
           dispatch(setAppUser(null));
 
           // throw new Error("Invalid decoded user data");
-          console.log(`Invalid user`);
+          // console.log(`Regular user`);
         }
-
-        // console.log("useAuthCheck try running");
       } catch (error: unknown) {
-        // error instanceof Error: a type guard that ensures the error is actually an Error object before accessing properties like message.
         console.log(`error`, error);
 
         if (error instanceof Error) {

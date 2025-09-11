@@ -3,17 +3,40 @@ import Authentication from "@/models/Auth";
 import { connectToDatabase } from "@/lib/mongodb";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import { getLoginLimiter, RateLimiterRes, LOGIN_POINTS } from "@/lib/rateLimit";
+
+function getClientIp(req: NextRequest): string {
+  // Try forwarded header (works on Netlify/Vercel/Proxies)
+  const xf = req.headers.get("x-forwarded-for");
+  if (xf) return xf.split(",")[0].trim();
+  // Fallback: not always available in Edge/Serverless
+  // @ts-expect-error - not in Next type yet
+  return req.ip || "unknown";
+}
 
 export async function POST(req: NextRequest) {
   await connectToDatabase();
+  const key = `login:${getClientIp(req)}`;
+  const limiter = getLoginLimiter();
 
   try {
+    const usage = await limiter.consume(key);
+
+    // Add rate headers
+    const rateHeaders = {
+      "X-RateLimit-Limit": String(LOGIN_POINTS),
+      "X-RateLimit-Remaining": String(Math.max(0, usage.remainingPoints)),
+      "X-RateLimit-Reset": String(Math.ceil(usage.msBeforeNext / 1000)),
+    };
+
+    // ---- Normal login flow
+
     const { email, password }: { email: string; password: string } =
       await req.json();
 
     if (!email || !password) {
       return new Response(
-        JSON.stringify({ message: "Email and password are required." }),
+        JSON.stringify({ message: "Email and password are required" }),
         {
           status: 400,
         }
@@ -22,14 +45,24 @@ export async function POST(req: NextRequest) {
     const normalizedEmail = email.toLowerCase().trim();
     const user = await Authentication.findOne({ email: normalizedEmail });
 
-    const isPasswordMatch = await compare(password, user.password);
-
-    if (!user || !isPasswordMatch) {
-      return new Response(JSON.stringify({ message: "Invalid credentials." }), {
-        status: 404,
-      });
+    if (!user) {
+      return new NextResponse(
+        JSON.stringify({ message: "Invalid credentials" }),
+        {
+          status: 404,
+          headers: { ...rateHeaders, "Content-Type": "application/json" },
+        }
+      );
     }
 
+    const isPasswordMatch = await compare(password, user.password);
+
+    if (!isPasswordMatch) {
+      return new NextResponse(
+        JSON.stringify({ message: "Invalid credentials" }),
+        { status: 404 }
+      );
+    }
     // Generate a JWT token
 
     type UserType = {
@@ -71,12 +104,22 @@ export async function POST(req: NextRequest) {
 
     return response;
   } catch (error) {
+    // Throttled
+    const r = error as RateLimiterRes;
+    const retryAfter = Math.ceil((r.msBeforeNext || 1000) / 1000);
+
     return new Response(
-      JSON.stringify({
-        message: "Error during authentication.",
-        error: (error as Error).message,
-      }),
-      { status: 500 }
+      JSON.stringify({ message: "Too many attempts. Try again later" }),
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(retryAfter),
+          "X-RateLimit-Limit": String(LOGIN_POINTS),
+          "X-RateLimit-Remaining": String(Math.max(0, r.remainingPoints ?? 0)),
+          "X-RateLimit-Reset": String(retryAfter),
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 }

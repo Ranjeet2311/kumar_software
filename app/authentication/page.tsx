@@ -8,7 +8,7 @@ import authImage from "../../assets/images/Secure-login.png";
 import Footer from "@/components/footer/Footer";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
 import { t } from "i18next";
 
@@ -16,7 +16,7 @@ export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
   const [showSignUp, setShowSignUp] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const router = useRouter();
   const user = useSelector((state: RootState) => state.user.user);
 
   const loginHandle = () => {
@@ -31,16 +31,14 @@ export default function Auth() {
   };
 
   useEffect(() => {
-    // console.log(`user auth page: `, user);
-
     if (user !== undefined) {
       setLoading(false);
     }
 
     if (user?.userId) {
-      redirect("/dashboard");
+      router.replace("/dashboard");
     }
-  }, [user]);
+  }, [user, router]);
 
   if (loading) {
     return (

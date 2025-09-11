@@ -2,9 +2,34 @@ import { NextRequest } from "next/server";
 import Authentication from "@/models/Auth";
 import { connectToDatabase } from "@/lib/mongodb";
 import { genSalt, hash } from "bcrypt";
+import { getSignupLimiter, RateLimiterRes } from "@/lib/rateLimit";
 
 export async function POST(req: NextRequest) {
   await connectToDatabase();
+
+  const limiter = getSignupLimiter();
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "unknown"; // fallback
+
+  try {
+    await limiter.consume(ip);
+  } catch (rej) {
+    const r = rej as RateLimiterRes;
+    const retryAfter = Math.ceil((r.msBeforeNext || 1000) / 1000);
+    return new Response(
+      JSON.stringify({
+        message: "Too many attempts. Try again later",
+      }),
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(retryAfter),
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  }
+
+  // ----- FORM LOGIC -----
 
   try {
     const body = await req.json();
@@ -12,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     if (!firstName || !lastName || !contact || !email || !password) {
       return new Response(
-        JSON.stringify({ message: "All fields are required." }),
+        JSON.stringify({ message: "All fields are required" }),
         { status: 400 }
       );
     }
@@ -25,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     if (existingUser) {
       return new Response(
-        JSON.stringify({ message: "User already exists with this email." }),
+        JSON.stringify({ message: "User already exists with this email" }),
         { status: 409 }
       );
     }
@@ -48,14 +73,14 @@ export async function POST(req: NextRequest) {
 
     await newUser.save();
 
-    return new Response(JSON.stringify({ message: "Sign up successfull!" }), {
+    return new Response(JSON.stringify({ message: "Sign up successful" }), {
       status: 201,
     });
   } catch (error) {
     console.error("Error Sign up:", error);
     return new Response(
       JSON.stringify({
-        message: "Internal server error, couldn't signup",
+        message: "Internal server error, couldn't sign up",
         error,
       }),
       { status: 500 }

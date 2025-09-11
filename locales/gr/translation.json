@@ -215,11 +215,19 @@
       "success_message": "Ihre Nachricht wurde erfolgreich gesendet!",
       "error_message": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
       "auth": {
-        "success_redirect": "Erfolgreich angemeldet, Weiterleitung zum Dashboard...",
-        "error_generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
-        "redirecting_login": "Weiterleitung zur Anmeldung...",
-        "User already exists with this email.": "Benutzer mit dieser E-Mail-Adresse existiert bereits.",
-        "All fields are required.": "Alle Felder sind erforderlich."
+        "Email and password are required": "E-Mail und Passwort sind erforderlich",
+        "Invalid credentials": "Ungültige Zugangsdaten",
+        "Login successful": "Anmeldung erfolgreich",
+        "Sign up successful": "Registrierung erfolgreich",
+        "User already exists with this email": "Ein Benutzer mit dieser E-Mail existiert bereits",
+        "Internal server error, couldn't sign up": "Interner Serverfehler, Registrierung nicht möglich",
+        "Too many attempts. Try again later": "Zu viele Versuche. Bitte versuchen Sie es später erneut"
+      },
+      "contact": {
+        "All fields are required": "Alle Felder sind erforderlich",
+        "Your query was submitted successfully": "Ihre Anfrage wurde erfolgreich übermittelt",
+        "Internal server error, couldn't submit the form": "Interner Serverfehler, Formular konnte nicht gesendet werden",
+        "Too many requests. Please try again later": "Zu viele Anfragen. Bitte versuchen Sie es später erneut"
       }
     },
 

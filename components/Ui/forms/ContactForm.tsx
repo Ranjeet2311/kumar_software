@@ -9,6 +9,7 @@ import { Send } from "lucide-react";
 import Loader from "@/components/Loader";
 import AlertMessage from "@/components/AlertMessage";
 import { useTranslation } from "react-i18next";
+import { clearTranslation } from "@/lib/cleanForTranslation";
 
 type FormData = {
   firstName: string;
@@ -210,10 +211,16 @@ export default function ContactForm({ buttonStyle }: ContactProps) {
       </form>
       <h5 className="mt-2">
         {message && (
-          <AlertMessage status="success" message={t("form.success_message")} />
+          <AlertMessage
+            status="success"
+            message={t(`form.contact.${clearTranslation(message)}`)}
+          />
         )}
         {error && (
-          <AlertMessage status="error" message={t("form.error_message")} />
+          <AlertMessage
+            status="error"
+            message={t(`form.contact.${clearTranslation(error)}`)}
+          />
         )}
       </h5>
     </div>

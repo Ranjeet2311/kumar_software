@@ -6,6 +6,7 @@ import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
 import { UserRoundPlus, Eye, EyeClosed } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { clearTranslation } from "@/lib/cleanForTranslation";
 
 type Signup = {
   firstName: string;
@@ -58,7 +59,7 @@ export default function SignUpForm() {
     const result = await response.json();
 
     if (response.status === 409) {
-      setError(result.message || "User already exists with this email.");
+      setError(result.message);
     }
 
     setLoading(false);
@@ -78,10 +79,7 @@ export default function SignUpForm() {
         redirect("/dashboard");
       }, 5000);
     } else {
-      setError(
-        result.message ||
-          "Something went wrong. Please try again. We'll reachout to you asap"
-      );
+      setError(result.message);
     }
   };
   return (
@@ -201,10 +199,7 @@ export default function SignUpForm() {
       </form>
       <h5 className="mt-3">
         {message && (
-          <AlertMessage
-            status="success"
-            message={t("form.auth.redirecting_login") || message}
-          />
+          <AlertMessage status="success" message={t(`form.auth.${message}`)} />
         )}
         {error && (
           <AlertMessage status="error" message={t(`form.auth.${error}`)} />

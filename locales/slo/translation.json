@@ -215,11 +215,19 @@
       "success_message": "Vaše sporočilo je bilo uspešno poslano!",
       "error_message": "Prišlo je do napake. Poskusite znova.",
       "auth": {
-        "success_redirect": "Uspešno ste se prijavili, preusmeritev na nadzorno ploščo...",
-        "error_generic": "Prišlo je do napake. Poskusite znova.",
-        "redirecting_login": "Preusmeritev na prijavo...",
-        "User already exists with this email.": "Uporabnik že obstaja s tem e-poštnim naslovom.",
-        "All fields are required.": "Vsa polja so obvezna."
+        "Email and password are required": "E-pošta in geslo sta obvezna",
+        "Invalid credentials": "Neveljavni podatki za prijavo",
+        "Login successful": "Prijava uspešna",
+        "Sign up successful": "Registracija uspešna",
+        "User already exists with this email": "Uporabnik s tem e-poštnim naslovom že obstaja",
+        "Internal server error, couldn't sign up": "Notranja napaka strežnika, registracija ni uspela",
+        "Too many attempts. Try again later": "Preveč poskusov. Poskusite znova kasneje"
+      },
+      "contact": {
+        "All fields are required": "Vsa polja so obvezna",
+        "Your query was submitted successfully": "Vaše povpraševanje je bilo uspešno poslano",
+        "Internal server error, couldn't submit the form": "Notranja napaka strežnika, obrazca ni bilo mogoče poslati",
+        "Too many requests. Please try again later": "Preveč zahtevkov. Poskusite znova kasneje"
       }
     },
     "create_issue": "Ustvari težavo",

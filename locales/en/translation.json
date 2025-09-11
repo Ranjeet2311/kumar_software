@@ -216,11 +216,19 @@
       "success_message": "Your message was sent successfully!",
       "error_message": "Something went wrong. Please try again.",
       "auth": {
-        "success_redirect": "Successfully logged in, redirecting to dashboard...",
-        "error_generic": "Something went wrong. Please try again.",
-        "redirecting_login": "Redirecting to login...",
-        "User already exists with this email.": "User already exists with this email.",
-        "All fields are required.": "All fields are required."
+        "Email and password are required": "Email and password are required",
+        "Invalid credentials": "Invalid credentials",
+        "Login successful": "Login successful",
+        "Sign up successful": "Sign up successful",
+        "User already exists with this email": "User already exists with this email",
+        "Internal server error, couldn't sign up": "Internal server error, couldn't sign up",
+        "Too many attempts. Try again later": "Too many attempts. Try again later"
+      },
+      "contact": {
+        "All fields are required": "All fields are required",
+        "Your query was submitted successfully": "Your query was submitted successfully",
+        "Internal server error, couldn't submit the form": "Internal server error, couldn't submit the form",
+        "Too many requests. Please try again later": "Too many requests. Please try again later"
       }
     },
     "create_issue": "Create Issue",
