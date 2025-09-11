@@ -3,7 +3,7 @@
 .plan_card {
   margin: 20px auto;
   border: 1px solid #ddd;
-  border-radius: 18px;
+  border-radius: 18px !important;
   padding: 0;
   background: linear-gradient(45deg, #f1fcfc 10%, transparent, #f1fcfc 80%);
   transition: all 0.4s ease-in;

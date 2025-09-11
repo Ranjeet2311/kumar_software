@@ -38,7 +38,7 @@ export default function Button({
   if (button) {
     return (
       <button
-        className={`"btn ${mode} ${customClass}`}
+        className={`${mode} ${customClass}`}
         type={type}
         onClick={onClick}
         onMouseEnter={onMouseEnter}

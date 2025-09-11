@@ -4,12 +4,16 @@
 // Main Button - Soft Gradient and Glow
 .btn_main {
   color: white !important;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 20px;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 12px 20px !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg, vars.$light_green, vars.$theme_blue);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    90deg,
+    vars.$light_green,
+    vars.$theme_blue
+  ) !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
   width: 100%;
   text-align: center;
   @include vars.fonts(16px, 20px, 600);
@@ -32,11 +36,11 @@
 // Secondary Button - Subtle Blue-Gray with Soft Gradient on Hover
 .btn_second {
   color: vars.$theme_dark_gray;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 20px;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 12px 20px !important;
   background: color.adjust(vars.$theme_blue, $lightness: 60%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
   width: 100%;
   text-align: center;
   @include vars.fonts(16px, 20px, 600);
