@@ -2,7 +2,7 @@
 
 .plan_card,
 .card {
-  margin: 20px auto;
+  margin: 16px auto;
   border: 1px solid #ddd;
   border-radius: 18px !important;
   padding: 0;
@@ -10,6 +10,7 @@
   transition: all 0.4s ease-in;
   background-size: 200%;
   height: fit-content;
+  border: 1px solid rgba(vars.$theme_medium_gray, 0.2);
   cursor: pointer;
 
   &:hover {
@@ -45,7 +46,8 @@
       #a1e3f9,
       vars.$theme_blue
     );
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 0px;
     background-size: 200%;
     transition: all 0.4s ease-in;
   }
@@ -55,9 +57,11 @@
     color: white;
   }
   .price {
-    @include vars.fonts(20px, 24px, 700);
+    @include vars.fonts(20px, 24px, 600);
     font-family: vars.$theme-font-Subheading;
     color: white;
+    background: rgba(vars.$theme_yellow, 1);
+    padding: 15px;
   }
 
   .card_body {

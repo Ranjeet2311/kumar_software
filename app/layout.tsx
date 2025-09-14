@@ -10,7 +10,7 @@ import GoogleAnalyticsReporter from "@/components/analytics/GoogleAnalyticsRepor
 import Cookies from "@/components/cookies/cookies";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kumar-software.netlify.app/"),
+  metadataBase: new URL("https://kumar-node.com"),
   title: "Kumar-Node - Dinamične Spletne Strani & Spletne Aplikacije",
   description:
     "V Kumar Softwares razvijamo dinamične spletne strani in zmogljive spletne aplikacije z modernim dizajnom, brezskrbno funkcionalnostjo in izjemnimi zmogljivostmi. Preoblikujte svoje poslovanje z digitalnimi rešitvami, prilagojenimi vašim potrebam.",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Kumar Software - Spletne Aplikacije & Dinamične Spletne Strani",
     description:
       "Kumar Softwares je specializiran za izdelavo dinamičnih spletnih strani in zmogljivih spletnih aplikacij z modernim dizajnom in izjemnimi zmogljivostmi.",
-    url: "https://kumar-software.netlify.app/",
+    url: "https://kumar-node.com",
     siteName: "Kumar Software",
     images: [
       {
@@ -58,19 +58,15 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         {/* Hreflang for SEO in multiple languages */}
+        <link rel="alternate" href="https://kumar-node.com/" hrefLang="sl" />
         <link
           rel="alternate"
-          href="https://kumar-software.netlify.app/"
-          hrefLang="sl"
-        />
-        <link
-          rel="alternate"
-          href="https://kumar-software.netlify.app/?lang=en"
+          href="https://kumar-node.com/?lang=en"
           hrefLang="en"
         />
         <link
           rel="alternate"
-          href="https://kumar-software.netlify.app/?lang=gr"
+          href="https://kumar-node.com/?lang=gr"
           hrefLang="de"
         />
       </head>

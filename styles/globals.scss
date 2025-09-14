@@ -28,10 +28,25 @@ body {
   cursor: pointer;
 }
 
+// #home {
+//   background: linear-gradient(
+//     to right,
+//     rgba(vars.$theme_blue, 0.3),
+//     rgba(vars.$light_blue, 0.3),
+//     rgba(vars.$theme_blue, 0.3)
+//   );
+// }
+
 #home,
 #process,
 #feedback {
   padding-bottom: 60px;
+  // background: linear-gradient(
+  //   to right,
+  //   rgba(vars.$theme_blue, 0.2),
+  //   rgba(vars.$light_blue, 0.1),
+  //   rgba(vars.$theme_blue, 0.2)
+  // );
 
   @include vars.lg {
     padding-bottom: 62px;

@@ -12,7 +12,7 @@ export default function Cookies() {
   const { t } = useTranslation();
   const [showBanner, setShowBanner] = useState(false);
 
-  console.log("Environment:", process.env.NODE_ENV);
+  // console.log("Environment:", process.env.NODE_ENV);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookieConsent");

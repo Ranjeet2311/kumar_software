@@ -1,7 +1,7 @@
 import React from "react";
 import PlanCard from "../Ui/plan-card/PlanCard";
 import SectionHeading from "../Ui/section-heading/SectionHeading";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const plans = [
