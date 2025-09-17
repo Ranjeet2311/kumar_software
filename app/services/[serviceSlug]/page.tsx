@@ -79,10 +79,8 @@ export default function ServiceDetail({
           <Hero
             showButton={true}
             buttonOneText={
-              <div
-                className={`d-flex align-items-center justify-content-center`}
-              >
-                <ReceiptText className="me-2" /> {t("landing_page.Get a Quote")}
+              <div className="d-flex align-items-center justify-content-center">
+                <ReceiptText className="me-2" /> {t("landing_page.Get_a_Quote")}
               </div>
             }
             linkOne="/#contact"
@@ -174,7 +172,7 @@ export default function ServiceDetail({
               </a>
               <a
                 className={classes.contact_details}
-                href="mailto:hello@kumar-node.com"
+                href="mailto:info@kumar-node.com"
               >
                 <Mail
                   size={24}
@@ -186,7 +184,7 @@ export default function ServiceDetail({
                   strokeWidth={1.75}
                   className="me-2 d-inline d-md-none"
                 />
-                <span className="ms-1 ms-md-3">hello@kumar-node.com</span>
+                <span className="ms-1 ms-md-3">info@kumar-node.com</span>
               </a>
               <p className={`mt-4 ${classes.contact_text}`}>
                 {t(

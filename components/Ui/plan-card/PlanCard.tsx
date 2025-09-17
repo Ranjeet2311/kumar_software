@@ -22,7 +22,14 @@ export default function PlanCard({ planKey, buttonLink }: PlanCardProps) {
   const featureList = Array.isArray(features) ? features : [];
 
   return (
-    <div className={`${classes.plan_card} card my-2 h-100 position-relative`}>
+    <div
+      className={`${classes.plan_card} ${
+        planKey === "business" ? classes.business : ""
+      } card my-2 h-100 position-relative`}
+    >
+      {planKey === "business" && (
+        <div className={classes.ribbon}>{t(`landing_page.popular`)}</div>
+      )}
       <div className={`${classes.card_header} text-center`}>
         <h3 className={classes.title}>{title}</h3>
         <hr className="my-1" />

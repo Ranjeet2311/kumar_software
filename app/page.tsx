@@ -11,6 +11,7 @@ import banner_Image from "../assets/images/hero/app_dev.png";
 import { motion } from "framer-motion";
 import { ReceiptText, Wallet } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Tech from "@/components/our-tech/Tech";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -55,6 +56,9 @@ export default function Home() {
       </div>
       <div id="services">
         <Offer />
+      </div>
+      <div id="tech">
+        <Tech />
       </div>
       <div id="process">
         <HowItWorks />

@@ -8,6 +8,9 @@
       "Get_a_Quote": "Pridobite ponudbo",
       "View_Plans": "Oglejte si pakete",
 
+      "tech_offer": "Razširljive rešitve, sodoben sklad tehnologij",
+      "tech_desc": "Vsak dan se učimo in prilagajamo. Nismo omejeni samo na to, vendar je tukaj kratek pregled tehnologij, s katerimi delamo",
+
       "WHAT WE OFFER": "Kaj ponujamo",
       "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Raziskujte, kako Kumar Node ponuja razširljive, po meri izdelane programske rešitve, ki se razvijajo skupaj z vašim podjetjem.",
       "Add offer translation": "Dodaj prevod ponudbe",
@@ -18,6 +21,7 @@
       "Ready to Build": "Pripravljeni na naslednji projekt?",
       "Lets collaborate": "Sodelujmo pri uresničitvi vaših idej. Naša ekipa je pripravljena razpravljati o vaši viziji, razumeti vaše cilje in ustvariti prilagojeno rešitev, ki prinaša rezultate. Stopite v stik z nami še danes in skupaj bomo uspeli!",
       "Leave message": "Pustite mi sporočilo",
+      "popular": "Priporočeno",
 
       "work": {
         "HOW WE WORK": "Kako delamo",
@@ -34,6 +38,7 @@
       "plans": {
         "OUR PLANS": "Izberite svojo rešitev"
       },
+
       "contact": {
         "Lets Build Something Scalable Together": "Lahko skupaj zgradimo nekaj razširljivega",
         "Have a project in mind? Reach out today and let’s get started": "Imate projekt v mislih? Pišite nam in začnimo sodelovanje.",

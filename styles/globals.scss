@@ -38,6 +38,7 @@ body {
 // }
 
 #home,
+#tech,
 #process,
 #feedback {
   padding-bottom: 60px;
@@ -135,6 +136,7 @@ a {
 }
 .hero {
   p {
+    @include vars.fonts(22px, 32px, 400);
     position: sticky;
     z-index: 99 !important;
   }

@@ -8,6 +8,9 @@
       "Get_a_Quote": "Ein Angebot anfordern",
       "View_Plans": "Pläne ansehen",
 
+      "tech_offer": "Skalierbare Lösungen, moderner Stack",
+      "tech_desc": "Wir lernen und passen uns jeden Tag an. Wir sind nicht nur auf diese beschränkt, aber hier ist ein Überblick über die Technologien, mit denen wir arbeiten",
+
       "WHAT WE OFFER": "Was wir anbieten",
       "explore how Kumar Node delivers scalable, custom-built software solutions that evolve with your business.": "Erforschen Sie, wie Kumar Node skalierbare, maßgeschneiderte Softwarelösungen bietet, die mit Ihrem Unternehmen wachsen.",
       "Add offer translation": "Angebotsübersetzung hinzufügen",
@@ -18,6 +21,7 @@
       "Ready to Build": "Bereit für Ihr nächstes Projekt?",
       "Lets collaborate": "Lassen Sie uns gemeinsam Ihre Ideen verwirklichen. Unser Team ist bereit, Ihre Vision zu besprechen, Ihre Ziele zu verstehen und eine maßgeschneiderte Lösung zu entwickeln, die Ergebnisse liefert. Kontaktieren Sie uns noch heute – gemeinsam machen wir es möglich!",
       "Leave message": "Hinterlassen Sie mir eine Nachricht",
+      "popular": "Empfohlen",
 
       "work": {
         "HOW WE WORK": "Wie wir arbeiten",
@@ -34,6 +38,7 @@
       "plans": {
         "OUR PLANS": "Wählen Sie Ihre Lösung"
       },
+
       "contact": {
         "Lets Build Something Scalable Together": "Lassen Sie uns gemeinsam etwas Skalierbares schaffen",
         "Have a project in mind? Reach out today and let’s get started": "Sie haben ein Projekt? Kontaktieren Sie uns – wir legen los!",
