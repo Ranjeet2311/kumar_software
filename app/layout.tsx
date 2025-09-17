@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sl">
-      <head>
+      <head suppressHydrationWarning={true}>
         {/* SEO Essentials */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
@@ -70,7 +70,7 @@ export default function RootLayout({
           hrefLang="de"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <GoogleAnalytics />
         <GoogleAnalyticsReporter />
         <ReduxProvider>

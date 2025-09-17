@@ -6,7 +6,7 @@ import AlertMessage from "../../AlertMessage";
 import Loader from "@/components/Loader";
 import { UserRoundPlus, Eye, EyeClosed } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { clearTranslation } from "@/lib/cleanForTranslation";
+import { useRouter } from "next/navigation";
 
 type Signup = {
   firstName: string;
@@ -30,6 +30,7 @@ export default function SignUpForm() {
   });
 
   const { t } = useTranslation();
+  const router = useRouter();
 
   const handlePasswordShow = () => setShowPassword(!showPassword);
 
@@ -76,7 +77,7 @@ export default function SignUpForm() {
       // console.log(`result.message after reset : `, result.message);
 
       setTimeout(() => {
-        redirect("/dashboard");
+        router.replace("/dashboard");
       }, 5000);
     } else {
       setError(result.message);

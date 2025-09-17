@@ -8,6 +8,7 @@ import Loader from "@/components/Loader";
 import { Key, Eye, EyeClosed } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { clearTranslation } from "@/lib/cleanForTranslation";
+import { useRouter } from "next/navigation";
 
 type LogIn = {
   email: string;
@@ -25,6 +26,7 @@ export default function LoginForm() {
   });
 
   const { t } = useTranslation();
+  const router = useRouter();
 
   const handlePasswordShow = () => setShowPassword(!showPassword);
 
@@ -60,7 +62,7 @@ export default function LoginForm() {
       setMessage(result.message);
 
       console.log(`'router should begin`);
-      redirect("/dashboard"); // Navigate to the dashboard after login
+      router.replace("/dashboard"); // Navigate to the dashboard after login
     } else {
       console.log("login error", result.message);
       setError(result.message);
