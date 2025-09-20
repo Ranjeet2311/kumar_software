@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { techStack } from "@/utils/TechList";
 import Image, { StaticImageData } from "next/image";
+import classes from "./Tech.module.scss";
 
 export default function Tech() {
   const { t } = useTranslation();
@@ -28,24 +29,23 @@ export default function Tech() {
         >
           {/* const translatedTitle = t(`services.${slugify(title)}.title`); */}
           <div className="col-12">
-            <div className="row ">
+            <div className={`row ${classes.tech_grid}`}>
               {techStack.map(
                 ({ name, image }: { name: string; image: StaticImageData }) => (
                   <div
                     key={name}
-                    className="col-4 col-sm-3 col-md-2 d-flex flex-column align-items-center justify-content-center my-3"
+                    className={`col-4 col-sm-3 col-md-2 ${classes.tech_item}`}
                   >
-                    <Image
-                      style={{
-                        objectFit: "contain",
-                        width: "100px",
-                        height: "100px",
-                      }}
-                      src={image}
-                      alt={name}
-                      className={`${name}`}
-                    />
-                    <p className="mt-4">{name} </p>
+                    <div className={classes.logo_box}>
+                      <Image
+                        src={image}
+                        alt={name}
+                        width={100}
+                        height={100}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                    <p className={`${classes.tech_label} mt-4`}>{name}</p>
                   </div>
                 )
               )}
