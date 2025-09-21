@@ -54,21 +54,17 @@ export default function RootLayout({
   return (
     <html lang="sl">
       <head suppressHydrationWarning={true}>
-        {/* SEO Essentials */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        {/* Hreflang for SEO in multiple languages */}
+        <link rel="canonical" href="https://kumar-node.com/" />
         <link rel="alternate" href="https://kumar-node.com/" hrefLang="sl" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel="alternate"
-          href="https://kumar-node.com/?lang=en"
-          hrefLang="en"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
         />
-        <link
-          rel="alternate"
-          href="https://kumar-node.com/?lang=gr"
-          hrefLang="de"
-        />
+        <meta name="theme-color" content="#0b0b0b" />
       </head>
       <body suppressHydrationWarning={true}>
         <GoogleAnalytics />
