@@ -3,6 +3,8 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import xss from "xss";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 import Loader from "@/components/Loader";
 import AlertMessage from "@/components/AlertMessage";
 import { Bug } from "lucide-react";
@@ -14,24 +16,8 @@ type Issue = {
   description: string;
 };
 
-type TokenResponse = {
-  token?: string;
-  message?: string;
-};
-
 type User = {
   email: string;
-  firstName: string;
-  lastName: string;
-  userId: string;
-};
-
-interface DecodedToken {
-  exp: string;
-  iat: string;
-  user: User;
-}
-type UserData = {
   firstName: string;
   lastName: string;
   userId: string;
@@ -41,21 +27,18 @@ export default function NewIssue() {
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [user, setUser] = useState<UserData>({
-    firstName: "",
-    lastName: "",
-    userId: "",
-  });
 
   const [issueData, setIssueData] = useState<Issue>({
     issue: "",
     description: "",
   });
 
+  const user = useSelector((state: RootState) => state.user.user);
+
   const newIssue = {
-    userId: user.userId,
-    firstName: user.firstName,
-    lastName: user.lastName,
+    userId: user?.userId,
+    firstName: user?.firstName,
+    lastName: user?.lastName,
     issue: issueData.issue,
     description: issueData.description,
     progress: false,
@@ -63,7 +46,6 @@ export default function NewIssue() {
   };
 
   const handleSubmit = async (e: FormEvent) => {
-    // console.log(`Create Issue handleSubmit`);
     e.preventDefault();
     setMessage(null);
     setError(null);
@@ -90,67 +72,21 @@ export default function NewIssue() {
     } else {
       setError(result.message || "Something went wrong. Please try again.");
     }
-
-    // console.log(`response :: `, response);
-    // console.log(`result :: `, result);
   };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    // console.log(` e target .value : `, e.target.value);
     const { name, value } = e.target;
-
     const xssProofValue: string = xss(value);
 
     setIssueData((prevData) => {
       return { ...prevData, [name]: xssProofValue };
     });
-
-    // console.log(` issueData after setting : `, issueData);
   };
 
   const { t } = useTranslation();
 
-  useEffect(() => {
-    async function fetchToken() {
-      try {
-        const response = await fetch("/api/cookie");
-        const data: string = await response.json();
-
-        // console.log(`Token: `, data);
-
-        if (data) {
-          const decoded = jwt.decode(data) as DecodedToken | null;
-          // console.log(`decoded: `, decoded);
-
-          if (decoded?.user) {
-            const user = decoded.user;
-            // console.log(`decoded.user: `, user);
-
-            setUser((prevUser) => {
-              return {
-                ...prevUser,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                userId: user.userId,
-              };
-            });
-
-            // console.log(`setting user: `, user);
-          } else {
-            console.log("Invalid decoded user data");
-          }
-        } else {
-          console.error("No token value found");
-        }
-      } catch (err) {
-        setError("Failed to fetch token");
-      }
-    }
-
-    fetchToken();
-  }, []);
   return (
     <div>
       <div className="form-wrap">

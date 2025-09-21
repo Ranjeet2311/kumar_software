@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+// hooks/useAuthCheck.ts
+import { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { setAppUser } from "@/store/slices/userSlice";
-import { redirect, usePathname, useRouter } from "next/navigation";
 
 type User = {
   email: string;
@@ -12,79 +12,55 @@ type User = {
   userId: string;
   position: string;
 };
-
 interface DecodedToken {
-  exp: string;
-  iat: string;
+  exp: number;
+  iat: number;
   user: User;
 }
 
 export default function useAuthCheck() {
   const dispatch = useDispatch<AppDispatch>();
-  const user = useSelector((state: RootState) => state.user.user, shallowEqual);
-
-  const path = usePathname();
-  const router = useRouter();
-  // console.log(`params : `, path);
+  const [checked, setChecked] = useState(false); // <-- NEW
 
   useEffect(() => {
+    let isMounted = true;
+
     async function checkAuth() {
       try {
-        const response = await fetch("/api/cookie");
-        const data: string = await response.json();
+        const res = await fetch("/api/cookie", { cache: "no-store" });
+        if (!res.ok) throw new Error(`cookie endpoint ${res.status}`);
 
-        if (!data) {
-          dispatch(setAppUser(null));
-          console.log(`No token in auth check`);
-          // throw new Error("No token found");
+        const { token }: { token: string | null } = await res.json();
+
+        if (!token) {
+          if (isMounted) dispatch(setAppUser(null));
+          return;
         }
 
-        const decoded = jwt.decode(data) as DecodedToken | null;
-
-        if (decoded?.user) {
-          const currentTime = Math.floor(Date.now() / 1000);
-          // console.log(`currentTime :: `, currentTime);
-
-          // if (decoded.exp < currentTime) {
-          //   throw new Error("Token expired");
-          // }
-          // console.log(`setting user in auth check`);
-          dispatch(setAppUser(decoded.user));
+        const decoded = jwt.decode(token) as DecodedToken | null;
+        if (
+          decoded?.user &&
+          (!decoded.exp || decoded.exp >= Math.floor(Date.now() / 1000))
+        ) {
+          if (isMounted) dispatch(setAppUser(decoded.user));
         } else {
-          dispatch(setAppUser(null));
-
-          // throw new Error("Invalid decoded user data");
-          // console.log(`Regular user`);
+          if (isMounted) dispatch(setAppUser(null));
         }
-      } catch (error: unknown) {
-        console.log(`error`, error);
-
-        if (error instanceof Error) {
-          if (error.message === "No token found") {
-            console.error("No token found in cookie");
-          } else if (error.message === "Invalid decoded user data") {
-            console.log("Token decoding failed");
-          } else {
-            console.error("Error checking authentication:", error);
-          }
-        } else {
-          console.error("An unexpected error occurred", error);
-        }
-        dispatch(setAppUser(null));
-        // router.push("/auth");
-
-        // if (path === "/" && path.startsWith("/services") && path !== "/auth") {
-        //   console.log("Redirecting to /auth");
-        //   router.push("/auth");
-        // }
+      } catch (err) {
+        console.error("Auth check error:", err);
+        if (isMounted) dispatch(setAppUser(null));
+      } finally {
+        if (isMounted) setChecked(true); // <-- signal we're done
       }
     }
 
     checkAuth();
+    const interval = setInterval(checkAuth, 60000);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, [dispatch]); // <-- no "user" here
 
-    const authInterval = setInterval(checkAuth, 10000);
-    // console.log("useAuthCheck running");
-
-    return () => clearInterval(authInterval);
-  }, [path, user, router, dispatch]);
+  return checked; // <-- expose status
 }

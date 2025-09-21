@@ -1,17 +1,24 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
-  const response = new NextResponse(
-    JSON.stringify({ message: "Logged out successfully" }),
-    { status: 200 }
-  );
+export async function POST() {
+  const res = NextResponse.json({ message: "Logged out successfully" });
 
-  response.cookies.set("authToken", "", {
+  // Expire the cookie immediately
+  res.cookies.set("authToken", "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
     path: "/",
-    maxAge: 0, // Immediately expire the cookie
+    maxAge: 0,
   });
 
-  return response;
+  // Avoid any weird caching
+  res.headers.set(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+  res.headers.set("Pragma", "no-cache");
+  res.headers.set("Expires", "0");
+
+  return res;
 }

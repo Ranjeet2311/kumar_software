@@ -1,28 +1,24 @@
-import { redirect, useRouter } from "next/navigation";
-import React, { MouseEvent } from "react";
+// hooks/useLogout.ts
+"use client";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setAppUser } from "@/store/slices/userSlice";
 
 export default function useLogout() {
   const router = useRouter();
-  async function logout() {
-    // console.log("Logout");
+  const dispatch = useDispatch();
 
+  return async function logout() {
     try {
-      const response = await fetch("/api/auth/logout", {
-        method: "GET",
+      await fetch("/api/auth/logout", {
+        method: "POST",
         credentials: "include",
+        cache: "no-store",
       });
-
-      if (!response.ok) {
-        // console.log("Logout failed");
-        throw new Error("Logout failed");
-      }
-
-      ["selectedTab"].forEach((key) => localStorage.removeItem(key)); //using it like this, just in case if we have more storages
-
+    } finally {
+      dispatch(setAppUser(null)); // <-- immediate
+      localStorage.removeItem("selectedTab");
       router.replace("/authentication");
-    } catch (error) {
-      console.error("Error during logout:", error);
     }
-  }
-  return logout;
+  };
 }

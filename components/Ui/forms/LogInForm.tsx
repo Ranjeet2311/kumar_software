@@ -61,10 +61,10 @@ export default function LoginForm() {
 
       setMessage(result.message);
 
-      console.log(`'router should begin`);
+      // console.log(`'router should begin`);
       router.replace("/dashboard"); // Navigate to the dashboard after login
     } else {
-      console.log("login error", result.message);
+      // console.log("login error", result.message);
       setError(result.message);
     }
   };
