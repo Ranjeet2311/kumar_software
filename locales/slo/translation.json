@@ -164,11 +164,9 @@
         "price": "€449",
         "subtitle": "Začetna postavitev spletne aplikacije za zanesljiv začetek",
         "features": [
-          "Začetni okvir spletne aplikacije (Next.js/React)",
+          "Začetni okvir spletne aplikacije",
           "Odziven uporabniški vmesnik in dostopne komponente",
           "Do 5 zaslonov/strani",
-          "Čista koda z Git in nastavitvijo okolij",
-          "Osnovne API točke in obdelava obrazcev",
           "Zmogljivost in osnovne SEO prakse",
           "Neobvezno: lažja povezava s CMS (npr. WordPress REST)",
           "1-mesečna brezplačna podpora"

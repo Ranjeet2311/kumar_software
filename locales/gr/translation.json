@@ -164,11 +164,9 @@
         "price": "€449",
         "subtitle": "Einstieg in Web-Apps – sauber, zuverlässig, startklar",
         "features": [
-          "Starter-Setup für Web-Apps (Next.js/React)",
+          "Starter-Setup für Web-Apps",
           "Responsives UI und barrierearme Komponenten",
           "Bis zu 5 Screens/Seiten",
-          "Sauberer Code mit Git-Workflow und Umgebungen",
-          "Grundlegende API-Endpunkte und Formularverarbeitung",
           "Performance & grundlegende SEO-Best Practices",
           "Optional: leichte CMS-Anbindung (z. B. WordPress REST)",
           "1 Monat kostenloser Support"

@@ -164,11 +164,9 @@
         "price": "€449",
         "subtitle": "Starter web app setup for a clean, reliable launch",
         "features": [
-          "Starter web app scaffolding (Next.js/React)",
+          "Starter web app scaffolding",
           "Responsive UI and accessible components",
           "Up to 5 screens/pages",
-          "Clean codebase with Git and environment setup",
-          "Basic API endpoints and form handling",
           "Performance & basic SEO best practices",
           "Optional: lightweight CMS hook-in (e.g., WordPress REST)",
           "1-month free support"
