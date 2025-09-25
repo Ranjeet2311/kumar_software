@@ -161,41 +161,37 @@
     "plans": {
       "basic": {
         "title": "Osnovni paket",
-        "subtitle": "Perfectno za začetek vaše spletne prisotnosti @ €449",
+        "price": "€449",
+        "subtitle": "Začetna postavitev spletne aplikacije za zanesljiv začetek",
         "features": [
-          "Osnovna postavitev spletne strani",
-          "Odziven dizajn",
-          "Do 5 strani",
-          "Osnovna SEO optimizacija",
-          "1 mesec brezplačne podpore"
-        ]
+          "Začetni okvir spletne aplikacije (Next.js/React)",
+          "Odziven uporabniški vmesnik in dostopne komponente",
+          "Do 5 zaslonov/strani",
+          "Čista koda z Git in nastavitvijo okolij",
+          "Osnovne API točke in obdelava obrazcev",
+          "Zmogljivost in osnovne SEO prakse",
+          "Neobvezno: lažja povezava s CMS (npr. WordPress REST)",
+          "1-mesečna brezplačna podpora"
+        ],
+        "button": "Začni zdaj"
       },
-      "business": {
-        "title": "Poslovni paket",
-        "subtitle": "Zasnovan za rast vašega podjetja @ €849",
+      "custom": {
+        "title": "Prilagojen paket",
+        "price": "Že od €899",
+        "subtitle": "Spletne aplikacije po meri z robustnim zaledjem in integracijami",
         "features": [
-          "Oblikovanje spletne strani po meri",
-          "Popolnoma odziven dizajn",
-          "Do 10 strani in več",
-          "Integracija sistema za upravljanje vsebin (CMS)",
-          "Funkcionalnost spletne trgovine",
-          "Razvoj zalednega sistema",
-          "Integracija dodatnih funkcij",
-          "3-mesečna brezplačna podpora"
-        ]
-      },
-      "enterprise": {
-        "title": "Podjetniški paket",
-        "subtitle": "Zasnovan za obsežnost, zmogljivost in integracije @ €1949",
-        "features": [
-          "Prilagojene spletne aplikacije",
-          "Napreden odziven dizajn",
-          "Neomejeno število strani",
-          "Integracije API-jev in tretjih storitev",
-          "Napredne zaledne rešitve",
-          "Funkcije na ravni podjetja",
-          "3-mesečna brezplačna podpora"
-        ]
+          "Arhitektura po meri",
+          "Zaledne storitve in REST/GraphQL API-ji",
+          "Načrtovanje in implementacija podatkovne baze (SQL/NoSQL)",
+          "Avtentikacija in pravice dostopa (RBAC)",
+          "Integracije tretjih strani (plačila, e-pošta, analitika ipd.)",
+          "Avtomatizirani testi in CI/CD (lintanje, buildi, objave)",
+          "Optimizacija zmogljivosti, varnost in opazljivost",
+          "Neobvezno: integracija brezglavega CMS (Strapi, WordPress)",
+          "Dokumentacija, predaja in 3-mesečna brezplačna podpora"
+        ],
+        "button": "Pridobi ponudbo",
+        "ribbon": "Najbolj prilagodljiv"
       }
     },
 

@@ -15,26 +15,33 @@ export default function PlanCard({ planKey, buttonLink }: PlanCardProps) {
   const { t } = useTranslation();
 
   const title = t(`plans.${planKey}.title`);
+  const price = t(`plans.${planKey}.price`, { defaultValue: "" });
   const subtitle = t(`plans.${planKey}.subtitle`);
   const features = t(`plans.${planKey}.features`, {
     returnObjects: true,
   });
   const featureList = Array.isArray(features) ? features : [];
 
+  const ribbon = t(`plans.${planKey}.ribbon`, { defaultValue: "" });
+  const buttonText = t(`plans.${planKey}.button`, {
+    defaultValue: t("plan_cta"),
+  });
+
   return (
     <div
       className={`${classes.plan_card} ${
-        planKey === "business" ? classes.business : ""
+        planKey === "custom" ? classes.business : ""
       } card my-2 h-100 position-relative`}
     >
-      {planKey === "business" && (
-        <div className={classes.ribbon}>{t(`landing_page.popular`)}</div>
-      )}
+      {ribbon && <div className={classes.ribbon}>{ribbon}</div>}
+
       <div className={`${classes.card_header} text-center`}>
         <h3 className={classes.title}>{title}</h3>
+        {price && <h4 className={classes.price}>{price}</h4>}
         <hr className="my-1" />
-        <h4 className={classes.price}>{subtitle}</h4>
+        <p className={classes.subtitle}>{subtitle}</p>
       </div>
+
       <div className={classes.card_body}>
         <ul className={classes.benefits_list}>
           {featureList.map((feature, index) => (
@@ -53,15 +60,16 @@ export default function PlanCard({ planKey, buttonLink }: PlanCardProps) {
             </div>
           ))}
         </ul>
+
         <Button
           button={false}
-          mode={btnClasses.btn_main}
+          mode={`${btnClasses.btn_main}`}
           link={buttonLink}
           localRoute={true}
           customClass="w-100"
         >
           <span className="d-flex align-items-center justify-content-center mb-0">
-            <Flame size={22} className="me-2" /> {t("plan_cta")}
+            <Flame size={22} className="me-2" /> {buttonText}
           </span>
         </Button>
       </div>

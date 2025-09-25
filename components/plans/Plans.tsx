@@ -5,21 +5,8 @@ import { motion, useScroll } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const plans = [
-  {
-    key: "basic",
-    // buttonText: "Get Started",
-    buttonLink: "/#contact",
-  },
-  {
-    key: "business",
-    // buttonText: "Get Started",
-    buttonLink: "/#contact",
-  },
-  {
-    key: "enterprise",
-    // buttonText: "Get Started",
-    buttonLink: "/#contact",
-  },
+  { key: "basic", buttonLink: "/#contact" },
+  { key: "custom", buttonLink: "/#contact" },
 ];
 export default function Plans() {
   const { scrollYProgress } = useScroll();
@@ -48,7 +35,7 @@ export default function Plans() {
       >
         <div className="row row row-cols-1 row-cols-md-2 g-4">
           {plans.map((plan, index) => (
-            <div key={index} className="col-12 col-md-6 col-lg-4">
+            <div key={index} className="col-12">
               <PlanCard planKey={plan.key} buttonLink={plan.buttonLink} />
             </div>
           ))}

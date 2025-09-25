@@ -161,41 +161,37 @@
     "plans": {
       "basic": {
         "title": "Basic Plan",
-        "subtitle": "Perfect for launching your web presence @ €449",
+        "price": "€449",
+        "subtitle": "Starter web app setup for a clean, reliable launch",
         "features": [
-          "Basic website setup",
-          "Responsive design",
-          "Up to 5 pages",
-          "Basic SEO optimization",
+          "Starter web app scaffolding (Next.js/React)",
+          "Responsive UI and accessible components",
+          "Up to 5 screens/pages",
+          "Clean codebase with Git and environment setup",
+          "Basic API endpoints and form handling",
+          "Performance & basic SEO best practices",
+          "Optional: lightweight CMS hook-in (e.g., WordPress REST)",
           "1-month free support"
-        ]
+        ],
+        "button": "Start Now"
       },
-      "business": {
-        "title": "Business Plan",
-        "subtitle": "Designed to grow with your business @ €849",
+      "custom": {
+        "title": "Custom Plan",
+        "price": "Starting at €899",
+        "subtitle": "Tailored web applications with robust backend and integrations",
         "features": [
-          "Custom website design",
-          "Fully responsive design",
-          "Up to 10 pages and more",
-          "CMS (Content Management System) integration",
-          "E-commerce functionality",
-          "Backend development",
-          "Integration of additional features",
-          "3-month free support"
-        ]
-      },
-      "enterprise": {
-        "title": "Enterprise Plan",
-        "subtitle": "Built for scale, performance, and integrations @ €1949",
-        "features": [
-          "Tailored web applications",
-          "Advanced responsive design",
-          "Unlimited pages",
-          "API and third-party integrations",
-          "Enterprise-grade backend solutions",
-          "Advanced enterprise features",
-          "3-month free support"
-        ]
+          "Custom web app architecture",
+          "Backend services & REST/GraphQL APIs",
+          "Database design & implementation (SQL/NoSQL)",
+          "Authentication & role-based access control",
+          "3rd-party integrations (payments, email, analytics, etc.)",
+          "Automated testing & CI/CD (linting, builds, deployments)",
+          "Performance, security hardening & observability",
+          "Optional: Headless CMS integration (Strapi, WordPress)",
+          "Documentation, handover & 3-month free support"
+        ],
+        "button": "Get a Quote",
+        "ribbon": "Most Flexible"
       }
     },
 

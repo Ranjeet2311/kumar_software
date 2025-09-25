@@ -160,42 +160,38 @@
 
     "plans": {
       "basic": {
-        "title": "Basisplan",
-        "subtitle": "Perfekt für den Start Ihrer Webpräsenz @ €449",
+        "title": "Basis Paket",
+        "price": "€449",
+        "subtitle": "Einstieg in Web-Apps – sauber, zuverlässig, startklar",
         "features": [
-          "Grundlegende Website-Einrichtung",
-          "Responsives Design",
-          "Bis zu 5 Seiten",
-          "Grundlegende SEO-Optimierung",
+          "Starter-Setup für Web-Apps (Next.js/React)",
+          "Responsives UI und barrierearme Komponenten",
+          "Bis zu 5 Screens/Seiten",
+          "Sauberer Code mit Git-Workflow und Umgebungen",
+          "Grundlegende API-Endpunkte und Formularverarbeitung",
+          "Performance & grundlegende SEO-Best Practices",
+          "Optional: leichte CMS-Anbindung (z. B. WordPress REST)",
           "1 Monat kostenloser Support"
-        ]
+        ],
+        "button": "Jetzt starten"
       },
-      "business": {
-        "title": "Businessplan",
-        "subtitle": "Für wachsende Unternehmen @ €849",
+      "custom": {
+        "title": "Individuelles Paket",
+        "price": "Ab €899",
+        "subtitle": "Maßgeschneiderte Web-Apps mit stabilem Backend und Integrationen",
         "features": [
-          "Individuelles Webdesign",
-          "Vollständig responsives Design",
-          "Bis zu 10 Seiten und mehr",
-          "CMS (Content Management System) Integration",
-          "E-Commerce-Funktionalität",
-          "Backend-Entwicklung",
-          "Integration zusätzlicher Funktionen",
-          "3 Monate kostenloser Support"
-        ]
-      },
-      "enterprise": {
-        "title": "Enterprise-Plan",
-        "subtitle": "Für umfangreiche Lösungen @ €1949",
-        "features": [
-          "Individuelle Webanwendungen",
-          "Erweitertes responsives Design",
-          "Unbegrenzte Seiten",
-          "API- und Drittanbieter-Integrationen",
-          "Enterprise-Backend-Lösungen",
-          "Funktionen auf Unternehmensebene",
-          "3 Monate kostenloser Support"
-        ]
+          "Individuelle Architektur",
+          "Backend-Services & REST/GraphQL-APIs",
+          "Datenbank-Design & Implementierung (SQL/NoSQL)",
+          "Authentifizierung & rollenbasierte Zugriffe",
+          "Integrationen von Drittanbietern (Zahlung, E-Mail, Analytics usw.)",
+          "Automatisierte Tests & CI/CD (Linting, Builds, Deployments)",
+          "Performance- & Security-Hardening sowie Observability",
+          "Optional: Headless-CMS-Integration (Strapi, WordPress)",
+          "Dokumentation, Übergabe & 3 Monate kostenloser Support"
+        ],
+        "button": "Angebot anfordern",
+        "ribbon": "Am flexibelsten"
       }
     },
 

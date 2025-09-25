@@ -12,6 +12,7 @@
   height: fit-content;
   border: 1px solid rgba(vars.$theme_medium_gray, 0.2);
   cursor: pointer;
+  max-width: 460px;
 
   &:hover {
     color: white;
@@ -59,10 +60,16 @@
   .price {
     @include vars.fonts(20px, 24px, 600);
     font-family: vars.$theme-font-Subheading;
-    color: white;
+    color: white !important;
     background: rgba(vars.$theme_yellow, 1);
     padding: 15px;
     text-align: center;
+  }
+  .subtitle {
+    @include vars.fonts(20px, 24px, 600);
+    font-family: vars.$theme-font-Subheading;
+    color: white !important;
+    padding: 15px;
   }
 
   .card_body {
@@ -89,6 +96,11 @@
     color: vars.$theme-font-Paragraph;
     @include vars.fonts(16px, 28px, 400);
   }
+}
+
+.plan_btn {
+  position: absolute;
+  bottom: 0;
 }
 
 .main_card {
